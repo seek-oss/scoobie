@@ -1,4 +1,4 @@
-import { BraidProvider, ContentBlock, Card } from 'braid-design-system';
+import { BraidProvider, Card, ContentBlock } from 'braid-design-system';
 import seekAnz from 'braid-design-system/themes/seekAnz';
 import React from 'react';
 import { Helmet } from 'react-helmet';
