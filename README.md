@@ -1,4 +1,4 @@
-# Scoobie
+# 🧶 Scoobie
 
 [![npm package](https://img.shields.io/badge/npm-scoobie-cc3534.svg)](https://www.npmjs.com/package/scoobie)
 [![Slack channel](https://img.shields.io/badge/slack-%23indirect--apply-3f0f3f.svg)](https://slack.com/app_redirect?team=T02P37LGR&channel=indirect-apply)
@@ -10,6 +10,8 @@ Component library for SEEK documentation sites.
 - Author content in [Markdown] files
 - Render content with [Braid] styling
 - Integrate with [sku]
+
+We use this to build [developer.seek.com](https://developer.seek.com), among other things.
 
 [braid]: https://github.com/seek-oss/braid-design-system
 [markdown]: https://en.wikipedia.org/wiki/Markdown
@@ -27,6 +29,8 @@ yarn add --exact scoobie
   - [Getting started](#getting-started)
   - [Headings](#headings)
   - [Images](#images)
+  - [Links](#links)
+  - [Tables](#tables)
 - [React API reference](#react-api-reference)
   - [CodeBlock](#codeblock)
   - [MdxProvider](#mdxprovider)
