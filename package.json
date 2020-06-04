@@ -1,7 +1,7 @@
 {
-  "name": "@seek/scoobie",
+  "name": "scoobie",
   "description": "Component library for SEEK documentation sites",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "main": "src",
   "sideEffects": false,
   "version": "0.0.0-semantically-released",
@@ -36,7 +36,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SEEK-Jobs/scoobie.git"
+    "url": "https://github.com/seek-oss/scoobie.git"
   },
   "scripts": {
     "storybook": "sku storybook",

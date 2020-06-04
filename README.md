@@ -1,10 +1,9 @@
 # Scoobie
 
-[![Buildkite pipeline](https://badge.buildkite.com/d93da6efa412a5c2bb112e92443a558c2d291eafa2d8807c00.svg?branch=master)](https://buildkite.com/seek/scoobie)
-[![npm package](https://img.shields.io/badge/npm-%40seek%2Fscoobie-cc3534.svg)](https://www.npmjs.com/package/@seek/scoobie)
+[![npm package](https://img.shields.io/badge/npm-scoobie-cc3534.svg)](https://www.npmjs.com/package/scoobie)
 [![Slack channel](https://img.shields.io/badge/slack-%23indirect--apply-3f0f3f.svg)](https://slack.com/app_redirect?team=T02P37LGR&channel=indirect-apply)
-[![GitHub repos](https://img.shields.io/badge/users-@SEEK--Jobs-0d3880.svg)](https://github.com/search?q=filename%3Apackage.json+org%3ASEEK-Jobs+-repo%3ASEEK-Jobs%2Fzactive-directory+%22%40seek%2Fscoobie%22&type=Code)
-[![Upkeep](https://img.shields.io/badge/users-Upkeep-61d3b1.svg)](https://upkeep.ssod.skinfra.xyz/package#?name=@seek/scoobie)
+[![GitHub repos](https://img.shields.io/badge/users-@SEEK--Jobs-0d3880.svg)](https://github.com/search?q=filename%3Apackage.json+org%3ASEEK-Jobs+scoobie&type=Code)
+[![Upkeep](https://img.shields.io/badge/users-Upkeep-61d3b1.svg)](https://upkeep.ssod.skinfra.xyz/package#?name=scoobie)
 
 Component library for SEEK documentation sites.
 
@@ -18,7 +17,7 @@ Component library for SEEK documentation sites.
 [sku]: https://github.com/seek-oss/sku
 
 ```shell
-yarn add --exact @seek/scoobie
+yarn add --exact scoobie
 ```
 
 ## Table of contents
@@ -44,12 +43,12 @@ Compile Scoobie and bundle your Markdown content with its [Webpack loaders]:
 [webpack loaders]: https://webpack.js.org/loaders/
 
 ```javascript
-const { dangerouslySetWebpackConfig } = require('@seek/scoobie/webpack');
+const { dangerouslySetWebpackConfig } = require('scoobie/webpack');
 
 module.exports = {
   // ...
 
-  compilePackages: ['@seek/scoobie'],
+  compilePackages: ['scoobie'],
   dangerouslySetWebpackConfig,
 };
 ```
@@ -59,7 +58,7 @@ module.exports = {
 Import TypeScript definitions for `MDX`, `*.md` and `*.mdx`:
 
 ```ts
-import '@seek/scoobie/types';
+import 'scoobie/types';
 ```
 
 ### `src/render.tsx`
@@ -67,7 +66,7 @@ import '@seek/scoobie/types';
 Fetch our favourite fonts from our Google overlords, Roboto and Roboto Mono:
 
 ```typescript
-import { robotoHtml, robotoMonoHtml } from '@seek/scoobie/typography';
+import { robotoHtml, robotoMonoHtml } from 'scoobie/typography';
 
 const skuRender: Render<RenderContext> = {
   renderDocument: ({ app, bodyTags, headTags }) => `
@@ -122,9 +121,9 @@ Nest your Markdown components within an [MdxProvider](#mdxprovider):
 ```tsx
 import 'braid-design-system/reset';
 
-import { MdxProvider } from '@seek/scoobie';
 import { BraidLoadableProvider } from 'braid-design-system';
 import React from 'react';
+import { MdxProvider } from 'scoobie';
 
 import { ContentWithPointlessDiv } from './SomeFile.tsx';
 
@@ -220,8 +219,8 @@ Render lines of code with [Prism] syntax highlighting.
 [prism]: https://github.com/PrismJS/prism
 
 ```tsx
-import { CodeBlock } from '@seek/scoobie';
 import React from 'react';
+import { CodeBlock } from 'scoobie';
 
 export const MyFirstCode = () => (
   <CodeBlock language="javascript">console.log('hello, world');</CodeBlock>
@@ -235,9 +234,9 @@ Provide a base collection of [Braid]-styled renderers for child MDX documents.
 ```tsx
 import 'braid-design-system/reset';
 
-import { MdxProvider } from '@seek/scoobie';
 import { BraidLoadableProvider, Card } from 'braid-design-system';
 import React from 'react';
+import { MdxProvider } from 'scoobie';
 
 import Content from './Content.mdx';
 
@@ -257,9 +256,9 @@ export const App = ({ site }: { site: string }) => (
 Render headings from an MDX document with a custom function.
 
 ```tsx
-import { TocRenderer } from '@seek/scoobie';
 import { Stack, TextLink } from 'braid-design-system';
 import React from 'react';
+import { TocRenderer } from 'scoobie';
 
 import Content from './Content.mdx';
 
@@ -310,9 +309,9 @@ Render an MDX document with a [customised wrapper].
 This allows you to derive arbitrary components from select parts of the document.
 
 ```typescript
-import { WrapperRenderer } from '@seek/scoobie';
 import { Text } from 'braid-design-system';
 import React from 'react';
+import { WrapperRenderer } from 'scoobie';
 
 export const NodeCount = (Document: MDX.Document) => (
   <WrapperRenderer document={Document}>
