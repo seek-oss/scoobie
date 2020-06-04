@@ -1,15 +1,16 @@
-# Scoobie
+# 🧶 Scoobie
 
-[![npm package](https://img.shields.io/badge/npm-scoobie-cc3534.svg)](https://www.npmjs.com/package/scoobie)
-[![Slack channel](https://img.shields.io/badge/slack-%23indirect--apply-3f0f3f.svg)](https://slack.com/app_redirect?team=T02P37LGR&channel=indirect-apply)
-[![GitHub repos](https://img.shields.io/badge/users-@SEEK--Jobs-0d3880.svg)](https://github.com/search?q=filename%3Apackage.json+org%3ASEEK-Jobs+scoobie&type=Code)
-[![Upkeep](https://img.shields.io/badge/users-Upkeep-61d3b1.svg)](https://upkeep.ssod.skinfra.xyz/package#?name=scoobie)
+![GitHub Release](https://github.com/seek-oss/scoobie/workflows/Release/badge.svg?branch=master)
+![GitHub Validate](https://github.com/seek-oss/scoobie/workflows/Validate/badge.svg?branch=master)
+[![npm package](https://img.shields.io/npm/v/scoobie)](https://www.npmjs.com/package/scoobie)
 
 Component library for SEEK documentation sites.
 
 - Author content in [Markdown] files
 - Render content with [Braid] styling
 - Integrate with [sku]
+
+We use this to build [developer.seek.com](https://developer.seek.com), among other things.
 
 [braid]: https://github.com/seek-oss/braid-design-system
 [markdown]: https://en.wikipedia.org/wiki/Markdown
@@ -27,6 +28,8 @@ yarn add --exact scoobie
   - [Getting started](#getting-started)
   - [Headings](#headings)
   - [Images](#images)
+  - [Links](#links)
+  - [Tables](#tables)
 - [React API reference](#react-api-reference)
   - [CodeBlock](#codeblock)
   - [MdxProvider](#mdxprovider)
