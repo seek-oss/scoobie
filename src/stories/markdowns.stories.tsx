@@ -1,6 +1,6 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
-import { Stack, TextLink, Text } from 'braid-design-system';
+import { Stack, Text, TextLink } from 'braid-design-system';
 import React from 'react';
 import { storiesOf } from 'sku/@storybook/react';
 
