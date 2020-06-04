@@ -3,8 +3,8 @@ import {
   Column,
   Columns,
   IconCopy,
-  IconTick,
   IconNewWindow,
+  IconTick,
   Inline,
   Text,
 } from 'braid-design-system';
