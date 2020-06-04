@@ -1,0 +1,66 @@
+{
+  "name": "@seek/scoobie",
+  "description": "Component library for SEEK documentation sites",
+  "license": "UNLICENSED",
+  "main": "src",
+  "sideEffects": false,
+  "version": "0.0.0-semantically-released",
+  "dependencies": {
+    "@mdx-js/loader": "^1.5.8",
+    "@mdx-js/react": "^1.5.8",
+    "@types/mdx-js__react": "^1.5.1",
+    "@types/react-router-hash-link": "^1.2.1",
+    "@types/react-syntax-highlighter": "^11.0.4",
+    "find-up": "^4.1.0",
+    "react-router-hash-link": "^1.2.2",
+    "react-syntax-highlighter": "^12.2.1",
+    "remark-slug": "^6.0.0",
+    "unist-util-visit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@storybook/addons": "5.3.19",
+    "@types/react": "16.9.35",
+    "@types/react-helmet": "6.0.0",
+    "braid-design-system": "28.1.0",
+    "loki": "0.20.3",
+    "react": "16.13.1",
+    "react-helmet": "6.0.0",
+    "react-router-dom": "5.2.0",
+    "semantic-release": "17.0.8",
+    "sku": "10.3.6"
+  },
+  "peerDependencies": {
+    "braid-design-system": ">= 22.0.0",
+    "react": "^16.12.0",
+    "sku": "^10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SEEK-Jobs/scoobie.git"
+  },
+  "scripts": {
+    "storybook": "sku storybook",
+    "build-storybook": "sku build-storybook",
+    "build": "sku build",
+    "format": "sku format",
+    "lint": "sku lint",
+    "release": "semantic-release --success false",
+    "test": "sku test",
+    "update:loki": "loki update --host host.docker.internal --port 8081",
+    "test:loki": "loki test --host host.docker.internal --port 8081",
+    "pretest:loki:ci": "cp -R dist-storybook/. dist-storybook-tmp/",
+    "test:loki:ci": "loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "mobile": false
+      }
+    },
+    "chromeLoadTimeout": "60000",
+    "chromeTolerance": "0"
+  }
+}

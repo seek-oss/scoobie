@@ -1,0 +1,15 @@
+This section describes how to authenticate to the GraphQL endpoint using a partner token.
+
+1. The partner system calls the partner authentication endpoint to get a partner token.
+
+   (This token should be cached. The response indicates when it expires.)
+
+2. The partner system can now make requests to the GraphQL endpoint.
+
+   The partner token should be passed as a [Bearer token] in the HTTP `Authorization` header as proof of authentication.
+
+3. ```go
+   fmt.Println("this line is loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong")
+   ```
+
+[bearer token]: https://tools.ietf.org/html/rfc6750#section-2.1
