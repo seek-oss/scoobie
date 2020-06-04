@@ -29,6 +29,12 @@
     "semantic-release": "17.0.8",
     "sku": "10.3.6"
   },
+  "files": [
+    "src",
+    "webpack",
+    "types.d.ts",
+    "typography.ts"
+  ],
   "peerDependencies": {
     "braid-design-system": ">= 22.0.0",
     "react": "^16.12.0",
