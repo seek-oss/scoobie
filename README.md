@@ -53,14 +53,6 @@ module.exports = {
 };
 ```
 
-### `src/index.d.ts`
-
-Import TypeScript definitions for `MDX`, `*.md` and `*.mdx`:
-
-```ts
-import 'scoobie/types';
-```
-
 ### `src/render.tsx`
 
 Fetch our favourite fonts from our Google overlords, Roboto and Roboto Mono:
@@ -79,6 +71,14 @@ const skuRender: Render<RenderContext> = {
         <!-- ... -->
   `,
 };
+```
+
+### `src/scoobie.d.ts`
+
+Import TypeScript definitions for `MDX`, `*.md` and `*.mdx`:
+
+```ts
+import 'scoobie/types';
 ```
 
 ## Markdown reference
