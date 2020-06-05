@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@storybook/addons": "5.3.19",
+    "@storybook/storybook-deployer": "2.8.6",
     "@types/react": "16.9.35",
     "@types/react-helmet": "6.0.0",
     "braid-design-system": "28.1.0",
@@ -45,17 +46,17 @@
     "url": "https://github.com/seek-oss/scoobie.git"
   },
   "scripts": {
-    "storybook": "sku storybook",
-    "build-storybook": "sku build-storybook",
     "build": "sku build",
     "format": "sku format",
     "lint": "sku lint",
+    "loki:test": "loki test --host host.docker.internal --port 8081",
+    "loki:test:ci": "cp -R dist-storybook/. dist-storybook-tmp/ && loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'",
+    "loki:update": "loki update --host host.docker.internal --port 8081",
     "release": "semantic-release --success false",
-    "test": "sku test",
-    "update:loki": "loki update --host host.docker.internal --port 8081",
-    "test:loki": "loki test --host host.docker.internal --port 8081",
-    "pretest:loki:ci": "cp -R dist-storybook/. dist-storybook-tmp/",
-    "test:loki:ci": "loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'"
+    "storybook:build": "sku build-storybook",
+    "storybook:deploy": "storybook-to-ghpages --existing-output-dir=dist-storybook",
+    "storybook:start": "sku storybook",
+    "test": "sku test"
   },
   "loki": {
     "configurations": {

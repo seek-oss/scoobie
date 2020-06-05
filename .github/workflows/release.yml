@@ -33,3 +33,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}
+
+      - name: Publish Storybook
+        run: yarn storybook:build && yarn storybook:deploy -- --ci --host-token-env-variable=GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
