@@ -362,8 +362,8 @@ yarn test
 
 ```shell
 # start Storybook server
-yarn storybook
+yarn storybook:start
 
 # update snapshots
-yarn update:loki
+yarn loki:update
 ```
