@@ -13,6 +13,7 @@ import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { useStyles } from 'sku/react-treat';
 
+import { SIZE_TO_CODE_SIZE, Size } from '../private/size';
 import { codeCommentColor, monospaceFontFamily } from '../styles';
 
 import * as styleRefs from './CodeBlock.treat';
@@ -119,20 +120,26 @@ const GraphQLPlaygroundButton = ({
   );
 };
 
-const Pre = ({ children: [numbers, lines] }: { children: ReactNodeArray }) => {
+const createPre = (size: Size) => ({
+  children: [numbers, lines],
+}: {
+  children: ReactNodeArray;
+}) => {
   const styles = useStyles(styleRefs);
+
+  const codeSize = SIZE_TO_CODE_SIZE[size];
 
   return (
     <Box className={styles.preTag} component="pre">
       <Columns space="none">
         <Column width="content">
           <Box background="neutralLight" padding="medium">
-            <Text size="small">{numbers}</Text>
+            <Text size={codeSize}>{numbers}</Text>
           </Box>
         </Column>
         <Column>
           <Box padding="medium">
-            <Text size="small">{lines}</Text>
+            <Text size={codeSize}>{lines}</Text>
           </Box>
         </Column>
       </Columns>
@@ -144,10 +151,12 @@ export const CodeBlock = ({
   children,
   language = 'text',
   graphqlPlayground,
+  size = 'standard',
 }: {
   children: string;
   language: string;
   graphqlPlayground?: string;
+  size?: Size;
 }) => {
   const styles = useStyles(styleRefs);
 
@@ -164,7 +173,7 @@ export const CodeBlock = ({
     <Box className={styles.codeBlock} position="relative">
       <SyntaxHighlighter
         CodeTag={Code}
-        PreTag={Pre}
+        PreTag={createPre(size)}
         language={CODE_LANGUAGE_REPLACEMENTS[language] ?? language}
         lineNumberContainerProps={{
           style: {

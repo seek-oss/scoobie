@@ -1,10 +1,12 @@
-import { style } from 'sku/treat';
+import { Style, style, styleMap } from 'sku/treat';
 
 import {
   alternateRowBackgroundColour,
   codeBackgroundColor,
   monospaceFontFamily,
 } from '../styles';
+
+import { SIZES, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
 
 export const image = style({
   maxWidth: '100%',
@@ -17,12 +19,18 @@ export const inlineCode = style({
   fontSize: '0.9em',
 });
 
-export const listGrid = style((theme) => ({
-  display: 'grid',
-  gridColumnGap: theme.grid * theme.space.small,
-  gridRowGap: theme.grid * theme.space.medium,
-  gridTemplateColumns: 'min-content minmax(0, 1fr)',
-}));
+export const listGrid = styleMap<Size>((theme) =>
+  SIZES.reduce<Record<Size, Style>>((acc, size) => {
+    acc[size] = {
+      display: 'grid',
+      gridColumnGap: theme.grid * theme.space[SIZE_TO_PADDING[size]],
+      gridRowGap: theme.grid * theme.space[SIZE_TO_SPACE[size]],
+      gridTemplateColumns: 'min-content minmax(0, 1fr)',
+    };
+
+    return acc;
+  }, {} as Record<Size, Style>),
+);
 
 export const orderedList = style({
   counterReset: 'ol',

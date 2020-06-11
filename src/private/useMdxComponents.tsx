@@ -15,11 +15,19 @@ import { Blockquote } from './Blockquote';
 import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
 import { createSpacedHeading } from './SpacedHeading';
 import { Wrapper } from './Wrapper';
+import { SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
 
 import * as styleRefs from './useMdxComponents.treat';
 
-export const useMdxComponents = (): MDX.ProviderComponents => {
+interface Props {
+  size: Size;
+}
+
+export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
   const styles = useStyles(styleRefs);
+
+  const padding = SIZE_TO_PADDING[size];
+  const space = SIZE_TO_SPACE[size];
 
   return {
     a: ({ children, href }) =>
@@ -41,7 +49,7 @@ export const useMdxComponents = (): MDX.ProviderComponents => {
       const language = className.replace(/^language-/, '');
 
       return (
-        <CodeBlockWithPlayground language={language}>
+        <CodeBlockWithPlayground language={language} size={size}>
           {String(children)}
         </CodeBlockWithPlayground>
       );
@@ -60,16 +68,19 @@ export const useMdxComponents = (): MDX.ProviderComponents => {
     img: (props) => <img {...props} className={styles.image} />,
     li: ({ children }) => (
       <Fragment>
-        <Text>
+        <Text size={size}>
           <Box className={styles.listItem} />
         </Text>
         <Box component="li">
-          <Stack space="medium">{children}</Stack>
+          <Stack space={space}>{children}</Stack>
         </Box>
       </Fragment>
     ),
     ol: ({ children }) => (
-      <Box className={[styles.listGrid, styles.orderedList]} component="ol">
+      <Box
+        className={[styles.listGrid[size], styles.orderedList]}
+        component="ol"
+      >
         {children}
       </Box>
     ),
@@ -77,7 +88,7 @@ export const useMdxComponents = (): MDX.ProviderComponents => {
     // renders inline formatting correctly and fixes the line height. If some
     // node is not wrapped in a paragraph and it should be, wrap it using a
     // remark plugin, not here.
-    p: Text,
+    p: ({ children }) => <Text size={size}>{children}</Text>,
     pre: ({ children }) => <pre className={styles.pre}>{children}</pre>,
     strong: Strong,
     table: ({ children }) => <table className={styles.table}>{children}</table>,
@@ -85,28 +96,31 @@ export const useMdxComponents = (): MDX.ProviderComponents => {
       <Box
         className={styles.tableCell}
         component="td"
-        padding="small"
+        padding={padding}
         textAlign={align === null ? 'left' : align}
       >
-        <Stack space="medium">{children}</Stack>
+        <Stack space={space}>{children}</Stack>
       </Box>
     ),
     th: ({ align, children }) => (
       <Box
         className={styles.tableCell}
         component="th"
-        padding="small"
+        padding={padding}
         textAlign={align === null ? 'center' : align}
       >
-        <Stack space="medium">{children}</Stack>
+        <Stack space={space}>{children}</Stack>
       </Box>
     ),
     tr: ({ children }) => <tr className={styles.tableRow}>{children}</tr>,
     ul: ({ children }) => (
-      <Box className={[styles.listGrid, styles.unorderedList]} component="ul">
+      <Box
+        className={[styles.listGrid[size], styles.unorderedList]}
+        component="ul"
+      >
         {children}
       </Box>
     ),
-    wrapper: Wrapper,
+    wrapper: ({ children }) => <Wrapper size={size}>{children}</Wrapper>,
   };
 };
