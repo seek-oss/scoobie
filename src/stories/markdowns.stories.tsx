@@ -57,8 +57,6 @@ storiesOf('ToC', module)
           </Text>
         )}
       </TocRenderer>
-
-      <Headings />
     </Stack>
   ))
   .addDecorator(withBraid);
