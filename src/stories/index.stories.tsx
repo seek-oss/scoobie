@@ -2,8 +2,9 @@ import 'braid-design-system/reset';
 import 'loki/configure-react';
 import { Stack, Text, TextLink } from 'braid-design-system';
 import React from 'react';
+import { text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
-import { TocRenderer, WrapperRenderer } from 'src';
+import { SmartTextLink, TocRenderer, WrapperRenderer } from 'src';
 
 import { withBraid } from './decorator';
 import Blockquote from './markdowns/blockquote.mdx';
@@ -28,6 +29,16 @@ storiesOf('MdxProvider', module)
   .add('Inline', () => <Inline />)
   .add('Lists', () => <Lists />)
   .add('Table', () => <Table />)
+  .addDecorator(withBraid);
+
+storiesOf('SmartTextLink', module)
+  .add('Custom', () => (
+    <Text>
+      <SmartTextLink href={text('href', 'https://developer.seek.com/schema')}>
+        {text('children', 'SEEK Schema')}
+      </SmartTextLink>
+    </Text>
+  ))
   .addDecorator(withBraid);
 
 storiesOf('TocRenderer', module)

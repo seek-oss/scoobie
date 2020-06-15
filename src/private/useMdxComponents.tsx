@@ -1,15 +1,8 @@
-import {
-  Box,
-  IconNewWindow,
-  Stack,
-  Strong,
-  Text,
-  TextLink,
-  TextLinkRenderer,
-} from 'braid-design-system';
+import { Box, Stack, Strong, Text } from 'braid-design-system';
 import React, { Fragment } from 'react';
-import { HashLink } from 'react-router-hash-link';
 import { useStyles } from 'sku/react-treat';
+
+import { SmartTextLink } from '../components/SmartTextLink';
 
 import { Blockquote } from './Blockquote';
 import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
@@ -30,20 +23,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
   const space = SIZE_TO_SPACE[size];
 
   return {
-    a: ({ children, href }) =>
-      /^[a-z][a-z0-9+.-]*:|^\/\//i.test(href) ? (
-        <TextLink href={href} rel="noreferrer" target="_blank">
-          {children} <IconNewWindow />
-        </TextLink>
-      ) : (
-        <TextLinkRenderer>
-          {(rendererProps) => (
-            <HashLink {...rendererProps} smooth to={href}>
-              {children}
-            </HashLink>
-          )}
-        </TextLinkRenderer>
-      ),
+    a: SmartTextLink,
     blockquote: Blockquote,
     code: ({ children, className = 'text' }) => {
       const language = className.replace(/^language-/, '');
