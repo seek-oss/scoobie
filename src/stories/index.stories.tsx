@@ -3,7 +3,6 @@ import 'loki/configure-react';
 import { Stack, Text, TextLink } from 'braid-design-system';
 import React from 'react';
 import { storiesOf } from 'sku/@storybook/react';
-
 import { TocRenderer, WrapperRenderer } from 'src';
 
 import { withBraid } from './decorator';
