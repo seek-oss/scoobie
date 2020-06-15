@@ -33,6 +33,7 @@ yarn add --exact scoobie
 - [React API reference](#react-api-reference)
   - [CodeBlock](#codeblock)
   - [MdxProvider](#mdxprovider)
+  - [SmartTextLink](#smarttextlink)
   - [TocRenderer](#tocrenderer)
   - [WrapperRenderer](#wrapperrenderer)
 - [Development](#development)
@@ -251,6 +252,34 @@ export const App = ({ site }: { site: string }) => (
       </Card>
     </MdxProvider>
   </BraidLoadableProvider>
+);
+```
+
+### SmartTextLink
+
+Render a text link with the same opinions as our [MdxProvider](#mdxprovider):
+
+- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link]
+- External links open in a new tab and have an [IconNewWindow] suffix
+
+[react-router-hash-link]: https://github.com/rafrex/react-router-hash-link
+[iconnewwindow]: https://seek-oss.github.io/braid-design-system/components/IconNewWindow
+
+```tsx
+import { Stack, Text } from 'braid-design-system';
+import React from 'react';
+import { SmartTextLink } from 'scoobie';
+
+export const SomeLinks = () => (
+  <Text>
+    <Stack space="medium">
+      <SmartTextLink href="/page#id">Scrolls smoothly</SmartTextLink>
+
+      <SmartTextLink href="https://developer.seek.com/schema">
+        Opens in new tab
+      </SmartTextLink>
+    </Stack>
+  </Text>
 );
 ```
 
