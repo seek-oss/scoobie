@@ -1,7 +1,8 @@
-import { Box, Heading, Text } from 'braid-design-system';
+import { Box, Heading, IconLink, Text } from 'braid-design-system';
 import React, { ReactNode } from 'react';
-import { HashLink } from 'react-router-hash-link';
 import { useStyles } from 'sku/react-treat';
+
+import { SmartTextLink } from '../components/SmartTextLink';
 
 import { HeadingLevel } from './types';
 
@@ -44,9 +45,11 @@ export const createSpacedHeading = (level: HeadingLevel) => {
       <Box className={styles.headingSpacer} id={id} tabIndex={0}>
         <LevelHeading>
           {children}{' '}
-          <HashLink className={styles.headingAnchor} smooth to={`#${id}`}>
-            ⚓︎
-          </HashLink>
+          <SmartTextLink href={`#${id}`}>
+            <Box className={styles.headingAnchor} component="span">
+              <IconLink />
+            </Box>
+          </SmartTextLink>
         </LevelHeading>
       </Box>
     );

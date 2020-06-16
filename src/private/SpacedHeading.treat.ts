@@ -9,16 +9,11 @@ export const headingSpacer = style((theme) => ({
   },
 }));
 
-export const headingAnchor = style((theme) => ({
-  color: 'inherit',
-  textDecoration: 'none',
+export const headingAnchor = style({
   visibility: 'hidden',
-  ':hover': {
-    color: theme.color.foreground.linkHover,
-  },
   selectors: {
     [`${headingSpacer}:hover &, ${headingSpacer}:focus &`]: {
       visibility: 'visible',
     },
   },
-}));
+});
