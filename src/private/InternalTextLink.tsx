@@ -57,14 +57,16 @@ export const parseInternalHref = (
   };
 };
 
-const scrollWithYOffset = (yOffset: number) => (element: Element) => {
-  const yCoordinate = element.getBoundingClientRect().top + window.pageYOffset;
+const scrollWithYOffset = (yOffset: number) => (element: Element) =>
+  setTimeout(() => {
+    const yCoordinate =
+      element.getBoundingClientRect().top + window.pageYOffset;
 
-  window.scrollTo({
-    behavior: 'smooth',
-    top: yCoordinate + yOffset,
+    window.scrollTo({
+      behavior: 'smooth',
+      top: yCoordinate + yOffset,
+    });
   });
-};
 
 export const InternalTextLink = ({ children, href }: Props) => {
   const { grid, space } = useSpace();
@@ -78,13 +80,7 @@ export const InternalTextLink = ({ children, href }: Props) => {
   return (
     <TextLinkRenderer>
       {(rendererProps) => (
-        <HashLink
-          {...rendererProps}
-          onClick={(event) => event.preventDefault()}
-          scroll={scroll}
-          smooth
-          to={to}
-        >
+        <HashLink {...rendererProps} scroll={scroll} smooth to={to}>
           {children}
         </HashLink>
       )}
