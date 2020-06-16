@@ -1,7 +1,12 @@
+import url from 'url';
+
 import { TextLinkRenderer, useSpace } from 'braid-design-system';
 import React, { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+
+const URL = url.URL ?? window.URL;
+const URLSearchParams = url.URLSearchParams ?? window.URLSearchParams;
 
 interface Props {
   children: ReactNode;
@@ -73,7 +78,13 @@ export const InternalTextLink = ({ children, href }: Props) => {
   return (
     <TextLinkRenderer>
       {(rendererProps) => (
-        <HashLink {...rendererProps} scroll={scroll} smooth to={to}>
+        <HashLink
+          {...rendererProps}
+          onClick={(event) => event.preventDefault()}
+          scroll={scroll}
+          smooth
+          to={to}
+        >
           {children}
         </HashLink>
       )}
