@@ -259,7 +259,8 @@ export const App = ({ site }: { site: string }) => (
 
 Render a text link with the same opinions as our [MdxProvider](#mdxprovider):
 
-- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link]
+- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
+  and pass through the `v` URL parameter for UI version switching
 - External links open in a new tab and have an [IconNewWindow] suffix
 
 [react-router-hash-link]: https://github.com/rafrex/react-router-hash-link

@@ -1,7 +1,12 @@
+import url from 'url';
+
 import { TextLinkRenderer, useSpace } from 'braid-design-system';
 import React, { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+
+const URL = url.URL ?? window.URL;
+const URLSearchParams = url.URLSearchParams ?? window.URLSearchParams;
 
 interface Props {
   children: ReactNode;
@@ -52,14 +57,16 @@ export const parseInternalHref = (
   };
 };
 
-const scrollWithYOffset = (yOffset: number) => (element: Element) => {
-  const yCoordinate = element.getBoundingClientRect().top + window.pageYOffset;
+const scrollWithYOffset = (yOffset: number) => (element: Element) =>
+  setTimeout(() => {
+    const yCoordinate =
+      element.getBoundingClientRect().top + window.pageYOffset;
 
-  window.scrollTo({
-    behavior: 'smooth',
-    top: yCoordinate + yOffset,
+    window.scrollTo({
+      behavior: 'smooth',
+      top: yCoordinate + yOffset,
+    });
   });
-};
 
 export const InternalTextLink = ({ children, href }: Props) => {
   const { grid, space } = useSpace();
