@@ -1,7 +1,7 @@
 # 🧶 Scoobie
 
-![GitHub Release](https://github.com/seek-oss/scoobie/workflows/Release/badge.svg?branch=master)
-![GitHub Validate](https://github.com/seek-oss/scoobie/workflows/Validate/badge.svg?branch=master)
+[![GitHub Release](https://github.com/seek-oss/scoobie/workflows/Release/badge.svg?branch=master)](https://github.com/seek-oss/scoobie/actions?query=workflow%3ARelease)
+[![GitHub Validate](https://github.com/seek-oss/scoobie/workflows/Validate/badge.svg?branch=master)](https://github.com/seek-oss/scoobie/actions?query=workflow%3AValidate)
 [![npm package](https://img.shields.io/npm/v/scoobie)](https://www.npmjs.com/package/scoobie)
 
 Component library for SEEK documentation sites.
