@@ -1,6 +1,6 @@
 import url from 'url';
 
-import { TextLinkRenderer, useSpace } from 'braid-design-system';
+import { TextLinkRenderer } from 'braid-design-system';
 import React, { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
@@ -57,21 +57,14 @@ export const parseInternalHref = (
   };
 };
 
-const scrollWithYOffset = (yOffset: number) => (element: Element) =>
-  setTimeout(() => {
-    const yCoordinate =
-      element.getBoundingClientRect().top + window.pageYOffset;
-
-    window.scrollTo({
-      behavior: 'smooth',
-      top: yCoordinate + yOffset,
-    });
-  });
-
 export const InternalTextLink = ({ children, href }: Props) => {
-  const { grid, space } = useSpace();
-
-  const scroll = scrollWithYOffset(-(grid * space.small));
+  const scroll = (element: Element) =>
+    setTimeout(() => {
+      // Scroll to the header's `Stack` element so we don't cut off the heading
+      (element.parentElement ?? element).scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
 
   const location = useLocation();
 
