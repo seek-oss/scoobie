@@ -59,9 +59,11 @@ export const parseInternalHref = (
 
 export const InternalTextLink = ({ children, href }: Props) => {
   const scroll = (element: Element) =>
-    // Scroll to the header's `Stack` element so we don't cut off the heading
-    (element.parentElement ?? element).scrollIntoView({
-      behavior: 'smooth',
+    setTimeout(() => {
+      // Scroll to the header's `Stack` element so we don't cut off the heading
+      (element.parentElement ?? element).scrollIntoView({
+        behavior: 'smooth',
+      });
     });
 
   const location = useLocation();
