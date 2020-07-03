@@ -36,7 +36,7 @@ yarn add --exact scoobie
   - [SmartTextLink](#smarttextlink)
   - [TocRenderer](#tocrenderer)
   - [WrapperRenderer](#wrapperrenderer)
-- [Development](#development)
+- [Contributing](https://github.com/seek-oss/scoobie/blob/master/CONTRIBUTING.md)
 
 ## Setup
 
@@ -353,47 +353,4 @@ export const NodeCount = (Document: MDX.Document) => (
     )}
   </WrapperRenderer>
 );
-```
-
-## Development
-
-### Prerequisites
-
-- Node.js 12+
-- Yarn 1.x
-
-### Build
-
-```shell
-yarn build
-```
-
-Scoobie is published as TypeScript source code.
-
-Consumers control the compilation; see [sku.config.js](#skuconfigjs).
-
-### Lint
-
-```shell
-# fix
-yarn format
-
-# check
-yarn lint
-```
-
-### Test
-
-```shell
-yarn test
-```
-
-### Storybook with Loki
-
-```shell
-# start Storybook server
-yarn storybook:start
-
-# update snapshots
-yarn loki:update
 ```
