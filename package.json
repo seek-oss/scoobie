@@ -47,7 +47,6 @@
     "url": "https://github.com/seek-oss/scoobie.git"
   },
   "scripts": {
-    "build": "sku build",
     "format": "sku format",
     "lint": "sku lint",
     "loki:test": "loki test --host host.docker.internal --port 8081",

@@ -2,8 +2,9 @@
 
 Hi there, thanks for checking out our repo!
 
-**seek-datadog-custom-metrics** defines a common interface for sending Datadog custom metrics from Node.js runtime environments.
-It's a general-purpose package, so third-party contributions are more than welcome.
+Scoobie brings MDX support and documentation-focused components to a SEEK-standard frontend development environment.
+While third-party contributions are certainly welcome,
+this library has minimal value if you aren't committed to our [design system] and [development toolkit].
 
 SEEKers: this repo is public,
 so don't commit or post anything that isn't ready for the entire world to see.
@@ -24,7 +25,7 @@ so don't commit or post anything that isn't ready for the entire world to see.
 
 ## Getting started
 
-**seek-datadog-custom-metrics** is documented through its [README](/README.md).
+Scoobie is documented through its [README](/README.md) and [Storybook site].
 We maintain [release notes] on GitHub,
 and distribute it as an [npm package].
 
@@ -32,7 +33,7 @@ and distribute it as an [npm package].
 
 [Submit an issue] if you have a question, feature request or bug report.
 
-If you work at SEEK, [#typescriptification] is your friend.
+If you work at SEEK, [#indirect] is your friend.
 
 ### I want to contribute a change
 
@@ -45,7 +46,7 @@ This lets us evaluate whether the feature fits the direction of the project and 
 
 ### Prerequisites
 
-We depend on upstream tooling like **[skuba]** that are predominantly tested on macOS and Linux.
+We depend on upstream tooling like **[sku]** that are predominantly tested on macOS and Linux.
 If you're on Windows, we recommend the [Windows Subsystem for Linux].
 
 First, some JavaScript tooling:
@@ -88,7 +89,7 @@ If you don't have push access,
 you may need to [fork the repo] and push there instead:
 
 ```shell
-git remote add fork git@github.com:your-username/datadog-custom-metrics.git
+git remote add fork git@github.com:your-username/scoobie.git
 git push --set-upstream fork your-branch-name
 ```
 
@@ -97,10 +98,24 @@ If all is well, they will merge your pull request into master.
 
 ### Testing
 
-You may find it easier to develop alongside unit tests:
+Start a local [Storybook] server to preview your changes:
 
 ```shell
-yarn test --watch
+yarn storybook:start
+```
+
+While the Storybook server is running,
+you can run visual regression tests with [Loki]:
+
+```shell
+yarn loki:test
+```
+
+If you meant to make visual changes,
+you can update the Loki snapshots:
+
+```shell
+yarn loki:update
 ```
 
 Format your code once you're happy with it:
@@ -121,10 +136,12 @@ yarn test
 
 ### Writing a semantic commit message
 
-Consider whether you are making a visible change to the public **seek-datadog-custom-metrics** interface,
+Consider whether you are making a visible change to the public Scoobie interface,
 which includes:
 
 - Top-level exports from [src/index.ts](/src/index.ts)
+- Top-level exports from [webpack/index.js](/webpack/index.js)
+- Bundled configuration files [types.d.ts](/types.d.ts) and [typography.ts](/typography.ts)
 - [npm dependencies](/package.json)
 
 A release is not necessary for:
@@ -165,12 +182,12 @@ Commits should follow the [Conventional Commits] spec for [semantic versioning]:
   Note that the `fix` type could be anything;
   the `BREAKING CHANGE:` prefix in the commit body is what determines the release as major.
 
-Specifying a scope makes it easy to eyeball which part of **seek-datadog-custom-metrics** a change relates to:
+Specifying a scope makes it easy to eyeball which part of Scoobie a change relates to:
 
 ```text
 chore(docs): Update README
 
-fix(CloudWatchClient): Improve tag sanitisation
+fix(MdxProvider): Adjust heading spacing
 ```
 
 ### Publishing a release
@@ -181,6 +198,9 @@ our [release](/.github/workflows/release.yml) GitHub Actions workflow will publi
 We [squash our commits],
 so the merged commit itself needs to have a [semantic commit message](#writing-a-semantic-commit-message).
 
+Scoobie is packaged as TypeScript source code.
+Consumers control the compilation; see [sku.config.js].
+
 ### Publishing a prerelease
 
 We currently have limited support for prereleases on the `beta` [dist-tag].
@@ -188,16 +208,22 @@ This can only be performed by a maintainer.
 
 Simply push changes to the `beta` branch on GitHub.
 
-[#typescriptification]: https://seekchat.slack.com/channels/typescriptification
+[#indirect]: https://seekchat.slack.com/channels/indirect
 [conventional commits]: https://www.conventionalcommits.org/en/v1.0.0-beta.2/
-[create a pull request]: https://github.com/seek-oss/datadog-custom-metrics/compare
+[create a pull request]: https://github.com/seek-oss/scoobie/compare
+[design system]: https://github.com/seek-oss/braid-design-system
+[development toolkit]: https://github.com/seek-oss/sku
 [dist-tag]: https://docs.npmjs.com/cli/dist-tag
-[fork the repo]: https://github.com/seek-oss/datadog-custom-metrics/fork
-[npm package]: https://www.npmjs.com/package/seek-datadog-custom-metrics
-[release notes]: https://github.com/seek-oss/datadog-custom-metrics/releases
+[fork the repo]: https://github.com/seek-oss/scoobie/fork
+[loki]: https://loki.js.org/
+[npm package]: https://www.npmjs.com/package/scoobie
+[release notes]: https://github.com/seek-oss/scoobie/releases
 [semantic versioning]: https://semver.org/
 [semantic-release]: https://github.com/semantic-release/semantic-release
-[skuba]: https://github.com/seek-oss/skuba
+[sku]: https://github.com/seek-oss/sku
+[sku.config.js]: (https://github.com/seek-oss/scoobie#skuconfigjs)
 [squash our commits]: https://github.blog/2016-04-01-squash-your-commits/
-[submit an issue]: https://github.com/seek-oss/datadog-custom-metrics/issues/new/choose
+[storybook]: https://storybook.js.org/
+[storybook site]: https://seek-oss.github.io/scoobie/
+[submit an issue]: https://github.com/seek-oss/scoobie/issues/new/choose
 [windows subsystem for linux]: https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux
