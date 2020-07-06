@@ -8,6 +8,7 @@ npm-debug.log
 # managed by sku
 .eslintrc
 .prettierrc
+.ssl
 coverage/
 dist-playroom/
 dist-storybook/
