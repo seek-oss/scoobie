@@ -77,8 +77,10 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     pre: ({ children }) => <pre className={styles.pre}>{children}</pre>,
     strong: Strong,
     table: ({ children }) => (
-      <Box component="table" className={styles.table}>
-        {children}
+      <Box className={styles.tableWrapper}>
+        <Box component="table" className={styles.table}>
+          {children}
+        </Box>
       </Box>
     ),
     td: ({ align, children }) => (
