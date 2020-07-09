@@ -35,7 +35,12 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
       );
     },
     inlineCode: ({ children }) => (
-      <Box className={styles.inlineCode} component="code" padding="xxsmall">
+      <Box
+        borderRadius="standard"
+        className={styles.inlineCode}
+        component="code"
+        paddingX="xxsmall"
+      >
         {children}
       </Box>
     ),
@@ -71,10 +76,14 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     p: ({ children }) => <Text size={size}>{children}</Text>,
     pre: ({ children }) => <pre className={styles.pre}>{children}</pre>,
     strong: Strong,
-    table: ({ children }) => <table className={styles.table}>{children}</table>,
+    table: ({ children }) => (
+      <Box component="table" className={styles.table}>
+        {children}
+      </Box>
+    ),
     td: ({ align, children }) => (
       <Box
-        className={styles.tableCell}
+        className={[styles.tableCell, styles.td]}
         component="td"
         padding={padding}
         textAlign={align === null ? 'left' : align}
@@ -84,7 +93,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     ),
     th: ({ align, children }) => (
       <Box
-        className={styles.tableCell}
+        className={[styles.tableCell, styles.th]}
         component="th"
         padding={padding}
         textAlign={align === null ? 'center' : align}

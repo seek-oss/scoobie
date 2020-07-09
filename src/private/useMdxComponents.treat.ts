@@ -1,10 +1,7 @@
+import { darken } from 'polished';
 import { Style, style, styleMap } from 'sku/treat';
 
-import {
-  alternateRowBackgroundColour,
-  codeBackgroundColor,
-  monospaceFontFamily,
-} from '../styles';
+import { monospaceFontFamily } from '../styles';
 
 import { SIZES, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
 
@@ -12,12 +9,15 @@ export const image = style({
   maxWidth: '100%',
 });
 
-export const inlineCode = style({
-  backgroundColor: codeBackgroundColor,
+export const inlineCode = style((theme) => ({
+  backgroundColor: theme.color.background.body,
+  borderColor: darken(0.05, theme.color.background.body),
+  borderStyle: 'solid',
+  borderWidth: 1,
 
   fontFamily: monospaceFontFamily,
   fontSize: '0.9em',
-});
+}));
 
 export const listGrid = styleMap<Size>((theme) =>
   SIZES.reduce<Record<Size, Style>>((acc, size) => {
@@ -61,20 +61,51 @@ export const pre = style({
 });
 
 export const table = style({
-  borderCollapse: 'collapse',
+  borderCollapse: 'separate',
+  borderSpacing: 0,
 });
 
-export const tableRow = style({
+export const tableRow = style((theme) => ({
   selectors: {
     '&:nth-child(even)': {
-      backgroundColor: alternateRowBackgroundColour,
+      backgroundColor: theme.color.background.body,
     },
   },
-});
+}));
 
 export const tableCell = style((theme) => ({
-  borderColor: theme.color.background.neutral,
+  borderBottomWidth: 1,
+  borderColor: theme.border.color.standard,
+  borderRightWidth: 1,
   borderStyle: 'solid',
-  borderWidth: 1,
   verticalAlign: 'top',
+
+  ':first-child': {
+    borderLeftWidth: 1,
+  },
+}));
+
+export const td = style((theme) => ({
+  selectors: {
+    'tr:last-child &:first-child': {
+      borderBottomLeftRadius: theme.border.radius.standard,
+    },
+    'tr:last-child &:last-child': {
+      borderBottomRightRadius: theme.border.radius.standard,
+    },
+  },
+}));
+
+export const th = style((theme) => ({
+  selectors: {
+    'tr:first-child &': {
+      borderTopWidth: 1,
+    },
+    'tr:first-child &:first-child': {
+      borderTopLeftRadius: theme.border.radius.standard,
+    },
+    'tr:first-child &:last-child': {
+      borderTopRightRadius: theme.border.radius.standard,
+    },
+  },
 }));
