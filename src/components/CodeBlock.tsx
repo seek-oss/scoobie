@@ -14,7 +14,6 @@ import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { useStyles } from 'sku/react-treat';
 
 import { SIZE_TO_CODE_SIZE, Size } from '../private/size';
-import { codeCommentColor, monospaceFontFamily } from '../styles';
 
 import * as styleRefs from './CodeBlock.treat';
 
@@ -130,11 +129,13 @@ const createPre = (size: Size) => ({
   const codeSize = SIZE_TO_CODE_SIZE[size];
 
   return (
-    <Box className={styles.preTag} component="pre">
+    <Box borderRadius="standard" className={styles.preTag} component="pre">
       <Columns space="none">
         <Column width="content">
-          <Box background="neutralLight" padding="medium">
-            <Text size={codeSize}>{numbers}</Text>
+          <Box className={styles.lineNumberBox} padding="medium">
+            <Text align="right" size={codeSize}>
+              {numbers}
+            </Text>
           </Box>
         </Column>
         <Column>
@@ -176,12 +177,15 @@ export const CodeBlock = ({
         PreTag={createPre(size)}
         language={CODE_LANGUAGE_REPLACEMENTS[language] ?? language}
         lineNumberContainerProps={{
+          className: styles.lineNumberContainer,
+          // react-syntax-highlighter specifies some nonsense defaults, but they
+          // can be overwritten via object merge.
           style: {
-            color: codeCommentColor,
-            fontFamily: monospaceFontFamily,
-            fontSize: 'inherit',
-            lineHeight: 'inherit',
-            userSelect: 'none',
+            color: undefined,
+            fontFamily: undefined,
+            fontSize: undefined,
+            lineHeight: undefined,
+            userSelect: undefined,
           },
         }}
         showLineNumbers
