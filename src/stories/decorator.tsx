@@ -1,5 +1,5 @@
 import { BraidProvider, Card, ContentBlock } from 'braid-design-system';
-import seekAnz from 'braid-design-system/themes/seekAnz';
+import apac from 'braid-design-system/themes/apac';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { robotoHref, robotoMonoHref } from 'typography';
 type DecoratorFunction = Parameters<typeof addDecorator>[0];
 
 export const withBraid: DecoratorFunction = (story) => (
-  <BraidProvider theme={seekAnz}>
+  <BraidProvider theme={apac}>
     <MdxProvider graphqlPlayground="https://graphql.seek.com/graphql">
       <BrowserRouter>
         <Helmet>
