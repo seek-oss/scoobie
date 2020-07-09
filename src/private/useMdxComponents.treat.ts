@@ -65,6 +65,10 @@ export const table = style({
   borderSpacing: 0,
 });
 
+export const tableWrapper = style({
+  overflowX: 'auto',
+});
+
 export const tableRow = style((theme) => ({
   selectors: {
     '&:nth-child(even)': {
