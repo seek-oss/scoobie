@@ -42,6 +42,7 @@ declare namespace MDX {
     ol: ProviderComponent;
     p: ProviderComponent;
     pre: ProviderComponent;
+    span: ProviderComponent;
     strong: ProviderComponent;
     table: ProviderComponent;
     tbody: ProviderComponent;

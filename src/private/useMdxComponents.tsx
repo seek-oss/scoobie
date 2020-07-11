@@ -50,7 +50,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     h4: createSpacedHeading(4),
     h5: createSpacedHeading(5),
     h6: createSpacedHeading(6),
-    img: (props) => <img {...props} className={styles.image} />,
+    img: (props) => <Box {...props} className={styles.image} component="img" />,
     li: ({ children }) => (
       <Fragment>
         <Text size={size}>
@@ -74,7 +74,17 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     // node is not wrapped in a paragraph and it should be, wrap it using a
     // remark plugin, not here.
     p: ({ children }) => <Text size={size}>{children}</Text>,
-    pre: ({ children }) => <pre className={styles.pre}>{children}</pre>,
+    pre: ({ children }) => (
+      <Box className={styles.pre} component="pre">
+        {children}
+      </Box>
+    ),
+    span: (props) => (
+      // For wide SVGs like Mermaid diagrams
+      <Box overflow="auto">
+        <Box {...props} component="span" />
+      </Box>
+    ),
     strong: Strong,
     table: ({ children }) => (
       <Box className={styles.tableWrapper}>
@@ -103,7 +113,11 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
         <Stack space={space}>{children}</Stack>
       </Box>
     ),
-    tr: ({ children }) => <tr className={styles.tableRow}>{children}</tr>,
+    tr: ({ children }) => (
+      <Box className={styles.tableRow} component="tr">
+        {children}
+      </Box>
+    ),
     ul: ({ children }) => (
       <Box
         className={[styles.listGrid[size], styles.unorderedList]}
