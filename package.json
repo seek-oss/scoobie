@@ -29,7 +29,7 @@
     "react-helmet": "6.1.0",
     "react-router-dom": "5.2.0",
     "semantic-release": "17.1.1",
-    "sku": "10.4.0"
+    "sku": "10.4.1"
   },
   "files": [
     "src",
