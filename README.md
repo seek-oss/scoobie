@@ -239,7 +239,7 @@ Render an internal link with the same opinions as our [MdxProvider](#mdxprovider
 - Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
   and pass through the `v` URL parameter for UI version switching
 
-Unlike [SmartTextLink], this is not bound to a parent [Text] as it has no underlying [TextLinkRenderer].
+Unlike [SmartTextLink](#smarttextlink), this is not bound to a parent [Text] as it has no underlying [TextLinkRenderer].
 It can be used to make complex components navigable rather than just sections of text.
 
 [text]: https://seek-oss.github.io/braid-design-system/components/Text/
