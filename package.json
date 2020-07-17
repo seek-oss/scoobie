@@ -11,6 +11,7 @@
     "@types/mdx-js__react": "^1.5.1",
     "@types/react-router-hash-link": "^1.2.1",
     "@types/react-syntax-highlighter": "^11.0.4",
+    "classnames": "^2.2.6",
     "find-up": "^4.1.0",
     "polished": "^3.6.5",
     "react-router-hash-link": "^2.0.0",
