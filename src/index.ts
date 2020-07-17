@@ -1,4 +1,5 @@
 export { CodeBlock } from './components/CodeBlock';
+export { InternalLink } from './components/InternalLink';
 export { MdxProvider } from './components/MdxProvider';
 export { SmartTextLink } from './components/SmartTextLink';
 export { TocRenderer } from './components/TocRenderer';

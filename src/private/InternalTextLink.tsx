@@ -2,16 +2,11 @@ import url from 'url';
 
 import { TextLinkRenderer } from 'braid-design-system';
 import React, { ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+
+import { InternalLink } from '../components/InternalLink';
 
 const URL = url.URL ?? window.URL;
 const URLSearchParams = url.URLSearchParams ?? window.URLSearchParams;
-
-interface Props {
-  children: ReactNode;
-  href: string;
-}
 
 const EXAMPLE_BASE_URL = 'https://example.com';
 
@@ -57,26 +52,17 @@ export const parseInternalHref = (
   };
 };
 
-export const InternalTextLink = ({ children, href }: Props) => {
-  const scroll = (element: Element) =>
-    setTimeout(() => {
-      // Scroll to the header's `Stack` element so we don't cut off the heading
-      (element.parentElement ?? element).scrollIntoView({
-        behavior: 'smooth',
-      });
-    });
+interface Props {
+  children: ReactNode;
+  href: string;
+}
 
-  const location = useLocation();
-
-  const to = parseInternalHref(href, location);
-
-  return (
-    <TextLinkRenderer>
-      {(rendererProps) => (
-        <HashLink {...rendererProps} scroll={scroll} smooth to={to}>
-          {children}
-        </HashLink>
-      )}
-    </TextLinkRenderer>
-  );
-};
+export const InternalTextLink = ({ children, href }: Props) => (
+  <TextLinkRenderer>
+    {(rendererProps) => (
+      <InternalLink {...rendererProps} href={href} reset={false}>
+        {children}
+      </InternalLink>
+    )}
+  </TextLinkRenderer>
+);
