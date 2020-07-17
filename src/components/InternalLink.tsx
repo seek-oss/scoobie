@@ -1,14 +1,20 @@
 import classNames from 'classnames';
 import React, { CSSProperties, ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+import { NavHashLink } from 'react-router-hash-link';
 import { useStyles } from 'sku/react-treat';
 
 import { parseInternalHref } from '../private/InternalTextLink';
 
 import * as styleRefs from './InternalLink.treat';
 
-interface Props {
+interface NavLinkProps {
+  activeClassName?: Parameters<typeof classNames>[0];
+  exact?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+}
+
+interface Props extends NavLinkProps {
   children: ReactNode;
   className?: Parameters<typeof classNames>[0];
   href: string;
@@ -17,9 +23,12 @@ interface Props {
 }
 
 export const InternalLink = ({
+  activeClassName,
   children,
   className,
+  exact,
   href,
+  onClick,
   reset = true,
   style,
 }: Props) => {
@@ -45,14 +54,17 @@ export const InternalLink = ({
   );
 
   return (
-    <HashLink
+    <NavHashLink
+      activeClassName={classNames(activeClassName)}
       className={mergedClassNames}
+      exact={exact}
+      onClick={onClick}
       scroll={scroll}
       smooth
       style={style}
       to={to}
     >
       {children}
-    </HashLink>
+    </NavHashLink>
   );
 };
