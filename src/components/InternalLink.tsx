@@ -11,7 +11,7 @@ import * as styleRefs from './InternalLink.treat';
 interface NavLinkProps {
   activeClassName?: Parameters<typeof classNames>[0];
   exact?: boolean;
-  isActive: ComponentProps<typeof NavHashLink>['isActive'];
+  isActive?: ComponentProps<typeof NavHashLink>['isActive'];
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
