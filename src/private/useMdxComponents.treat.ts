@@ -53,6 +53,9 @@ export const listItem = style({
     [`${unorderedList} > span > &:before, ${unorderedList} > div > div > span > &:before`]: {
       content: "'•'",
     },
+    [`${unorderedList} > span > &, ${unorderedList} > div > div > span > &`]: {
+      transform: 'scale(1.25)',
+    },
   },
 });
 
