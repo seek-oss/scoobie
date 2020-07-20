@@ -5,10 +5,6 @@ import { monospaceFontFamily } from '../styles';
 
 import { SIZES, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
 
-export const image = style({
-  maxWidth: '100%',
-});
-
 export const inlineCode = style((theme) => ({
   backgroundColor: theme.color.background.body,
   borderColor: darken(0.05, theme.color.background.body),
