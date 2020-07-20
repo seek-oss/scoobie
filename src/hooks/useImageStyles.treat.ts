@@ -5,6 +5,7 @@ const commonStyles = (theme: Theme) => ({
   borderColor: theme.border.color.standard,
   borderWidth: theme.border.width.standard,
   borderStyle: 'solid',
+  display: 'block',
 
   borderRadius: theme.border.radius.standard,
   boxShadow: theme.shadows.small,
@@ -13,7 +14,4 @@ const commonStyles = (theme: Theme) => ({
 
 export const img = style(commonStyles);
 
-export const svg = style((theme) => ({
-  ...commonStyles(theme),
-  display: 'block',
-}));
+export const svg = style(commonStyles);
