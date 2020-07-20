@@ -37,6 +37,7 @@ yarn add --exact scoobie
   - [SmartTextLink](#smarttextlink)
   - [TocRenderer](#tocrenderer)
   - [WrapperRenderer](#wrapperrenderer)
+  - [useImageStyles](#useimagestyles)
 - [Contributing](https://github.com/seek-oss/scoobie/blob/master/CONTRIBUTING.md)
 
 ## Setup
@@ -383,4 +384,23 @@ export const NodeCount = (Document: MDX.Document) => (
     )}
   </WrapperRenderer>
 );
+```
+
+### useImageStyles
+
+Render an image with the same styling as our [MdxProvider](#mdxprovider):
+
+```typescript
+import React from 'react';
+import { useImageStyles } from 'scoobie';
+
+export const MySvg = () => {
+  const styles = useImageStyles();
+
+  return (
+    <svg className={styles.svg}>
+      <path />
+    </svg>
+  );
+};
 ```

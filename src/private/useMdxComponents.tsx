@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import { useStyles } from 'sku/react-treat';
 
 import { SmartTextLink } from '../components/SmartTextLink';
+import { useImageStyles } from '../hooks/useImageStyles';
 
 import { Blockquote } from './Blockquote';
 import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
@@ -17,6 +18,7 @@ interface Props {
 }
 
 export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
+  const imageStyles = useImageStyles();
   const styles = useStyles(styleRefs);
 
   const padding = SIZE_TO_PADDING[size];
@@ -50,7 +52,9 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     h4: createSpacedHeading(4),
     h5: createSpacedHeading(5),
     h6: createSpacedHeading(6),
-    img: (props) => <Box {...props} className={styles.image} component="img" />,
+    img: (props) => (
+      <Box {...props} className={imageStyles.img} component="img" />
+    ),
     li: ({ children }) => (
       <Fragment>
         <Text size={size}>

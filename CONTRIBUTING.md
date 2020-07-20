@@ -221,7 +221,7 @@ Simply push changes to the `beta` branch on GitHub.
 [semantic versioning]: https://semver.org/
 [semantic-release]: https://github.com/semantic-release/semantic-release
 [sku]: https://github.com/seek-oss/sku
-[sku.config.js]: (https://github.com/seek-oss/scoobie#skuconfigjs)
+[sku.config.js]: https://github.com/seek-oss/scoobie#skuconfigjs
 [squash our commits]: https://github.blog/2016-04-01-squash-your-commits/
 [storybook]: https://storybook.js.org/
 [storybook site]: https://seek-oss.github.io/scoobie/
