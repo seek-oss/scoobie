@@ -40,13 +40,10 @@ export const unorderedList = style({
   counterReset: COUNTER_NAME,
 });
 
-export const listItem = style({
-  display: 'list-item',
-  textAlign: 'right',
-});
-
 export const orderedListItem = style({
   counterIncrement: COUNTER_NAME,
+  display: 'list-item',
+  textAlign: 'right',
 
   ':before': {
     content: `counter(${COUNTER_NAME}) '.'`,

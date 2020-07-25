@@ -39,19 +39,17 @@ export const ListItem = ({ children }: ListItemProps) => {
     <Fragment>
       <Text size={size}>
         {type === 'ordered' ? (
-          <Box className={[styles.listItem, styles.orderedListItem]} />
+          <Box className={styles.orderedListItem} />
         ) : (
-          <Box className={styles.listItem}>
+          <Box
+            alignItems="center"
+            className={styles.unorderedListItem[size]}
+            display="flex"
+          >
             <Box
-              alignItems="center"
-              className={styles.unorderedListItem[size]}
-              display="flex"
-            >
-              <Box
-                borderRadius="full"
-                className={[styles.bulletColor, styles.bulletSize[size]]}
-              />
-            </Box>
+              borderRadius="full"
+              className={[styles.bulletColor, styles.bulletSize[size]]}
+            />
           </Box>
         )}
       </Text>
