@@ -32,6 +32,7 @@ yarn add --exact scoobie
   - [Tables](#tables)
 - [React API reference](#react-api-reference)
   - [CodeBlock](#codeblock)
+  - [InlineCode](#inlinecode)
   - [InternalLink](#internallink)
   - [MdxProvider](#mdxprovider)
   - [SmartTextLink](#smarttextlink)
@@ -228,8 +229,24 @@ Render lines of code with [Prism] syntax highlighting.
 import React from 'react';
 import { CodeBlock } from 'scoobie';
 
-export const MyFirstCode = () => (
+export const MyFirstCodeBlock = () => (
   <CodeBlock language="javascript">console.log('hello, world');</CodeBlock>
+);
+```
+
+### InlineCode
+
+Render code inline with text.
+
+```tsx
+import { Text } from 'braid-design-system';
+import React from 'react';
+import { InlineCode } from 'scoobie';
+
+export const MyFirstInlineCode = () => (
+  <Text>
+    Some text with <InlineCode>InlineCode</InlineCode>!
+  </Text>
 );
 ```
 
