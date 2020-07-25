@@ -5,6 +5,7 @@ import React from 'react';
 import { boolean, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 import {
+  CodeBlock,
   InlineCode,
   InternalLink,
   SmartTextLink,
@@ -23,6 +24,20 @@ import Inline from './markdowns/inline.mdx';
 import Lists from './markdowns/lists.mdx';
 import Table from './markdowns/table.mdx';
 import Wrapper from './markdowns/wrapper.mdx';
+
+storiesOf('CodeBlock', module)
+  .add('Custom', () => (
+    <CodeBlock
+      language={text('language', 'graphql')}
+      graphqlPlayground={text(
+        'graphqlPlayground',
+        'https://graphql.seek.com/graphql',
+      )}
+    >
+      {text('children', 'query {\n  version\n}\n')}
+    </CodeBlock>
+  ))
+  .addDecorator(withBraid);
 
 storiesOf('InlineCode', module)
   .add('Custom', () => (
