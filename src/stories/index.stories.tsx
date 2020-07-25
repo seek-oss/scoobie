@@ -4,7 +4,13 @@ import { Alert, Stack, Text } from 'braid-design-system';
 import React from 'react';
 import { boolean, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
-import { InternalLink, SmartTextLink, TocRenderer, WrapperRenderer } from 'src';
+import {
+  CodeBlock,
+  InternalLink,
+  SmartTextLink,
+  TocRenderer,
+  WrapperRenderer,
+} from 'src';
 
 import { withBraid } from './decorator';
 import Blockquote from './markdowns/blockquote.mdx';
@@ -17,6 +23,20 @@ import Inline from './markdowns/inline.mdx';
 import Lists from './markdowns/lists.mdx';
 import Table from './markdowns/table.mdx';
 import Wrapper from './markdowns/wrapper.mdx';
+
+storiesOf('CodeBlock', module)
+  .add('Custom', () => (
+    <CodeBlock
+      language={text('language', 'graphql')}
+      graphqlPlayground={text(
+        'graphqlPlayground',
+        'https://graphql.seek.com/graphql',
+      )}
+    >
+      {text('children', 'query {\n  version\n}\n')}
+    </CodeBlock>
+  ))
+  .addDecorator(withBraid);
 
 storiesOf('InternalLink', module)
   .add('Custom', () => (
