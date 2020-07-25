@@ -2,13 +2,40 @@ import { Style, style, styleMap } from 'sku/treat';
 
 import { SIZES, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
 
-export const listGrid = styleMap<Size>((theme) =>
+export const listTable = style({
+  borderCollapse: 'separate',
+  borderSpacing: 0,
+  display: 'table',
+});
+
+export const listTableRow = style({
+  display: 'table-row',
+});
+
+export const listTableCell = styleMap<Size>((theme) =>
   SIZES.reduce<Record<Size, Style>>((acc, size) => {
     acc[size] = {
-      display: 'grid',
-      gridColumnGap: theme.grid * theme.space[SIZE_TO_PADDING[size]],
-      gridRowGap: theme.grid * theme.space[SIZE_TO_SPACE[size]],
-      gridTemplateColumns: 'min-content minmax(0, 1fr)',
+      borderBottomColor: 'transparent',
+      borderBottomStyle: 'solid',
+      borderBottomWidth: theme.grid * theme.space[SIZE_TO_SPACE[size]],
+      borderRightColor: 'transparent',
+      borderRightStyle: 'solid',
+      borderRightWidth: theme.grid * theme.space[SIZE_TO_PADDING[size]],
+      display: 'table-cell',
+      overflowWrap: 'anywhere',
+      verticalAlign: 'top',
+
+      selectors: {
+        '&:first-child': {
+          whiteSpace: 'nowrap',
+        },
+        '&:last-child': {
+          borderRightWidth: 0,
+        },
+        'li:last-child > &': {
+          borderBottomWidth: 0,
+        },
+      },
     };
 
     return acc;
@@ -26,17 +53,18 @@ export const unorderedList = style({
 export const listItem = style({
   display: 'list-item',
   textAlign: 'right',
+
   selectors: {
-    [`${orderedList} > span > &, ${orderedList} > div > div > span > &:before`]: {
+    [`${orderedList} > li > div > span > &, ${orderedList} > div > div > li > div > span > &:before`]: {
       counterIncrement: 'ol',
     },
-    [`${orderedList} > span > &:before, ${orderedList} > div > div > span > &:before`]: {
+    [`${orderedList} > li > div > span > &:before, ${orderedList} > div > div > li > div > span > &:before`]: {
       content: "counter(ol) '.'",
     },
-    [`${unorderedList} > span > &:before, ${unorderedList} > div > div > span > &:before`]: {
+    [`${unorderedList} > li > div > span > &:before, ${unorderedList} > div > div > li > div > span > &:before`]: {
       content: "'•'",
     },
-    [`${unorderedList} > span > &, ${unorderedList} > div > div > span > &`]: {
+    [`${unorderedList} > li > div > span > &, ${unorderedList} > div > div > li > div > span > &`]: {
       transform: 'scale(1.25)',
     },
   },
