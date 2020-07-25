@@ -131,7 +131,7 @@ const createPre = (size: Size) => ({
   return (
     <Box borderRadius="standard" className={styles.preTag} component="pre">
       <Columns space="none">
-        <Column width="content">
+        <Column aria-hidden width="content">
           <Box className={styles.lineNumberBox} padding="medium">
             <Text align="right" size={codeSize}>
               {numbers}
