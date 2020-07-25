@@ -48,7 +48,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     img: (props) => (
       <Box {...props} className={imageStyles.img} component="img" />
     ),
-    li: ({ children }) => <ListItem size={size}>{children}</ListItem>,
+    li: ListItem,
     ol: ({ children }) => <OrderedList size={size}>{children}</OrderedList>,
     // Don't try to be clever here, this is what you want. No, really. `Text`
     // renders inline formatting correctly and fixes the line height. If some

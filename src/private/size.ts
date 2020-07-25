@@ -6,6 +6,8 @@ type Space = 'medium' | 'large';
 
 export type Size = typeof SIZES[number];
 
+export const DEFAULT_SIZE: Size = 'standard';
+
 export const SIZES = ['standard', 'large'] as const;
 
 export const SIZE_TO_CODE_SIZE: Record<Size, CodeSize> = {

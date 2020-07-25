@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { WrapperComponent } from '../private/Wrapper';
+import { DEFAULT_SIZE } from '../private/size';
 import { useMdxWrapper } from '../private/useMdxWrapper';
 
 export const WrapperRenderer = ({
@@ -12,7 +13,7 @@ export const WrapperRenderer = ({
 }) => {
   // The built-in wrapper size doesn't really matter here as the provided
   // component can overwrite it.
-  const wrapper = useMdxWrapper(children, 'standard');
+  const wrapper = useMdxWrapper(children, DEFAULT_SIZE);
 
   return (
     <Document

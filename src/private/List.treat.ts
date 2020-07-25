@@ -2,6 +2,23 @@ import { Style, style, styleMap } from 'sku/treat';
 
 import { SIZES, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
 
+const COUNTER_NAME = 'scoobie-ordered-list';
+
+export const bulletColor = style({
+  backgroundColor: 'currentColor',
+});
+
+export const bulletSize = {
+  standard: style({
+    width: 4,
+    height: 4,
+  }),
+  large: style({
+    width: 5,
+    height: 5,
+  }),
+};
+
 export const listGrid = styleMap<Size>((theme) =>
   SIZES.reduce<Record<Size, Style>>((acc, size) => {
     acc[size] = {
@@ -16,28 +33,37 @@ export const listGrid = styleMap<Size>((theme) =>
 );
 
 export const orderedList = style({
-  counterReset: 'ol',
+  counterReset: COUNTER_NAME,
 });
 
 export const unorderedList = style({
-  counterReset: 'ol',
+  counterReset: COUNTER_NAME,
 });
 
 export const listItem = style({
   display: 'list-item',
   textAlign: 'right',
-  selectors: {
-    [`${orderedList} > span > &, ${orderedList} > div > div > span > &:before`]: {
-      counterIncrement: 'ol',
-    },
-    [`${orderedList} > span > &:before, ${orderedList} > div > div > span > &:before`]: {
-      content: "counter(ol) '.'",
-    },
-    [`${unorderedList} > span > &:before, ${unorderedList} > div > div > span > &:before`]: {
-      content: "'•'",
-    },
-    [`${unorderedList} > span > &, ${unorderedList} > div > div > span > &`]: {
-      transform: 'scale(1.25)',
-    },
+});
+
+export const orderedListItem = style({
+  counterIncrement: COUNTER_NAME,
+
+  ':before': {
+    content: `counter(${COUNTER_NAME}) '.'`,
   },
 });
+
+export const unorderedListItem = styleMap<Size>((theme) =>
+  SIZES.reduce<Record<Size, Style>>((acc, size) => {
+    acc[size] = theme.utils.responsiveStyle({
+      mobile: {
+        height: theme.grid * theme.typography.text[size].mobile.rows,
+      },
+      tablet: {
+        height: theme.grid * theme.typography.text[size].tablet.rows,
+      },
+    });
+
+    return acc;
+  }, {} as Record<Size, Style>),
+);
