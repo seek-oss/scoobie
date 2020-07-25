@@ -2,6 +2,7 @@ import { Box, Stack, Strong, Text } from 'braid-design-system';
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
 
+import { InlineCode } from '../components/InlineCode';
 import { SmartTextLink } from '../components/SmartTextLink';
 import { useImageStyles } from '../hooks/useImageStyles';
 
@@ -37,16 +38,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
         </CodeBlockWithPlayground>
       );
     },
-    inlineCode: ({ children }) => (
-      <Box
-        borderRadius="standard"
-        className={styles.inlineCode}
-        component="code"
-        paddingX="xxsmall"
-      >
-        {children}
-      </Box>
-    ),
+    inlineCode: InlineCode,
     h1: createSpacedHeading(1),
     h2: createSpacedHeading(2),
     h3: createSpacedHeading(3),

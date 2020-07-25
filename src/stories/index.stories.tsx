@@ -6,6 +6,7 @@ import { boolean, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 import {
   CodeBlock,
+  InlineCode,
   InternalLink,
   SmartTextLink,
   TocRenderer,
@@ -35,6 +36,14 @@ storiesOf('CodeBlock', module)
     >
       {text('children', 'query {\n  version\n}\n')}
     </CodeBlock>
+  ))
+  .addDecorator(withBraid);
+
+storiesOf('InlineCode', module)
+  .add('Custom', () => (
+    <Text>
+      Some text with <InlineCode>{text('children', 'inline code')}</InlineCode>!
+    </Text>
   ))
   .addDecorator(withBraid);
 
