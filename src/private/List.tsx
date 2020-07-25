@@ -4,7 +4,7 @@ import { useStyles } from 'sku/react-treat';
 
 import { SIZE_TO_SPACE, Size } from './size';
 
-import * as styleRefs from './useMdxComponents.treat';
+import * as styleRefs from './List.treat';
 
 type Props = Pick<ComponentProps<typeof Stack>, 'children'> & {
   size: Size;
