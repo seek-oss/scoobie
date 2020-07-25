@@ -1,5 +1,5 @@
 import { Box, Stack, Strong, Text } from 'braid-design-system';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useStyles } from 'sku/react-treat';
 
 import { SmartTextLink } from '../components/SmartTextLink';
@@ -7,6 +7,7 @@ import { useImageStyles } from '../hooks/useImageStyles';
 
 import { Blockquote } from './Blockquote';
 import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
+import { ListItem, OrderedList, UnorderedList } from './List';
 import { createSpacedHeading } from './SpacedHeading';
 import { Wrapper } from './Wrapper';
 import { SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
@@ -55,24 +56,8 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     img: (props) => (
       <Box {...props} className={imageStyles.img} component="img" />
     ),
-    li: ({ children }) => (
-      <Fragment>
-        <Text size={size}>
-          <Box className={styles.listItem} />
-        </Text>
-        <Box component="li">
-          <Stack space={space}>{children}</Stack>
-        </Box>
-      </Fragment>
-    ),
-    ol: ({ children }) => (
-      <Box
-        className={[styles.listGrid[size], styles.orderedList]}
-        component="ol"
-      >
-        {children}
-      </Box>
-    ),
+    li: ({ children }) => <ListItem size={size}>{children}</ListItem>,
+    ol: ({ children }) => <OrderedList size={size}>{children}</OrderedList>,
     // Don't try to be clever here, this is what you want. No, really. `Text`
     // renders inline formatting correctly and fixes the line height. If some
     // node is not wrapped in a paragraph and it should be, wrap it using a
@@ -122,14 +107,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
         {children}
       </Box>
     ),
-    ul: ({ children }) => (
-      <Box
-        className={[styles.listGrid[size], styles.unorderedList]}
-        component="ul"
-      >
-        {children}
-      </Box>
-    ),
+    ul: ({ children }) => <UnorderedList size={size}>{children}</UnorderedList>,
     wrapper: ({ children }) => <Wrapper size={size}>{children}</Wrapper>,
   };
 };
