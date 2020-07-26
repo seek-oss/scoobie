@@ -1,10 +1,5 @@
 import { Box, Stack, Text } from 'braid-design-system';
-import React, {
-  ComponentProps,
-  Fragment,
-  createContext,
-  useContext,
-} from 'react';
+import React, { ComponentProps, createContext, useContext } from 'react';
 import { useStyles } from 'sku/react-treat';
 
 import { DEFAULT_SIZE, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
@@ -36,27 +31,20 @@ export const ListItem = ({ children }: Props) => {
 
   const space = SIZE_TO_SPACE[size];
 
-  if (type === 'ordered') {
-    // TODO: consider subgrid/table for proper `<ul><li>...</li></ul> nesting
-    return (
-      <Fragment>
-        <Text size={size}>
-          <Box className={styles.orderedListItem} />
-        </Text>
+  return type === 'ordered' ? (
+    <Box component="li" className={styles.propagateGrid}>
+      <Text aria-hidden size={size}>
+        <Box className={styles.numbering} />
+      </Text>
 
-        <Box component="li">
-          <Stack space={space}>{children}</Stack>
-        </Box>
-      </Fragment>
-    );
-  }
-
-  return (
+      <Stack space={space}>{children}</Stack>
+    </Box>
+  ) : (
     <Box display="flex">
-      <Text size={size}>
+      <Text aria-hidden size={size}>
         <Box
           alignItems="center"
-          className={styles.unorderedListItem[size]}
+          className={styles.bulletLineHeight[size]}
           display="flex"
           paddingRight={SIZE_TO_PADDING[size]}
         >

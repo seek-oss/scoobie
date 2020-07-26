@@ -8,6 +8,21 @@ export const bulletColor = style({
   backgroundColor: 'currentColor',
 });
 
+export const bulletLineHeight = styleMap<Size>((theme) =>
+  SIZES.reduce<Record<Size, Style>>((acc, size) => {
+    acc[size] = theme.utils.responsiveStyle({
+      mobile: {
+        height: theme.grid * theme.typography.text[size].mobile.rows,
+      },
+      tablet: {
+        height: theme.grid * theme.typography.text[size].tablet.rows,
+      },
+    });
+
+    return acc;
+  }, {} as Record<Size, Style>),
+);
+
 export const bulletSize = {
   standard: style({
     width: 4,
@@ -32,11 +47,7 @@ export const listGrid = styleMap<Size>((theme) =>
   }, {} as Record<Size, Style>),
 );
 
-export const orderedList = style({
-  counterReset: COUNTER_NAME,
-});
-
-export const orderedListItem = style({
+export const numbering = style({
   counterIncrement: COUNTER_NAME,
   display: 'list-item',
   textAlign: 'right',
@@ -46,17 +57,10 @@ export const orderedListItem = style({
   },
 });
 
-export const unorderedListItem = styleMap<Size>((theme) =>
-  SIZES.reduce<Record<Size, Style>>((acc, size) => {
-    acc[size] = theme.utils.responsiveStyle({
-      mobile: {
-        height: theme.grid * theme.typography.text[size].mobile.rows,
-      },
-      tablet: {
-        height: theme.grid * theme.typography.text[size].tablet.rows,
-      },
-    });
+export const orderedList = style({
+  counterReset: COUNTER_NAME,
+});
 
-    return acc;
-  }, {} as Record<Size, Style>),
-);
+export const propagateGrid = style({
+  display: 'contents',
+});
