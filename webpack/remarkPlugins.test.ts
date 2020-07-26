@@ -3,7 +3,6 @@ import path from 'path';
 import {
   remarkImgFixer,
   remarkSpreadListItems,
-  remarkSvgFixer,
   remarkTableFixer,
 } from './remarkPlugins';
 
@@ -112,6 +111,86 @@ describe('remarkImgFixer', () => {
         "value": "<img
         alt=\\"\\"
         src=\\"https://example.com/pong.png\\"
+        title=\\"\\"
+      />",
+      }
+    `);
+  });
+
+  it('transforms SVG relative image URL', () => {
+    const ast = {
+      type: 'image',
+      url: './drawing.svg',
+    } as const;
+
+    const astCopy = runPlugin(ast);
+
+    expect(astCopy).toMatchInlineSnapshot(`
+      Object {
+        "type": "jsx",
+        "value": "<img
+        alt=\\"\\"
+        src={require('./drawing.svg')}
+        title=\\"\\"
+      />",
+      }
+    `);
+  });
+
+  it('transforms SVG root-relative image URL in same directory', () => {
+    const ast = {
+      type: 'image',
+      url: '/webpack/drawing.svg',
+    } as const;
+
+    const astCopy = runPlugin(ast);
+
+    expect(astCopy).toMatchInlineSnapshot(`
+      Object {
+        "type": "jsx",
+        "value": "<img
+        alt=\\"\\"
+        src={require('./drawing.svg')}
+        title=\\"\\"
+      />",
+      }
+    `);
+  });
+
+  it('transforms SVG root-relative image URL in different directory', () => {
+    const ast = {
+      type: 'image',
+      url: '/src/assets/drawing.svg',
+    } as const;
+
+    const astCopy = runPlugin(ast);
+
+    expect(astCopy).toMatchInlineSnapshot(`
+      Object {
+        "type": "jsx",
+        "value": "<img
+        alt=\\"\\"
+        src={require('../src/assets/drawing.svg')}
+        title=\\"\\"
+      />",
+      }
+    `);
+  });
+
+  it('transforms SVG external image URL', () => {
+    const ast = {
+      type: 'image',
+      url: 'https://example.com/pong.svg',
+    } as const;
+
+    const astCopy = runPlugin(ast);
+
+    expect(astCopy).toMatchInlineSnapshot(`
+      Object {
+        "type": "jsx",
+        "value": "<img
+        alt=\\"\\"
+        src=\\"https://example.com/pong.svg\\"
         title=\\"\\"
       />",
       }
@@ -238,17 +317,6 @@ describe('remarkImgFixer', () => {
     expect(astCopy).toStrictEqual(ast);
   });
 
-  it('ignores SVG image', () => {
-    const ast = {
-      type: 'image',
-      url: 'https://example.com/drawing.svg',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toStrictEqual(ast);
-  });
-
   it('ignores image with a dangerous URL', () => {
     const ast = {
       type: 'image',
@@ -296,169 +364,6 @@ describe('remarkSpreadListItems', () => {
         "type": "list",
       }
     `);
-  });
-});
-
-describe('remarkSvgFixer', () => {
-  const runPlugin = (ast: Readonly<Record<string, unknown>>) => {
-    const astCopy = { ...ast };
-
-    remarkSvgFixer()(astCopy, {
-      history: [path.join(__dirname, 'test.mdx')],
-    });
-
-    return astCopy;
-  };
-
-  it('transforms SVG relative image URL', () => {
-    const ast = {
-      type: 'image',
-      url: './drawing.svg',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<span
-        dangerouslySetInnerHTML={{
-          __html: require('./drawing.svg').default,
-        }}
-        title=\\"\\"
-      />",
-      }
-    `);
-  });
-
-  it('transforms non-SVG root-relative image URL in same directory', () => {
-    const ast = {
-      type: 'image',
-      url: '/webpack/drawing.svg',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<span
-        dangerouslySetInnerHTML={{
-          __html: require('./drawing.svg').default,
-        }}
-        title=\\"\\"
-      />",
-      }
-    `);
-  });
-
-  it('transforms non-SVG root-relative image URL in different directory', () => {
-    const ast = {
-      type: 'image',
-      url: '/src/assets/drawing.svg',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<span
-        dangerouslySetInnerHTML={{
-          __html: require('../src/assets/drawing.svg').default,
-        }}
-        title=\\"\\"
-      />",
-      }
-    `);
-  });
-
-  it('prefers title prop over alt prop', () => {
-    const ast = {
-      type: 'image',
-      url: './drawing.svg',
-      title: 'alpha',
-      alt: 'bravo',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<span
-        dangerouslySetInnerHTML={{
-          __html: require('./drawing.svg').default,
-        }}
-        title=\\"alpha\\"
-      />",
-      }
-    `);
-  });
-
-  it('falls back to alt prop', () => {
-    const ast = {
-      type: 'image',
-      url: './drawing.svg',
-      alt: 'bravo',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<span
-        dangerouslySetInnerHTML={{
-          __html: require('./drawing.svg').default,
-        }}
-        title=\\"bravo\\"
-      />",
-      }
-    `);
-  });
-
-  it('ignores external URL', () => {
-    const ast = {
-      type: 'image',
-      url: 'https://example.com/drawing.svg',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toStrictEqual(ast);
-  });
-
-  it('ignores image without a string URL', () => {
-    const ast = {
-      type: 'image',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toStrictEqual(ast);
-  });
-
-  it('ignores non-SVG image', () => {
-    const ast = {
-      type: 'image',
-      url: 'https://example.com/favicon.ico',
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toStrictEqual(ast);
-  });
-
-  it('ignores image with a dangerous URL', () => {
-    const ast = {
-      type: 'image',
-      url: "https://example.com/'drawing'.svg",
-    } as const;
-
-    const astCopy = runPlugin(ast);
-
-    expect(astCopy).toStrictEqual(ast);
   });
 });
 

@@ -95,8 +95,33 @@ const createModulePathProcessor = (file) => {
 };
 
 /**
- * Transform `![]()` non-SVG image nodes into JSX nodes that are compatible with
- * the Webpack image loaders baked into sku.
+ * Infer JSX `src` from an incoming image URL.
+ *
+ * @param {(modulePath: string) => string} processModulePath
+ * @param {string} url
+ * @returns {string}
+ */
+const inferImageSrc = (processModulePath, url) => {
+  if (url.includes("'") || url.includes('"')) {
+    throw Error('URL cannot contain unescaped quotes');
+  }
+
+  // Use directly
+  if (url.startsWith('https://')) {
+    return `"${encodeURI(url)}"`;
+  }
+
+  // Resolve direct export for SVGs
+  if (url.endsWith('.svg')) {
+    return `{require('${processModulePath(url)}')}`;
+  }
+
+  // Resolve default export for other images
+  return `{require('${processModulePath(url)}').default}`;
+};
+
+/**
+ * Transform `![]()` image nodes into JSX nodes that can be loaded by Webpack.
  */
 module.exports.remarkImgFixer = () => (tree, file) => {
   const processModulePath = createModulePathProcessor(file);
@@ -105,15 +130,12 @@ module.exports.remarkImgFixer = () => (tree, file) => {
     if (
       typeof node.url !== 'string' ||
       node.url.includes("'") ||
-      node.url.includes('"') ||
-      node.url.endsWith('.svg')
+      node.url.includes('"')
     ) {
       return;
     }
 
-    const imageSrc = node.url.startsWith('https://')
-      ? `"${node.url}"`
-      : `{require('${processModulePath(node.url)}').default}`;
+    const imageSrc = inferImageSrc(processModulePath, node.url);
 
     const { styleLines, title } = processTitle(node.title || '');
 
@@ -143,40 +165,6 @@ module.exports.remarkSlug = require('remark-slug');
  */
 module.exports.remarkSpreadListItems = () => (tree) =>
   visit(tree, 'listItem', (node) => (node.spread = true));
-
-/**
- * Transform `![]()` SVG image nodes into JSX nodes that are compatible with the
- * Webpack image loaders baked into sku.
- */
-module.exports.remarkSvgFixer = () => (tree, file) => {
-  const processModulePath = createModulePathProcessor(file);
-
-  return visit(tree, 'image', (node) => {
-    if (
-      typeof node.url !== 'string' ||
-      node.url.includes("'") ||
-      node.url.startsWith('https://') ||
-      !node.url.endsWith('.svg')
-    ) {
-      return;
-    }
-
-    node.type = 'jsx';
-
-    node.value = [
-      '<span',
-      '  dangerouslySetInnerHTML={{',
-      `    __html: require('${processModulePath(node.url)}').default,`,
-      '  }}',
-      `  title="${cleanseDoubleQuotes(node.title || node.alt || '')}"`,
-      '/>',
-    ].join('\n');
-
-    delete node.alt;
-    delete node.title;
-    delete node.url;
-  });
-};
 
 /**
  * Apply default formatting to table cells for improved rendering in a Braid

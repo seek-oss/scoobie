@@ -1,28 +1,12 @@
-const { remarkPlugins } = require('./remarkPlugins');
+const { ScoobieWebpackPlugin } = require('./webpackPlugin');
 
 module.exports.dangerouslySetWebpackConfig = (webpackConfig) => ({
   ...webpackConfig,
-  module: {
-    ...webpackConfig.module,
-    rules: [
-      ...webpackConfig.module.rules,
-      {
-        test: /\.mdx?$/i,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
-            },
-          },
-          {
-            loader: '@mdx-js/loader',
-            options: {
-              remarkPlugins,
-            },
-          },
-        ],
-      },
-    ],
-  },
+
+  plugins: [
+    ...webpackConfig.plugins,
+
+    // Run after SkuWebpackPlugin
+    new ScoobieWebpackPlugin(),
+  ],
 });
