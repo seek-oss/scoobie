@@ -2,13 +2,12 @@ import { Box, Stack, Text } from 'braid-design-system';
 import React, {
   ComponentProps,
   Fragment,
-  ReactNode,
   createContext,
   useContext,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
 
-import { DEFAULT_SIZE, SIZE_TO_SPACE, Size } from './size';
+import { DEFAULT_SIZE, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
 
 import * as styleRefs from './List.treat';
 
@@ -26,47 +25,54 @@ const ListContext = createContext<ListContextValue>({
   type: DEFAULT_TYPE,
 });
 
-type ListItemProps = Pick<ComponentProps<typeof Stack>, 'children'>;
+type Props = Pick<ComponentProps<typeof Stack>, 'children'> & {
+  size?: Size;
+};
 
-export const ListItem = ({ children }: ListItemProps) => {
+export const ListItem = ({ children }: Props) => {
   const { size, type } = useContext(ListContext);
 
   const styles = useStyles(styleRefs);
 
   const space = SIZE_TO_SPACE[size];
 
-  return (
-    <Fragment>
-      <Text size={size}>
-        {type === 'ordered' ? (
+  if (type === 'ordered') {
+    // TODO: consider subgrid/table for proper `<ul><li>...</li></ul> nesting
+    return (
+      <Fragment>
+        <Text size={size}>
           <Box className={styles.orderedListItem} />
-        ) : (
+        </Text>
+
+        <Box component="li">
+          <Stack space={space}>{children}</Stack>
+        </Box>
+      </Fragment>
+    );
+  }
+
+  return (
+    <Box display="flex">
+      <Text size={size}>
+        <Box
+          alignItems="center"
+          className={styles.unorderedListItem[size]}
+          display="flex"
+          paddingRight={SIZE_TO_PADDING[size]}
+        >
           <Box
-            alignItems="center"
-            className={styles.unorderedListItem[size]}
-            display="flex"
-          >
-            <Box
-              borderRadius="full"
-              className={[styles.bulletColor, styles.bulletSize[size]]}
-            />
-          </Box>
-        )}
+            borderRadius="full"
+            className={[styles.bulletColor, styles.bulletSize[size]]}
+          />
+        </Box>
       </Text>
 
-      <Box component="li">
-        <Stack space={space}>{children}</Stack>
-      </Box>
-    </Fragment>
+      <Stack space={space}>{children}</Stack>
+    </Box>
   );
 };
 
-interface ListProps {
-  children: ReactNode;
-  size?: Size;
-}
-
-export const OrderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => {
+export const OrderedList = ({ children, size = DEFAULT_SIZE }: Props) => {
   const styles = useStyles(styleRefs);
 
   return (
@@ -86,22 +92,15 @@ export const OrderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => {
   );
 };
 
-export const UnorderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => {
-  const styles = useStyles(styleRefs);
-
-  return (
-    <ListContext.Provider
-      value={{
-        size,
-        type: 'unordered',
-      }}
-    >
-      <Box
-        className={[styles.listGrid[size], styles.unorderedList]}
-        component="ul"
-      >
-        {children}
-      </Box>
-    </ListContext.Provider>
-  );
-};
+export const UnorderedList = ({ children, size = DEFAULT_SIZE }: Props) => (
+  <ListContext.Provider
+    value={{
+      size,
+      type: 'unordered',
+    }}
+  >
+    <Stack component="ul" space={SIZE_TO_SPACE[size]}>
+      {children}
+    </Stack>
+  </ListContext.Provider>
+);

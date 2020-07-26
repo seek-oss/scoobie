@@ -36,10 +36,6 @@ export const orderedList = style({
   counterReset: COUNTER_NAME,
 });
 
-export const unorderedList = style({
-  counterReset: COUNTER_NAME,
-});
-
 export const orderedListItem = style({
   counterIncrement: COUNTER_NAME,
   display: 'list-item',
