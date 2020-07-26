@@ -2,7 +2,7 @@ import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 
 import { GraphQLPlaygroundProvider } from '../private/hooks/graphqlPlayground';
-import { Size } from '../private/size';
+import { DEFAULT_SIZE, Size } from '../private/size';
 import { useMdxComponents } from '../private/useMdxComponents';
 
 interface MdxProviderProps {
@@ -22,7 +22,7 @@ interface MdxProviderProps {
 export const MdxProvider: React.FunctionComponent<MdxProviderProps> = ({
   children,
   graphqlPlayground,
-  size = 'standard',
+  size = DEFAULT_SIZE,
 }) => {
   const components = useMdxComponents({ size });
 

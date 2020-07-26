@@ -13,7 +13,7 @@ import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { useStyles } from 'sku/react-treat';
 
-import { SIZE_TO_CODE_SIZE, Size } from '../private/size';
+import { DEFAULT_SIZE, SIZE_TO_CODE_SIZE, Size } from '../private/size';
 
 import * as styleRefs from './CodeBlock.treat';
 
@@ -152,7 +152,7 @@ export const CodeBlock = ({
   children,
   language = 'text',
   graphqlPlayground,
-  size = 'standard',
+  size = DEFAULT_SIZE,
 }: {
   children: string;
   language: string;
