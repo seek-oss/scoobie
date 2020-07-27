@@ -11,13 +11,10 @@ export const lineNumberBox = style((theme) => ({
   borderBottomLeftRadius: theme.border.radius.standard,
 }));
 
-export const lineNumberContainer = style((theme) => ({
-  color: theme.color.foreground.secondary,
+export const lineNumberContainer = style({
   fontFamily: monospaceFontFamily,
-  fontSize: 'inherit',
-  lineHeight: 'inherit',
   userSelect: 'none',
-}));
+});
 
 export const codeTag = style({
   fontFamily: monospaceFontFamily,
