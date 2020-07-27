@@ -183,8 +183,8 @@ export const CodeBlock = ({
         CodeTag={createCode(size)}
         PreTag={Pre}
         language={CODE_LANGUAGE_REPLACEMENTS[language] ?? language}
-        // react-syntax-highlighter specifies some nonsense defaults, but they
-        // can be overwritten via object merge.
+        // react-syntax-highlighter specifies some opinionated defaults, but
+        // they can be overwritten via object merge.
         lineNumberContainerStyle={{
           color: undefined,
           fontFamily: 'inherit',
