@@ -8,7 +8,7 @@ import {
   Inline,
   Text,
 } from 'braid-design-system';
-import React, { ReactChild, ReactNodeArray, useState } from 'react';
+import React, { ReactNode, ReactNodeArray, useState } from 'react';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { useStyles } from 'sku/react-treat';
@@ -26,13 +26,39 @@ const CODE_LANGUAGE_REPLACEMENTS: Record<string, string> = {
   ts: 'typescript',
 };
 
-const Code = ({ children }: { children: ReactChild }) => {
+const createCode = (size: Size) => ({
+  children,
+}: {
+  children: ReactNodeArray;
+}) => {
   const styles = useStyles(styleRefs);
 
+  const [numbers, ...lines] = children;
+
+  const codeSize = SIZE_TO_CODE_SIZE[size];
+
   return (
-    <Box className={styles.codeTag} component="code">
-      {children}
-    </Box>
+    <Columns space="none">
+      <Column aria-hidden width="content">
+        <Box className={styles.lineNumberBox} padding="medium">
+          <Text align="right" size={codeSize} tone="secondary">
+            <Box className={styles.lineNumberContainer} component="code">
+              {numbers}
+            </Box>
+          </Text>
+        </Box>
+      </Column>
+
+      <Column>
+        <Box padding="medium">
+          <Text size={codeSize}>
+            <Box className={styles.codeTag} component="code">
+              {lines}
+            </Box>
+          </Text>
+        </Box>
+      </Column>
+    </Columns>
   );
 };
 
@@ -119,31 +145,12 @@ const GraphQLPlaygroundButton = ({
   );
 };
 
-const createPre = (size: Size) => ({
-  children: [numbers, lines],
-}: {
-  children: ReactNodeArray;
-}) => {
+const Pre = ({ children }: { children: ReactNode }) => {
   const styles = useStyles(styleRefs);
-
-  const codeSize = SIZE_TO_CODE_SIZE[size];
 
   return (
     <Box borderRadius="standard" className={styles.preTag} component="pre">
-      <Columns space="none">
-        <Column aria-hidden width="content">
-          <Box className={styles.lineNumberBox} padding="medium">
-            <Text align="right" size={codeSize}>
-              {numbers}
-            </Text>
-          </Box>
-        </Column>
-        <Column>
-          <Box padding="medium">
-            <Text size={codeSize}>{lines}</Text>
-          </Box>
-        </Column>
-      </Columns>
+      {children}
     </Box>
   );
 };
@@ -173,20 +180,16 @@ export const CodeBlock = ({
   return (
     <Box className={styles.codeBlock} position="relative">
       <SyntaxHighlighter
-        CodeTag={Code}
-        PreTag={createPre(size)}
+        CodeTag={createCode(size)}
+        PreTag={Pre}
         language={CODE_LANGUAGE_REPLACEMENTS[language] ?? language}
-        lineNumberContainerProps={{
-          className: styles.lineNumberContainer,
-          // react-syntax-highlighter specifies some nonsense defaults, but they
-          // can be overwritten via object merge.
-          style: {
-            color: undefined,
-            fontFamily: undefined,
-            fontSize: undefined,
-            lineHeight: undefined,
-            userSelect: undefined,
-          },
+        // react-syntax-highlighter specifies some opinionated defaults, but
+        // they can be overwritten via object merge.
+        lineNumberContainerStyle={{
+          color: undefined,
+          fontFamily: 'inherit',
+          fontSize: undefined,
+          lineHeight: undefined,
         }}
         showLineNumbers
         style={ghcolors}
