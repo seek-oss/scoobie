@@ -65,6 +65,6 @@ export const preTag = style((theme) => ({
   borderStyle: 'solid',
   borderWidth: 1,
   // this is super arbitrary at the moment
-  maxHeight: theme.grid * theme.typography.text.small.tablet.size * 10,
+  maxHeight: theme.contentWidth.large / 2,
   overflow: 'auto',
 }));

@@ -4076,11 +4076,6 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-basekick@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/basekick/-/basekick-3.1.1.tgz#bd46180b539b84c3e030d0ae93f31977272e09af"
-  integrity sha512-F6IBL9SDlf8rJLKnNcvi1/LqnzkDALVmjTT99/+ZKBsrZyLIZ+tEbuHsrMfjkqY7R6h55vjIF1yjHJvHhZAq3w==
-
 batch-processor@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/batch-processor/-/batch-processor-1.0.0.tgz#75c95c32b748e0850d10c2b168f6bdbe9891ace8"
@@ -4284,10 +4279,10 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@28.13.0:
-  version "28.13.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-28.13.0.tgz#98f81bcbf0217a4e377bb77043f5f541df922112"
-  integrity sha512-wTFQ0fUhEJJqy10cUzwJ5LSAv/d1WI1kIoMJwOr+4AAiM1CCm7w/0wkto2e9mc1LXdYH4mHNz0XuJliSDeiQJA==
+braid-design-system@29.0.0:
+  version "29.0.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-29.0.0.tgz#ce27046384686a8b77abfbd61485f2ad4eb50926"
+  integrity sha512-t/lAREE6YApe77TzW4Mp0oUjYaeQu+zULITVkwwR0QViWlbmW6h4QEeeoLJsS0bH54W3QcVRe+1lmZNLA6938A==
   dependencies:
     "@types/autosuggest-highlight" "^3.1.0"
     "@types/classnames" "^2.2.8"
@@ -4296,7 +4291,7 @@ braid-design-system@28.13.0:
     "@types/react" "^16.8.8"
     assert "^2.0.0"
     autosuggest-highlight "^3.1.1"
-    basekick "^3.1.1"
+    capsize "^1.1.0"
     classnames "^2.2.6"
     csstype "^2.6.4"
     dedent "0.7.0"
@@ -4646,6 +4641,13 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001038, can
   version "1.0.30001041"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001041.tgz#c2ea138dafc6fe03877921ddcddd4a02a14daf76"
   integrity sha512-fqDtRCApddNrQuBxBS7kEiSGdBsgO4wiVw4G/IClfqzfhW45MbTumfN4cuUJGTM0YGFNn97DCXPJ683PS6zwvA==
+
+capsize@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/capsize/-/capsize-1.1.0.tgz#d70f918b5ecadc2390b2a3b3b672ced639907ed6"
+  integrity sha512-tV0weOXxQ9hsbqewiWfGQBXsGzSN/i/w9IGuH+JVySzGOhscTAzeK3N9ZAM3Kf89bWgYot80Za5fSXKi6ZynvA==
+  dependencies:
+    round-to "^4.1.0"
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -14840,6 +14842,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+round-to@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/round-to/-/round-to-4.1.0.tgz#148d768d18b2f127f78e6648cb8b0a5943c416bf"
+  integrity sha512-H/4z+4QdWS82iMZ23+5St302Mv2jJws0hUvEogrD6gC8NN6Z5TalDtbg51owCrVy4V/4c8ePvwVLNtlhEfPo5g==
 
 rsvp@^4.8.4:
   version "4.8.5"
