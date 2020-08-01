@@ -1,6 +1,6 @@
 import { Style, style, styleMap } from 'sku/treat';
 
-import { SIZES, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
+import { SIZES, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from '../private/size';
 
 const COUNTER_NAME = 'scoobie-ordered-list';
 
