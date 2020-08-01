@@ -2,7 +2,12 @@ import { Box, Stack, Text } from 'braid-design-system';
 import React, { ComponentProps, createContext, useContext } from 'react';
 import { useStyles } from 'sku/react-treat';
 
-import { DEFAULT_SIZE, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
+import {
+  DEFAULT_SIZE,
+  SIZE_TO_PADDING,
+  SIZE_TO_SPACE,
+  Size,
+} from '../private/size';
 
 import * as styleRefs from './List.treat';
 
@@ -20,11 +25,9 @@ const ListContext = createContext<ListContextValue>({
   type: DEFAULT_TYPE,
 });
 
-type Props = Pick<ComponentProps<typeof Stack>, 'children'> & {
-  size?: Size;
-};
+type ListItemProps = Pick<ComponentProps<typeof Stack>, 'children'>;
 
-export const ListItem = ({ children }: Props) => {
+export const ListItem = ({ children }: ListItemProps) => {
   const { size, type } = useContext(ListContext);
 
   const styles = useStyles(styleRefs);
@@ -60,7 +63,11 @@ export const ListItem = ({ children }: Props) => {
   );
 };
 
-export const OrderedList = ({ children, size = DEFAULT_SIZE }: Props) => {
+type ListProps = ListItemProps & {
+  size?: Size;
+};
+
+export const OrderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => {
   const styles = useStyles(styleRefs);
 
   return (
@@ -80,7 +87,7 @@ export const OrderedList = ({ children, size = DEFAULT_SIZE }: Props) => {
   );
 };
 
-export const UnorderedList = ({ children, size = DEFAULT_SIZE }: Props) => (
+export const UnorderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => (
   <ListContext.Provider
     value={{
       size,

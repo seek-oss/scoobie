@@ -3,12 +3,12 @@ import React from 'react';
 import { useStyles } from 'sku/react-treat';
 
 import { InlineCode } from '../components/InlineCode';
+import { ListItem, OrderedList, UnorderedList } from '../components/List';
 import { SmartTextLink } from '../components/SmartTextLink';
 import { useImageStyles } from '../hooks/useImageStyles';
 
 import { Blockquote } from './Blockquote';
 import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
-import { ListItem, OrderedList, UnorderedList } from './List';
 import { createSpacedHeading } from './SpacedHeading';
 import { Wrapper } from './Wrapper';
 import { SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';

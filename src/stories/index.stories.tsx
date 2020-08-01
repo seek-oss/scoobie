@@ -8,8 +8,11 @@ import {
   CodeBlock,
   InlineCode,
   InternalLink,
+  ListItem,
+  OrderedList,
   SmartTextLink,
   TocRenderer,
+  UnorderedList,
   WrapperRenderer,
 } from 'src';
 
@@ -24,6 +27,25 @@ import Inline from './markdowns/inline.mdx';
 import Lists from './markdowns/lists.mdx';
 import Table from './markdowns/table.mdx';
 import Wrapper from './markdowns/wrapper.mdx';
+
+const generateListItems = (
+  Container: typeof OrderedList | typeof UnorderedList,
+  count: number,
+) => (
+  <Stack space="medium">
+    <Text weight="medium">
+      {count} item{count === 1 ? '' : 's'}:
+    </Text>
+
+    <Container>
+      {[...new Array(count)].map((_, index) => (
+        <ListItem key={index}>
+          <Text>{index + 1}</Text>
+        </ListItem>
+      ))}
+    </Container>
+  </Stack>
+);
 
 storiesOf('CodeBlock', module)
   .add('Custom', () => (
@@ -77,6 +99,34 @@ storiesOf('MdxProvider', module)
   .add('Table', () => <Table />)
   .addDecorator(withBraid);
 
+storiesOf('OrderedList', module)
+  .add('1 item', () => generateListItems(OrderedList, 1))
+  .add('10 items', () => generateListItems(OrderedList, 10))
+  .add('Nested', () => (
+    <OrderedList>
+      <ListItem>
+        <Stack space="medium">
+          <Text>Level 1</Text>
+
+          <OrderedList>
+            <ListItem>
+              <Stack space="medium">
+                <Text>Level 2</Text>
+
+                <OrderedList>
+                  <ListItem>
+                    <Text>Level 3</Text>
+                  </ListItem>
+                </OrderedList>
+              </Stack>
+            </ListItem>
+          </OrderedList>
+        </Stack>
+      </ListItem>
+    </OrderedList>
+  ))
+  .addDecorator(withBraid);
+
 storiesOf('SmartTextLink', module)
   .add('Custom', () => (
     <Text>
@@ -104,6 +154,34 @@ storiesOf('TocRenderer', module)
         )}
       </TocRenderer>
     </Stack>
+  ))
+  .addDecorator(withBraid);
+
+storiesOf('UnorderedList', module)
+  .add('1 item', () => generateListItems(UnorderedList, 1))
+  .add('10 items', () => generateListItems(UnorderedList, 10))
+  .add('Nested', () => (
+    <UnorderedList>
+      <ListItem>
+        <Stack space="medium">
+          <Text>Level 1</Text>
+
+          <UnorderedList>
+            <ListItem>
+              <Stack space="medium">
+                <Text>Level 2</Text>
+
+                <UnorderedList>
+                  <ListItem>
+                    <Text>Level 3</Text>
+                  </ListItem>
+                </UnorderedList>
+              </Stack>
+            </ListItem>
+          </UnorderedList>
+        </Stack>
+      </ListItem>
+    </UnorderedList>
   ))
   .addDecorator(withBraid);
 
