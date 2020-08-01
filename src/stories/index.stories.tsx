@@ -2,7 +2,7 @@ import 'braid-design-system/reset';
 import 'loki/configure-react';
 import { Alert, Stack, Text } from 'braid-design-system';
 import React from 'react';
-import { boolean, text } from 'sku/@storybook/addon-knobs';
+import { boolean, number, select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 import {
   CodeBlock,
@@ -102,6 +102,28 @@ storiesOf('MdxProvider', module)
 storiesOf('OrderedList', module)
   .add('1 item', () => generateListItems(OrderedList, 1))
   .add('10 items', () => generateListItems(OrderedList, 10))
+  .add('Custom', () => {
+    const textSize = select(
+      'Text.size',
+      ['xsmall', 'small', 'standard', 'large'],
+      'standard',
+    );
+
+    return (
+      <OrderedList
+        size={select('size', ['standard', 'large'], 'standard')}
+        start={number('start', 100)}
+      >
+        <ListItem>
+          <Text size={textSize}>First item</Text>
+        </ListItem>
+
+        <ListItem>
+          <Text size={textSize}>Second item</Text>
+        </ListItem>
+      </OrderedList>
+    );
+  })
   .add('Nested', () => (
     <OrderedList>
       <ListItem>
@@ -160,6 +182,25 @@ storiesOf('TocRenderer', module)
 storiesOf('UnorderedList', module)
   .add('1 item', () => generateListItems(UnorderedList, 1))
   .add('10 items', () => generateListItems(UnorderedList, 10))
+  .add('Custom', () => {
+    const textSize = select(
+      'Text.size',
+      ['xsmall', 'small', 'standard', 'large'],
+      'standard',
+    );
+
+    return (
+      <UnorderedList size={select('size', ['standard', 'large'], 'standard')}>
+        <ListItem>
+          <Text size={textSize}>First item</Text>
+        </ListItem>
+
+        <ListItem>
+          <Text size={textSize}>Second item</Text>
+        </ListItem>
+      </UnorderedList>
+    );
+  })
   .add('Nested', () => (
     <UnorderedList>
       <ListItem>

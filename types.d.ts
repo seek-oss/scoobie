@@ -39,7 +39,7 @@ declare namespace MDX {
     img: ProviderComponent;
     inlineCode: ProviderComponent;
     li: ProviderComponent;
-    ol: ProviderComponent;
+    ol: ProviderComponent<{ start?: number }>;
     p: ProviderComponent;
     pre: ProviderComponent;
     span: ProviderComponent;

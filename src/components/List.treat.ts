@@ -2,7 +2,7 @@ import { Style, style, styleMap } from 'sku/treat';
 
 import { SIZES, SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from '../private/size';
 
-const COUNTER_NAME = 'scoobie-ordered-list';
+export const COUNTER_NAME = 'scoobie-ordered-list';
 
 export const bulletColor = style({
   backgroundColor: 'currentColor',
@@ -55,10 +55,6 @@ export const numbering = style({
   ':before': {
     content: `counter(${COUNTER_NAME}) '.'`,
   },
-});
-
-export const orderedList = style({
-  counterReset: COUNTER_NAME,
 });
 
 export const propagateGrid = style({

@@ -63,11 +63,15 @@ export const ListItem = ({ children }: ListItemProps) => {
   );
 };
 
-type ListProps = ListItemProps & {
-  size?: Size;
+type OrderedListProps = UnorderedListProps & {
+  start?: number;
 };
 
-export const OrderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => {
+export const OrderedList = ({
+  children,
+  size = DEFAULT_SIZE,
+  start,
+}: OrderedListProps) => {
   const styles = useStyles(styleRefs);
 
   return (
@@ -78,8 +82,15 @@ export const OrderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => {
       }}
     >
       <Box
-        className={[styles.listGrid[size], styles.orderedList]}
+        className={styles.listGrid[size]}
         component="ol"
+        start={start}
+        style={{
+          counterReset: [
+            styleRefs.COUNTER_NAME,
+            typeof start === 'number' ? ` ${start - 1}` : '',
+          ].join(''),
+        }}
       >
         {children}
       </Box>
@@ -87,7 +98,14 @@ export const OrderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => {
   );
 };
 
-export const UnorderedList = ({ children, size = DEFAULT_SIZE }: ListProps) => (
+type UnorderedListProps = ListItemProps & {
+  size?: Size;
+};
+
+export const UnorderedList = ({
+  children,
+  size = DEFAULT_SIZE,
+}: UnorderedListProps) => (
   <ListContext.Provider
     value={{
       size,

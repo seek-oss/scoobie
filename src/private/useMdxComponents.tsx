@@ -49,7 +49,11 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
       <Box {...props} className={imageStyles.img} component="img" />
     ),
     li: ListItem,
-    ol: ({ children }) => <OrderedList size={size}>{children}</OrderedList>,
+    ol: ({ children, start }) => (
+      <OrderedList size={size} start={start}>
+        {children}
+      </OrderedList>
+    ),
     // Don't try to be clever here, this is what you want. No, really. `Text`
     // renders inline formatting correctly and fixes the line height. If some
     // node is not wrapped in a paragraph and it should be, wrap it using a
