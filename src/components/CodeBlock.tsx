@@ -9,7 +9,7 @@ import {
   Text,
 } from 'braid-design-system';
 import React, { ReactNode, ReactNodeArray, useState } from 'react';
-import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { useStyles } from 'sku/react-treat';
 
