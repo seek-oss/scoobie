@@ -2,7 +2,7 @@ import { Language, Prism } from 'prism-react-renderer';
 // @ts-ignore
 import httpLang from 'refractor/lang/http';
 // @ts-ignore
-import splunkSplLang from 'refractor/lang/splunk-sql';
+import splunkSplLang from 'refractor/lang/splunk-spl';
 
 httpLang(Prism);
 splunkSplLang(Prism);
