@@ -186,7 +186,7 @@ export const CodeBlock = ({
     ) : undefined;
 
   return (
-    <Box className={styles.codeBlock}>
+    <Box className={styles.codeBlock} position="relative">
       <Highlight
         Prism={Prism}
         code={codeValue}
