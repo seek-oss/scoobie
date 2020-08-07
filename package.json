@@ -10,7 +10,6 @@
     "@mdx-js/react": "^1.6.16",
     "@types/mdx-js__react": "^1.5.2",
     "@types/react-router-hash-link": "^1.2.1",
-    "@types/react-syntax-highlighter": "^11.0.4",
     "capsize": "^1.1.0",
     "classnames": "^2.2.6",
     "find-up": "^4.1.0",
@@ -18,7 +17,7 @@
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.21.0",
     "react-router-hash-link": "^2.0.0",
-    "react-syntax-highlighter": "^13.0.0",
+    "refractor": "^3.0.0",
     "remark-slug": "^6.0.0",
     "unist-util-visit": "^2.0.2"
   },

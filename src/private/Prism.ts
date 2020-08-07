@@ -1,20 +1,11 @@
 import { Language, Prism } from 'prism-react-renderer';
+// @ts-ignore
+import httpLang from 'refractor/lang/http';
+// @ts-ignore
+import splunkSplLang from 'refractor/lang/splunk-sql';
 
-interface GlobalOrWindow {
-  Prism?: typeof Prism;
-}
-
-/**
- * Gross!
- *
- * {@link https://github.com/FormidableLabs/prism-react-renderer#faq}
- */
-((typeof global !== 'undefined'
-  ? global
-  : window) as GlobalOrWindow).Prism = Prism;
-
-require('prismjs/components/prism-http');
-require('prismjs/components/prism-splunk-spl');
+httpLang(Prism);
+splunkSplLang(Prism);
 
 export { Prism } from 'prism-react-renderer';
 export { default as prismTheme } from 'prism-react-renderer/themes/github';
