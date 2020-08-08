@@ -392,7 +392,9 @@ export const MyFirstTable = () => (
 
 ### TableRow
 
-Child `<td>` component for [Table](#table).
+`<tr>` component for use with [Table](#table).
+
+Row children are flattened then wrapped with `<td>`s.
 
 ### TocRenderer
 
