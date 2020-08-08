@@ -64,7 +64,11 @@ storiesOf('CodeBlock', module)
 storiesOf('InlineCode', module)
   .add('Custom', () => (
     <Text>
-      Some text with <InlineCode>{text('children', 'inline code')}</InlineCode>!
+      Some text with{' '}
+      <InlineCode weight={select('weight', ['regular', 'weak'], 'regular')}>
+        {text('children', 'inline code')}
+      </InlineCode>
+      !
     </Text>
   ))
   .addDecorator(withBraid);
