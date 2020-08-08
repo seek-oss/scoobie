@@ -1,7 +1,7 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
 import { Alert, Stack, Text } from 'braid-design-system';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { boolean, number, select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 import {
@@ -11,6 +11,8 @@ import {
   ListItem,
   OrderedList,
   SmartTextLink,
+  Table,
+  TableRow,
   TocRenderer,
   UnorderedList,
   WrapperRenderer,
@@ -25,7 +27,7 @@ import ImagesExternal from './markdowns/images-external.mdx';
 import ImagesInternal from './markdowns/images-internal.mdx';
 import Inline from './markdowns/inline.mdx';
 import Lists from './markdowns/lists.mdx';
-import Table from './markdowns/table.mdx';
+import TableMarkdown from './markdowns/table.mdx';
 import Wrapper from './markdowns/wrapper.mdx';
 
 const generateListItems = (
@@ -55,6 +57,7 @@ storiesOf('CodeBlock', module)
         'graphqlPlayground',
         'https://graphql.seek.com/graphql',
       )}
+      size={select('size', ['standard', 'large'], 'standard')}
     >
       {text('children', 'query {\n  version\n}\n')}
     </CodeBlock>
@@ -100,7 +103,7 @@ storiesOf('MdxProvider', module)
   .add('ImagesInternal', () => <ImagesInternal />)
   .add('Inline', () => <Inline />)
   .add('Lists', () => <Lists />)
-  .add('Table', () => <Table />)
+  .add('Table', () => <TableMarkdown />)
   .addDecorator(withBraid);
 
 storiesOf('OrderedList', module)
@@ -180,6 +183,58 @@ storiesOf('TocRenderer', module)
         )}
       </TocRenderer>
     </Stack>
+  ))
+  .addDecorator(withBraid);
+
+storiesOf('Table', module)
+  .add('Defaults', () => (
+    <Table header={['Column A', 'Column B']}>
+      <TableRow>
+        <Fragment>This is body cell A1.</Fragment>
+        <Fragment>B1</Fragment>
+      </TableRow>
+
+      <TableRow>
+        <Fragment>A2</Fragment>
+        <Fragment>This is body cell B2.</Fragment>
+      </TableRow>
+    </Table>
+  ))
+  .add('Stripe', () => (
+    <Table
+      align={['left', 'right']}
+      header={
+        <Fragment>
+          <Fragment>Column A</Fragment>
+          <Text weight="regular">Column B</Text>
+        </Fragment>
+      }
+      size={select('size', ['standard', 'large'], 'standard')}
+      type="stripe"
+    >
+      <TableRow>
+        <Text>This is body cell A1.</Text>
+        <Text weight="strong">B1</Text>
+      </TableRow>
+
+      <TableRow>
+        <Fragment>A2</Fragment>
+        <Fragment>This is body cell B2.</Fragment>
+      </TableRow>
+    </Table>
+  ))
+  .add('Subtle', () => (
+    <Table header={['Column A', 'Column B']} type="subtle">
+      <TableRow>
+        <Fragment>This is body cell A1.</Fragment>
+        <Fragment>B1</Fragment>
+      </TableRow>
+
+      <TableRow>
+        <Fragment>A2</Fragment>
+        <Fragment>This is body cell B2.</Fragment>
+      </TableRow>
+    </Table>
   ))
   .addDecorator(withBraid);
 
