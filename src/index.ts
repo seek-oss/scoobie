@@ -4,6 +4,8 @@ export { InternalLink } from './components/InternalLink';
 export { ListItem, OrderedList, UnorderedList } from './components/List';
 export { MdxProvider } from './components/MdxProvider';
 export { SmartTextLink } from './components/SmartTextLink';
+export { Table } from './components/Table';
+export { TableRow } from './components/TableRow';
 export { TocRenderer } from './components/TocRenderer';
 export { WrapperRenderer } from './components/WrapperRenderer';
 export { useImageStyles } from './hooks/useImageStyles';

@@ -38,6 +38,8 @@ yarn add --exact scoobie
   - [MdxProvider](#mdxprovider)
   - [OrderedList](#orderedlist)
   - [SmartTextLink](#smarttextlink)
+  - [Table](#table)
+  - [TableRow](#tablerow)
   - [TocRenderer](#tocrenderer)
   - [UnorderedList](#unorderedlist)
   - [WrapperRenderer](#wrapperrenderer)
@@ -364,6 +366,33 @@ export const SomeLinks = () => (
   </Text>
 );
 ```
+
+### Table
+
+Render an HTML table with the same styling as our [MdxProvider](#mdxprovider):
+
+```tsx
+import React, { Fragment } from 'react';
+import { Table, TableRow } from 'scoobie';
+
+export const MyFirstTable = () => (
+  <Table header={['Column A', 'Column B']}>
+    <TableRow>
+      <Fragment>This is body cell A1.</Fragment>
+      <Fragment>B1</Fragment>
+    </TableRow>
+
+    <TableRow>
+      <Fragment>A2</Fragment>
+      <Fragment>This is body cell B2.</Fragment>
+    </TableRow>
+  </Table>
+);
+```
+
+### TableRow
+
+Child `<td>` component for [Table](#table).
 
 ### TocRenderer
 
