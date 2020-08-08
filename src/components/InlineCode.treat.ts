@@ -15,7 +15,7 @@ export const weight = {
     backgroundColor: theme.color.background.body,
     borderColor: darken(0.05, theme.color.background.body),
     borderStyle: 'solid',
-    borderWidth: 1,
+    borderWidth: theme.border.width.standard,
 
     paddingLeft: theme.grid * theme.space.xxsmall,
     paddingRight: theme.grid * theme.space.xxsmall,
