@@ -13,7 +13,7 @@ export type TableAlign = 'left' | 'center' | 'right';
 
 type TableCellComponent = 'td' | 'th';
 
-export type TableType = 'stripe';
+export type TableType = 'stripe' | 'subtle';
 
 export const DEFAULT_TABLE_CELL_COMPONENT: TableCellComponent = 'td';
 
