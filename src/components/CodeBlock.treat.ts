@@ -23,7 +23,7 @@ export const code = styleMap<CodeSize>((theme) => ({
 export const buttonOuter = style((theme) => ({
   borderColor: darken(0.05, theme.color.background.body),
   borderStyle: 'solid',
-  borderWidth: 1,
+  borderWidth: theme.border.width.standard,
   ':hover': {
     cursor: 'pointer',
   },
@@ -83,7 +83,7 @@ export const codeContainer = styleMap<CodeSize>((theme) =>
       backgroundColor: theme.color.background.body,
       borderColor: darken(0.05, theme.color.background.body),
       borderStyle: 'solid',
-      borderWidth: 1,
+      borderWidth: theme.border.width.standard,
 
       overflow: 'auto',
 
