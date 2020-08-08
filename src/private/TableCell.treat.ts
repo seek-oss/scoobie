@@ -4,14 +4,28 @@ import { TableType } from './TableContext';
 
 export const tableCell = styleMap<TableType>((theme) => ({
   stripe: {
-    borderBottomWidth: 1,
+    borderBottomWidth: theme.border.width.standard,
     borderColor: theme.border.color.standard,
-    borderRightWidth: 1,
+    borderRightWidth: theme.border.width.standard,
     borderStyle: 'solid',
     verticalAlign: 'top',
 
     ':first-child': {
-      borderLeftWidth: 1,
+      borderLeftWidth: theme.border.width.standard,
+    },
+  },
+  subtle: {
+    borderBottomWidth: theme.border.width.standard,
+    borderColor: theme.border.color.standard,
+    borderStyle: 'solid',
+    verticalAlign: 'top',
+
+    ':first-child': {
+      paddingLeft: 0,
+    },
+
+    ':last-child': {
+      paddingRight: 0,
     },
   },
 }));
@@ -27,6 +41,7 @@ export const td = styleMap<TableType>((theme) => ({
       },
     },
   },
+  subtle: {},
 }));
 
 export const th = styleMap<TableType>((theme) => ({
@@ -40,6 +55,14 @@ export const th = styleMap<TableType>((theme) => ({
       },
       'tr:first-child &:last-child': {
         borderTopRightRadius: theme.border.radius.standard,
+      },
+    },
+  },
+  subtle: {
+    selectors: {
+      'tr:last-child &': {
+        borderBottomColor: theme.border.color.field,
+        borderBottomWidth: theme.border.width.large,
       },
     },
   },

@@ -223,6 +223,19 @@ storiesOf('Table', module)
       </TableRow>
     </Table>
   ))
+  .add('Subtle', () => (
+    <Table header={['Column A', 'Column B']} type="subtle">
+      <TableRow>
+        <Fragment>This is body cell A1.</Fragment>
+        <Fragment>B1</Fragment>
+      </TableRow>
+
+      <TableRow>
+        <Fragment>A2</Fragment>
+        <Fragment>This is body cell B2.</Fragment>
+      </TableRow>
+    </Table>
+  ))
   .addDecorator(withBraid);
 
 storiesOf('UnorderedList', module)

@@ -10,4 +10,5 @@ export const tableRow = styleMap<TableType>((theme) => ({
       },
     },
   },
+  subtle: {},
 }));
