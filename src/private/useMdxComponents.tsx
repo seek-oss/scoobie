@@ -1,4 +1,4 @@
-import { Box, Stack, Strong, Text } from 'braid-design-system';
+import { Box, Strong, Text } from 'braid-design-system';
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
 
@@ -10,8 +10,11 @@ import { useImageStyles } from '../hooks/useImageStyles';
 import { Blockquote } from './Blockquote';
 import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
 import { createSpacedHeading } from './SpacedHeading';
+import { MdxTable } from './Table';
+import { TableCell } from './TableCell';
+import { BaseTableRow } from './TableRow';
 import { Wrapper } from './Wrapper';
-import { SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
+import { Size } from './size';
 
 import * as styleRefs from './useMdxComponents.treat';
 
@@ -22,9 +25,6 @@ interface Props {
 export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
   const imageStyles = useImageStyles();
   const styles = useStyles(styleRefs);
-
-  const padding = SIZE_TO_PADDING[size];
-  const space = SIZE_TO_SPACE[size];
 
   return {
     a: SmartTextLink,
@@ -67,38 +67,18 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
       </Box>
     ),
     strong: Strong,
-    table: ({ children }) => (
-      <Box className={styles.tableWrapper}>
-        <Box component="table" className={styles.table}>
-          {children}
-        </Box>
-      </Box>
-    ),
+    table: ({ children }) => <MdxTable>{children}</MdxTable>,
     td: ({ align, children }) => (
-      <Box
-        className={[styles.tableCell, styles.td]}
-        component="td"
-        padding={padding}
-        textAlign={align === null ? 'left' : align}
-      >
-        <Stack space={space}>{children}</Stack>
-      </Box>
+      <TableCell align={align} component="td">
+        {children}
+      </TableCell>
     ),
     th: ({ align, children }) => (
-      <Box
-        className={[styles.tableCell, styles.th]}
-        component="th"
-        padding={padding}
-        textAlign={align === null ? 'center' : align}
-      >
-        <Stack space={space}>{children}</Stack>
-      </Box>
-    ),
-    tr: ({ children }) => (
-      <Box className={styles.tableRow} component="tr">
+      <TableCell align={align} component="th">
         {children}
-      </Box>
+      </TableCell>
     ),
+    tr: ({ children }) => <BaseTableRow>{children}</BaseTableRow>,
     ul: ({ children }) => <UnorderedList size={size}>{children}</UnorderedList>,
     wrapper: ({ children }) => <Wrapper size={size}>{children}</Wrapper>,
   };
