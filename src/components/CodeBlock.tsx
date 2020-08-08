@@ -1,64 +1,76 @@
 import {
   Box,
-  Column,
-  Columns,
   IconCopy,
   IconNewWindow,
   IconTick,
-  Inline,
-  Text,
+  Stack,
 } from 'braid-design-system';
-import React, { ReactNode, ReactNodeArray, useState } from 'react';
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Highlight from 'prism-react-renderer';
+import React, { useState } from 'react';
 import { useStyles } from 'sku/react-treat';
 
-import { DEFAULT_SIZE, SIZE_TO_CODE_SIZE, Size } from '../private/size';
+import { Prism, prismLanguage, prismTheme } from '../private/Prism';
+import {
+  CodeSize,
+  DEFAULT_SIZE,
+  SIZE_TO_CODE_SIZE,
+  Size,
+} from '../private/size';
 
 import * as styleRefs from './CodeBlock.treat';
 
-const CODE_LANGUAGE_REPLACEMENTS: Record<string, string> = {
-  js: 'javascript',
-  jsonc: 'json',
-  sh: 'bash',
-  shell: 'bash',
-  splunk: 'splunk-spl',
-  ts: 'typescript',
-};
+type Token = Parameters<Highlight['getTokenProps']>[0]['token'];
 
-const createCode = (size: Size) => ({
-  children,
-}: {
-  children: ReactNodeArray;
-}) => {
+interface LineNumberProps {
+  codeSize: CodeSize;
+  count: number;
+}
+
+const LineNumbers = ({ count, codeSize }: LineNumberProps) => {
   const styles = useStyles(styleRefs);
 
-  const [numbers, ...lines] = children;
-
-  const codeSize = SIZE_TO_CODE_SIZE[size];
+  const numbers = [...new Array(count)].map((_, index) => index + 1);
 
   return (
-    <Columns space="none">
-      <Column aria-hidden width="content">
-        <Box className={styles.lineNumberBox} padding="medium">
-          <Text align="right" size={codeSize} tone="secondary">
-            <Box className={styles.lineNumberContainer} component="code">
-              {numbers}
-            </Box>
-          </Text>
-        </Box>
-      </Column>
+    <Box aria-hidden className={styles.lineNumberContainer} padding="medium">
+      <Stack align="right" space="small">
+        {numbers.map((number) => (
+          <Box className={styles.code[codeSize]} component="pre" key={number}>
+            {number}
+          </Box>
+        ))}
+      </Stack>
+    </Box>
+  );
+};
 
-      <Column>
-        <Box padding="medium">
-          <Text size={codeSize}>
-            <Box className={styles.codeTag} component="code">
-              {lines}
-            </Box>
-          </Text>
-        </Box>
-      </Column>
-    </Columns>
+interface LineProps {
+  codeSize: CodeSize;
+  getTokenProps: Highlight['getTokenProps'];
+  lines: Token[][];
+}
+
+const Lines = ({ codeSize, getTokenProps, lines }: LineProps) => {
+  const styles = useStyles(styleRefs);
+
+  return (
+    <Box padding="medium">
+      <Stack space="small">
+        {lines.map((line, lineIndex) => (
+          <Box
+            className={styles.code[codeSize]}
+            component="pre"
+            key={lineIndex}
+          >
+            {line.map((token, tokenIndex) => {
+              const props = getTokenProps({ token });
+
+              return <Box component="span" {...props} key={tokenIndex} />;
+            })}
+          </Box>
+        ))}
+      </Stack>
+    </Box>
   );
 };
 
@@ -145,19 +157,9 @@ const GraphQLPlaygroundButton = ({
   );
 };
 
-const Pre = ({ children }: { children: ReactNode }) => {
-  const styles = useStyles(styleRefs);
-
-  return (
-    <Box borderRadius="standard" className={styles.preTag} component="pre">
-      {children}
-    </Box>
-  );
-};
-
 export const CodeBlock = ({
   children,
-  language = 'text',
+  language: rawLanguage = 'text',
   graphqlPlayground,
   size = DEFAULT_SIZE,
 }: {
@@ -170,38 +172,48 @@ export const CodeBlock = ({
 
   const codeValue = children.trim();
 
+  const language = prismLanguage(rawLanguage);
+
+  const codeSize = SIZE_TO_CODE_SIZE[size];
+
   const graphqlPlaygroundButton =
     language === 'graphql' && graphqlPlayground ? (
-      <GraphQLPlaygroundButton graphqlPlayground={graphqlPlayground}>
-        {codeValue}
-      </GraphQLPlaygroundButton>
+      <Box marginLeft="xsmall">
+        <GraphQLPlaygroundButton graphqlPlayground={graphqlPlayground}>
+          {codeValue}
+        </GraphQLPlaygroundButton>
+      </Box>
     ) : undefined;
 
   return (
     <Box className={styles.codeBlock} position="relative">
-      <SyntaxHighlighter
-        CodeTag={createCode(size)}
-        PreTag={Pre}
-        language={CODE_LANGUAGE_REPLACEMENTS[language] ?? language}
-        // react-syntax-highlighter specifies some opinionated defaults, but
-        // they can be overwritten via object merge.
-        lineNumberContainerStyle={{
-          color: undefined,
-          fontFamily: 'inherit',
-          fontSize: undefined,
-          lineHeight: undefined,
-        }}
-        showLineNumbers
-        style={ghcolors}
+      <Highlight
+        Prism={Prism}
+        code={codeValue}
+        language={language}
+        theme={prismTheme}
       >
-        {codeValue}
-      </SyntaxHighlighter>
+        {({ getTokenProps, tokens }) => (
+          <Box
+            borderRadius="standard"
+            className={styles.codeContainer[codeSize]}
+          >
+            <Box display="flex">
+              <LineNumbers codeSize={codeSize} count={tokens.length} />
 
-      <Box marginRight="small" position="absolute" right={0} top={0}>
-        <Inline space="xsmall">
-          <CopyButton>{codeValue}</CopyButton>
-          {graphqlPlaygroundButton}
-        </Inline>
+              <Lines
+                codeSize={codeSize}
+                getTokenProps={getTokenProps}
+                lines={tokens}
+              />
+            </Box>
+          </Box>
+        )}
+      </Highlight>
+
+      <Box display="flex" margin="small" position="absolute" right={0} top={0}>
+        <CopyButton>{codeValue}</CopyButton>
+        {graphqlPlaygroundButton}
       </Box>
     </Box>
   );

@@ -59,11 +59,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     // node is not wrapped in a paragraph and it should be, wrap it using a
     // remark plugin, not here.
     p: ({ children }) => <Text size={size}>{children}</Text>,
-    pre: ({ children }) => (
-      <Box className={styles.pre} component="pre">
-        {children}
-      </Box>
-    ),
+    pre: ({ children }) => <Box className={styles.pre}>{children}</Box>,
     span: (props) => (
       // For wide SVGs like Mermaid diagrams
       <Box overflow="auto">
