@@ -41,7 +41,14 @@ export const td = styleMap<TableType>((theme) => ({
       },
     },
   },
-  subtle: {},
+  subtle: {
+    selectors: {
+      'tr:last-child &': {
+        borderBottomWidth: 0,
+        paddingBottom: 0,
+      },
+    },
+  },
 }));
 
 export const th = styleMap<TableType>((theme) => ({
@@ -60,6 +67,9 @@ export const th = styleMap<TableType>((theme) => ({
   },
   subtle: {
     selectors: {
+      'tr:first-child &': {
+        paddingTop: 0,
+      },
       'tr:last-child &': {
         borderBottomColor: theme.border.color.field,
         borderBottomWidth: theme.border.width.large,
