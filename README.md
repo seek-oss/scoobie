@@ -34,14 +34,11 @@ yarn add --exact scoobie
   - [CodeBlock](#codeblock)
   - [InlineCode](#inlinecode)
   - [InternalLink](#internallink)
-  - [ListItem](#listitem)
   - [MdxProvider](#mdxprovider)
-  - [OrderedList](#orderedlist)
   - [SmartTextLink](#smarttextlink)
   - [Table](#table)
   - [TableRow](#tablerow)
   - [TocRenderer](#tocrenderer)
-  - [UnorderedList](#unorderedlist)
   - [WrapperRenderer](#wrapperrenderer)
   - [useImageStyles](#useimagestyles)
 - [Contributing](https://github.com/seek-oss/scoobie/blob/master/CONTRIBUTING.md)
@@ -284,10 +281,6 @@ export const SomeComplexLinkElement = () => (
 );
 ```
 
-### ListItem
-
-Child `<li>` component for [OrderedList](#orderedlist) and [UnorderedList](#unorderedlist).
-
 ### MdxProvider
 
 Provide a base collection of [Braid]-styled renderers for child MDX documents.
@@ -309,32 +302,6 @@ export const App = ({ site }: { site: string }) => (
       </Card>
     </MdxProvider>
   </BraidLoadableProvider>
-);
-```
-
-### OrderedList
-
-Render a styled `<ol>` that supports nesting and rich content:
-
-```tsx
-import { Stack, Text } from 'braid-design-system';
-import React from 'react';
-import { ListItem, OrderedList } from 'scoobie';
-
-export const List = () => (
-  <OrderedList>
-    <ListItem>
-      <Stack space="medium">
-        <Text>Level 1</Text>
-
-        <OrderedList>
-          <ListItem>
-            <Text>Level 2</Text>
-          </ListItem>
-        </OrderedList>
-      </Stack>
-    </ListItem>
-  </OrderedList>
 );
 ```
 
@@ -444,32 +411,6 @@ A heading must start at the beginning of its line to be parsed:
 
 [markdownlint]: https://github.com/markdownlint/markdownlint
 [md023]: https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md#md023---headers-must-start-at-the-beginning-of-the-line
-
-### UnorderedList
-
-Render a styled `<ul>` that supports nesting and rich content:
-
-```tsx
-import { Stack, Text } from 'braid-design-system';
-import React from 'react';
-import { ListItem, UnorderedList } from 'scoobie';
-
-export const List = () => (
-  <UnorderedList>
-    <ListItem>
-      <Stack space="medium">
-        <Text>Level 1</Text>
-
-        <UnorderedList>
-          <ListItem>
-            <Text>Level 2</Text>
-          </ListItem>
-        </UnorderedList>
-      </Stack>
-    </ListItem>
-  </UnorderedList>
-);
-```
 
 ### WrapperRenderer
 
