@@ -2,19 +2,16 @@ import 'braid-design-system/reset';
 import 'loki/configure-react';
 import { Alert, Stack, Text } from 'braid-design-system';
 import React, { Fragment } from 'react';
-import { boolean, number, select, text } from 'sku/@storybook/addon-knobs';
+import { boolean, select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 import {
   CodeBlock,
   InlineCode,
   InternalLink,
-  ListItem,
-  OrderedList,
   SmartTextLink,
   Table,
   TableRow,
   TocRenderer,
-  UnorderedList,
   WrapperRenderer,
 } from 'src';
 
@@ -29,25 +26,6 @@ import Inline from './markdowns/inline.mdx';
 import Lists from './markdowns/lists.mdx';
 import TableMarkdown from './markdowns/table.mdx';
 import Wrapper from './markdowns/wrapper.mdx';
-
-const generateListItems = (
-  Container: typeof OrderedList | typeof UnorderedList,
-  count: number,
-) => (
-  <Stack space="medium">
-    <Text weight="medium">
-      {count} item{count === 1 ? '' : 's'}:
-    </Text>
-
-    <Container>
-      {[...new Array(count)].map((_, index) => (
-        <ListItem key={index}>
-          <Text>{index + 1}</Text>
-        </ListItem>
-      ))}
-    </Container>
-  </Stack>
-);
 
 storiesOf('CodeBlock', module)
   .add('Custom', () => (
@@ -104,56 +82,6 @@ storiesOf('MdxProvider', module)
   .add('Inline', () => <Inline />)
   .add('Lists', () => <Lists />)
   .add('Table', () => <TableMarkdown />)
-  .addDecorator(withBraid);
-
-storiesOf('OrderedList', module)
-  .add('1 item', () => generateListItems(OrderedList, 1))
-  .add('10 items', () => generateListItems(OrderedList, 10))
-  .add('Custom', () => {
-    const textSize = select(
-      'Text.size',
-      ['xsmall', 'small', 'standard', 'large'],
-      'standard',
-    );
-
-    return (
-      <OrderedList
-        size={select('size', ['standard', 'large'], 'standard')}
-        start={number('start', 100)}
-      >
-        <ListItem>
-          <Text size={textSize}>First item</Text>
-        </ListItem>
-
-        <ListItem>
-          <Text size={textSize}>Second item</Text>
-        </ListItem>
-      </OrderedList>
-    );
-  })
-  .add('Nested', () => (
-    <OrderedList>
-      <ListItem>
-        <Stack space="medium">
-          <Text>Level 1</Text>
-
-          <OrderedList>
-            <ListItem>
-              <Stack space="medium">
-                <Text>Level 2</Text>
-
-                <OrderedList>
-                  <ListItem>
-                    <Text>Level 3</Text>
-                  </ListItem>
-                </OrderedList>
-              </Stack>
-            </ListItem>
-          </OrderedList>
-        </Stack>
-      </ListItem>
-    </OrderedList>
-  ))
   .addDecorator(withBraid);
 
 storiesOf('SmartTextLink', module)
@@ -235,53 +163,6 @@ storiesOf('Table', module)
         <Fragment>This is body cell B2.</Fragment>
       </TableRow>
     </Table>
-  ))
-  .addDecorator(withBraid);
-
-storiesOf('UnorderedList', module)
-  .add('1 item', () => generateListItems(UnorderedList, 1))
-  .add('10 items', () => generateListItems(UnorderedList, 10))
-  .add('Custom', () => {
-    const textSize = select(
-      'Text.size',
-      ['xsmall', 'small', 'standard', 'large'],
-      'standard',
-    );
-
-    return (
-      <UnorderedList size={select('size', ['standard', 'large'], 'standard')}>
-        <ListItem>
-          <Text size={textSize}>First item</Text>
-        </ListItem>
-
-        <ListItem>
-          <Text size={textSize}>Second item</Text>
-        </ListItem>
-      </UnorderedList>
-    );
-  })
-  .add('Nested', () => (
-    <UnorderedList>
-      <ListItem>
-        <Stack space="medium">
-          <Text>Level 1</Text>
-
-          <UnorderedList>
-            <ListItem>
-              <Stack space="medium">
-                <Text>Level 2</Text>
-
-                <UnorderedList>
-                  <ListItem>
-                    <Text>Level 3</Text>
-                  </ListItem>
-                </UnorderedList>
-              </Stack>
-            </ListItem>
-          </UnorderedList>
-        </Stack>
-      </ListItem>
-    </UnorderedList>
   ))
   .addDecorator(withBraid);
 

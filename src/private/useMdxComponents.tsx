@@ -1,9 +1,8 @@
-import { Box, Strong, Text } from 'braid-design-system';
+import { Box, List, Stack, Strong, Text } from 'braid-design-system';
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
 
 import { InlineCode } from '../components/InlineCode';
-import { ListItem, OrderedList, UnorderedList } from '../components/List';
 import { SmartTextLink } from '../components/SmartTextLink';
 import { useImageStyles } from '../hooks/useImageStyles';
 
@@ -14,7 +13,7 @@ import { MdxTable } from './Table';
 import { TableCell } from './TableCell';
 import { BaseTableRow } from './TableRow';
 import { Wrapper } from './Wrapper';
-import { Size } from './size';
+import { SIZE_TO_SPACE, Size } from './size';
 
 import * as styleRefs from './useMdxComponents.treat';
 
@@ -25,6 +24,8 @@ interface Props {
 export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
   const imageStyles = useImageStyles();
   const styles = useStyles(styleRefs);
+
+  const space = SIZE_TO_SPACE[size];
 
   return {
     a: SmartTextLink,
@@ -48,11 +49,11 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     img: (props) => (
       <Box {...props} className={imageStyles.img} component="img" />
     ),
-    li: ListItem,
+    li: ({ children }) => <Stack space={space}>{children}</Stack>,
     ol: ({ children, start }) => (
-      <OrderedList size={size} start={start}>
+      <List size={size} space={space} start={start} type="number">
         {children}
-      </OrderedList>
+      </List>
     ),
     // Don't try to be clever here, this is what you want. No, really. `Text`
     // renders inline formatting correctly and fixes the line height. If some
@@ -79,7 +80,11 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
       </TableCell>
     ),
     tr: ({ children }) => <BaseTableRow>{children}</BaseTableRow>,
-    ul: ({ children }) => <UnorderedList size={size}>{children}</UnorderedList>,
+    ul: ({ children }) => (
+      <List size={size} space={space} type="bullet">
+        {children}
+      </List>
+    ),
     wrapper: ({ children }) => <Wrapper size={size}>{children}</Wrapper>,
   };
 };

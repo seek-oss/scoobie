@@ -26,7 +26,7 @@
     "@storybook/storybook-deployer": "2.8.6",
     "@types/react": "16.9.44",
     "@types/react-helmet": "6.1.0",
-    "braid-design-system": "29.1.0",
+    "braid-design-system": "29.1.1",
     "loki": "0.24.0",
     "react": "16.13.1",
     "react-helmet": "6.1.0",
@@ -41,7 +41,7 @@
     "typography.ts"
   ],
   "peerDependencies": {
-    "braid-design-system": ">= 29.0.0",
+    "braid-design-system": ">= 29.1.1",
     "react": "^16.12.0",
     "react-router-dom": "^5.2.0",
     "sku": "^10.0.0"
