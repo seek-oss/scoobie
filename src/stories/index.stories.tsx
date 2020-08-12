@@ -1,10 +1,11 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
-import { Alert, Stack, Text } from 'braid-design-system';
+import { Alert, List, Stack, Text } from 'braid-design-system';
 import React, { Fragment } from 'react';
 import { boolean, select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 import {
+  Blockquote,
   CodeBlock,
   InlineCode,
   InternalLink,
@@ -16,7 +17,7 @@ import {
 } from 'src';
 
 import { withBraid } from './decorator';
-import Blockquote from './markdowns/blockquote.mdx';
+import BlockquoteMarkdown from './markdowns/blockquote.mdx';
 import Code from './markdowns/code.mdx';
 import Combination from './markdowns/combination.mdx';
 import Headings from './markdowns/headings.mdx';
@@ -26,6 +27,21 @@ import Inline from './markdowns/inline.mdx';
 import Lists from './markdowns/lists.mdx';
 import TableMarkdown from './markdowns/table.mdx';
 import Wrapper from './markdowns/wrapper.mdx';
+
+storiesOf('Blockquote', module)
+  .add('Custom', () => {
+    const size = select('size', ['standard', 'large'], 'standard');
+
+    return (
+      <Blockquote size={size}>
+        <Text size={size}>This is a paragraph.</Text>
+        <List size={size}>
+          <Text size={size}>This is a bullet point.</Text>
+        </List>
+      </Blockquote>
+    );
+  })
+  .addDecorator(withBraid);
 
 storiesOf('CodeBlock', module)
   .add('Custom', () => (
@@ -73,7 +89,7 @@ storiesOf('InternalLink', module)
   .addDecorator(withBraid);
 
 storiesOf('MdxProvider', module)
-  .add('Blockquote', () => <Blockquote />)
+  .add('Blockquote', () => <BlockquoteMarkdown />)
   .add('Code', () => <Code />)
   .add('Combination', () => <Combination />)
   .add('Headings', () => <Headings />)

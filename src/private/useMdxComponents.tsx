@@ -2,11 +2,11 @@ import { Box, List, Stack, Strong, Text } from 'braid-design-system';
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
 
+import { Blockquote } from '../components/Blockquote';
 import { InlineCode } from '../components/InlineCode';
 import { SmartTextLink } from '../components/SmartTextLink';
 import { useImageStyles } from '../hooks/useImageStyles';
 
-import { Blockquote } from './Blockquote';
 import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
 import { createSpacedHeading } from './SpacedHeading';
 import { MdxTable } from './Table';
@@ -29,7 +29,9 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
 
   return {
     a: SmartTextLink,
-    blockquote: Blockquote,
+    blockquote: ({ children }) => (
+      <Blockquote size={size}>{children}</Blockquote>
+    ),
     code: ({ children, className = 'text' }) => {
       const language = className.replace(/^language-/, '');
 

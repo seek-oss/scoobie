@@ -1,6 +1,6 @@
 export type CodeSize = typeof CODE_SIZES[number];
 
-type Padding = 'small' | 'medium';
+type TablePadding = 'small' | 'medium';
 
 type Space = 'medium' | 'large';
 
@@ -17,7 +17,7 @@ export const SIZE_TO_CODE_SIZE: Record<Size, CodeSize> = {
   large: 'standard',
 };
 
-export const SIZE_TO_PADDING: Record<Size, Padding> = {
+export const SIZE_TO_TABLE_PADDING: Record<Size, TablePadding> = {
   standard: 'small',
   large: 'medium',
 };
