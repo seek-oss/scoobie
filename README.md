@@ -31,6 +31,7 @@ yarn add --exact scoobie
   - [Links](#links)
   - [Tables](#tables)
 - [React API reference](#react-api-reference)
+  - [Blockquote](#blockquote)
   - [CodeBlock](#codeblock)
   - [InlineCode](#inlinecode)
   - [InternalLink](#internallink)
@@ -220,6 +221,26 @@ Paragraph tags must be placed around text content and cannot be nested within ea
 ```
 
 ## React API reference
+
+### Blockquote
+
+Renders rich quoted content.
+
+```tsx
+import { List, Text } from 'braid-design-system';
+import React from 'react';
+import { Blockquote } from 'scoobie';
+
+export const MyFirstBlockquote = () => (
+  <Blockquote>
+    <Text>This is a paragraph.</Text>
+
+    <List>
+      <Text>This is a bullet point.</Text>
+    </List>
+  </Blockquote>
+);
+```
 
 ### CodeBlock
 
