@@ -28,7 +28,14 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
   const space = SIZE_TO_SPACE[size];
 
   return {
-    a: SmartTextLink,
+    a: ({ title, ...props }) =>
+      title ? (
+        <Box component="span" title={title}>
+          <SmartTextLink {...props} />
+        </Box>
+      ) : (
+        <SmartTextLink {...props} />
+      ),
     blockquote: ({ children }) => (
       <Blockquote size={size}>{children}</Blockquote>
     ),
