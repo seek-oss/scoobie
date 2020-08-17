@@ -55,12 +55,13 @@ export const parseInternalHref = (
 interface Props {
   children: ReactNode;
   href: string;
+  title?: string;
 }
 
-export const InternalTextLink = ({ children, href }: Props) => (
+export const InternalTextLink = ({ children, href, title }: Props) => (
   <TextLinkRenderer>
     {(rendererProps) => (
-      <InternalLink {...rendererProps} href={href} reset={false}>
+      <InternalLink {...rendererProps} href={href} title={title} reset={false}>
         {children}
       </InternalLink>
     )}

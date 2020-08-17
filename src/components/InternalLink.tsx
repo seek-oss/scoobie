@@ -19,6 +19,7 @@ interface Props extends NavLinkProps {
   children: ReactNode;
   className?: Parameters<typeof classNames>[0];
   href: string;
+  title?: string;
   reset?: boolean;
   style?: CSSProperties;
 }
@@ -29,6 +30,7 @@ export const InternalLink = ({
   className,
   exact,
   href,
+  title,
   isActive,
   onClick,
   reset = true,
@@ -63,6 +65,7 @@ export const InternalLink = ({
       isActive={isActive}
       onClick={onClick}
       scroll={scroll}
+      title={title}
       smooth
       style={style}
       to={to}
