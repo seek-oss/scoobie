@@ -12,8 +12,8 @@ export const ScrollableInline = ({ children }: Props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <Box className={styles.overflowX}>
-      <Box className={styles.nowrap} display="inlineBlock" width="full">
+    <Box className={styles.trimPaddingY}>
+      <Box className={styles.scrollX} paddingY="small" width="full">
         {children}
       </Box>
     </Box>
