@@ -44,7 +44,7 @@ storiesOf('Blockquote', module)
   .addDecorator(withBraid);
 
 storiesOf('CodeBlock', module)
-  .add('Custom', () => (
+  .add('Single', () => (
     <CodeBlock
       language={text('language', 'graphql')}
       graphqlPlayground={text(
@@ -54,6 +54,33 @@ storiesOf('CodeBlock', module)
       size={select('size', ['standard', 'large'], 'standard')}
     >
       {text('children', 'query {\n  version\n}\n')}
+    </CodeBlock>
+  ))
+  .add('Multi', () => (
+    <CodeBlock
+      graphqlPlayground={text(
+        'graphqlPlayground',
+        'https://graphql.seek.com/graphql',
+      )}
+      size={select('size', ['standard', 'large'], 'standard')}
+    >
+      {[
+        {
+          code: 'query {\n  version\n}\n',
+          label: 'Operation',
+          language: 'graphql',
+        },
+        {
+          code: '{}',
+          label: 'Variables',
+          language: 'jsonc',
+        },
+        {
+          code: '{\n  "data": null\n}\n',
+          label: 'Response',
+          language: 'jsonc',
+        },
+      ]}
     </CodeBlock>
   ))
   .addDecorator(withBraid);

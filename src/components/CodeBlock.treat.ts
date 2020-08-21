@@ -5,8 +5,6 @@ import { Theme } from 'treat/theme';
 import { CODE_SIZES, CodeSize } from '../private/size';
 import { monospaceFontStyles } from '../styles';
 
-export const codeBlock = style({});
-
 export const lineNumberContainer = style((theme) => ({
   backgroundColor: darken(0.05, theme.color.background.body),
   borderTopLeftRadius: theme.border.radius.standard,
@@ -19,45 +17,6 @@ export const code = styleMap<CodeSize>((theme) => ({
   small: monospaceFontStyles(theme, 'small'),
   standard: monospaceFontStyles(theme, 'standard'),
 }));
-
-export const buttonOuter = style((theme) => ({
-  borderColor: darken(0.05, theme.color.background.body),
-  borderStyle: 'solid',
-  borderWidth: theme.border.width.standard,
-  ':hover': {
-    cursor: 'pointer',
-  },
-
-  ...theme.utils.responsiveStyle({
-    desktop: {
-      opacity: 0,
-      selectors: {
-        [`${codeBlock}:hover &`]: {
-          opacity: 1,
-        },
-      },
-    },
-    mobile: {
-      opacity: 1,
-    },
-  }),
-}));
-
-export const buttonInner = style((theme) =>
-  theme.utils.responsiveStyle({
-    desktop: {
-      opacity: 0.5,
-      selectors: {
-        [`${buttonOuter}:hover &`]: {
-          opacity: 1,
-        },
-      },
-    },
-    mobile: {
-      opacity: 1,
-    },
-  }),
-);
 
 const fit30LinesOfCode = (theme: Theme, codeSize: CodeSize) =>
   theme.utils.responsiveStyle({

@@ -1,19 +1,28 @@
 import {
   Box,
   IconCopy,
-  IconNewWindow,
   IconTick,
+  IconVideo,
   Stack,
+  Text,
+  TextLinkButton,
 } from 'braid-design-system';
 import Highlight from 'prism-react-renderer';
 import React, { useState } from 'react';
 import { useStyles } from 'sku/react-treat';
 
-import { Prism, prismLanguage, prismTheme } from '../private/Prism';
+import {
+  Prism,
+  displayLanguage,
+  prismLanguage,
+  prismTheme,
+} from '../private/Prism';
+import { ScrollableInline } from '../private/ScrollableInline';
 import {
   CodeSize,
   DEFAULT_SIZE,
   SIZE_TO_CODE_SIZE,
+  SIZE_TO_TABLE_PADDING,
   Size,
 } from '../private/size';
 
@@ -74,10 +83,8 @@ const Lines = ({ codeSize, getTokenProps, lines }: LineProps) => {
   );
 };
 
-const CopyButton = ({ children }: { children: string }) => {
+const CopyButton = ({ children, size }: { children: string; size: Size }) => {
   const [copied, setCopied] = useState<boolean>(false);
-
-  const styles = useStyles(styleRefs);
 
   const copyText = () => {
     if (copied) {
@@ -103,36 +110,30 @@ const CopyButton = ({ children }: { children: string }) => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  return (
-    <Box
-      background={copied ? 'positiveLight' : 'card'}
-      borderRadius="standard"
-      className={styles.buttonOuter}
-      onClick={copyText}
-      padding="xxsmall"
-      transition="touchable"
-      title="Copy to Clipboard"
-    >
-      <Box className={styles.buttonInner} transition="touchable">
-        {copied ? (
-          <IconTick size="xsmall" tone="positive" />
-        ) : (
-          <IconCopy size="xsmall" tone="link" />
-        )}
-      </Box>
-    </Box>
+  const codeSize = SIZE_TO_CODE_SIZE[size];
+
+  return copied ? (
+    <Text size={codeSize} tone="positive" weight="medium">
+      <IconTick alignY="lowercase" /> Copied
+    </Text>
+  ) : (
+    <Text size={codeSize} weight="medium">
+      <TextLinkButton onClick={copyText}>
+        <IconCopy alignY="lowercase" /> Copy
+      </TextLinkButton>
+    </Text>
   );
 };
 
 const GraphQLPlaygroundButton = ({
-  graphqlPlayground,
   children,
+  graphqlPlayground,
+  size,
 }: {
-  graphqlPlayground: string;
   children: string;
+  graphqlPlayground: string;
+  size: Size;
 }) => {
-  const styles = useStyles(styleRefs);
-
   const tryInPlayground = () => {
     const graphqlPlaygroundUrl = new URL(graphqlPlayground);
     graphqlPlaygroundUrl.searchParams.set('query', children);
@@ -140,64 +141,123 @@ const GraphQLPlaygroundButton = ({
     window.open(graphqlPlaygroundUrl.toString(), '_blank');
   };
 
+  const codeSize = SIZE_TO_CODE_SIZE[size];
+
   return (
-    <Box
-      background="card"
-      borderRadius="standard"
-      className={styles.buttonOuter}
-      onClick={tryInPlayground}
-      padding="xxsmall"
-      transition="touchable"
-      title="Try in Playground"
-    >
-      <Box className={styles.buttonInner} transition="touchable">
-        <IconNewWindow size="xsmall" tone="link" />
-      </Box>
-    </Box>
+    <Text size={codeSize} weight="medium">
+      <TextLinkButton onClick={tryInPlayground}>
+        <IconVideo alignY="lowercase" /> Playground
+      </TextLinkButton>
+    </Text>
   );
 };
 
+interface ChildProps {
+  code: string;
+  label?: string;
+  language: string;
+}
+
+const normaliseChild = (child: ChildProps) => ({
+  code: child.code.trim(),
+  label: child.label ?? displayLanguage(child.language),
+  language: prismLanguage(child.language),
+});
+
+type Props = {
+  graphqlPlayground?: string;
+  size?: Size;
+} & (
+  | { children: string; language: string }
+  | {
+      children: ChildProps[];
+      language?: undefined;
+    }
+);
+
 export const CodeBlock = ({
-  children,
+  children: rawChildren,
   language: rawLanguage = 'text',
   graphqlPlayground,
   size = DEFAULT_SIZE,
-}: {
-  children: string;
-  language: string;
-  graphqlPlayground?: string;
-  size?: Size;
-}) => {
+}: Props) => {
   const styles = useStyles(styleRefs);
 
-  const codeValue = children.trim();
-
-  const language = prismLanguage(rawLanguage);
+  const children = (typeof rawChildren === 'string'
+    ? [
+        {
+          code: rawChildren,
+          language: rawLanguage,
+        },
+      ]
+    : rawChildren
+  ).map(normaliseChild);
 
   const codeSize = SIZE_TO_CODE_SIZE[size];
+  const tablePadding = SIZE_TO_TABLE_PADDING[size];
+
+  const [index, setIndex] = useState(0);
+
+  const child = children[index];
 
   const graphqlPlaygroundButton =
-    language === 'graphql' && graphqlPlayground ? (
-      <Box marginLeft="xsmall">
-        <GraphQLPlaygroundButton graphqlPlayground={graphqlPlayground}>
-          {codeValue}
+    child.language === 'graphql' && graphqlPlayground ? (
+      <Box component="span" paddingLeft={tablePadding}>
+        <GraphQLPlaygroundButton
+          graphqlPlayground={graphqlPlayground}
+          size={size}
+        >
+          {child.code}
         </GraphQLPlaygroundButton>
       </Box>
     ) : undefined;
 
   return (
-    <Box className={styles.codeBlock} position="relative">
-      <Highlight
-        Prism={Prism}
-        code={codeValue}
-        language={language}
-        theme={prismTheme}
-      >
-        {({ getTokenProps, tokens }) => (
-          <Box
-            borderRadius="standard"
-            className={styles.codeContainer[codeSize]}
-          >
+    <Stack space={tablePadding}>
+      <ScrollableInline>
+        <Box display="flex" justifyContent="spaceBetween">
+          <Box display="flex">
+            {children.map(({ label }, labelIndex) => (
+              <Box
+                component="span"
+                key={label}
+                paddingLeft={labelIndex === 0 ? undefined : tablePadding}
+              >
+                <Text
+                  size={codeSize}
+                  tone={index === labelIndex ? 'secondary' : undefined}
+                  weight="medium"
+                >
+                  {children.length === 1 || index === labelIndex ? (
+                    label
+                  ) : (
+                    <TextLinkButton onClick={() => setIndex(labelIndex)}>
+                      {label}
+                    </TextLinkButton>
+                  )}
+                </Text>
+              </Box>
+            ))}
+          </Box>
+
+          <Box display="flex">
+            <Box component="span" paddingLeft={tablePadding}>
+              <CopyButton size={size}>{child.code}</CopyButton>
+            </Box>
+
+            {graphqlPlaygroundButton}
+          </Box>
+        </Box>
+      </ScrollableInline>
+
+      <Box borderRadius="standard" className={styles.codeContainer[codeSize]}>
+        <Highlight
+          Prism={Prism}
+          code={child.code}
+          language={child.language}
+          theme={prismTheme}
+        >
+          {({ getTokenProps, tokens }) => (
             <Box display="flex">
               <LineNumbers codeSize={codeSize} count={tokens.length} />
 
@@ -207,14 +267,9 @@ export const CodeBlock = ({
                 lines={tokens}
               />
             </Box>
-          </Box>
-        )}
-      </Highlight>
-
-      <Box display="flex" margin="small" position="absolute" right={0} top={0}>
-        <CopyButton>{codeValue}</CopyButton>
-        {graphqlPlaygroundButton}
+          )}
+        </Highlight>
       </Box>
-    </Box>
+    </Stack>
   );
 };

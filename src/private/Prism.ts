@@ -10,7 +10,20 @@ splunkSplLang(Prism);
 export { Prism } from 'prism-react-renderer';
 export { default as prismTheme } from 'prism-react-renderer/themes/github';
 
-const CODE_LANGUAGE_REPLACEMENTS: Record<string, string> = {
+const DISPLAY_LANGUAGE_REPLACEMENTS: Record<string, string> = {
+  'splunk-spl': 'Splunk SPL',
+  bash: 'Bash',
+  csharp: 'C#',
+  graphql: 'GraphQL',
+  go: 'Go',
+  markdown: 'Markdown',
+  javascript: 'JavaScript',
+  typescript: 'TypeScript',
+  text: 'Text',
+};
+
+const PRISM_LANGUAGE_REPLACEMENTS: Record<string, string> = {
+  'c#': 'csharp',
   gql: 'graphql',
   js: 'javascript',
   jsonc: 'json',
@@ -20,6 +33,15 @@ const CODE_LANGUAGE_REPLACEMENTS: Record<string, string> = {
   ts: 'typescript',
 };
 
-// The Language type is pointless. We extend it, and there is a fallback anyway.
-export const prismLanguage = (language: string) =>
-  (CODE_LANGUAGE_REPLACEMENTS[language] ?? language) as Language;
+export const displayLanguage = (language: string) => {
+  const prism = prismLanguage(language);
+
+  return DISPLAY_LANGUAGE_REPLACEMENTS[prism] ?? prism.toLocaleUpperCase();
+};
+
+export const prismLanguage = (language: string) => {
+  const lower = language.toLocaleLowerCase();
+
+  // This type is pointless. We extend it and there is a fallback anyway.
+  return (PRISM_LANGUAGE_REPLACEMENTS[lower] ?? lower) as Language;
+};
