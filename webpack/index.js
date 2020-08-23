@@ -1,5 +1,6 @@
+const { remarkPlugins } = require('../remark');
+
 const { dangerouslySetWebpackConfig } = require('./config');
-const { remarkPlugins } = require('./remarkPlugins');
 
 module.exports = {
   dangerouslySetWebpackConfig,
