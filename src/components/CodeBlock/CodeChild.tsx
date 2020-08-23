@@ -36,17 +36,17 @@ const determineUniqueLabels = (rawChildren: CodeChildProps[]) => {
     rawChildren.map((child) => child.label ?? displayLanguage(child.language)),
   );
 
-  const initialLabels = children.reduce((map, child) => {
+  const originalLabelCounts = children.reduce((map, child) => {
     map.set(child.label, (map.get(child.label) ?? 0) + 1);
     return map;
   }, new Map<string, number>());
 
-  const finalLabels = new Set<string>();
+  const usedLabels = new Set<string>();
 
   return children.map((child) => {
     let label = child.label;
 
-    while (finalLabels.has(label) || (initialLabels.get(label) ?? 0) > 1) {
+    while (usedLabels.has(label) || (originalLabelCounts.get(label) ?? 0) > 1) {
       const increment = label.match(/ (\d+)$/)?.[1];
 
       label = increment
@@ -54,7 +54,7 @@ const determineUniqueLabels = (rawChildren: CodeChildProps[]) => {
         : `${label} 1`;
     }
 
-    finalLabels.add(label);
+    usedLabels.add(label);
 
     return label;
   });
