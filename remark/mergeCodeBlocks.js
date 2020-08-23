@@ -25,9 +25,9 @@ module.exports.mergeCodeBlocks = () => (tree) =>
 
     const siblings = parent.children.splice(index + 1, siblingCount);
 
-    const nodes = [node, ...siblings];
+    // This must be serialised before mutating `node`
+    const meta = JSON.stringify([node, ...siblings]);
 
-    const base64 = Buffer.from(JSON.stringify(nodes)).toString('base64');
-
-    node.meta = [node.meta, `scoobie="${base64}"`].filter(Boolean).join(' ');
+    node.lang = 'scoobie-merged-code';
+    node.meta = meta;
   });

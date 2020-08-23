@@ -38,12 +38,8 @@ export const createMdxCodeBlock = (size: Size) => ({
 }: Props) => {
   const graphqlPlayground = useGraphQLPlayground();
 
-  let base64: string | undefined;
-
-  if ((base64 = metastring?.match(/scoobie="([^"]+)"/)?.[1])) {
-    const utf8 = Buffer.from(base64, 'base64').toString();
-
-    const data = JSON.parse(utf8) as MdastCode[];
+  if (className === 'language-scoobie-merged-code' && metastring) {
+    const data = JSON.parse(metastring) as MdastCode[];
 
     return (
       <CodeBlock graphqlPlayground={graphqlPlayground} size={size}>
