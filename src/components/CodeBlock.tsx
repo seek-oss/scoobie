@@ -1,165 +1,24 @@
-import {
-  Box,
-  IconCopy,
-  IconTick,
-  IconVideo,
-  Stack,
-  Text,
-  TextLink,
-  TextLinkButton,
-} from 'braid-design-system';
+import { Box, Stack, Text, TextLinkButton } from 'braid-design-system';
 import Highlight from 'prism-react-renderer';
 import React, { useState } from 'react';
 import { useStyles } from 'sku/react-treat';
 
-import {
-  Prism,
-  displayLanguage,
-  prismLanguage,
-  prismTheme,
-} from '../private/Prism';
+import { Prism, prismTheme } from '../private/Prism';
 import { ScrollableInline } from '../private/ScrollableInline';
 import {
-  CodeSize,
   DEFAULT_SIZE,
   SIZE_TO_CODE_SIZE,
   SIZE_TO_TABLE_PADDING,
   Size,
 } from '../private/size';
 
+import { CodeChildProps, normaliseChild } from './CodeBlock/CodeChild';
+import { CopyAction } from './CodeBlock/CopyAction';
+import { GraphQLPlaygroundAction } from './CodeBlock/GraphQLPlaygroundAction';
+import { LineNumbers } from './CodeBlock/LineNumbers';
+import { Lines } from './CodeBlock/Lines';
+
 import * as styleRefs from './CodeBlock.treat';
-
-type Token = Parameters<Highlight['getTokenProps']>[0]['token'];
-
-interface LineNumberProps {
-  codeSize: CodeSize;
-  count: number;
-}
-
-const LineNumbers = ({ count, codeSize }: LineNumberProps) => {
-  const styles = useStyles(styleRefs);
-
-  const numbers = [...new Array(count)].map((_, index) => index + 1);
-
-  return (
-    <Box aria-hidden className={styles.lineNumberContainer} padding="medium">
-      <Stack align="right" space="small">
-        {numbers.map((number) => (
-          <Box className={styles.code[codeSize]} component="pre" key={number}>
-            {number}
-          </Box>
-        ))}
-      </Stack>
-    </Box>
-  );
-};
-
-interface LineProps {
-  codeSize: CodeSize;
-  getTokenProps: Highlight['getTokenProps'];
-  lines: Token[][];
-}
-
-const Lines = ({ codeSize, getTokenProps, lines }: LineProps) => {
-  const styles = useStyles(styleRefs);
-
-  return (
-    <Box padding="medium">
-      <Stack space="small">
-        {lines.map((line, lineIndex) => (
-          <Box
-            className={styles.code[codeSize]}
-            component="pre"
-            key={lineIndex}
-          >
-            {line.map((token, tokenIndex) => {
-              const props = getTokenProps({ token });
-
-              return <Box component="span" {...props} key={tokenIndex} />;
-            })}
-          </Box>
-        ))}
-      </Stack>
-    </Box>
-  );
-};
-
-const CopyButton = ({ children, size }: { children: string; size: Size }) => {
-  const [copied, setCopied] = useState<boolean>(false);
-
-  const copyText = () => {
-    if (copied) {
-      return;
-    }
-
-    setCopied(true);
-
-    const textarea = document.createElement('textarea');
-    textarea.readOnly = true;
-    textarea.style.height = '0';
-    textarea.style.opacity = '0.01';
-    textarea.style.position = 'absolute';
-    textarea.style.zIndex = '-1';
-    textarea.value = children;
-
-    document.body.appendChild(textarea);
-
-    textarea.select();
-    document.execCommand('copy');
-    textarea.remove();
-
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const codeSize = SIZE_TO_CODE_SIZE[size];
-
-  return copied ? (
-    <Text size={codeSize} tone="positive" weight="medium">
-      <IconTick alignY="lowercase" /> Copied
-    </Text>
-  ) : (
-    <Text size={codeSize} weight="medium">
-      <TextLinkButton onClick={copyText}>
-        <IconCopy alignY="lowercase" /> Copy
-      </TextLinkButton>
-    </Text>
-  );
-};
-
-const GraphQLPlaygroundButton = ({
-  children,
-  graphqlPlayground,
-  size,
-}: {
-  children: string;
-  graphqlPlayground: string;
-  size: Size;
-}) => {
-  const url = new URL(graphqlPlayground);
-  url.searchParams.set('query', children);
-
-  const codeSize = SIZE_TO_CODE_SIZE[size];
-
-  return (
-    <Text size={codeSize} weight="medium">
-      <TextLink href={url.toString()} rel="noreferrer" target="_blank">
-        <IconVideo alignY="lowercase" /> Playground
-      </TextLink>
-    </Text>
-  );
-};
-
-interface ChildProps {
-  code: string;
-  label?: string;
-  language: string;
-}
-
-const normaliseChild = (child: ChildProps) => ({
-  code: child.code.trim(),
-  label: child.label ?? displayLanguage(child.language),
-  language: prismLanguage(child.language),
-});
 
 type Props = {
   graphqlPlayground?: string;
@@ -167,7 +26,7 @@ type Props = {
 } & (
   | { children: string; language: string }
   | {
-      children: ChildProps[];
+      children: CodeChildProps[];
       language?: undefined;
     }
 );
@@ -200,12 +59,12 @@ export const CodeBlock = ({
   const graphqlPlaygroundButton =
     child.language === 'graphql' && graphqlPlayground ? (
       <Box component="span" paddingLeft={tablePadding}>
-        <GraphQLPlaygroundButton
+        <GraphQLPlaygroundAction
           graphqlPlayground={graphqlPlayground}
           size={size}
         >
           {child.code}
-        </GraphQLPlaygroundButton>
+        </GraphQLPlaygroundAction>
       </Box>
     ) : undefined;
 
@@ -239,7 +98,7 @@ export const CodeBlock = ({
 
           <Box display="flex">
             <Box component="span" paddingLeft={tablePadding}>
-              <CopyButton size={size}>{child.code}</CopyButton>
+              <CopyAction size={size}>{child.code}</CopyAction>
             </Box>
 
             {graphqlPlaygroundButton}

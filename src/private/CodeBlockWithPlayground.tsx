@@ -1,31 +1,16 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 
 import { CodeBlock } from '../components/CodeBlock';
 
 import { useGraphQLPlayground } from './hooks/graphqlPlayground';
-import { Size } from './size';
+
+type Props = ComponentProps<typeof CodeBlock>;
 
 /**
  * Wraps `<CodeBlock>` with our GraphQL Playground URL
  */
-export const CodeBlockWithPlayground = ({
-  children,
-  language,
-  size,
-}: {
-  children: string;
-  language: string;
-  size: Size;
-}) => {
+export const CodeBlockWithPlayground = (props: Props) => {
   const graphqlPlayground = useGraphQLPlayground();
 
-  return (
-    <CodeBlock
-      language={language}
-      graphqlPlayground={graphqlPlayground}
-      size={size}
-    >
-      {children}
-    </CodeBlock>
-  );
+  return <CodeBlock {...props} graphqlPlayground={graphqlPlayground} />;
 };
