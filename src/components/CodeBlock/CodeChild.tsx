@@ -101,6 +101,26 @@ const inferGraphQLOperationType = ({ code }: CodeChildProps) => {
   return 'Query';
 };
 
+const labeller = createLabeller(
+  determineUniqueLabels,
+  {
+    languages: ['graphql', 'json', 'json'],
+    labels: ([child]) => [
+      inferGraphQLOperationType(child),
+      'Variables',
+      'Result',
+    ],
+  },
+  {
+    languages: ['graphql', 'json'],
+    labels: ([child]) => [inferGraphQLOperationType(child), 'Variables'],
+  },
+  {
+    languages: ['http', 'http'],
+    labels: () => ['Request', 'Response'],
+  },
+);
+
 /**
  * Normalise code nodes with the following operations:
  *
@@ -115,26 +135,6 @@ export const normaliseChildren = (rawChildren: CodeChildProps[]) => {
     label: child.label,
     language: prismLanguage(child.language),
   }));
-
-  const labeller = createLabeller(
-    determineUniqueLabels,
-    {
-      languages: ['graphql', 'json', 'json'],
-      labels: ([child]) => [
-        inferGraphQLOperationType(child),
-        'Variables',
-        'Result',
-      ],
-    },
-    {
-      languages: ['graphql', 'json'],
-      labels: ([child]) => [inferGraphQLOperationType(child), 'Variables'],
-    },
-    {
-      languages: ['http', 'http'],
-      labels: () => ['Request', 'Response'],
-    },
-  );
 
   const labels = labeller(children);
 
