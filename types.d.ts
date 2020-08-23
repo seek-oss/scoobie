@@ -26,7 +26,7 @@ declare namespace MDX {
   type ProviderComponents = Partial<{
     a: ProviderComponent<{ href: string; title?: string }>;
     blockquote: ProviderComponent;
-    code: ProviderComponent<{ className?: string }>;
+    code: ProviderComponent<{ className?: string; metastring?: string }>;
     delete: ProviderComponent;
     em: ProviderComponent;
     h1: ProviderComponent<{ id: string }>;
