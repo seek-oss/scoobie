@@ -7,7 +7,8 @@ import { InlineCode } from '../components/InlineCode';
 import { SmartTextLink } from '../components/SmartTextLink';
 import { useImageStyles } from '../hooks/useImageStyles';
 
-import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
+import { HorizontalRule } from './HorizontalRule';
+import { createMdxCodeBlock } from './MdxCodeBlock';
 import { createSpacedHeading } from './SpacedHeading';
 import { MdxTable } from './Table';
 import { TableCell } from './TableCell';
@@ -32,15 +33,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     blockquote: ({ children }) => (
       <Blockquote size={size}>{children}</Blockquote>
     ),
-    code: ({ children, className = 'text' }) => {
-      const language = className.replace(/^language-/, '');
-
-      return (
-        <CodeBlockWithPlayground language={language} size={size}>
-          {String(children)}
-        </CodeBlockWithPlayground>
-      );
-    },
+    code: createMdxCodeBlock(size),
     inlineCode: InlineCode,
     h1: createSpacedHeading(1),
     h2: createSpacedHeading(2),
@@ -48,6 +41,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     h4: createSpacedHeading(4),
     h5: createSpacedHeading(5),
     h6: createSpacedHeading(6),
+    hr: HorizontalRule,
     img: (props) => (
       <Box {...props} className={imageStyles.img} component="img" />
     ),

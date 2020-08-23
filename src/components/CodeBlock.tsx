@@ -12,7 +12,7 @@ import {
   Size,
 } from '../private/size';
 
-import { CodeChildProps, normaliseChild } from './CodeBlock/CodeChild';
+import { CodeChildProps, normaliseChildren } from './CodeBlock/CodeChild';
 import { CopyAction } from './CodeBlock/CopyAction';
 import { GraphQLPlaygroundAction } from './CodeBlock/GraphQLPlaygroundAction';
 import { LineNumbers } from './CodeBlock/LineNumbers';
@@ -24,30 +24,38 @@ type Props = {
   graphqlPlayground?: string;
   size?: Size;
 } & (
-  | { children: string; language: string }
+  | {
+      children: string;
+      label?: string;
+      language?: string;
+    }
   | {
       children: CodeChildProps[];
+      label?: undefined;
       language?: undefined;
     }
 );
 
 export const CodeBlock = ({
   children: rawChildren,
-  language: rawLanguage = 'text',
+  label: rawLabel,
+  language: rawLanguage,
   graphqlPlayground,
   size = DEFAULT_SIZE,
 }: Props) => {
   const styles = useStyles(styleRefs);
 
-  const children = (typeof rawChildren === 'string'
-    ? [
-        {
-          code: rawChildren,
-          language: rawLanguage,
-        },
-      ]
-    : rawChildren
-  ).map(normaliseChild);
+  const children = normaliseChildren(
+    typeof rawChildren === 'string'
+      ? [
+          {
+            code: rawChildren,
+            label: rawLabel,
+            language: rawLanguage,
+          },
+        ]
+      : rawChildren,
+  );
 
   const codeSize = SIZE_TO_CODE_SIZE[size];
   const tablePadding = SIZE_TO_TABLE_PADDING[size];
