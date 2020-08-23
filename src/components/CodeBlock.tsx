@@ -20,21 +20,13 @@ import { Lines } from './CodeBlock/Lines';
 
 import * as styleRefs from './CodeBlock.treat';
 
-type Props = {
+interface Props {
+  children: CodeChildProps[] | string;
   graphqlPlayground?: string;
+  label?: string;
+  language?: string;
   size?: Size;
-} & (
-  | {
-      children: string;
-      label?: string;
-      language?: string;
-    }
-  | {
-      children: CodeChildProps[];
-      label?: undefined;
-      language?: undefined;
-    }
-);
+}
 
 export const CodeBlock = ({
   children: rawChildren,
