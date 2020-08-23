@@ -5,6 +5,7 @@ import {
   IconVideo,
   Stack,
   Text,
+  TextLink,
   TextLinkButton,
 } from 'braid-design-system';
 import Highlight from 'prism-react-renderer';
@@ -134,20 +135,16 @@ const GraphQLPlaygroundButton = ({
   graphqlPlayground: string;
   size: Size;
 }) => {
-  const tryInPlayground = () => {
-    const graphqlPlaygroundUrl = new URL(graphqlPlayground);
-    graphqlPlaygroundUrl.searchParams.set('query', children);
-
-    window.open(graphqlPlaygroundUrl.toString(), '_blank');
-  };
+  const url = new URL(graphqlPlayground);
+  url.searchParams.set('query', children);
 
   const codeSize = SIZE_TO_CODE_SIZE[size];
 
   return (
     <Text size={codeSize} weight="medium">
-      <TextLinkButton onClick={tryInPlayground}>
+      <TextLink href={url.toString()} rel="noreferrer" target="_blank">
         <IconVideo alignY="lowercase" /> Playground
-      </TextLinkButton>
+      </TextLink>
     </Text>
   );
 };
