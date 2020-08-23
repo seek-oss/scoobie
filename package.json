@@ -36,6 +36,7 @@
   },
   "files": [
     "src",
+    "remark",
     "webpack",
     "types.d.ts",
     "typography.ts"
