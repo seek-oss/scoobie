@@ -1,9 +1,12 @@
 import { Language, Prism } from 'prism-react-renderer';
 // @ts-ignore
+import csharpLang from 'refractor/lang/csharp';
+// @ts-ignore
 import httpLang from 'refractor/lang/http';
 // @ts-ignore
 import splunkSplLang from 'refractor/lang/splunk-spl';
 
+csharpLang(Prism);
 httpLang(Prism);
 splunkSplLang(Prism);
 
@@ -16,12 +19,13 @@ const DISPLAY_LANGUAGE_REPLACEMENTS: Record<string, string> = {
   'splunk-spl': 'Splunk SPL',
   bash: 'Bash',
   csharp: 'C#',
-  graphql: 'GraphQL',
   go: 'Go',
-  markdown: 'Markdown',
+  graphql: 'GraphQL',
+  java: 'Java',
   javascript: 'JavaScript',
-  typescript: 'TypeScript',
+  markdown: 'Markdown',
   text: 'Text',
+  typescript: 'TypeScript',
 };
 
 const PRISM_LANGUAGE_REPLACEMENTS: Record<string, string> = {
