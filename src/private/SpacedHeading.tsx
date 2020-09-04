@@ -47,7 +47,7 @@ export const createSpacedHeading = (level: HeadingLevel) => {
           {children}{' '}
           <SmartTextLink href={`#${id}`}>
             <Box className={styles.headingAnchor} component="span">
-              <IconLink />
+              <IconLink alignY="lowercase" />
             </Box>
           </SmartTextLink>
         </LevelHeading>
