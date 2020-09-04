@@ -9,6 +9,6 @@ interface Props {
 
 export const ExternalTextLink = ({ children, href, title }: Props) => (
   <TextLink href={href} title={title} rel="noreferrer" target="_blank">
-    {children} <IconNewWindow />
+    {children} <IconNewWindow alignY="lowercase" />
   </TextLink>
 );
