@@ -19,7 +19,7 @@ declare namespace MDX {
 
   // Braid's type-level strictness does not play well with dynamic ReactNodes,
   // so we simply lie to TypeScript.
-  type ProviderComponent<Props = {}> = React.ComponentType<
+  type ProviderComponent<Props = Record<string, unknown>> = React.ComponentType<
     { children: any } & Props
   >;
 
