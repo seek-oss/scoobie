@@ -17,27 +17,47 @@ const DEFAULT_LANGUAGE = 'text' as Language;
 
 const DISPLAY_LANGUAGE_REPLACEMENTS: Record<string, string> = {
   'splunk-spl': 'Splunk SPL',
-  bash: 'Bash',
   csharp: 'C#',
-  go: 'Go',
+  fsharp: 'C#',
   graphql: 'GraphQL',
-  java: 'Java',
+  http: 'HTTP',
   javascript: 'JavaScript',
-  markdown: 'Markdown',
-  text: 'Text',
+  json: 'JSON',
+  jsx: 'JSX',
+  php: 'PHP',
+  sql: 'SQL',
+  toml: 'TOML',
+  tsx: 'TSX',
   typescript: 'TypeScript',
+  yaml: 'YAML',
 };
 
 const PRISM_LANGUAGE_REPLACEMENTS: Record<string, string> = {
   'c#': 'csharp',
+  cs: 'csharp',
+  dotnet: 'csharp',
   gql: 'graphql',
   js: 'javascript',
   jsonc: 'json',
+  md: 'markdown',
   sh: 'bash',
   shell: 'bash',
   splunk: 'splunk-spl',
   ts: 'typescript',
+  vb: 'visual-basic',
+  vba: 'visual-basic',
+  yml: 'yaml',
 };
+
+const titleCase = (kebabcased: string) =>
+  kebabcased
+    .split('-')
+    .map((segment) =>
+      segment
+        ? `${segment[0].toLocaleUpperCase()}${segment.slice(1)}`
+        : segment,
+    )
+    .join(' ');
 
 export const prismLanguage = (language?: string) => {
   const lower = (language ?? DEFAULT_LANGUAGE).toLocaleLowerCase();
@@ -49,5 +69,5 @@ export const prismLanguage = (language?: string) => {
 export const displayLanguage = (language?: string) => {
   const prism = prismLanguage(language);
 
-  return DISPLAY_LANGUAGE_REPLACEMENTS[prism] ?? prism.toLocaleUpperCase();
+  return DISPLAY_LANGUAGE_REPLACEMENTS[prism] ?? titleCase(prism);
 };
