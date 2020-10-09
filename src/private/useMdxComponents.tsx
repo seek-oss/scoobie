@@ -9,6 +9,7 @@ import { useImageStyles } from '../hooks/useImageStyles';
 
 import { HorizontalRule } from './HorizontalRule';
 import { createMdxCodeBlock } from './MdxCodeBlock';
+import { MdxOrderedList } from './MdxOrderedList';
 import { createSpacedHeading } from './SpacedHeading';
 import { MdxTable } from './Table';
 import { TableCell } from './TableCell';
@@ -46,11 +47,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
       <Box {...props} className={imageStyles.img} component="img" />
     ),
     li: ({ children }) => <Stack space={space}>{children}</Stack>,
-    ol: ({ children, start }) => (
-      <List size={size} space={space} start={start} type="number">
-        {children}
-      </List>
-    ),
+    ol: (props) => <MdxOrderedList {...props} size={size} />,
     // Don't try to be clever here, this is what you want. No, really. `Text`
     // renders inline formatting correctly and fixes the line height. If some
     // node is not wrapped in a paragraph and it should be, wrap it using a
