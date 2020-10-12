@@ -31,7 +31,7 @@
     "react": "16.13.1",
     "react-helmet": "6.1.0",
     "react-router-dom": "5.2.0",
-    "semantic-release": "17.1.2",
+    "semantic-release": "17.2.1",
     "sku": "10.5.4"
   },
   "files": [
