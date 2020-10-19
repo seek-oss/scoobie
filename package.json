@@ -28,7 +28,7 @@
     "@types/react-helmet": "6.1.0",
     "braid-design-system": "29.11.1",
     "loki": "0.25.1",
-    "react": "16.13.1",
+    "react": "16.14.0",
     "react-helmet": "6.1.0",
     "react-router-dom": "5.2.0",
     "semantic-release": "17.2.1",
