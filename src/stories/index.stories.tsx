@@ -4,6 +4,7 @@ import { Alert, List, Stack, Text } from 'braid-design-system';
 import React, { Fragment } from 'react';
 import { boolean, select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
+
 import {
   Blockquote,
   CodeBlock,
@@ -14,7 +15,7 @@ import {
   TableRow,
   TocRenderer,
   WrapperRenderer,
-} from 'src';
+} from '..';
 
 import { withBraid } from './decorator';
 import BlockquoteMarkdown from './markdowns/blockquote.mdx';
