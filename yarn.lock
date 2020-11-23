@@ -2799,6 +2799,11 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
+"@types/uuid@^3.4.6":
+  version "3.4.9"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.9.tgz#fcf01997bbc9f7c09ae5f91383af076d466594e1"
+  integrity sha512-XDwyIlt/47l2kWLTzw/mtrpLdB+GPSskR2n/PIcPn+VYhVO77rGhRncIR5GPU0KRzXuqkDO+J5qqrG0Y8P6jzQ==
+
 "@types/webpack-env@^1.15.0":
   version "1.15.3"
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.15.3.tgz#fb602cd4c2f0b7c0fb857e922075fdf677d25d84"
@@ -4403,16 +4408,17 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@29.17.0:
-  version "29.17.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-29.17.0.tgz#37b506c89c890f8ec63d3d4c9f0bfc52597f93d3"
-  integrity sha512-8hKJVgIK+fsqw2Hs1cQxYnGUDqGuqlt3qK1fdISssQZ5zIiH6tAc2zISkqXCkiH9s/MbQndgnaIV6ocANgH/eQ==
+braid-design-system@29.17.1:
+  version "29.17.1"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-29.17.1.tgz#0d383fe1e04d658cab674ae182ac2c127f03675a"
+  integrity sha512-GCEh31O3viZ4CGoZvTLLIYjbI1UN+LWkjiRkSSAiXBLj68RzLqz92WsjpTHQkzWUu3ejztE9/iqhWFjH7DZOQw==
   dependencies:
     "@types/autosuggest-highlight" "^3.1.0"
     "@types/classnames" "^2.2.8"
     "@types/dedent" "^0.7.0"
     "@types/lodash" "^4.14.132"
     "@types/react" "^16.8.8"
+    "@types/uuid" "^3.4.6"
     assert "^2.0.0"
     autosuggest-highlight "^3.1.1"
     capsize "^1.1.0"
@@ -4428,6 +4434,7 @@ braid-design-system@29.17.0:
     react-keyed-flatten-children "^1.2.0"
     react-remove-scroll "^2.4.0"
     utility-types "^3.7.0"
+    uuid "^3.3.3"
 
 brorand@^1.0.1:
   version "1.1.0"
