@@ -22,7 +22,7 @@
     "unist-util-visit": "^2.0.2"
   },
   "devDependencies": {
-    "@storybook/addons": "5.3.21",
+    "@storybook/addons": "6.1.3",
     "@storybook/storybook-deployer": "2.8.7",
     "@types/react": "17.0.0",
     "@types/react-helmet": "6.1.0",
