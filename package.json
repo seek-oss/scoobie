@@ -27,7 +27,7 @@
     "@types/react": "17.0.0",
     "@types/react-helmet": "6.1.0",
     "braid-design-system": "29.17.3",
-    "loki": "0.25.1",
+    "loki": "0.26.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-helmet": "6.1.0",
