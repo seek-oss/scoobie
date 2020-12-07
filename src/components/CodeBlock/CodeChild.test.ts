@@ -3,19 +3,22 @@ import { normaliseChildren } from './CodeChild';
 describe('normaliseChildren', () => {
   it('handles partial props', () =>
     expect(
-      normaliseChildren([
-        {
-          code: '1',
-        },
-        {
-          code: '2',
-          language: 'gQL',
-        },
-        {
-          code: '3',
-          label: 'Gql',
-        },
-      ]),
+      normaliseChildren(
+        [
+          {
+            code: '  1',
+          },
+          {
+            code: '2  ',
+            language: 'gQL',
+          },
+          {
+            code: '\n3\n',
+            label: 'Gql',
+          },
+        ],
+        true,
+      ),
     ).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -36,18 +39,61 @@ describe('normaliseChildren', () => {
       ]
     `));
 
+  it('handles disabled trimming', () =>
+    expect(
+      normaliseChildren(
+        [
+          {
+            code: '  1',
+          },
+          {
+            code: '2  ',
+            language: 'gQL',
+          },
+          {
+            code: '\n3\n',
+            label: 'Gql',
+          },
+        ],
+        false,
+      ),
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "code": "  1",
+          "label": "Text",
+          "language": "text",
+        },
+        Object {
+          "code": "2  ",
+          "label": "GraphQL",
+          "language": "graphql",
+        },
+        Object {
+          "code": "
+      3
+      ",
+          "label": "Gql",
+          "language": "text",
+        },
+      ]
+    `));
+
   it('infers GraphQL x2 labels', () =>
     expect(
-      normaliseChildren([
-        {
-          code: '1',
-          language: 'graphql',
-        },
-        {
-          code: '2',
-          language: 'json',
-        },
-      ]),
+      normaliseChildren(
+        [
+          {
+            code: '1',
+            language: 'graphql',
+          },
+          {
+            code: '2',
+            language: 'json',
+          },
+        ],
+        true,
+      ),
     ).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -65,20 +111,23 @@ describe('normaliseChildren', () => {
 
   it('infers GraphQL x3 labels', () =>
     expect(
-      normaliseChildren([
-        {
-          code: '1',
-          language: 'graphql',
-        },
-        {
-          code: '2',
-          language: 'json',
-        },
-        {
-          code: '3',
-          language: 'json',
-        },
-      ]),
+      normaliseChildren(
+        [
+          {
+            code: '1',
+            language: 'graphql',
+          },
+          {
+            code: '2',
+            language: 'json',
+          },
+          {
+            code: '3',
+            language: 'json',
+          },
+        ],
+        true,
+      ),
     ).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -101,16 +150,19 @@ describe('normaliseChildren', () => {
 
   it('infers HTTP labels', () =>
     expect(
-      normaliseChildren([
-        {
-          code: '1',
-          language: 'http',
-        },
-        {
-          code: '2',
-          language: 'http',
-        },
-      ]),
+      normaliseChildren(
+        [
+          {
+            code: '1',
+            language: 'http',
+          },
+          {
+            code: '2',
+            language: 'http',
+          },
+        ],
+        true,
+      ),
     ).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -128,18 +180,21 @@ describe('normaliseChildren', () => {
 
   it('preserves unique labels', () =>
     expect(
-      normaliseChildren([
-        {
-          code: '1',
-          language: 'http',
-          label: 'Response',
-        },
-        {
-          code: '2',
-          language: 'http',
-          label: 'Request',
-        },
-      ]),
+      normaliseChildren(
+        [
+          {
+            code: '1',
+            language: 'http',
+            label: 'Response',
+          },
+          {
+            code: '2',
+            language: 'http',
+            label: 'Request',
+          },
+        ],
+        true,
+      ),
     ).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -157,24 +212,27 @@ describe('normaliseChildren', () => {
 
   it('overwrites non-unique labels', () =>
     expect(
-      normaliseChildren([
-        {
-          code: '1',
-          label: 'Response',
-        },
-        {
-          code: '2',
-          label: 'Response',
-        },
-        {
-          code: '3',
-          label: 'Response 1',
-        },
-        {
-          code: '4',
-          label: 'Response 1 1',
-        },
-      ]),
+      normaliseChildren(
+        [
+          {
+            code: '1',
+            label: 'Response',
+          },
+          {
+            code: '2',
+            label: 'Response',
+          },
+          {
+            code: '3',
+            label: 'Response 1',
+          },
+          {
+            code: '4',
+            label: 'Response 1 1',
+          },
+        ],
+        true,
+      ),
     ).toMatchInlineSnapshot(`
       Array [
         Object {
