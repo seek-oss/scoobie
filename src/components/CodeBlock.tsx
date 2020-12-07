@@ -26,6 +26,7 @@ interface Props {
   label?: string;
   language?: string;
   size?: Size;
+  trim?: boolean;
 }
 
 export const CodeBlock = ({
@@ -34,6 +35,7 @@ export const CodeBlock = ({
   language: rawLanguage,
   graphqlPlayground,
   size = DEFAULT_SIZE,
+  trim = true,
 }: Props) => {
   const styles = useStyles(styleRefs);
 
@@ -47,6 +49,7 @@ export const CodeBlock = ({
           },
         ]
       : rawChildren,
+    trim,
   );
 
   const codeSize = SIZE_TO_CODE_SIZE[size];
