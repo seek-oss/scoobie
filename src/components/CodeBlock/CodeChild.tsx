@@ -129,9 +129,12 @@ const labeller = createLabeller(
  * - Infer label based on language(s)
  * - Ensure label uniqueness
  */
-export const normaliseChildren = (rawChildren: CodeChildProps[]) => {
+export const normaliseChildren = (
+  rawChildren: CodeChildProps[],
+  trim: boolean,
+) => {
   const children = rawChildren.map((child) => ({
-    code: child.code.trim(),
+    code: trim ? child.code.trim() : child.code,
     label: child.label,
     language: prismLanguage(child.language),
   }));

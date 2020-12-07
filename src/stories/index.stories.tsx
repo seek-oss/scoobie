@@ -53,6 +53,7 @@ storiesOf('CodeBlock', module)
         'https://graphql.seek.com/graphql',
       )}
       size={select('size', ['standard', 'large'], 'standard')}
+      trim={boolean('trim', true)}
     >
       {text('children', 'query {\n  version\n}\n')}
     </CodeBlock>
@@ -64,6 +65,7 @@ storiesOf('CodeBlock', module)
         'https://graphql.seek.com/graphql',
       )}
       size={select('size', ['standard', 'large'], 'standard')}
+      trim={boolean('trim', true)}
     >
       {[
         {
