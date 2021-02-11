@@ -4388,10 +4388,10 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@29.25.0:
-  version "29.25.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-29.25.0.tgz#b636f1ca8406a6f5ff962b3238d8729944a7326b"
-  integrity sha512-RC2cT/Mqh/3jx1ArWQEN3pzUmsVQViz3xFR7PzujtVYLlYT/53MX3UkQcGV50oIe55fKnMD9AabLqq/fFFYjyw==
+braid-design-system@29.26.0:
+  version "29.26.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-29.26.0.tgz#541974886e6c30cdd224c746db722cf591f974a4"
+  integrity sha512-Kjbrq2VyI1vz6m3YkGIZ5xj5bVaMbTkvaog3PDPqOCnXbYNxcUMOYqckPZ8MgdkPLfphpeMZtbDwvQIiUT6aJQ==
   dependencies:
     "@types/autosuggest-highlight" "^3.1.1"
     "@types/classnames" "^2.2.11"
