@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { select, text } from 'sku/@storybook/addon-knobs';
 import { addDecorator } from 'sku/@storybook/react';
 
-import { MdxProvider } from '..';
+import { MdxProvider, ScoobieLink } from '..';
 import { robotoHref, robotoMonoHref } from '../../typography';
 import { DEFAULT_SIZE, SIZES } from '../private/size';
 
@@ -13,6 +13,7 @@ type DecoratorFunction = Parameters<typeof addDecorator>[0];
 
 export const withBraid: DecoratorFunction = (story) => (
   <BraidLoadableProvider
+    linkComponent={ScoobieLink}
     themeName={select(
       'BraidLoadableProvider.themeName',
       [

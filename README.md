@@ -36,6 +36,7 @@ yarn add --exact scoobie
   - [InlineCode](#inlinecode)
   - [InternalLink](#internallink)
   - [MdxProvider](#mdxprovider)
+  - [ScoobieLink](#scoobielink)
   - [SmartTextLink](#smarttextlink)
   - [Table](#table)
   - [TableRow](#tablerow)
@@ -131,18 +132,19 @@ Nest your Markdown components within an [MdxProvider](#mdxprovider):
 ```tsx
 import 'braid-design-system/reset';
 
-import { BraidLoadableProvider } from 'braid-design-system';
+import { BraidProvider } from 'braid-design-system';
+import apacTheme from 'braid-design-system/themes/apac';
 import React from 'react';
-import { MdxProvider } from 'scoobie';
+import { MdxProvider, ScoobieLink } from 'scoobie';
 
 import { ContentWithPointlessDiv } from './SomeFile.tsx';
 
-export const App = ({ site }: { site: string }) => (
-  <BraidLoadableProvider themeName={site}>
+export const App = () => (
+  <BraidProvider linkComponent={ScoobieLink} theme={apacTheme}>
     <MdxProvider>
       <ContentWithPointlessDiv />
     </MdxProvider>
-  </BraidLoadableProvider>
+  </BraidProvider>
 );
 ```
 
@@ -280,11 +282,11 @@ Render an internal link with the same opinions as our [MdxProvider](#mdxprovider
 - Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
   and pass through the `v` URL parameter for UI version switching
 
-Unlike [SmartTextLink](#smarttextlink), this is not bound to a parent [Text] as it has no underlying [TextLinkRenderer].
+Unlike [SmartTextLink](#smarttextlink), this is not bound to a parent [Text] as it has no underlying [TextLink].
 It can be used to make complex components navigable rather than just sections of text.
 
 [text]: https://seek-oss.github.io/braid-design-system/components/Text/
-[textlinkrenderer]: https://seek-oss.github.io/braid-design-system/components/TextLinkRenderer/
+[textlink]: https://seek-oss.github.io/braid-design-system/components/TextLink/
 
 ```tsx
 import { Stack, Text } from 'braid-design-system';
@@ -305,33 +307,56 @@ export const SomeComplexLinkElement = () => (
 ### MdxProvider
 
 Provide a base collection of [Braid]-styled renderers for child MDX documents.
+This expects with [ScoobieLink](#scoobielink).
 
 ```tsx
-import 'braid-design-system/reset';
-
-import { BraidLoadableProvider, Card } from 'braid-design-system';
+import { BraidProvider, Card } from 'braid-design-system';
+import apacTheme from 'braid-design-system/themes/apac';
 import React from 'react';
-import { MdxProvider } from 'scoobie';
+import { MdxProvider, ScoobieLink } from 'scoobie';
 
 import Content from './Content.mdx';
 
-export const App = ({ site }: { site: string }) => (
-  <BraidLoadableProvider themeName={site}>
+export const Component = () => (
+  <BraidProvider linkComponent={ScoobieLink} theme={apacTheme}>
     <MdxProvider>
       <Card>
         <Content />
       </Card>
     </MdxProvider>
-  </BraidLoadableProvider>
+  </BraidProvider>
 );
 ```
+
+### ScoobieLink
+
+Render all underlying links as follows:
+
+- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
+  and pass through the `v` URL parameter for UI version switching
+- External links open in a new tab
+
+This should be supplied to [BraidProvider] as the custom `linkComponent`:
+
+```tsx
+import { BraidProvider, TextLink } from 'braid-design-system';
+import apacTheme from 'braid-design-system/themes/apac';
+import React from 'react';
+import { ScoobieLink } from 'scoobie';
+
+export const Component = () => (
+  <BraidProvider linkComponent={ScoobieLink} theme={apacTheme}>
+    <TextLink href="/root-relative">Internal link</TextLink>
+  </BraidProvider>
+);
+```
+
+[braidprovider]: https://seek-oss.github.io/braid-design-system/components/BraidProvider
 
 ### SmartTextLink
 
 Render a text link with the same opinions as our [MdxProvider](#mdxprovider):
 
-- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
-  and pass through the `v` URL parameter for UI version switching
 - External links open in a new tab and have an [IconNewWindow] suffix
 
 [react-router-hash-link]: https://github.com/rafrex/react-router-hash-link
