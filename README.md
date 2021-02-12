@@ -307,7 +307,8 @@ export const SomeComplexLinkElement = () => (
 ### MdxProvider
 
 Provide a base collection of [Braid]-styled renderers for child MDX documents.
-This expects with [ScoobieLink](#scoobielink).
+
+This should be paired with [ScoobieLink](#scoobielink) for proper internal link rendering.
 
 ```tsx
 import { BraidProvider, Card } from 'braid-design-system';
