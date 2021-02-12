@@ -1,4 +1,26 @@
-import { parseInternalHref } from './InternalTextLink';
+import { isExternalHref, parseInternalHref } from './url';
+
+describe('isExternalHref', () => {
+  test.each`
+    href                     | expected
+    ${'ftp://example.com'}   | ${true}
+    ${'http://example.com'}  | ${true}
+    ${'https://example.com'} | ${true}
+    ${'//example.com'}       | ${true}
+    ${'/'}                   | ${false}
+    ${'example.com'}         | ${false}
+    ${'.'}                   | ${false}
+    ${'..'}                  | ${false}
+    ${'example.com/'}        | ${false}
+    ${'./'}                  | ${false}
+    ${'../'}                 | ${false}
+    ${'/path'}               | ${false}
+    ${'/.'}                  | ${false}
+    ${'/..'}                 | ${false}
+  `('$href', ({ href, expected }) =>
+    expect(isExternalHref(href)).toBe(expected),
+  );
+});
 
 describe('parseInternalHref', () => {
   it('preferences the v URL parameter from location', () => {

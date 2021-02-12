@@ -1,10 +1,5 @@
 import url from 'url';
 
-import { TextLinkRenderer } from 'braid-design-system';
-import React, { ReactNode } from 'react';
-
-import { InternalLink } from '../components/InternalLink';
-
 const URL = url.URL ?? window.URL;
 const URLSearchParams = url.URLSearchParams ?? window.URLSearchParams;
 
@@ -52,18 +47,5 @@ export const parseInternalHref = (
   };
 };
 
-interface Props {
-  children: ReactNode;
-  href: string;
-  title?: string;
-}
-
-export const InternalTextLink = ({ children, href, title }: Props) => (
-  <TextLinkRenderer>
-    {(rendererProps) => (
-      <InternalLink {...rendererProps} href={href} title={title} reset={false}>
-        {children}
-      </InternalLink>
-    )}
-  </TextLinkRenderer>
-);
+export const isExternalHref = (href: string) =>
+  /^[a-z][a-z0-9+.-]*:|^\/\//i.test(href);
