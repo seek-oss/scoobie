@@ -12,7 +12,7 @@ export const ScoobieLink = makeLinkComponent(
         {children}
       </a>
     ) : (
-      <InternalLink {...restProps} href={href} innerRef={ref}>
+      <InternalLink {...restProps} href={href} innerRef={ref} reset={false}>
         {children}
       </InternalLink>
     ),
