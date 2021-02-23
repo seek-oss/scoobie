@@ -26,7 +26,7 @@
     "@storybook/storybook-deployer": "2.8.7",
     "@types/react": "17.0.2",
     "@types/react-helmet": "6.1.0",
-    "braid-design-system": "29.28.1",
+    "braid-design-system": "29.29.1",
     "loki": "0.28.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
