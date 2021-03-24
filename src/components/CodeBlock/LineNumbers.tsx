@@ -20,8 +20,8 @@ export const LineNumbers = ({ count, codeSize }: Props) => {
     <Box aria-hidden className={styles.lineNumberContainer} padding="medium">
       <Stack align="right" space="small">
         {numbers.map((number) => (
-          <Box className={styles.code[codeSize]} component="pre" key={number}>
-            {number}
+          <Box className={styles.code[codeSize]} key={number}>
+            <Box component="pre">{number}</Box>
           </Box>
         ))}
       </Stack>

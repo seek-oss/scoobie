@@ -22,16 +22,14 @@ export const Lines = ({ codeSize, getTokenProps, lines }: Props) => {
     <Box padding="medium">
       <Stack space="small">
         {lines.map((line, lineIndex) => (
-          <Box
-            className={styles.code[codeSize]}
-            component="pre"
-            key={lineIndex}
-          >
-            {line.map((token, tokenIndex) => {
-              const props = getTokenProps({ token });
+          <Box className={styles.code[codeSize]} key={lineIndex}>
+            <Box component="pre">
+              {line.map((token, tokenIndex) => {
+                const props = getTokenProps({ token });
 
-              return <Box component="span" {...props} key={tokenIndex} />;
-            })}
+                return <Box component="span" {...props} key={tokenIndex} />;
+              })}
+            </Box>
           </Box>
         ))}
       </Stack>
