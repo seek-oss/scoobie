@@ -14,13 +14,17 @@ import * as styleRefs from './Table.treat';
 
 interface BaseTableProps {
   children: ReactNode;
+  width?: 'full';
 }
 
-export const BaseTable = ({ children }: BaseTableProps) => {
+export const BaseTable = ({ children, width }: BaseTableProps) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <Box component="table" className={styles.table}>
+    <Box
+      component="table"
+      className={{ [styles.table]: true, [styles.fullWidth]: width === 'full' }}
+    >
       {children}
     </Box>
   );

@@ -185,6 +185,7 @@ storiesOf('Table', module)
       }
       size={select('size', ['standard', 'large'], 'standard')}
       type="stripe"
+      width={select('width', { undefined, full: 'full' }, undefined)}
     >
       <TableRow>
         <Text>This is body cell A1.</Text>
@@ -198,7 +199,12 @@ storiesOf('Table', module)
     </Table>
   ))
   .add('Subtle', () => (
-    <Table header={['Column A', 'Column B']} type="subtle">
+    <Table
+      header={['Column A', 'Column B']}
+      size={select('size', ['standard', 'large'], 'standard')}
+      type="subtle"
+      width={select('width', { undefined, full: 'full' }, undefined)}
+    >
       <TableRow>
         <Fragment>This is body cell A1.</Fragment>
         <Fragment>B1</Fragment>
