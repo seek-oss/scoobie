@@ -18,6 +18,7 @@ interface Props {
   header: ComponentProps<typeof Stack>['children'] | string[];
   size?: Size;
   type?: TableType;
+  width?: 'full';
 }
 
 export const Table = ({
@@ -26,8 +27,9 @@ export const Table = ({
   header,
   size = DEFAULT_SIZE,
   type = DEFAULT_TABLE_TYPE,
+  width,
 }: Props) => (
-  <BaseTable>
+  <BaseTable width={width}>
     <TableContext.Provider
       value={{
         align,
