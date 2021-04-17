@@ -8,6 +8,7 @@ import { storiesOf } from 'sku/@storybook/react';
 import {
   Blockquote,
   CodeBlock,
+  CopyableText,
   InlineCode,
   InternalLink,
   SmartTextLink,
@@ -85,6 +86,30 @@ storiesOf('CodeBlock', module)
         },
       ]}
     </CodeBlock>
+  ))
+  .addDecorator(withBraid);
+
+storiesOf('CopyableText', module)
+  .add('Custom', () => (
+    <CopyableText
+      copiedLabel={select(
+        'copiedLabel',
+        { undefined, custom: 'Custom copied label' },
+        undefined,
+      )}
+      copyLabel={select(
+        'copyLabel',
+        { undefined, custom: 'Custom copy label' },
+        undefined,
+      )}
+      size={select(
+        'size',
+        ['xsmall', 'small', 'standard', 'large'],
+        'standard',
+      )}
+    >
+      {text('children', 'copy me')}
+    </CopyableText>
   ))
   .addDecorator(withBraid);
 
