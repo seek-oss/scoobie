@@ -13,10 +13,10 @@ import {
 } from '../private/size';
 
 import { CodeChildProps, normaliseChildren } from './CodeBlock/CodeChild';
-import { CopyAction } from './CodeBlock/CopyAction';
 import { GraphQLPlaygroundAction } from './CodeBlock/GraphQLPlaygroundAction';
 import { LineNumbers } from './CodeBlock/LineNumbers';
 import { Lines } from './CodeBlock/Lines';
+import { CopyableText } from './CopyableText';
 
 import * as styleRefs from './CodeBlock.treat';
 
@@ -101,7 +101,7 @@ export const CodeBlock = ({
 
           <Box display="flex">
             <Box component="span" paddingLeft={tablePadding}>
-              <CopyAction size={size}>{child.code}</CopyAction>
+              <CopyableText size={codeSize}>{child.code}</CopyableText>
             </Box>
 
             {graphqlPlaygroundButton}

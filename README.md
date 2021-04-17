@@ -33,6 +33,7 @@ yarn add --exact scoobie
 - [React API reference](#react-api-reference)
   - [Blockquote](#blockquote)
   - [CodeBlock](#codeblock)
+  - [CopyableText](#copyabletext)
   - [InlineCode](#inlinecode)
   - [InternalLink](#internallink)
   - [MdxProvider](#mdxprovider)
@@ -256,6 +257,19 @@ import { CodeBlock } from 'scoobie';
 
 export const MyFirstCodeBlock = () => (
   <CodeBlock language="javascript">console.log('hello, world');</CodeBlock>
+);
+```
+
+### CopyableText
+
+Render a [Text] component that copies the `children` string to clipboard on click.
+
+```tsx
+import React from 'react';
+import { CodeBlock } from 'scoobie';
+
+export const MyFirstCopyableText = () => (
+  <CopyableText>This gets copied to clipboard.</CopyableText>
 );
 ```
 
