@@ -4482,10 +4482,10 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@29.29.3:
-  version "29.29.3"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-29.29.3.tgz#a7d5189c63a9706a7cd21c22cd585dd8ec00f166"
-  integrity sha512-mHQ6O6K9tZikByAVFy8jUnz4BecmYHcBJR8y6w3QJGqEkj/M1SVcJTz3itwVqwqemZwOsc71aBYO9Vn5syKnPA==
+braid-design-system@29.30.0:
+  version "29.30.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-29.30.0.tgz#6cc615452bed83a914f1f5120e08d46946956779"
+  integrity sha512-3ZGLafkKQ3BFWmite6DxVMaRSCctgKPYC2qH9ZFqXng+0yVxesq+syjqcN+GqMSwKOgMhVRnzt8ckNLWRCrz8w==
   dependencies:
     "@types/autosuggest-highlight" "^3.1.1"
     "@types/classnames" "^2.2.11"
@@ -4495,7 +4495,7 @@ braid-design-system@29.29.3:
     "@types/uuid" "^8.3.0"
     assert "^2.0.0"
     autosuggest-highlight "^3.1.1"
-    capsize "^1.1.0"
+    capsize "^2.0.0"
     classnames "^2.2.6"
     csstype "^3.0.6"
     dedent "0.7.0"
@@ -4841,13 +4841,6 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001109, can
   version "1.0.30001183"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001183.tgz#7a57ba9d6584119bb5f2bc76d3cc47ba9356b3e2"
   integrity sha512-7JkwTEE1hlRKETbCFd8HDZeLiQIUcl8rC6JgNjvHCNaxOeNmQ9V4LvQXRUsKIV2CC73qKxljwVhToaA3kLRqTw==
-
-capsize@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/capsize/-/capsize-1.1.0.tgz#d70f918b5ecadc2390b2a3b3b672ced639907ed6"
-  integrity sha512-tV0weOXxQ9hsbqewiWfGQBXsGzSN/i/w9IGuH+JVySzGOhscTAzeK3N9ZAM3Kf89bWgYot80Za5fSXKi6ZynvA==
-  dependencies:
-    round-to "^4.1.0"
 
 capsize@^2.0.0:
   version "2.0.0"
@@ -15454,11 +15447,6 @@ rmfr@^2.0.0:
     graceful-fs "^4.1.11"
     inspect-with-kind "^1.0.4"
     rimraf "^2.6.2"
-
-round-to@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/round-to/-/round-to-4.1.0.tgz#148d768d18b2f127f78e6648cb8b0a5943c416bf"
-  integrity sha512-H/4z+4QdWS82iMZ23+5St302Mv2jJws0hUvEogrD6gC8NN6Z5TalDtbg51owCrVy4V/4c8ePvwVLNtlhEfPo5g==
 
 rsvp@^4.8.4:
   version "4.8.5"
