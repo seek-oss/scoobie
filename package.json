@@ -19,7 +19,7 @@
     "react-router-hash-link": "^2.0.0",
     "refractor": "^3.3.1",
     "remark-slug": "^6.0.0",
-    "unist-util-visit": "^2.0.2"
+    "unist-util-visit": "^3.0.0"
   },
   "devDependencies": {
     "@storybook/addons": "5.3.21",
