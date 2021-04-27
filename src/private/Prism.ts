@@ -20,6 +20,7 @@ const DISPLAY_LANGUAGE_REPLACEMENTS: Record<string, string> = {
   csharp: 'C#',
   fsharp: 'C#',
   graphql: 'GraphQL',
+  html: 'HTML',
   http: 'HTTP',
   javascript: 'JavaScript',
   json: 'JSON',
