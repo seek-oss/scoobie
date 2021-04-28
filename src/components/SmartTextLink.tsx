@@ -1,16 +1,22 @@
+import { TextLink } from 'braid-design-system';
 import React, { ReactNode } from 'react';
 
 import { ExternalTextLink } from '../private/ExternalTextLink';
-import { InternalTextLink } from '../private/InternalTextLink';
+import { isExternalHref } from '../private/url';
 
 interface Props {
   children: ReactNode;
   href: string;
+  title?: string;
 }
 
-export const SmartTextLink = ({ children, href }: Props) =>
-  /^[a-z][a-z0-9+.-]*:|^\/\//i.test(href) ? (
-    <ExternalTextLink href={href}>{children}</ExternalTextLink>
+export const SmartTextLink = ({ children, href, title }: Props) =>
+  isExternalHref(href) ? (
+    <ExternalTextLink href={href} title={title}>
+      {children}
+    </ExternalTextLink>
   ) : (
-    <InternalTextLink href={href}>{children}</InternalTextLink>
+    <TextLink href={href} title={title}>
+      {children}
+    </TextLink>
   );

@@ -6,17 +6,17 @@ import * as styleRefs from './InlineCode.treat';
 
 interface Props {
   children: ReactNode;
+  weight?: 'regular' | 'weak';
 }
 
-export const InlineCode = ({ children }: Props) => {
+export const InlineCode = ({ children, weight = 'regular' }: Props) => {
   const styles = useStyles(styleRefs);
 
   return (
     <Box
       borderRadius="standard"
-      className={styles.inlineCode}
+      className={[styles.base, styles.weight[weight]]}
       component="code"
-      paddingX="xxsmall"
     >
       {children}
     </Box>

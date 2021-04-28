@@ -1,20 +1,25 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
-import { Alert, Stack, Text } from 'braid-design-system';
-import React from 'react';
-import { boolean, text } from 'sku/@storybook/addon-knobs';
+import { Alert, List, Stack, Text } from 'braid-design-system';
+import React, { Fragment } from 'react';
+import { boolean, select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
+
 import {
+  Blockquote,
   CodeBlock,
+  CopyableText,
   InlineCode,
   InternalLink,
   SmartTextLink,
+  Table,
+  TableRow,
   TocRenderer,
   WrapperRenderer,
-} from 'src';
+} from '..';
 
 import { withBraid } from './decorator';
-import Blockquote from './markdowns/blockquote.mdx';
+import BlockquoteMarkdown from './markdowns/blockquote.mdx';
 import Code from './markdowns/code.mdx';
 import Combination from './markdowns/combination.mdx';
 import Headings from './markdowns/headings.mdx';
@@ -22,27 +27,100 @@ import ImagesExternal from './markdowns/images-external.mdx';
 import ImagesInternal from './markdowns/images-internal.mdx';
 import Inline from './markdowns/inline.mdx';
 import Lists from './markdowns/lists.mdx';
-import Table from './markdowns/table.mdx';
+import TableMarkdown from './markdowns/table.mdx';
 import Wrapper from './markdowns/wrapper.mdx';
 
+storiesOf('Blockquote', module)
+  .add('Custom', () => {
+    const size = select('size', ['standard', 'large'], 'standard');
+
+    return (
+      <Blockquote size={size}>
+        <Text size={size}>This is a paragraph.</Text>
+        <List size={size}>
+          <Text size={size}>This is a bullet point.</Text>
+        </List>
+      </Blockquote>
+    );
+  })
+  .addDecorator(withBraid);
+
 storiesOf('CodeBlock', module)
-  .add('Custom', () => (
+  .add('Single', () => (
     <CodeBlock
       language={text('language', 'graphql')}
       graphqlPlayground={text(
         'graphqlPlayground',
         'https://graphql.seek.com/graphql',
       )}
+      size={select('size', ['standard', 'large'], 'standard')}
+      trim={boolean('trim', true)}
     >
       {text('children', 'query {\n  version\n}\n')}
     </CodeBlock>
+  ))
+  .add('Multi', () => (
+    <CodeBlock
+      graphqlPlayground={text(
+        'graphqlPlayground',
+        'https://graphql.seek.com/graphql',
+      )}
+      size={select('size', ['standard', 'large'], 'standard')}
+      trim={boolean('trim', true)}
+    >
+      {[
+        {
+          code: 'query {\n  version\n}\n',
+          label: 'Operation',
+          language: 'graphql',
+        },
+        {
+          code: '{}',
+          label: 'Variables',
+          language: 'jsonc',
+        },
+        {
+          code: '{\n  "data": null\n}\n',
+          label: 'Response',
+          language: 'jsonc',
+        },
+      ]}
+    </CodeBlock>
+  ))
+  .addDecorator(withBraid);
+
+storiesOf('CopyableText', module)
+  .add('Custom', () => (
+    <CopyableText
+      copiedLabel={select(
+        'copiedLabel',
+        { undefined, custom: 'Custom copied label' },
+        undefined,
+      )}
+      copyLabel={select(
+        'copyLabel',
+        { undefined, custom: 'Custom copy label' },
+        undefined,
+      )}
+      size={select(
+        'size',
+        ['xsmall', 'small', 'standard', 'large'],
+        'standard',
+      )}
+    >
+      {text('children', 'copy me')}
+    </CopyableText>
   ))
   .addDecorator(withBraid);
 
 storiesOf('InlineCode', module)
   .add('Custom', () => (
     <Text>
-      Some text with <InlineCode>{text('children', 'inline code')}</InlineCode>!
+      Some text with{' '}
+      <InlineCode weight={select('weight', ['regular', 'weak'], 'regular')}>
+        {text('children', 'inline code')}
+      </InlineCode>
+      !
     </Text>
   ))
   .addDecorator(withBraid);
@@ -66,7 +144,7 @@ storiesOf('InternalLink', module)
   .addDecorator(withBraid);
 
 storiesOf('MdxProvider', module)
-  .add('Blockquote', () => <Blockquote />)
+  .add('Blockquote', () => <BlockquoteMarkdown />)
   .add('Code', () => <Code />)
   .add('Combination', () => <Combination />)
   .add('Headings', () => <Headings />)
@@ -74,7 +152,7 @@ storiesOf('MdxProvider', module)
   .add('ImagesInternal', () => <ImagesInternal />)
   .add('Inline', () => <Inline />)
   .add('Lists', () => <Lists />)
-  .add('Table', () => <Table />)
+  .add('Table', () => <TableMarkdown />)
   .addDecorator(withBraid);
 
 storiesOf('SmartTextLink', module)
@@ -104,6 +182,64 @@ storiesOf('TocRenderer', module)
         )}
       </TocRenderer>
     </Stack>
+  ))
+  .addDecorator(withBraid);
+
+storiesOf('Table', module)
+  .add('Defaults', () => (
+    <Table header={['Column A', 'Column B']}>
+      <TableRow>
+        <Fragment>This is body cell A1.</Fragment>
+        <Fragment>B1</Fragment>
+      </TableRow>
+
+      <TableRow>
+        <Fragment>A2</Fragment>
+        <Fragment>This is body cell B2.</Fragment>
+      </TableRow>
+    </Table>
+  ))
+  .add('Stripe', () => (
+    <Table
+      align={['left', 'right']}
+      header={
+        <Fragment>
+          <Fragment>Column A</Fragment>
+          <Text weight="regular">Column B</Text>
+        </Fragment>
+      }
+      size={select('size', ['standard', 'large'], 'standard')}
+      type="stripe"
+      width={select('width', { undefined, full: 'full' }, undefined)}
+    >
+      <TableRow>
+        <Text>This is body cell A1.</Text>
+        <Text weight="strong">B1</Text>
+      </TableRow>
+
+      <TableRow>
+        <Fragment>A2</Fragment>
+        <Fragment>This is body cell B2.</Fragment>
+      </TableRow>
+    </Table>
+  ))
+  .add('Subtle', () => (
+    <Table
+      header={['Column A', 'Column B']}
+      size={select('size', ['standard', 'large'], 'standard')}
+      type="subtle"
+      width={select('width', { undefined, full: 'full' }, undefined)}
+    >
+      <TableRow>
+        <Fragment>This is body cell A1.</Fragment>
+        <Fragment>B1</Fragment>
+      </TableRow>
+
+      <TableRow>
+        <Fragment>A2</Fragment>
+        <Fragment>This is body cell B2.</Fragment>
+      </TableRow>
+    </Table>
   ))
   .addDecorator(withBraid);
 

@@ -1,205 +1,134 @@
-import {
-  Box,
-  Column,
-  Columns,
-  IconCopy,
-  IconNewWindow,
-  IconTick,
-  Inline,
-  Text,
-} from 'braid-design-system';
-import React, { ReactChild, ReactNodeArray, useState } from 'react';
-import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Box, Stack, Text, TextLinkButton } from 'braid-design-system';
+import Highlight from 'prism-react-renderer';
+import React, { useState } from 'react';
 import { useStyles } from 'sku/react-treat';
 
-import { DEFAULT_SIZE, SIZE_TO_CODE_SIZE, Size } from '../private/size';
+import { Prism, prismTheme } from '../private/Prism';
+import { ScrollableInline } from '../private/ScrollableInline';
+import {
+  DEFAULT_SIZE,
+  SIZE_TO_CODE_SIZE,
+  SIZE_TO_TABLE_PADDING,
+  Size,
+} from '../private/size';
+
+import { CodeChildProps, normaliseChildren } from './CodeBlock/CodeChild';
+import { GraphQLPlaygroundAction } from './CodeBlock/GraphQLPlaygroundAction';
+import { LineNumbers } from './CodeBlock/LineNumbers';
+import { Lines } from './CodeBlock/Lines';
+import { CopyableText } from './CopyableText';
 
 import * as styleRefs from './CodeBlock.treat';
 
-const CODE_LANGUAGE_REPLACEMENTS: Record<string, string> = {
-  js: 'javascript',
-  jsonc: 'json',
-  sh: 'bash',
-  shell: 'bash',
-  splunk: 'splunk-spl',
-  ts: 'typescript',
-};
-
-const Code = ({ children }: { children: ReactChild }) => {
-  const styles = useStyles(styleRefs);
-
-  return (
-    <Box className={styles.codeTag} component="code">
-      {children}
-    </Box>
-  );
-};
-
-const CopyButton = ({ children }: { children: string }) => {
-  const [copied, setCopied] = useState<boolean>(false);
-
-  const styles = useStyles(styleRefs);
-
-  const copyText = () => {
-    if (copied) {
-      return;
-    }
-
-    setCopied(true);
-
-    const textarea = document.createElement('textarea');
-    textarea.readOnly = true;
-    textarea.style.height = '0';
-    textarea.style.opacity = '0.01';
-    textarea.style.position = 'absolute';
-    textarea.style.zIndex = '-1';
-    textarea.value = children;
-
-    document.body.appendChild(textarea);
-
-    textarea.select();
-    document.execCommand('copy');
-    textarea.remove();
-
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <Box
-      background={copied ? 'positiveLight' : 'card'}
-      borderRadius="standard"
-      className={styles.buttonOuter}
-      onClick={copyText}
-      padding="xxsmall"
-      transition="touchable"
-      title="Copy to Clipboard"
-    >
-      <Box className={styles.buttonInner} transition="touchable">
-        {copied ? (
-          <IconTick size="xsmall" tone="positive" />
-        ) : (
-          <IconCopy size="xsmall" tone="link" />
-        )}
-      </Box>
-    </Box>
-  );
-};
-
-const GraphQLPlaygroundButton = ({
-  graphqlPlayground,
-  children,
-}: {
-  graphqlPlayground: string;
-  children: string;
-}) => {
-  const styles = useStyles(styleRefs);
-
-  const tryInPlayground = () => {
-    const graphqlPlaygroundUrl = new URL(graphqlPlayground);
-    graphqlPlaygroundUrl.searchParams.set('query', children);
-
-    window.open(graphqlPlaygroundUrl.toString(), '_blank');
-  };
-
-  return (
-    <Box
-      background="card"
-      borderRadius="standard"
-      className={styles.buttonOuter}
-      onClick={tryInPlayground}
-      padding="xxsmall"
-      transition="touchable"
-      title="Try in Playground"
-    >
-      <Box className={styles.buttonInner} transition="touchable">
-        <IconNewWindow size="xsmall" tone="link" />
-      </Box>
-    </Box>
-  );
-};
-
-const createPre = (size: Size) => ({
-  children: [numbers, lines],
-}: {
-  children: ReactNodeArray;
-}) => {
-  const styles = useStyles(styleRefs);
-
-  const codeSize = SIZE_TO_CODE_SIZE[size];
-
-  return (
-    <Box borderRadius="standard" className={styles.preTag} component="pre">
-      <Columns space="none">
-        <Column aria-hidden width="content">
-          <Box className={styles.lineNumberBox} padding="medium">
-            <Text align="right" size={codeSize}>
-              {numbers}
-            </Text>
-          </Box>
-        </Column>
-        <Column>
-          <Box padding="medium">
-            <Text size={codeSize}>{lines}</Text>
-          </Box>
-        </Column>
-      </Columns>
-    </Box>
-  );
-};
+interface Props {
+  children: CodeChildProps[] | string;
+  graphqlPlayground?: string;
+  label?: string;
+  language?: string;
+  size?: Size;
+  trim?: boolean;
+}
 
 export const CodeBlock = ({
-  children,
-  language = 'text',
+  children: rawChildren,
+  label: rawLabel,
+  language: rawLanguage,
   graphqlPlayground,
   size = DEFAULT_SIZE,
-}: {
-  children: string;
-  language: string;
-  graphqlPlayground?: string;
-  size?: Size;
-}) => {
+  trim = true,
+}: Props) => {
   const styles = useStyles(styleRefs);
 
-  const codeValue = children.trim();
+  const children = normaliseChildren(
+    typeof rawChildren === 'string'
+      ? [
+          {
+            code: rawChildren,
+            label: rawLabel,
+            language: rawLanguage,
+          },
+        ]
+      : rawChildren,
+    trim,
+  );
+
+  const codeSize = SIZE_TO_CODE_SIZE[size];
+  const tablePadding = SIZE_TO_TABLE_PADDING[size];
+
+  const [index, setIndex] = useState(0);
+
+  const child = children[index];
 
   const graphqlPlaygroundButton =
-    language === 'graphql' && graphqlPlayground ? (
-      <GraphQLPlaygroundButton graphqlPlayground={graphqlPlayground}>
-        {codeValue}
-      </GraphQLPlaygroundButton>
+    child.language === 'graphql' && graphqlPlayground ? (
+      <Box component="span" paddingLeft={tablePadding}>
+        <GraphQLPlaygroundAction
+          graphqlPlayground={graphqlPlayground}
+          size={size}
+        >
+          {child.code}
+        </GraphQLPlaygroundAction>
+      </Box>
     ) : undefined;
 
   return (
-    <Box className={styles.codeBlock} position="relative">
-      <SyntaxHighlighter
-        CodeTag={Code}
-        PreTag={createPre(size)}
-        language={CODE_LANGUAGE_REPLACEMENTS[language] ?? language}
-        lineNumberContainerProps={{
-          className: styles.lineNumberContainer,
-          // react-syntax-highlighter specifies some nonsense defaults, but they
-          // can be overwritten via object merge.
-          style: {
-            color: undefined,
-            fontFamily: undefined,
-            fontSize: undefined,
-            lineHeight: undefined,
-            userSelect: undefined,
-          },
-        }}
-        showLineNumbers
-        style={ghcolors}
-      >
-        {codeValue}
-      </SyntaxHighlighter>
+    <Stack space={tablePadding}>
+      <ScrollableInline>
+        <Box display="flex" justifyContent="spaceBetween">
+          <Box display="flex">
+            {children.map(({ label }, labelIndex) => (
+              <Box
+                component="span"
+                key={label}
+                paddingLeft={labelIndex === 0 ? undefined : tablePadding}
+              >
+                <Text
+                  size={codeSize}
+                  tone={index === labelIndex ? 'secondary' : undefined}
+                  weight="medium"
+                >
+                  {children.length === 1 || index === labelIndex ? (
+                    label
+                  ) : (
+                    <TextLinkButton onClick={() => setIndex(labelIndex)}>
+                      {label}
+                    </TextLinkButton>
+                  )}
+                </Text>
+              </Box>
+            ))}
+          </Box>
 
-      <Box marginRight="small" position="absolute" right={0} top={0}>
-        <Inline space="xsmall">
-          <CopyButton>{codeValue}</CopyButton>
-          {graphqlPlaygroundButton}
-        </Inline>
+          <Box display="flex">
+            <Box component="span" paddingLeft={tablePadding}>
+              <CopyableText size={codeSize}>{child.code}</CopyableText>
+            </Box>
+
+            {graphqlPlaygroundButton}
+          </Box>
+        </Box>
+      </ScrollableInline>
+
+      <Box borderRadius="standard" className={styles.codeContainer[codeSize]}>
+        <Highlight
+          Prism={Prism}
+          code={child.code}
+          language={child.language}
+          theme={prismTheme}
+        >
+          {({ getTokenProps, tokens }) => (
+            <Box display="flex">
+              <LineNumbers codeSize={codeSize} count={tokens.length} />
+
+              <Lines
+                codeSize={codeSize}
+                getTokenProps={getTokenProps}
+                lines={tokens}
+              />
+            </Box>
+          )}
+        </Highlight>
       </Box>
-    </Box>
+    </Stack>
   );
 };

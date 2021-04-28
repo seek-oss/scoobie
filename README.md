@@ -31,11 +31,16 @@ yarn add --exact scoobie
   - [Links](#links)
   - [Tables](#tables)
 - [React API reference](#react-api-reference)
+  - [Blockquote](#blockquote)
   - [CodeBlock](#codeblock)
+  - [CopyableText](#copyabletext)
   - [InlineCode](#inlinecode)
   - [InternalLink](#internallink)
   - [MdxProvider](#mdxprovider)
+  - [ScoobieLink](#scoobielink)
   - [SmartTextLink](#smarttextlink)
+  - [Table](#table)
+  - [TableRow](#tablerow)
   - [TocRenderer](#tocrenderer)
   - [WrapperRenderer](#wrapperrenderer)
   - [useImageStyles](#useimagestyles)
@@ -134,18 +139,19 @@ Nest your Markdown components within an [MdxProvider](#mdxprovider):
 ```tsx
 import 'braid-design-system/reset';
 
-import { BraidLoadableProvider } from 'braid-design-system';
+import { BraidProvider } from 'braid-design-system';
+import apacTheme from 'braid-design-system/themes/apac';
 import React from 'react';
-import { MdxProvider } from 'scoobie';
+import { MdxProvider, ScoobieLink } from 'scoobie';
 
 import { ContentWithPointlessDiv } from './SomeFile.tsx';
 
-export const App = ({ site }: { site: string }) => (
-  <BraidLoadableProvider themeName={site}>
+export const App = () => (
+  <BraidProvider linkComponent={ScoobieLink} theme={apacTheme}>
     <MdxProvider>
       <ContentWithPointlessDiv />
     </MdxProvider>
-  </BraidLoadableProvider>
+  </BraidProvider>
 );
 ```
 
@@ -225,6 +231,26 @@ Paragraph tags must be placed around text content and cannot be nested within ea
 
 ## React API reference
 
+### Blockquote
+
+Renders rich quoted content.
+
+```tsx
+import { List, Text } from 'braid-design-system';
+import React from 'react';
+import { Blockquote } from 'scoobie';
+
+export const MyFirstBlockquote = () => (
+  <Blockquote>
+    <Text>This is a paragraph.</Text>
+
+    <List>
+      <Text>This is a bullet point.</Text>
+    </List>
+  </Blockquote>
+);
+```
+
 ### CodeBlock
 
 Render lines of code with [Prism] syntax highlighting.
@@ -237,6 +263,19 @@ import { CodeBlock } from 'scoobie';
 
 export const MyFirstCodeBlock = () => (
   <CodeBlock language="javascript">console.log('hello, world');</CodeBlock>
+);
+```
+
+### CopyableText
+
+Render a [Text] component that copies the `children` string to clipboard on click.
+
+```tsx
+import React from 'react';
+import { CodeBlock } from 'scoobie';
+
+export const MyFirstCopyableText = () => (
+  <CopyableText>This gets copied to clipboard.</CopyableText>
 );
 ```
 
@@ -263,11 +302,11 @@ Render an internal link with the same opinions as our [MdxProvider](#mdxprovider
 - Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
   and pass through the `v` URL parameter for UI version switching
 
-Unlike [SmartTextLink](#smarttextlink), this is not bound to a parent [Text] as it has no underlying [TextLinkRenderer].
+Unlike [SmartTextLink](#smarttextlink), this is not bound to a parent [Text] as it has no underlying [TextLink].
 It can be used to make complex components navigable rather than just sections of text.
 
 [text]: https://seek-oss.github.io/braid-design-system/components/Text/
-[textlinkrenderer]: https://seek-oss.github.io/braid-design-system/components/TextLinkRenderer/
+[textlink]: https://seek-oss.github.io/braid-design-system/components/TextLink/
 
 ```tsx
 import { Stack, Text } from 'braid-design-system';
@@ -289,32 +328,56 @@ export const SomeComplexLinkElement = () => (
 
 Provide a base collection of [Braid]-styled renderers for child MDX documents.
 
-```tsx
-import 'braid-design-system/reset';
+This should be paired with [ScoobieLink](#scoobielink) for proper internal link rendering.
 
-import { BraidLoadableProvider, Card } from 'braid-design-system';
+```tsx
+import { BraidProvider, Card } from 'braid-design-system';
+import apacTheme from 'braid-design-system/themes/apac';
 import React from 'react';
-import { MdxProvider } from 'scoobie';
+import { MdxProvider, ScoobieLink } from 'scoobie';
 
 import Content from './Content.mdx';
 
-export const App = ({ site }: { site: string }) => (
-  <BraidLoadableProvider themeName={site}>
+export const Component = () => (
+  <BraidProvider linkComponent={ScoobieLink} theme={apacTheme}>
     <MdxProvider>
       <Card>
         <Content />
       </Card>
     </MdxProvider>
-  </BraidLoadableProvider>
+  </BraidProvider>
 );
 ```
+
+### ScoobieLink
+
+Render all underlying links as follows:
+
+- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
+  and pass through the `v` URL parameter for UI version switching
+- External links open in a new tab
+
+This should be supplied to [BraidProvider] as the custom `linkComponent`:
+
+```tsx
+import { BraidProvider, TextLink } from 'braid-design-system';
+import apacTheme from 'braid-design-system/themes/apac';
+import React from 'react';
+import { ScoobieLink } from 'scoobie';
+
+export const Component = () => (
+  <BraidProvider linkComponent={ScoobieLink} theme={apacTheme}>
+    <TextLink href="/root-relative">Internal link</TextLink>
+  </BraidProvider>
+);
+```
+
+[braidprovider]: https://seek-oss.github.io/braid-design-system/components/BraidProvider
 
 ### SmartTextLink
 
 Render a text link with the same opinions as our [MdxProvider](#mdxprovider):
 
-- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
-  and pass through the `v` URL parameter for UI version switching
 - External links open in a new tab and have an [IconNewWindow] suffix
 
 [react-router-hash-link]: https://github.com/rafrex/react-router-hash-link
@@ -337,6 +400,35 @@ export const SomeLinks = () => (
   </Text>
 );
 ```
+
+### Table
+
+Render an HTML table with the same styling as our [MdxProvider](#mdxprovider):
+
+```tsx
+import React, { Fragment } from 'react';
+import { Table, TableRow } from 'scoobie';
+
+export const MyFirstTable = () => (
+  <Table header={['Column A', 'Column B']}>
+    <TableRow>
+      <Fragment>This is body cell A1.</Fragment>
+      <Fragment>B1</Fragment>
+    </TableRow>
+
+    <TableRow>
+      <Fragment>A2</Fragment>
+      <Fragment>This is body cell B2.</Fragment>
+    </TableRow>
+  </Table>
+);
+```
+
+### TableRow
+
+`<tr>` component for use with [Table](#table).
+
+Row children are flattened then wrapped with `<td>`s.
 
 ### TocRenderer
 

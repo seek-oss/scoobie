@@ -1,73 +1,54 @@
 import { darken } from 'polished';
-import { style } from 'sku/treat';
+import { Style, style, styleMap } from 'sku/treat';
+import { Theme } from 'treat/theme';
 
-import { monospaceFontFamily } from '../styles';
+import { CODE_SIZES, CodeSize } from '../private/size';
+import { monospaceFontStyles } from '../styles';
 
-export const codeBlock = style({});
-
-export const lineNumberBox = style((theme) => ({
+export const lineNumberContainer = style((theme) => ({
   backgroundColor: darken(0.05, theme.color.background.body),
   borderTopLeftRadius: theme.border.radius.standard,
   borderBottomLeftRadius: theme.border.radius.standard,
-}));
-
-export const lineNumberContainer = style((theme) => ({
   color: theme.color.foreground.secondary,
-  fontFamily: monospaceFontFamily,
-  fontSize: 'inherit',
-  lineHeight: 'inherit',
   userSelect: 'none',
 }));
 
-export const codeTag = style({
-  fontFamily: monospaceFontFamily,
-});
-
-export const buttonOuter = style((theme) => ({
-  borderColor: darken(0.05, theme.color.background.body),
-  borderStyle: 'solid',
-  borderWidth: 1,
-  ':hover': {
-    cursor: 'pointer',
-  },
-
-  ...theme.utils.responsiveStyle({
-    desktop: {
-      opacity: 0,
-      selectors: {
-        [`${codeBlock}:hover &`]: {
-          opacity: 1,
-        },
-      },
-    },
-    mobile: {
-      opacity: 1,
-    },
-  }),
+export const code = styleMap<CodeSize>((theme) => ({
+  small: monospaceFontStyles(theme, 'small'),
+  standard: monospaceFontStyles(theme, 'standard'),
 }));
 
-export const buttonInner = style((theme) =>
+const fit30LinesOfCode = (theme: Theme, codeSize: CodeSize) =>
   theme.utils.responsiveStyle({
-    desktop: {
-      opacity: 0.5,
-      selectors: {
-        [`${buttonOuter}:hover &`]: {
-          opacity: 1,
-        },
-      },
-    },
     mobile: {
-      opacity: 1,
+      maxHeight:
+        theme.border.width.standard * 2 +
+        theme.grid * theme.space.medium * 2 +
+        theme.typography.text[codeSize].mobile.capHeight * 30 +
+        theme.grid * theme.space.small * 29,
     },
-  }),
-);
+    tablet: {
+      maxHeight:
+        theme.border.width.standard * 2 +
+        theme.grid * theme.space.medium * 2 +
+        theme.typography.text[codeSize].tablet.capHeight * 30 +
+        theme.grid * theme.space.small * 29,
+    },
+  });
 
-export const preTag = style((theme) => ({
-  backgroundColor: theme.color.background.body,
-  borderColor: darken(0.05, theme.color.background.body),
-  borderStyle: 'solid',
-  borderWidth: 1,
-  // this is super arbitrary at the moment
-  maxHeight: theme.grid * theme.typography.text.small.tablet.size * 10,
-  overflow: 'auto',
-}));
+export const codeContainer = styleMap<CodeSize>((theme) =>
+  CODE_SIZES.reduce<Record<CodeSize, Style>>((acc, codeSize) => {
+    acc[codeSize] = {
+      backgroundColor: theme.color.background.body,
+      borderColor: darken(0.05, theme.color.background.body),
+      borderStyle: 'solid',
+      borderWidth: theme.border.width.standard,
+
+      overflow: 'auto',
+
+      ...fit30LinesOfCode(theme, codeSize),
+    };
+
+    return acc;
+  }, {} as Record<CodeSize, Style>),
+);

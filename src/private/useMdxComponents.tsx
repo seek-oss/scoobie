@@ -1,17 +1,21 @@
-import { Box, Stack, Strong, Text } from 'braid-design-system';
+import { Box, List, Stack, Strong, Text } from 'braid-design-system';
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
 
+import { Blockquote } from '../components/Blockquote';
 import { InlineCode } from '../components/InlineCode';
 import { SmartTextLink } from '../components/SmartTextLink';
 import { useImageStyles } from '../hooks/useImageStyles';
 
-import { Blockquote } from './Blockquote';
-import { CodeBlockWithPlayground } from './CodeBlockWithPlayground';
-import { ListItem, OrderedList, UnorderedList } from './List';
+import { HorizontalRule } from './HorizontalRule';
+import { createMdxCodeBlock } from './MdxCodeBlock';
+import { MdxOrderedList } from './MdxOrderedList';
 import { createSpacedHeading } from './SpacedHeading';
+import { MdxTable } from './Table';
+import { TableCell } from './TableCell';
+import { BaseTableRow } from './TableRow';
 import { Wrapper } from './Wrapper';
-import { SIZE_TO_PADDING, SIZE_TO_SPACE, Size } from './size';
+import { SIZE_TO_SPACE, Size } from './size';
 
 import * as styleRefs from './useMdxComponents.treat';
 
@@ -23,21 +27,14 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
   const imageStyles = useImageStyles();
   const styles = useStyles(styleRefs);
 
-  const padding = SIZE_TO_PADDING[size];
   const space = SIZE_TO_SPACE[size];
 
   return {
     a: SmartTextLink,
-    blockquote: Blockquote,
-    code: ({ children, className = 'text' }) => {
-      const language = className.replace(/^language-/, '');
-
-      return (
-        <CodeBlockWithPlayground language={language} size={size}>
-          {String(children)}
-        </CodeBlockWithPlayground>
-      );
-    },
+    blockquote: ({ children }) => (
+      <Blockquote size={size}>{children}</Blockquote>
+    ),
+    code: createMdxCodeBlock(size),
     inlineCode: InlineCode,
     h1: createSpacedHeading(1),
     h2: createSpacedHeading(2),
@@ -45,21 +42,18 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     h4: createSpacedHeading(4),
     h5: createSpacedHeading(5),
     h6: createSpacedHeading(6),
+    hr: HorizontalRule,
     img: (props) => (
       <Box {...props} className={imageStyles.img} component="img" />
     ),
-    li: ListItem,
-    ol: ({ children }) => <OrderedList size={size}>{children}</OrderedList>,
+    li: ({ children }) => <Stack space={space}>{children}</Stack>,
+    ol: (props) => <MdxOrderedList {...props} size={size} />,
     // Don't try to be clever here, this is what you want. No, really. `Text`
     // renders inline formatting correctly and fixes the line height. If some
     // node is not wrapped in a paragraph and it should be, wrap it using a
     // remark plugin, not here.
     p: ({ children }) => <Text size={size}>{children}</Text>,
-    pre: ({ children }) => (
-      <Box className={styles.pre} component="pre">
-        {children}
-      </Box>
-    ),
+    pre: ({ children }) => <Box className={styles.pre}>{children}</Box>,
     span: (props) => (
       // For wide SVGs like Mermaid diagrams
       <Box overflow="auto">
@@ -67,39 +61,23 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
       </Box>
     ),
     strong: Strong,
-    table: ({ children }) => (
-      <Box className={styles.tableWrapper}>
-        <Box component="table" className={styles.table}>
-          {children}
-        </Box>
-      </Box>
-    ),
+    table: ({ children }) => <MdxTable>{children}</MdxTable>,
     td: ({ align, children }) => (
-      <Box
-        className={[styles.tableCell, styles.td]}
-        component="td"
-        padding={padding}
-        textAlign={align === null ? 'left' : align}
-      >
-        <Stack space={space}>{children}</Stack>
-      </Box>
+      <TableCell align={align} component="td">
+        {children}
+      </TableCell>
     ),
     th: ({ align, children }) => (
-      <Box
-        className={[styles.tableCell, styles.th]}
-        component="th"
-        padding={padding}
-        textAlign={align === null ? 'center' : align}
-      >
-        <Stack space={space}>{children}</Stack>
-      </Box>
-    ),
-    tr: ({ children }) => (
-      <Box className={styles.tableRow} component="tr">
+      <TableCell align={align} component="th">
         {children}
-      </Box>
+      </TableCell>
     ),
-    ul: ({ children }) => <UnorderedList size={size}>{children}</UnorderedList>,
+    tr: ({ children }) => <BaseTableRow>{children}</BaseTableRow>,
+    ul: ({ children }) => (
+      <List size={size} space={space} type="bullet">
+        {children}
+      </List>
+    ),
     wrapper: ({ children }) => <Wrapper size={size}>{children}</Wrapper>,
   };
 };

@@ -19,14 +19,14 @@ declare namespace MDX {
 
   // Braid's type-level strictness does not play well with dynamic ReactNodes,
   // so we simply lie to TypeScript.
-  type ProviderComponent<Props = {}> = React.ComponentType<
+  type ProviderComponent<Props = Record<string, unknown>> = React.ComponentType<
     { children: any } & Props
   >;
 
   type ProviderComponents = Partial<{
-    a: ProviderComponent<{ href: string }>;
+    a: ProviderComponent<{ href: string; title?: string }>;
     blockquote: ProviderComponent;
-    code: ProviderComponent<{ className?: string }>;
+    code: ProviderComponent<{ className?: string; metastring?: string }>;
     delete: ProviderComponent;
     em: ProviderComponent;
     h1: ProviderComponent<{ id: string }>;
@@ -39,7 +39,7 @@ declare namespace MDX {
     img: ProviderComponent;
     inlineCode: ProviderComponent;
     li: ProviderComponent;
-    ol: ProviderComponent;
+    ol: ProviderComponent<{ start?: number }>;
     p: ProviderComponent;
     pre: ProviderComponent;
     span: ProviderComponent;

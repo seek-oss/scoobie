@@ -14,25 +14,37 @@ JavaScript / TypeScript:
 const log = () => console.log('no language');
 ```
 
+---
+
 ```javascript
 const log = () => console.log('javascript');
 ```
+
+---
 
 ```js
 const log = () => console.log('js');
 ```
 
+---
+
 ```ts
 const log = (): void => console.log('ts');
 ```
+
+---
 
 ```typescript
 const log = (): void => console.log('typescript');
 ```
 
+---
+
 ```jsx
 const Component = () => <></>;
 ```
+
+---
 
 ```tsx
 const Component = <T extends unknown>(_: { t: T }) => <></>;
@@ -68,10 +80,12 @@ index=*
 
 CLI:
 
-```shell
+```shell label="Custom label"
 # comment
 command --flag 'shell'
 ```
+
+---
 
 ```bash
 # comment
@@ -86,6 +100,8 @@ JSON:
 }
 ```
 
+---
+
 ```jsonc
 {
   // comment
@@ -96,11 +112,26 @@ JSON:
 GraphQL:
 
 ```graphql
-query {
-  candidate(id: "123") {
+query($id: String!) {
+  candidate(id: $id) {
     id {
       value
     }
+  }
+}
+```
+
+```json
+{
+  "id": "123"
+}
+```
+
+```jsonc
+{
+  // Wow very HR-JSON
+  "id": {
+    "value": "123"
   }
 }
 ```
@@ -110,6 +141,8 @@ Width and height:
 ```markdown
 # WwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWw
 ```
+
+---
 
 ```markdown
 1.  ?
@@ -153,6 +186,8 @@ Width and height:
 39. ?
 40. ?
 ```
+
+---
 
 ```markdown
 # WwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwWw
