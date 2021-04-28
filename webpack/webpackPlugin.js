@@ -1,5 +1,16 @@
 const { remarkPlugins } = require('../remark');
 
+/**
+ * Vendored from `sku/config/webpack/utils`.
+ *
+ * {@link https://github.com/seek-oss/sku/blob/v10.12.0/config/webpack/utils/index.js#L10-L11}
+ */
+const SKU_WEBPACK_UTILS = {
+  SVG: /\.svg$/,
+};
+
+const ruleTestsToRemove = new Set(Object.values(SKU_WEBPACK_UTILS).map(String));
+
 const mdxRule = {
   test: /\.mdx?$/i,
   use: [
@@ -66,8 +77,7 @@ class ScoobieWebpackPlugin {
      * SVGs in JSX.
      */
     const rules = compiler.options.module.rules.filter(
-      (rule) =>
-        typeof rule.test !== 'object' || String(rule.test) !== '/\\.svg$/',
+      (rule) => !ruleTestsToRemove.has(String(rule.test)),
     );
 
     rules.push(mdxRule, createSvgRule(compiler));
