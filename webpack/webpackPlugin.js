@@ -1,4 +1,6 @@
-const { remarkPlugins: defaultRemarkPlugins } = require('../remark');
+const path = require('path');
+
+const { MERMAID_DIR, remarkPlugin } = require('../remark');
 
 /**
  * Vendored from `sku/config/webpack/utils`.
@@ -32,7 +34,7 @@ const createMdxRule = (remarkPlugins) => ({
 const createSvgRules = (compiler, mermaid) => [
   {
     test: /\.svg$/i,
-    ...(mermaid && { exclude: [mermaid.path] }),
+    ...(mermaid && { exclude: [path.join(mermaid.rootDir, MERMAID_DIR)] }),
     use: [
       {
         loader: require.resolve('file-loader'),
@@ -67,7 +69,7 @@ const createSvgRules = (compiler, mermaid) => [
   ...(mermaid && [
     {
       test: /.svg$/,
-      include: [mermaid.path],
+      include: [path.join(mermaid.rootDir, MERMAID_DIR)],
       use: [
         {
           loader: require.resolve('raw-loader'),
@@ -104,14 +106,21 @@ const createSvgRules = (compiler, mermaid) => [
 class ScoobieWebpackPlugin {
   /**
    * @param {{
-   *   mermaid?: {
-   *     path: string;
-   *   };
+   *   mermaid?: { rootDir: string };
    *   remark?: (defaultPlugins: unknown[]) => unknown[];
    * }} config
    */
   constructor(config = {}) {
     this.mermaid = config.mermaid;
+
+    const defaultRemarkPlugins = [
+      ...(config.mermaid && [[remarkPlugin.mermaid, config.mermaid]]),
+      remarkPlugin.slug,
+      remarkPlugin.mergeCodeBlocks,
+      remarkPlugin.spreadListItems,
+      remarkPlugin.formatTableCells,
+      remarkPlugin.imageToJsx,
+    ];
 
     this.remarkPlugins = config.remark
       ? config.remark(defaultRemarkPlugins)

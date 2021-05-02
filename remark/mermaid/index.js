@@ -9,8 +9,12 @@ const utils = require('./utils');
 
 const render = utils.render;
 const renderFromFile = utils.renderFromFile;
-const getDestinationDir = utils.getDestinationDir;
 const createMermaidDiv = utils.createMermaidDiv;
+
+/**
+ * Subdirectory under `rootDir` where temporary Mermaid artefacts are stored.
+ */
+const MERMAID_DIR = 'mermaid';
 
 const PLUGIN_NAME = 'remark-mermaid';
 
@@ -30,11 +34,11 @@ const isMermaid = (url) =>
  *
  * @param   {object}  node
  * @param   {vFile}   vFile
+ * @param   {string}  rootDir
  * @return {object}
  */
-function replaceUrlWithGraph(node, vFile) {
+function replaceUrlWithGraph(node, vFile, rootDir) {
   const { position, url } = node;
-  const { destinationDir } = vFile.data;
 
   // If the node isn't mermaid, ignore it.
   if (!isMermaid(url)) {
@@ -43,7 +47,7 @@ function replaceUrlWithGraph(node, vFile) {
 
   try {
     // eslint-disable-next-line no-param-reassign
-    node.url = renderFromFile(`${vFile.dirname}/${url}`, destinationDir);
+    node.url = renderFromFile(`${vFile.dirname}/${url}`, rootDir);
 
     vFile.info(
       'mermaid link replaced with link to graph',
@@ -100,12 +104,12 @@ function replaceLinkWithEmbedded(node, index, parent, vFile) {
  * @param {object}  ast
  * @param {vFile}   vFile
  * @param {boolean} isSimple
+ * @param {string}  rootDir
  * @return {function}
  */
-function visitCodeBlock(ast, vFile, isSimple) {
+function visitCodeBlock(ast, vFile, isSimple, rootDir) {
   return visit(ast, 'code', (node, index, parent) => {
     const { lang, meta, position, value } = node;
-    const destinationDir = getDestinationDir(vFile);
     let newNode;
 
     // If this codeblock is not mermaid, bail.
@@ -123,7 +127,7 @@ function visitCodeBlock(ast, vFile, isSimple) {
     } else {
       let graphSvgFilename;
       try {
-        graphSvgFilename = render(value, destinationDir);
+        graphSvgFilename = render(value, rootDir);
 
         vFile.info(
           `${lang} code block replaced with graph`,
@@ -157,16 +161,19 @@ function visitCodeBlock(ast, vFile, isSimple) {
  * @param {object}  ast
  * @param {vFile}   vFile
  * @param {boolean} isSimple
+ * @param {string}  rootDir
  * @return {function}
  */
-function visitLink(ast, vFile, isSimple) {
+function visitLink(ast, vFile, isSimple, rootDir) {
   if (isSimple) {
     return visit(ast, 'link', (node, index, parent) =>
       replaceLinkWithEmbedded(node, index, parent, vFile),
     );
   }
 
-  return visit(ast, 'link', (node) => replaceUrlWithGraph(node, vFile));
+  return visit(ast, 'link', (node) =>
+    replaceUrlWithGraph(node, vFile, rootDir),
+  );
 }
 
 /**
@@ -177,16 +184,19 @@ function visitLink(ast, vFile, isSimple) {
  * @param {object}  ast
  * @param {vFile}   vFile
  * @param {boolean} isSimple
+ * @param {string}  rootDir
  * @return {function}
  */
-function visitImage(ast, vFile, isSimple) {
+function visitImage(ast, vFile, isSimple, rootDir) {
   if (isSimple) {
     return visit(ast, 'image', (node, index, parent) =>
       replaceLinkWithEmbedded(node, index, parent, vFile),
     );
   }
 
-  return visit(ast, 'image', (node) => replaceUrlWithGraph(node, vFile));
+  return visit(ast, 'image', (node) =>
+    replaceUrlWithGraph(node, vFile, rootDir),
+  );
 }
 
 /**
@@ -199,10 +209,10 @@ function visitImage(ast, vFile, isSimple) {
  * @link https://github.com/syntax-tree/mdast
  * @link https://github.com/vfile/vfile
  *
- * @param {object} options
+ * @param {{ rootDir: string, simple?: boolean }} options
  * @return {function}
  */
-function mermaid(options = {}) {
+function mermaid(options) {
   const simpleMode = options.simple || false;
 
   /**
@@ -212,9 +222,9 @@ function mermaid(options = {}) {
    * @return {object}
    */
   return function transformer(ast, vFile, next) {
-    visitCodeBlock(ast, vFile, simpleMode);
-    visitLink(ast, vFile, simpleMode);
-    visitImage(ast, vFile, simpleMode);
+    visitCodeBlock(ast, vFile, simpleMode, options.rootDir);
+    visitLink(ast, vFile, simpleMode, options.rootDir);
+    visitImage(ast, vFile, simpleMode, options.rootDir);
 
     if (typeof next === 'function') {
       return next(null, ast, vFile);
@@ -224,4 +234,8 @@ function mermaid(options = {}) {
   };
 }
 
-module.exports = mermaid;
+module.exports = {
+  MERMAID_DIR,
+
+  mermaid,
+};

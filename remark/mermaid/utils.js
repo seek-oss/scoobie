@@ -7,13 +7,14 @@ const path = require('path');
 const fs = require('fs-extra');
 const which = require('which');
 
+const { MERMAID_DIR } = require('.');
+
 const PLUGIN_NAME = 'remark-mermaid';
 
 let mmdcPath;
 
 const CSS_PATH = path.join(__dirname, 'style.css');
 const MERMAID_BASE_CONFIG_PATH = path.join(__dirname, 'mermaid.config.json');
-const MERMAID_RENDER_CONFIG_PATH = path.join(__dirname, '.mermaid.config.json');
 const PUPPETEER_CONFIG_PATH = path.join(__dirname, 'puppeteer.config.json');
 
 const createHash = (...data) =>
@@ -27,24 +28,26 @@ const createHash = (...data) =>
     )
     .digest('hex');
 
-const loadBaseMermaidConfig = () => {
+const loadBaseMermaidConfig = (rootDir) => {
   const baseConfig = fs.readJsonSync(MERMAID_BASE_CONFIG_PATH);
 
   const themeCSS = fs.readFileSync(CSS_PATH, 'utf8');
 
   baseConfig.themeCSS = themeCSS;
 
-  fs.writeJsonSync(MERMAID_RENDER_CONFIG_PATH, baseConfig);
+  const basePath = path.join(rootDir, MERMAID_DIR, '.mermaid.config.json');
+
+  fs.writeJsonSync(basePath, baseConfig);
 
   return {
     baseConfig,
-    basePath: MERMAID_RENDER_CONFIG_PATH,
+    basePath,
   };
 };
 
-const resolveMermaidConfig = (mmdPath) => {
+const resolveMermaidConfig = (rootDir, mmdPath) => {
   // Do not cache so we can hot-reload changes to config
-  const { baseConfig, basePath } = loadBaseMermaidConfig();
+  const { baseConfig, basePath } = loadBaseMermaidConfig(rootDir);
 
   const baseResponse = {
     configData: JSON.stringify(baseConfig),
@@ -69,7 +72,11 @@ const resolveMermaidConfig = (mmdPath) => {
 
     const hash = createHash(configData);
 
-    const outputConfigPath = path.join(__dirname, `.${hash}.mmd.json`);
+    const outputConfigPath = path.join(
+      rootDir,
+      MERMAID_DIR,
+      `.${hash}.mmd.json`,
+    );
 
     fs.writeFileSync(outputConfigPath, configData);
 
@@ -86,14 +93,14 @@ const resolveMermaidConfig = (mmdPath) => {
   }
 };
 
-const generateFilePaths = (...data) => {
+const generateFilePaths = (rootDir, data) => {
   const hash = createHash(...data);
 
   return {
-    mmdPath: path.join(__dirname, `.${hash}.mmd`),
-    // Scoobie will resolve this URL relative to repo root
-    svgNodeUrl: path.join('/mermaid', `.${hash}.svg`),
-    svgPath: path.join(__dirname, `.${hash}.svg`),
+    mmdPath: path.join(rootDir, MERMAID_DIR, `.${hash}.mmd`),
+    // `imageToJsx` will resolve this URL relative to `rootDir`.
+    svgNodeUrl: path.join('/', MERMAID_DIR, `.${hash}.svg`),
+    svgPath: path.join(rootDir, MERMAID_DIR, `.${hash}.svg`),
   };
 };
 
@@ -120,16 +127,16 @@ const mmdc = ({ configPath, mmdPath, svgPath }) => {
  * mermaid CLI. Returns the path to the rendered SVG.
  *
  * @param  {string} mmdData
- * @param  {string} _destination
+ * @param  {string} rootDir
  * @return {string}
  */
-function render(mmdData, _destination) {
-  const { configData, configPath } = resolveMermaidConfig();
+function render(mmdData, rootDir) {
+  const { configData, configPath } = resolveMermaidConfig(rootDir);
 
-  const { mmdPath, svgNodeUrl, svgPath } = generateFilePaths(
+  const { mmdPath, svgNodeUrl, svgPath } = generateFilePaths(rootDir, [
     configData,
     mmdData,
-  );
+  ]);
 
   if (fs.existsSync(svgPath)) {
     // Our filename is based on a hash of the config and diagram. If the file
@@ -154,15 +161,18 @@ function render(mmdData, _destination) {
  * mermaid CLI. Returns the path to the rendered SVG.
  *
  * @param  {string} mmdPath
- * @param  {string} _destination
+ * @param  {string} rootDir
  * @return {string}
  */
-function renderFromFile(mmdPath, _destination) {
-  const { configData, configPath } = resolveMermaidConfig(mmdPath);
+function renderFromFile(mmdPath, rootDir) {
+  const { configData, configPath } = resolveMermaidConfig(rootDir, mmdPath);
 
   const mmdData = fs.readFileSync(mmdPath);
 
-  const { svgNodeUrl, svgPath } = generateFilePaths(configData, mmdData);
+  const { svgNodeUrl, svgPath } = generateFilePaths(rootDir, [
+    configData,
+    mmdData,
+  ]);
 
   if (fs.existsSync(svgPath)) {
     // Our filename is based on a hash of the config and diagram. If the file
@@ -174,22 +184,6 @@ function renderFromFile(mmdPath, _destination) {
   mmdc({ configPath, mmdPath, svgPath });
 
   return svgNodeUrl;
-}
-
-/**
- * Returns the destination for the SVG to be rendered at, explicity defined
- * using `vFile.data.destinationDir`, or falling back to the file's current
- * directory.
- *
- * @param {vFile} vFile
- * @return {string}
- */
-function getDestinationDir(vFile) {
-  if (vFile.data.destinationDir) {
-    return vFile.data.destinationDir;
-  }
-
-  return vFile.dirname;
 }
 
 /**
@@ -209,7 +203,6 @@ function createMermaidDiv(contents) {
 
 module.exports = {
   createMermaidDiv,
-  getDestinationDir,
   render,
   renderFromFile,
 };
