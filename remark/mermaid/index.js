@@ -135,8 +135,8 @@ function visitCodeBlock(ast, vFile, isSimple, rootDir) {
 
       newNode = {
         type: 'image',
-        // Directive for `imageToJsx` to load an inline SVG.
-        title: `${meta || ''} =inline`,
+        // Directive for Scoobie to skip custom SVG styling (e.g. box shadow).
+        title: `${meta || ''} =style=none`,
         url: graphSvgFilename,
       };
     }

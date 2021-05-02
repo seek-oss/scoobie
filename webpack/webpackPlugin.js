@@ -72,7 +72,7 @@ const createSvgRules = (compiler, mermaid) => [
       include: [path.join(mermaid.rootDir, MERMAID_DIR)],
       use: [
         {
-          loader: require.resolve('raw-loader'),
+          loader: require.resolve('file-loader'),
         },
         {
           loader: require.resolve('svgo-loader'),
@@ -81,11 +81,6 @@ const createSvgRules = (compiler, mermaid) => [
               {
                 addAttributesToSVGElement: {
                   attribute: 'focusable="false"',
-                },
-              },
-              {
-                addClassesToSVGElement: {
-                  className: 'mermaidDiagram',
                 },
               },
               {

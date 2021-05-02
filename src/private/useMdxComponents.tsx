@@ -43,8 +43,16 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     h5: createSpacedHeading(5),
     h6: createSpacedHeading(6),
     hr: HorizontalRule,
-    img: (props) => (
-      <Box {...props} className={imageStyles.img} component="img" />
+    img: ({
+      // This is set to `'default' | 'none'` by the `imageToJsx` plugin.
+      'data-scoobie-style': style,
+      ...props
+    }) => (
+      <Box
+        {...props}
+        className={style === 'none' ? undefined : imageStyles.img}
+        component="img"
+      />
     ),
     li: ({ children }) => <Stack space={space}>{children}</Stack>,
     ol: (props) => <MdxOrderedList {...props} size={size} />,

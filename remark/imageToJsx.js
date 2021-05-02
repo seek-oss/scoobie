@@ -3,7 +3,7 @@ const path = require('path');
 const findUp = require('find-up');
 const visit = require('unist-util-visit');
 
-const INLINE_DIRECTIVE = '=inline';
+const UNSTYLED_DIRECTIVE = '=style=none';
 const TITLE_DIRECTIVE = /^=([0-9]*)x([0-9]*)$/;
 
 /**
@@ -64,12 +64,16 @@ const createModulePathProcessor = (file) => {
 
 /**
  * @param {string} inputTitle
- * @param {string} inputUrl
+ * @returns {{
+ *   style: 'default' | 'none';
+ *   styleLines: string[];
+ *   title: string;
+ * }}
  */
-const processTitle = (inputTitle, inputUrl) => {
+const processTitle = (inputTitle) => {
   let width = '';
   let height = '';
-  let inlineSvg = false;
+  let style = 'default';
 
   const title = cleanseDoubleQuotes(
     inputTitle
@@ -82,8 +86,8 @@ const processTitle = (inputTitle, inputUrl) => {
           return acc;
         }
 
-        if (segment === INLINE_DIRECTIVE) {
-          inlineSvg = inlineSvg || isSvgUrl(inputUrl);
+        if (segment === UNSTYLED_DIRECTIVE) {
+          style = 'none';
           return acc;
         }
 
@@ -96,7 +100,7 @@ const processTitle = (inputTitle, inputUrl) => {
 
   if (width === '' && height === '') {
     return {
-      inlineSvg,
+      style,
       styleLines: [],
       title,
     };
@@ -108,7 +112,7 @@ const processTitle = (inputTitle, inputUrl) => {
   ].join(', ');
 
   return {
-    inlineSvg,
+    style,
     styleLines: [`  style={{ ${props} }}`],
     title,
   };
@@ -119,11 +123,9 @@ const processTitle = (inputTitle, inputUrl) => {
  *
  * @param {(modulePath: string) => string} processModulePath
  * @param {string} url
- * @param {boolean} inline - Whether an SVG should be rendered inline with the
- *                           HTML document or referenced as an external image.
  * @returns {string}
  */
-const inferImageSrc = (processModulePath, url, inlineSvg) => {
+const inferImageSrc = (processModulePath, url) => {
   if (url.includes("'") || url.includes('"')) {
     throw Error('URL cannot contain unescaped quotes');
   }
@@ -133,12 +135,12 @@ const inferImageSrc = (processModulePath, url, inlineSvg) => {
     return `"${encodeURI(url)}"`;
   }
 
-  // Resolve direct export for file-loaded SVGs
-  if (!inlineSvg && isSvgUrl(url)) {
+  // Resolve direct export for SVGs
+  if (isSvgUrl(url)) {
     return `require('${processModulePath(url)}')`;
   }
 
-  // Resolve default export for other images and raw-loaded SVGs
+  // Resolve default export for other images
   return `require('${processModulePath(url)}').default`;
 };
 
@@ -158,32 +160,22 @@ module.exports.imageToJsx = () => (tree, file) => {
       return;
     }
 
-    const { inlineSvg, styleLines, title } = processTitle(
-      node.title || '',
-      node.url,
-    );
+    const { style, styleLines, title } = processTitle(node.title || '');
 
-    const imageSrc = inferImageSrc(processModulePath, node.url, inlineSvg);
+    const imageSrc = inferImageSrc(processModulePath, node.url);
 
     node.type = 'jsx';
 
-    node.value = inlineSvg
-      ? [
-          '<span',
-          '  dangerouslySetInnerHTML={{',
-          `    __html: ${imageSrc},`,
-          '  }}',
-          `  title="${title || cleanseDoubleQuotes(node.alt || '')}"`,
-          '/>',
-        ].join('\n')
-      : [
-          '<img',
-          `  alt="${cleanseDoubleQuotes(node.alt || '')}"`,
-          `  src={${imageSrc}}`,
-          ...styleLines,
-          `  title="${title}"`,
-          `/>`,
-        ].join('\n');
+    node.value = [
+      '<img',
+      `  alt="${cleanseDoubleQuotes(node.alt || '')}"`,
+      // Custom styling attribute for the MDX `<img>` renderer.
+      `  data-scoobie-style="${style}"`,
+      `  src={${imageSrc}}`,
+      ...styleLines,
+      `  title="${title}"`,
+      `/>`,
+    ].join('\n');
 
     delete node.alt;
     delete node.title;

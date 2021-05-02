@@ -599,16 +599,6 @@ module.exports = {
 };
 ```
 
-When enabling mermaid support, you'll also want to import the global styles into your `App.tsx`:
-
-```typescript
-import 'braid-design-system/reset';
-
-import './App.treat';
-
-// ...
-```
-
 ### dangerouslySetWebpackConfig
 
 Zero-config option referenced in [sku.config.js](#skuconfigjs) above.

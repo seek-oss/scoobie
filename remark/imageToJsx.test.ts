@@ -27,6 +27,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={require('./assets/image.png').default}
         title=\\"\\"
       />",
@@ -47,6 +48,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={require('./assets/image.png').default}
         title=\\"\\"
       />",
@@ -67,6 +69,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={require('./image.png').default}
         title=\\"\\"
       />",
@@ -87,6 +90,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={require('../src/assets/image.png').default}
         title=\\"\\"
       />",
@@ -107,6 +111,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={\\"https://example.com/pong.png\\"}
         title=\\"\\"
       />",
@@ -129,6 +134,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"bravo\\"
+        data-scoobie-style=\\"default\\"
         src={\\"https://example.com/pong.png\\"}
         title=\\"alpha\\"
       />",
@@ -150,6 +156,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={\\"https://example.com/pong.png\\"}
         style={{ maxWidth: '100%', width: 100 }}
         title=\\"\\"
@@ -172,6 +179,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={\\"https://example.com/pong.png\\"}
         style={{ height: 200 }}
         title=\\"\\"
@@ -194,6 +202,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={\\"https://example.com/pong.png\\"}
         style={{ height: 200, maxWidth: '100%', width: 100 }}
         title=\\"\\"
@@ -216,6 +225,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={\\"https://example.com/pong.png\\"}
         style={{ maxWidth: '100%', width: 100 }}
         title=\\"Alpha\\"
@@ -224,11 +234,11 @@ describe('imageToJsx', () => {
     `);
     });
 
-    it('ignores inline directive', () => {
+    it('respects unstyled directive', () => {
       const ast = {
         type: 'image',
         url: 'https://example.com/pong.png',
-        title: 'Alpha =inline',
+        title: 'Alpha =style=none',
       } as const;
 
       const astCopy = runPlugin(ast);
@@ -238,6 +248,7 @@ describe('imageToJsx', () => {
           "type": "jsx",
           "value": "<img
           alt=\\"\\"
+          data-scoobie-style=\\"none\\"
           src={\\"https://example.com/pong.png\\"}
           title=\\"Alpha\\"
         />",
@@ -281,6 +292,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={require('./drawing.svg')}
         title=\\"\\"
       />",
@@ -301,6 +313,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={require('./drawing.svg')}
         title=\\"\\"
       />",
@@ -321,6 +334,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={require('../src/assets/drawing.svg')}
         title=\\"\\"
       />",
@@ -343,6 +357,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"bravo\\"
+        data-scoobie-style=\\"default\\"
         src={require('./drawing.svg')}
         title=\\"alpha\\"
       />",
@@ -364,6 +379,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"bravo\\"
+        data-scoobie-style=\\"default\\"
         src={require('./drawing.svg')}
         title=\\"\\"
       />",
@@ -384,6 +400,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
+        data-scoobie-style=\\"default\\"
         src={\\"https://example.com/drawing.svg\\"}
         title=\\"\\"
       />",
@@ -405,6 +422,7 @@ describe('imageToJsx', () => {
           "type": "jsx",
           "value": "<img
           alt=\\"\\"
+          data-scoobie-style=\\"default\\"
           src={require('./drawing.svg')}
           style={{ height: 50, maxWidth: '100%', width: 100 }}
           title=\\"Alpha\\"
@@ -413,11 +431,11 @@ describe('imageToJsx', () => {
       `);
     });
 
-    it('respects inline directive', () => {
+    it('respects unstyled directive', () => {
       const ast = {
         type: 'image',
         url: './drawing.svg',
-        title: 'Alpha =inline',
+        title: 'Alpha =style=none',
       } as const;
 
       const astCopy = runPlugin(ast);
@@ -425,10 +443,10 @@ describe('imageToJsx', () => {
       expect(astCopy).toMatchInlineSnapshot(`
         Object {
           "type": "jsx",
-          "value": "<span
-          dangerouslySetInnerHTML={{
-            __html: require('./drawing.svg').default,
-          }}
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"none\\"
+          src={require('./drawing.svg')}
           title=\\"Alpha\\"
         />",
         }
