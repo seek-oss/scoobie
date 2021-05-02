@@ -1,4 +1,4 @@
-const { remarkPlugins } = require('../remark');
+const { remarkPlugins: defaultRemarkPlugins } = require('../remark');
 
 /**
  * Vendored from `sku/config/webpack/utils`.
@@ -11,7 +11,7 @@ const SKU_WEBPACK_UTILS = {
 
 const ruleTestsToRemove = new Set(Object.values(SKU_WEBPACK_UTILS).map(String));
 
-const mdxRule = {
+const createMdxRule = (remarkPlugins) => ({
   test: /\.mdx?$/i,
   use: [
     {
@@ -27,7 +27,7 @@ const mdxRule = {
       },
     },
   ],
-};
+});
 
 const createSvgRule = (compiler) => ({
   test: /\.svg$/i,
@@ -64,6 +64,17 @@ const createSvgRule = (compiler) => ({
 });
 
 class ScoobieWebpackPlugin {
+  /**
+   * @param {{
+   *   remark?: (defaultPlugins: unknown[]) => unknown[];
+   * }} config
+   */
+  constructor(config = {}) {
+    this.remarkPlugins = config.remark
+      ? config.remark(defaultRemarkPlugins)
+      : defaultRemarkPlugins;
+  }
+
   apply(compiler) {
     /**
      * Get rid of the SVG loaders from `SkuWebpackPlugin`.
@@ -80,7 +91,7 @@ class ScoobieWebpackPlugin {
       (rule) => !ruleTestsToRemove.has(String(rule.test)),
     );
 
-    rules.push(mdxRule, createSvgRule(compiler));
+    rules.push(createMdxRule(this.remarkPlugins), createSvgRule(compiler));
 
     compiler.options.module.rules = rules;
   }
