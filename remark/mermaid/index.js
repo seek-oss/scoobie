@@ -216,7 +216,7 @@ function mermaid(options) {
    * @return {object}
    */
   return function transformer(ast, vFile, next) {
-    fs.ensureDirSync(path.join(options.rootDir, MERMAID_DIR))
+    fs.ensureDirSync(path.join(options.rootDir, MERMAID_DIR));
 
     visitCodeBlock(ast, vFile, simpleMode, options.rootDir);
     visitLink(ast, vFile, simpleMode, options.rootDir);
