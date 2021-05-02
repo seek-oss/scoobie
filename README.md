@@ -588,7 +588,7 @@ module.exports = {
     plugins: [
       ...config.plugins,
       new ScoobieWebpackPlugin({
-        // Optional configuration option to enable Mermaid diagram support.
+        // Optional configuration option to enable mermaid support.
         // Temporary files are written to `${rootDir}/mermaid`.
         mermaid: {
           rootDir: __dirname,
@@ -597,6 +597,16 @@ module.exports = {
     ],
   }),
 };
+```
+
+When enabling mermaid support, you'll also want to import the global styles into your `App.tsx`:
+
+```typescript
+import 'braid-design-system/reset';
+
+import './App.treat';
+
+// ...
 ```
 
 ### dangerouslySetWebpackConfig

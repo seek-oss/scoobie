@@ -39,6 +39,7 @@
     "sku": "10.12.0"
   },
   "files": [
+    "mermaid.treat.ts",
     "src",
     "remark",
     "webpack",
