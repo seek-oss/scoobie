@@ -1,6 +1,4 @@
-const path = require('path');
-
-const { MERMAID_DIR, remarkPlugin } = require('../remark');
+const { remarkPlugin } = require('../remark');
 
 /**
  * Vendored from `sku/config/webpack/utils`.
@@ -31,72 +29,38 @@ const createMdxRule = (remarkPlugins) => ({
   ],
 });
 
-const createSvgRules = (compiler, mermaid) => [
-  {
-    test: /\.svg$/i,
-    ...(mermaid && { exclude: [path.join(mermaid.rootDir, MERMAID_DIR)] }),
-    use: [
-      {
-        loader: require.resolve('file-loader'),
-        options: {
-          // Avoid emitting static assets twice, which is unnecessary and can lead
-          // to mismatches in markup.
-          emitFile: compiler.options.name === 'client',
-        },
-      },
-      {
-        loader: require.resolve('svgo-loader'),
-        options: {
-          plugins: [
-            {
-              addAttributesToSVGElement: {
-                attribute: 'focusable="false"',
-              },
-            },
-            {
-              removeViewBox: false,
-            },
-            {
-              inlineStyles: {
-                onlyMatchedOnce: false,
-              },
-            },
-          ],
-        },
-      },
-    ],
-  },
-  ...(mermaid && [
+const createSvgRule = (compiler) => ({
+  test: /\.svg$/i,
+  use: [
     {
-      test: /.svg$/,
-      include: [path.join(mermaid.rootDir, MERMAID_DIR)],
-      use: [
-        {
-          loader: require.resolve('file-loader'),
-        },
-        {
-          loader: require.resolve('svgo-loader'),
-          options: {
-            plugins: [
-              {
-                addAttributesToSVGElement: {
-                  attribute: 'focusable="false"',
-                },
-              },
-              {
-                removeViewBox: false,
-              },
-              {
-                // For some reason, this destyles Mermaid flow charts.
-                inlineStyles: false,
-              },
-            ],
-          },
-        },
-      ],
+      loader: require.resolve('file-loader'),
+      options: {
+        // Avoid emitting static assets twice, which is unnecessary and can lead
+        // to mismatches in markup.
+        emitFile: compiler.options.name === 'client',
+      },
     },
-  ]),
-];
+    {
+      loader: require.resolve('svgo-loader'),
+      options: {
+        plugins: [
+          {
+            addAttributesToSVGElement: {
+              attribute: 'focusable="false"',
+            },
+          },
+          {
+            removeViewBox: false,
+          },
+          {
+            // This destyles mermaid diagram text for some reason.
+            inlineStyles: false,
+          },
+        ],
+      },
+    },
+  ],
+});
 
 class ScoobieWebpackPlugin {
   /**
@@ -106,8 +70,6 @@ class ScoobieWebpackPlugin {
    * }} config
    */
   constructor(config = {}) {
-    this.mermaid = config.mermaid;
-
     const defaultRemarkPlugins = [
       ...(config.mermaid && [[remarkPlugin.mermaid, config.mermaid]]),
       remarkPlugin.slug,
@@ -138,10 +100,8 @@ class ScoobieWebpackPlugin {
       (rule) => !ruleTestsToRemove.has(String(rule.test)),
     );
 
-    rules.push(
-      createMdxRule(this.remarkPlugins),
-      ...createSvgRules(compiler, this.mermaid),
-    );
+    rules.push(createMdxRule(this.remarkPlugins));
+    rules.push(createSvgRule(compiler));
 
     compiler.options.module.rules = rules;
   }

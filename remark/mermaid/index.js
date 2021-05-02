@@ -231,7 +231,5 @@ function mermaid(options) {
 }
 
 module.exports = {
-  MERMAID_DIR,
-
   mermaid,
 };
