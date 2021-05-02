@@ -3,7 +3,7 @@ const path = require('path');
 const findUp = require('find-up');
 const visit = require('unist-util-visit');
 
-const INLINE_DIRECTIVE = '=inline'
+const INLINE_DIRECTIVE = '=inline';
 const TITLE_DIRECTIVE = /^=([0-9]*)x([0-9]*)$/;
 
 /**
