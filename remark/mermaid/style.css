@@ -1,0 +1,131 @@
+/* Don't panic, Mermaid scopes all styles to the parent SVG ID */
+
+* {
+  --font-family: Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial,
+    sans-serif;
+  --font-size: 14px;
+
+  /* https://github.com/mermaid-js/mermaid/blob/8.5.2/src/diagrams/er/erRenderer.js#L248-L249 */
+  --mermaid-er-label-fill: rgba(255, 255, 255, 0.85);
+
+  /*  https://github.com/seek-oss/braid-design-system/blob/5fdf62b66a8c1ee94722e85f57edf78000a40f56/lib/themes/apac/tokens.ts#L1*/
+  --braid-apac-body-background-color: #f5f6f8;
+  --braid-apac-body-background-color-darker: #e6e9ee; /* matches Scoobie inline code border color */
+  --braid-apac-secondary-foreground-color: #596581;
+  --braid-caution-box-shadow-color: #fcf6e1;
+  --braid-caution-border-color: #ffc600;
+}
+
+/* shared */
+
+body,
+text {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+/* er */
+
+path.er.entityBox {
+  fill: var(--braid-apac-body-background-color);
+  stroke: var(--braid-apac-body-background-color-darker);
+}
+
+path.er.relationshipLabelBox {
+  fill: var(--mermaid-er-label-fill);
+}
+
+path.er.relationshipLine {
+  stroke: var(--braid-apac-secondary-foreground-color);
+}
+
+/* flowchart v2 */
+
+.edge-thickness-normal {
+  stroke-width: 1px;
+}
+
+g.edgeLabel span.edgeLabel,
+g.node span.nodeLabel {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+g.edgeLabel div {
+  background-color: var(--mermaid-er-label-fill);
+}
+
+g.edgeLabel span.edgeLabel {
+  background-color: transparent;
+}
+
+g.node path,
+g.node polygon,
+g.node rect {
+  fill: var(--braid-apac-body-background-color);
+  stroke: var(--braid-apac-body-background-color-darker);
+}
+
+g.node div {
+  text-align: center;
+}
+
+g.node span.nodeLabel {
+  display: block;
+}
+
+g.edgePaths path.transition {
+  fill: none;
+  stroke: var(--braid-apac-secondary-foreground-color);
+}
+
+path.arrowMarkerPath {
+  fill: var(--braid-apac-secondary-foreground-color);
+}
+
+/* sequence */
+
+text.messageText {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  stroke: none;
+}
+
+rect.actor {
+  fill: var(--braid-apac-body-background-color);
+
+  stroke: var(--braid-apac-body-background-color-darker);
+}
+
+text.sequenceNumber {
+  fill: var(--braid-apac-body-background-color);
+
+  font-size: 12px;
+}
+
+path.labelBox {
+  fill: var(--braid-caution-box-shadow-color);
+}
+
+path.labelBox,
+path.loopLine {
+  stroke: var(--braid-caution-border-color);
+  stroke-dasharray: none;
+}
+
+path.actor-line,
+path.messageLine0,
+path.path {
+  stroke: var(--braid-apac-secondary-foreground-color);
+}
+
+#arrowhead > path,
+#crosshead > path,
+#sequencenumber {
+  fill: var(--braid-apac-secondary-foreground-color);
+  stroke: none;
+}
+
+path.actor-line {
+  stroke-dasharray: 4;
+}

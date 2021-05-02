@@ -1,0 +1,19 @@
+{
+  "er": {
+    "diagramPadding": 1,
+    "useMaxWidth": false
+  },
+  "flowchart": {
+    "diagramPadding": 1,
+    "useMaxWidth": false
+  },
+  "sequence": {
+    "bottomMarginAdj": 14,
+    "boxMargin": 14,
+    "diagramMarginX": 1,
+    "diagramMarginY": 1,
+    "mirrorActors": true,
+    "useMaxWidth": false
+  },
+  "themeCSS": "/* loaded from style.css */"
+}
