@@ -52,6 +52,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
         {...props}
         className={style === 'none' ? undefined : imageStyles.img}
         component="img"
+        display="block"
       />
     ),
     li: ({ children }) => <Stack space={space}>{children}</Stack>,
