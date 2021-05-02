@@ -107,7 +107,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
-        src=\\"https://example.com/pong.png\\"
+        src={\\"https://example.com/pong.png\\"}
         title=\\"\\"
       />",
       }
@@ -129,7 +129,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"bravo\\"
-        src=\\"https://example.com/pong.png\\"
+        src={\\"https://example.com/pong.png\\"}
         title=\\"alpha\\"
       />",
       }
@@ -150,7 +150,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
-        src=\\"https://example.com/pong.png\\"
+        src={\\"https://example.com/pong.png\\"}
         style={{ maxWidth: '100%', width: 100 }}
         title=\\"\\"
       />",
@@ -172,7 +172,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
-        src=\\"https://example.com/pong.png\\"
+        src={\\"https://example.com/pong.png\\"}
         style={{ height: 200 }}
         title=\\"\\"
       />",
@@ -194,7 +194,7 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
-        src=\\"https://example.com/pong.png\\"
+        src={\\"https://example.com/pong.png\\"}
         style={{ height: 200, maxWidth: '100%', width: 100 }}
         title=\\"\\"
       />",
@@ -216,12 +216,33 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
-        src=\\"https://example.com/pong.png\\"
+        src={\\"https://example.com/pong.png\\"}
         style={{ maxWidth: '100%', width: 100 }}
         title=\\"Alpha\\"
       />",
       }
     `);
+    });
+
+    it('ignores inline directive', () => {
+      const ast = {
+        type: 'image',
+        url: 'https://example.com/pong.png',
+        title: 'Alpha =inline',
+      } as const;
+
+      const astCopy = runPlugin(ast);
+
+      expect(astCopy).toMatchInlineSnapshot(`
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          src={\\"https://example.com/pong.png\\"}
+          title=\\"Alpha\\"
+        />",
+        }
+      `);
     });
 
     it('ignores missing URL', () => {
@@ -363,11 +384,55 @@ describe('imageToJsx', () => {
         "type": "jsx",
         "value": "<img
         alt=\\"\\"
-        src=\\"https://example.com/drawing.svg\\"
+        src={\\"https://example.com/drawing.svg\\"}
         title=\\"\\"
       />",
       }
     `);
+    });
+
+    it('respects dimension directive', () => {
+      const ast = {
+        type: 'image',
+        url: './drawing.svg',
+        title: '=100x50 Alpha',
+      } as const;
+
+      const astCopy = runPlugin(ast);
+
+      expect(astCopy).toMatchInlineSnapshot(`
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          src={require('./drawing.svg')}
+          style={{ height: 50, maxWidth: '100%', width: 100 }}
+          title=\\"Alpha\\"
+        />",
+        }
+      `);
+    });
+
+    it('respects inline directive', () => {
+      const ast = {
+        type: 'image',
+        url: './drawing.svg',
+        title: 'Alpha =inline',
+      } as const;
+
+      const astCopy = runPlugin(ast);
+
+      expect(astCopy).toMatchInlineSnapshot(`
+        Object {
+          "type": "jsx",
+          "value": "<span
+          dangerouslySetInnerHTML={{
+            __html: require('./drawing.svg').default,
+          }}
+          title=\\"Alpha\\"
+        />",
+        }
+      `);
     });
 
     it('ignores missing URL', () => {

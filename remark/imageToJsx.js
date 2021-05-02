@@ -3,12 +3,19 @@ const path = require('path');
 const findUp = require('find-up');
 const visit = require('unist-util-visit');
 
-const TITLE_REGEX = /^=([0-9]*)x([0-9]*) ?(.*)$/;
+const INLINE_DIRECTIVE = '=inline'
+const TITLE_DIRECTIVE = /^=([0-9]*)x([0-9]*)$/;
 
 /**
  * @param {string} str
  */
 const cleanseDoubleQuotes = (str) => str.replace('"', "''");
+
+/**
+ *
+ * @param {string} url
+ */
+const isSvgUrl = (url) => url.toLocaleLowerCase().endsWith('.svg');
 
 let $repoRoot;
 /**
@@ -56,22 +63,40 @@ const createModulePathProcessor = (file) => {
 };
 
 /**
- * @param {string} str
+ * @param {string} inputTitle
+ * @param {string} inputUrl
  */
-const processTitle = (str) => {
-  const matchResult = TITLE_REGEX.exec(str);
+const processTitle = (inputTitle, inputUrl) => {
+  let width = '';
+  let height = '';
+  let inlineSvg = false;
 
-  if (matchResult === null) {
-    return {
-      styleLines: [],
-      title: str,
-    };
-  }
+  const title = cleanseDoubleQuotes(
+    inputTitle
+      .split(' ')
+      .reduce((acc, segment) => {
+        const matchResult = TITLE_DIRECTIVE.exec(segment);
+        if (matchResult !== null) {
+          width = matchResult[1];
+          height = matchResult[2];
+          return acc;
+        }
 
-  const [, width, height, title] = matchResult;
+        if (segment === INLINE_DIRECTIVE) {
+          inlineSvg = inlineSvg || isSvgUrl(inputUrl);
+          return acc;
+        }
+
+        acc.push(segment);
+
+        return acc;
+      }, [])
+      .join(' '),
+  );
 
   if (width === '' && height === '') {
     return {
+      inlineSvg,
       styleLines: [],
       title,
     };
@@ -83,6 +108,7 @@ const processTitle = (str) => {
   ].join(', ');
 
   return {
+    inlineSvg,
     styleLines: [`  style={{ ${props} }}`],
     title,
   };
@@ -93,9 +119,11 @@ const processTitle = (str) => {
  *
  * @param {(modulePath: string) => string} processModulePath
  * @param {string} url
+ * @param {boolean} inline - Whether an SVG should be rendered inline with the
+ *                           HTML document or referenced as an external image.
  * @returns {string}
  */
-const inferImageSrc = (processModulePath, url) => {
+const inferImageSrc = (processModulePath, url, inlineSvg) => {
   if (url.includes("'") || url.includes('"')) {
     throw Error('URL cannot contain unescaped quotes');
   }
@@ -105,13 +133,13 @@ const inferImageSrc = (processModulePath, url) => {
     return `"${encodeURI(url)}"`;
   }
 
-  // Resolve direct export for SVGs
-  if (url.endsWith('.svg')) {
-    return `{require('${processModulePath(url)}')}`;
+  // Resolve direct export for file-loaded SVGs
+  if (!inlineSvg && isSvgUrl(url)) {
+    return `require('${processModulePath(url)}')`;
   }
 
-  // Resolve default export for other images
-  return `{require('${processModulePath(url)}').default}`;
+  // Resolve default export for other images and raw-loaded SVGs
+  return `require('${processModulePath(url)}').default`;
 };
 
 /**
@@ -130,20 +158,32 @@ module.exports.imageToJsx = () => (tree, file) => {
       return;
     }
 
-    const imageSrc = inferImageSrc(processModulePath, node.url);
+    const { inlineSvg, styleLines, title } = processTitle(
+      node.title || '',
+      node.url,
+    );
 
-    const { styleLines, title } = processTitle(node.title || '');
+    const imageSrc = inferImageSrc(processModulePath, node.url, inlineSvg);
 
     node.type = 'jsx';
 
-    node.value = [
-      '<img',
-      `  alt="${cleanseDoubleQuotes(node.alt || '')}"`,
-      `  src=${imageSrc}`,
-      ...styleLines,
-      `  title="${cleanseDoubleQuotes(title)}"`,
-      `/>`,
-    ].join('\n');
+    node.value = inlineSvg
+      ? [
+          '<span',
+          '  dangerouslySetInnerHTML={{',
+          `    __html: ${imageSrc},`,
+          '  }}',
+          `  title="${title || cleanseDoubleQuotes(node.alt || '')}"`,
+          '/>',
+        ].join('\n')
+      : [
+          '<img',
+          `  alt="${cleanseDoubleQuotes(node.alt || '')}"`,
+          `  src={${imageSrc}}`,
+          ...styleLines,
+          `  title="${title}"`,
+          `/>`,
+        ].join('\n');
 
     delete node.alt;
     delete node.title;
