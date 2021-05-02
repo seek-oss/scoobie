@@ -7,9 +7,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const which = require('which');
 
-const { MERMAID_DIR } = require('.');
-
-const PLUGIN_NAME = 'remark-mermaid';
+const { MERMAID_DIR, PLUGIN_NAME } = require('./constants');
 
 let mmdcPath;
 

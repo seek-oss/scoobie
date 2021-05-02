@@ -5,18 +5,12 @@ const path = require('path');
 const fs = require('fs-extra');
 const visit = require('unist-util-visit');
 
+const { MERMAID_DIR, PLUGIN_NAME } = require('./constants');
 const utils = require('./utils');
 
 const render = utils.render;
 const renderFromFile = utils.renderFromFile;
 const createMermaidDiv = utils.createMermaidDiv;
-
-/**
- * Subdirectory under `rootDir` where temporary Mermaid artefacts are stored.
- */
-const MERMAID_DIR = 'mermaid';
-
-const PLUGIN_NAME = 'remark-mermaid';
 
 /**
  * Does this URL have a `.mermaid` or `.mmd` file extension?
