@@ -123,8 +123,8 @@ describe('imageToJsx', () => {
       const ast = {
         type: 'image',
         url: 'https://example.com/pong.png',
-        title: 'alpha',
-        alt: 'bravo',
+        title: 'alpha""danger"alpha',
+        alt: '"bravo"',
       } as const;
 
       const astCopy = runPlugin(ast);
@@ -133,10 +133,10 @@ describe('imageToJsx', () => {
       Object {
         "type": "jsx",
         "value": "<img
-        alt=\\"bravo\\"
+        alt=\\"''bravo''\\"
         data-scoobie-style=\\"default\\"
         src={\\"https://example.com/pong.png\\"}
-        title=\\"alpha\\"
+        title=\\"alpha''''danger''alpha\\"
       />",
       }
     `);

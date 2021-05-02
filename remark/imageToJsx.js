@@ -9,7 +9,7 @@ const TITLE_DIRECTIVE = /^=([0-9]*)x([0-9]*)$/;
 /**
  * @param {string} str
  */
-const cleanseDoubleQuotes = (str) => str.replace('"', "''");
+const cleanseDoubleQuotes = (str) => str.replace(/"/g, "''");
 
 /**
  *
