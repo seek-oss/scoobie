@@ -1,6 +1,6 @@
 /* eslint-disable no-sync */
 
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 const crypto = require('crypto');
 const path = require('path');
 
@@ -102,9 +102,8 @@ const generateFilePaths = (rootDir, data) => {
   };
 };
 
-const mmdc = ({ configPath, mmdPath, svgPath }) => {
-  const command = [
-    mmdcPath || (mmdcPath = which.sync('mmdc')),
+const mmdc = ({ configPath, mmdPath, svgPath }) =>
+  execFileSync(mmdcPath || (mmdcPath = which.sync('mmdc')), [
     '--backgroundColor',
     'transparent',
     '--configFile',
@@ -115,10 +114,7 @@ const mmdc = ({ configPath, mmdPath, svgPath }) => {
     svgPath,
     '--puppeteerConfigFile',
     PUPPETEER_CONFIG_PATH,
-  ].join(' ');
-
-  execSync(command);
-};
+  ]);
 
 /**
  * Accepts the `mmdData` of the graph as a string, and render an SVG using
