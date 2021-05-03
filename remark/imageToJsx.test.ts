@@ -23,16 +23,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={require('./assets/image.png').default}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={require('./assets/image.png').default}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('transforms relative image URL without prefix', () => {
@@ -44,16 +44,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={require('./assets/image.png').default}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={require('./assets/image.png').default}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('transforms root-relative image URL in same directory', () => {
@@ -65,16 +65,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={require('./image.png').default}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={require('./image.png').default}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('transforms root-relative image URL in different directory', () => {
@@ -86,16 +86,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={require('../src/assets/image.png').default}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={require('../src/assets/image.png').default}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('transforms external image URL', () => {
@@ -107,16 +107,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={\\"https://example.com/pong.png\\"}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={\\"https://example.com/pong.png\\"}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('supports title and alt props', () => {
@@ -130,16 +130,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"''bravo''\\"
-        data-scoobie-style=\\"default\\"
-        src={\\"https://example.com/pong.png\\"}
-        title=\\"alpha''''danger''alpha\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"''bravo''\\"
+          data-scoobie-style=\\"default\\"
+          src={\\"https://example.com/pong.png\\"}
+          title=\\"alpha''''danger''alpha\\"
+        />",
+        }
+      `);
     });
 
     it('pulls width from title', () => {
@@ -152,17 +152,17 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={\\"https://example.com/pong.png\\"}
-        style={{ maxWidth: '100%', width: 100 }}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={\\"https://example.com/pong.png\\"}
+          style={{ maxWidth: '100%', width: 100 }}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('pulls height from title', () => {
@@ -175,17 +175,17 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={\\"https://example.com/pong.png\\"}
-        style={{ height: 200 }}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={\\"https://example.com/pong.png\\"}
+          style={{ height: 200 }}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('pulls width and height from title', () => {
@@ -198,17 +198,17 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={\\"https://example.com/pong.png\\"}
-        style={{ height: 200, maxWidth: '100%', width: 100 }}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={\\"https://example.com/pong.png\\"}
+          style={{ height: 200, maxWidth: '100%', width: 100 }}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('preserves rest of the title', () => {
@@ -221,17 +221,17 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={\\"https://example.com/pong.png\\"}
-        style={{ maxWidth: '100%', width: 100 }}
-        title=\\"Alpha\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={\\"https://example.com/pong.png\\"}
+          style={{ maxWidth: '100%', width: 100 }}
+          title=\\"Alpha\\"
+        />",
+        }
+      `);
     });
 
     it('respects unstyled directive', () => {
@@ -288,16 +288,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={require('./drawing.svg')}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={require('./drawing.svg')}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('transforms root-relative image URL in same directory', () => {
@@ -309,16 +309,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={require('./drawing.svg')}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={require('./drawing.svg')}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('transforms root-relative image URL in different directory', () => {
@@ -330,16 +330,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={require('../src/assets/drawing.svg')}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={require('../src/assets/drawing.svg')}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('prefers title prop over alt prop', () => {
@@ -353,16 +353,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"bravo\\"
-        data-scoobie-style=\\"default\\"
-        src={require('./drawing.svg')}
-        title=\\"alpha\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"bravo\\"
+          data-scoobie-style=\\"default\\"
+          src={require('./drawing.svg')}
+          title=\\"alpha\\"
+        />",
+        }
+      `);
     });
 
     it('falls back to alt prop', () => {
@@ -375,16 +375,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"bravo\\"
-        data-scoobie-style=\\"default\\"
-        src={require('./drawing.svg')}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"bravo\\"
+          data-scoobie-style=\\"default\\"
+          src={require('./drawing.svg')}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('transforms SVG external image URL', () => {
@@ -396,16 +396,16 @@ describe('imageToJsx', () => {
       const astCopy = runPlugin(ast);
 
       expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "type": "jsx",
-        "value": "<img
-        alt=\\"\\"
-        data-scoobie-style=\\"default\\"
-        src={\\"https://example.com/drawing.svg\\"}
-        title=\\"\\"
-      />",
-      }
-    `);
+        Object {
+          "type": "jsx",
+          "value": "<img
+          alt=\\"\\"
+          data-scoobie-style=\\"default\\"
+          src={\\"https://example.com/drawing.svg\\"}
+          title=\\"\\"
+        />",
+        }
+      `);
     });
 
     it('respects dimension directive', () => {
