@@ -7,6 +7,7 @@
 Component library for SEEK documentation sites.
 
 - Author content in [Markdown] files
+- Diagram with [mermaid] code blocks
 - Render content with [Braid] styling
 - Integrate with [sku]
 
@@ -14,6 +15,7 @@ We use this to build [developer.seek.com](https://developer.seek.com), among oth
 
 [braid]: https://github.com/seek-oss/braid-design-system
 [markdown]: https://en.wikipedia.org/wiki/Markdown
+[mermaid]: https://mermaid-js.github.io/mermaid/#/n00b-overview
 [react]: https://reactjs.org/
 [sku]: https://github.com/seek-oss/sku
 
@@ -26,6 +28,7 @@ yarn add --exact scoobie
 - [Setup](#setup)
 - [Markdown reference](#markdown-reference)
   - [Getting started](#getting-started)
+  - [Diagrams](#diagrams)
   - [Headings](#headings)
   - [Images](#images)
   - [Links](#links)
@@ -44,15 +47,18 @@ yarn add --exact scoobie
   - [TocRenderer](#tocrenderer)
   - [WrapperRenderer](#wrapperrenderer)
   - [useImageStyles](#useimagestyles)
+- [Webpack reference](#webpack-reference)
+  - [ScoobieWebpackPlugin](#scoobiewebpackplugin)
+  - [dangerouslySetWebpackConfig](#dangerouslysetwebpackconfig)
 - [Contributing](https://github.com/seek-oss/scoobie/blob/master/CONTRIBUTING.md)
 
 ## Setup
 
 ### `sku.config.js`
 
-Compile Scoobie and bundle your Markdown content with its [Webpack loaders]:
+Compile Scoobie and bundle your Markdown content with its [Webpack plugin]:
 
-[webpack loaders]: https://webpack.js.org/loaders/
+[webpack plugin]: https://webpack.js.org/plugins/
 
 ```javascript
 const { dangerouslySetWebpackConfig } = require('scoobie/webpack');
@@ -64,6 +70,8 @@ module.exports = {
   dangerouslySetWebpackConfig,
 };
 ```
+
+For detailed usage, see the [Webpack reference].
 
 ### `src/render.tsx`
 
@@ -153,6 +161,37 @@ export const App = () => (
 
 [react context]: https://reactjs.org/docs/context.html#contextprovider
 
+### Diagrams
+
+Scoobie optionally supports simple, source-controlled diagrams via [mermaid].
+
+This requires the `mermaid` configuration option to be set on [ScoobieWebpackPlugin](#scoobiewebpackplugin).
+From there, the easiest way to get started is to check out the [mermaid live editor].
+
+You can use a named code block in Markdown files:
+
+````markdown
+```mermaid Optional title
+sequenceDiagram
+  autonumber
+  participant P as Partner
+  participant S as SEEK
+
+  P->>S: Make request
+```
+````
+
+Or import an `.mmd` file like so:
+
+```markdown
+![Diagram](./diagram.mmd 'Optional title')
+```
+
+If you use a separate `diagram.mmd` file, you can provide [additional mermaid configuration] with a `diagram.mmd.json` file in the same directory.
+
+[mermaid live editor]: https://mermaidjs.github.io/mermaid-live-editor
+[additional mermaid configuration]: https://mermaid-js.github.io/mermaid/#/mermaidAPI?id=configuration
+
 ### Headings
 
 Anchor slugs are automatically generated for h1–h6:
@@ -173,7 +212,7 @@ Vanilla Markdown image syntax is supported:
 ![Woo vector](./image.svg)
 ```
 
-Define width and height px constraints by overloading the title of non-SVG images:
+Define width and height px constraints by overloading the title:
 
 ```markdown
 ![Alt text](./image.png '=100x20 Rest of title')
@@ -513,3 +552,57 @@ export const MySvg = () => {
   );
 };
 ```
+
+## Webpack reference
+
+Scoobie distributes its Webpack config via a `scoobie/webpack` submodule:
+
+```typescript
+const {
+  ScoobieWebpackPlugin,
+  dangerouslySetWebpackConfig,
+} = require('scoobie/webpack');
+```
+
+Compatibility notes:
+
+- SVGs cannot be directly imported into JSX as components.
+
+  Consider inlining the SVGs in your JSX instead.
+
+### ScoobieWebpackPlugin
+
+A bundle of MDX and image loaders that complement sku's Webpack config.
+
+This needs to be ordered to run after SkuWebpackPlugin:
+
+```javascript
+const { dangerouslySetWebpackConfig } = require('scoobie/webpack');
+
+module.exports = {
+  // ...
+
+  compilePackages: ['scoobie'],
+  dangerouslySetWebpackConfig: (config) => ({
+    ...config,
+    plugins: [
+      ...config.plugins,
+      new ScoobieWebpackPlugin({
+        // Optional configuration option to enable mermaid support.
+        // Temporary files are written to `${rootDir}/mermaid`.
+        mermaid: {
+          rootDir: __dirname,
+        },
+      }),
+    ],
+  }),
+};
+```
+
+### dangerouslySetWebpackConfig
+
+Zero-config option referenced in [sku.config.js](#skuconfigjs) above.
+
+This slots in on top of sku without much fuss.
+If you're wrangling other Webpack config and need something more composable,
+see [ScoobieWebpackPlugin](#scoobiewebpackplugin).

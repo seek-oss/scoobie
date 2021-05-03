@@ -3,12 +3,19 @@ const path = require('path');
 const findUp = require('find-up');
 const visit = require('unist-util-visit');
 
-const TITLE_REGEX = /^=([0-9]*)x([0-9]*) ?(.*)$/;
+const UNSTYLED_DIRECTIVE = '=style=none';
+const TITLE_DIRECTIVE = /^=([0-9]*)x([0-9]*)$/;
 
 /**
  * @param {string} str
  */
-const cleanseDoubleQuotes = (str) => str.replace('"', "''");
+const cleanseDoubleQuotes = (str) => str.replace(/"/g, "''");
+
+/**
+ *
+ * @param {string} url
+ */
+const isSvgUrl = (url) => url.toLocaleLowerCase().endsWith('.svg');
 
 let $repoRoot;
 /**
@@ -56,22 +63,44 @@ const createModulePathProcessor = (file) => {
 };
 
 /**
- * @param {string} str
+ * @param {string} inputTitle
+ * @returns {{
+ *   style: 'default' | 'none';
+ *   styleLines: string[];
+ *   title: string;
+ * }}
  */
-const processTitle = (str) => {
-  const matchResult = TITLE_REGEX.exec(str);
+const processTitle = (inputTitle) => {
+  let width = '';
+  let height = '';
+  let style = 'default';
 
-  if (matchResult === null) {
-    return {
-      styleLines: [],
-      title: str,
-    };
-  }
+  const title = cleanseDoubleQuotes(
+    inputTitle
+      .split(' ')
+      .reduce((acc, segment) => {
+        const matchResult = TITLE_DIRECTIVE.exec(segment);
+        if (matchResult !== null) {
+          width = matchResult[1];
+          height = matchResult[2];
+          return acc;
+        }
 
-  const [, width, height, title] = matchResult;
+        if (segment === UNSTYLED_DIRECTIVE) {
+          style = 'none';
+          return acc;
+        }
+
+        acc.push(segment);
+
+        return acc;
+      }, [])
+      .join(' '),
+  );
 
   if (width === '' && height === '') {
     return {
+      style,
       styleLines: [],
       title,
     };
@@ -83,9 +112,36 @@ const processTitle = (str) => {
   ].join(', ');
 
   return {
+    style,
     styleLines: [`  style={{ ${props} }}`],
     title,
   };
+};
+
+/**
+ * Infer JSX `src` from an incoming image URL.
+ *
+ * @param {(modulePath: string) => string} processModulePath
+ * @param {string} url
+ * @returns {string}
+ */
+const inferImageSrc = (processModulePath, url) => {
+  if (url.includes("'") || url.includes('"')) {
+    throw Error('URL cannot contain unescaped quotes');
+  }
+
+  // Use directly
+  if (url.startsWith('https://')) {
+    return `"${encodeURI(url)}"`;
+  }
+
+  // Resolve direct export for SVGs
+  if (isSvgUrl(url)) {
+    return `require('${processModulePath(url)}')`;
+  }
+
+  // Resolve default export for other images
+  return `require('${processModulePath(url)}').default`;
 };
 
 /**
@@ -94,23 +150,6 @@ const processTitle = (str) => {
  */
 module.exports.imageToJsx = () => (tree, file) => {
   const processModulePath = createModulePathProcessor(file);
-
-  const svgToJsx = (node) => {
-    node.type = 'jsx';
-
-    node.value = [
-      '<span',
-      '  dangerouslySetInnerHTML={{',
-      `    __html: require('${processModulePath(node.url)}').default,`,
-      '  }}',
-      `  title="${cleanseDoubleQuotes(node.title || node.alt || '')}"`,
-      '/>',
-    ].join('\n');
-
-    delete node.alt;
-    delete node.title;
-    delete node.url;
-  };
 
   return visit(tree, 'image', (node) => {
     if (
@@ -121,24 +160,20 @@ module.exports.imageToJsx = () => (tree, file) => {
       return;
     }
 
-    if (node.url.endsWith('.svg')) {
-      return node.url.startsWith('https://') ? undefined : svgToJsx(node);
-    }
+    const { style, styleLines, title } = processTitle(node.title || '');
 
-    const imageSrc = node.url.startsWith('https://')
-      ? `"${node.url}"`
-      : `{require('${processModulePath(node.url)}').default}`;
-
-    const { styleLines, title } = processTitle(node.title || '');
+    const imageSrc = inferImageSrc(processModulePath, node.url);
 
     node.type = 'jsx';
 
     node.value = [
       '<img',
       `  alt="${cleanseDoubleQuotes(node.alt || '')}"`,
-      `  src=${imageSrc}`,
+      // Custom styling attribute for the MDX `<img>` renderer.
+      `  data-scoobie-style="${style}"`,
+      `  src={${imageSrc}}`,
       ...styleLines,
-      `  title="${cleanseDoubleQuotes(title)}"`,
+      `  title="${title}"`,
       `/>`,
     ].join('\n');
 

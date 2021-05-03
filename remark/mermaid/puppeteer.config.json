@@ -1,0 +1,7 @@
+{
+  "args": [
+    "--disable-dev-shm-usage",
+    "--disable-setuid-sandbox",
+    "--no-sandbox"
+  ]
+}
