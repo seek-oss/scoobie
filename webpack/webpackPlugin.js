@@ -71,7 +71,7 @@ class ScoobieWebpackPlugin {
    */
   constructor(config = {}) {
     const defaultRemarkPlugins = [
-      ...(config.mermaid && [[remarkPlugin.mermaid, config.mermaid]]),
+      ...(config.mermaid ? [[remarkPlugin.mermaid, config.mermaid]] : []),
       remarkPlugin.slug,
       remarkPlugin.mergeCodeBlocks,
       remarkPlugin.spreadListItems,
