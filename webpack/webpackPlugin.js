@@ -54,7 +54,9 @@ const createSvgRule = (compiler) => ({
           {
             // This destyles mermaid diagram text for some reason.
             name: 'inlineStyles',
-            active: false,
+            params: {
+              onlyMatchedOnce: false,
+            },
           },
         ]),
       },
