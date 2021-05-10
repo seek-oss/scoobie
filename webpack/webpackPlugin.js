@@ -43,18 +43,16 @@ const createSvgRule = (compiler) => ({
     {
       loader: require.resolve('svgo-loader'),
       options: {
+        configFile: false,
         plugins: [
           {
-            addAttributesToSVGElement: {
-              attribute: 'focusable="false"',
-            },
-          },
-          {
-            removeViewBox: false,
+            name: 'removeViewBox',
+            active: false,
           },
           {
             // This destyles mermaid diagram text for some reason.
-            inlineStyles: false,
+            name: 'inlineStyles',
+            active: false,
           },
         ],
       },
