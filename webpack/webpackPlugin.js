@@ -1,3 +1,5 @@
+const { extendDefaultPlugins } = require('svgo');
+
 const { remarkPlugin } = require('../remark');
 
 /**
@@ -44,7 +46,7 @@ const createSvgRule = (compiler) => ({
       loader: require.resolve('svgo-loader'),
       options: {
         configFile: false,
-        plugins: [
+        plugins: extendDefaultPlugins([
           {
             name: 'removeViewBox',
             active: false,
@@ -54,7 +56,7 @@ const createSvgRule = (compiler) => ({
             name: 'inlineStyles',
             active: false,
           },
-        ],
+        ]),
       },
     },
   ],
