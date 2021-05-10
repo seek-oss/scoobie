@@ -7,11 +7,16 @@
     "diagramPadding": 1,
     "useMaxWidth": false
   },
+  "fontFamily": "Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif",
   "sequence": {
+    "actorFontFamily": "Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif",
     "bottomMarginAdj": 14,
     "boxMargin": 14,
     "diagramMarginX": 1,
     "diagramMarginY": 1,
+    "messageFontFamily": "Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif",
+    "messageFontSize": 14,
+    "noteFontFamily": "Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif",
     "mirrorActors": true,
     "useMaxWidth": false
   },
