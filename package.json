@@ -10,7 +10,7 @@
     "@mdx-js/react": "^1.6.16",
     "@mermaid-js/mermaid-cli": "^8.9.2",
     "@types/mdx-js__react": "^1.5.2",
-    "@types/react-router-hash-link": "^1.2.1",
+    "@types/react-router-hash-link": "^2.0.0",
     "capsize": "^2.0.0",
     "classnames": "^2.2.6",
     "find-up": "^5.0.0",
