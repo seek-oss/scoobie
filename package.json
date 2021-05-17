@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@storybook/addons": "5.3.21",
-    "@storybook/storybook-deployer": "2.8.7",
+    "@storybook/storybook-deployer": "2.8.8",
     "@types/react": "17.0.5",
     "@types/react-helmet": "6.1.1",
     "braid-design-system": "29.31.0",
