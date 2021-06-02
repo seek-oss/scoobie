@@ -26,7 +26,7 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
-    "@storybook/addons": "5.3.21",
+    "@storybook/addons": "6.2.9",
     "@storybook/storybook-deployer": "2.8.8",
     "@types/react": "17.0.8",
     "@types/react-helmet": "6.1.1",
