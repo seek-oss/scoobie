@@ -23,7 +23,11 @@ export const BaseTable = ({ children, width }: BaseTableProps) => {
   return (
     <Box
       component="table"
-      className={{ [styles.table]: true, [styles.fullWidth]: width === 'full' }}
+      // TODO: This contortion is required for JedWatson/classnames#240
+      className={[
+        styles.table,
+        ...(width === 'full' ? [styles.fullWidth] : []),
+      ]}
     >
       {children}
     </Box>
