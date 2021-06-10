@@ -13911,10 +13911,10 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-playroom@^0.22.4:
-  version "0.22.6"
-  resolved "https://registry.yarnpkg.com/playroom/-/playroom-0.22.6.tgz#7a03bf9afb3c114a5edb2f3720bfc0e979cfe586"
-  integrity sha512-TC4+Uh1sJJJWR7riON5U1VnhIxA9TFUldPxKM4Sb2iBJ/9GX+CvOthwEi0sJjLqFZcxKjehCO+9vfRy99lyJQA==
+playroom@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/playroom/-/playroom-0.25.0.tgz#0733932ca1b88deae08bb31af426ace20e6b5b40"
+  integrity sha512-cHE9Imc+llsz8qpqIUiuEHuzoRPYsT5o6hDgXvLtlw8dfadtUFNgJmgjxKYliO/l6AOibap0rpFx8JVgZwT4lA==
   dependencies:
     "@babel/cli" "^7.8.3"
     "@babel/core" "^7.8.3"
@@ -13962,6 +13962,7 @@ playroom@^0.22.4:
     mini-css-extract-plugin "^0.9.0"
     open "^7.0.0"
     parse-prop-types "^0.3.0"
+    portfinder "^1.0.26"
     postcss-loader "^3.0.0"
     prettier "^2.0.5"
     prop-types "^15.7.2"
@@ -16429,10 +16430,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@10.13.2:
-  version "10.13.2"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-10.13.2.tgz#4db79db8457d9c927ad526e8ca5b617fdb9d449e"
-  integrity sha512-tvHUII5VkqQYGRdJtxMectNXTxfj5gLHSJa0Jor5iefwUonINSs+LDJsoenQBAJBI+C6CLXUiSvIY+Xr7VsmBg==
+sku@10.13.3:
+  version "10.13.3"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-10.13.3.tgz#46622dd5cae310f3d221cd21474fc57cd2c84d1a"
+  integrity sha512-MiCOB0OGM95YuRHWZhI9WQVEJpaVeMJ4DgiNGU7sMd3SQHl3b1geoHUghtENipNSj69FtkyzJexvGnOYJSsnag==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -16521,7 +16522,7 @@ sku@10.13.2:
     node-html-parser "^2.0.2"
     open "^7.3.1"
     path-to-regexp "^6.2.0"
-    playroom "^0.22.4"
+    playroom "^0.25.0"
     postcss-js "^3.0.3"
     postcss-loader "^3.0.0"
     prettier "2.2.1"
