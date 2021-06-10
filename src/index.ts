@@ -11,5 +11,6 @@ export { TableRow } from './components/TableRow';
 export { TocRenderer } from './components/TocRenderer';
 export { WrapperRenderer } from './components/WrapperRenderer';
 export { useImageStyles } from './hooks/useImageStyles';
+export { monospaceFontFamily, monospaceFontStyles } from './styles';
 
 export type { Toc, TocItem } from './components/TocRenderer';
