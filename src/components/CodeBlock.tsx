@@ -1,7 +1,6 @@
 import { Box, Stack, Text, TextLinkButton } from 'braid-design-system';
 import Highlight from 'prism-react-renderer';
 import React, { useState } from 'react';
-import { useStyles } from 'sku/react-treat';
 
 import { Prism, prismTheme } from '../private/Prism';
 import { ScrollableInline } from '../private/ScrollableInline';
@@ -18,7 +17,7 @@ import { LineNumbers } from './CodeBlock/LineNumbers';
 import { Lines } from './CodeBlock/Lines';
 import { CopyableText } from './CopyableText';
 
-import * as styleRefs from './CodeBlock.treat';
+import * as styles from './CodeBlock.css';
 
 interface Props {
   children: CodeChildProps[] | string;
@@ -37,8 +36,6 @@ export const CodeBlock = ({
   size = DEFAULT_SIZE,
   trim = true,
 }: Props) => {
-  const styles = useStyles(styleRefs);
-
   const children = normaliseChildren(
     typeof rawChildren === 'string'
       ? [
@@ -109,7 +106,7 @@ export const CodeBlock = ({
         </Box>
       </ScrollableInline>
 
-      <Box borderRadius="standard" className={styles.codeContainer[codeSize]}>
+      <Box borderRadius="standard" className={styles.codeContainer}>
         <Highlight
           Prism={Prism}
           code={child.code}

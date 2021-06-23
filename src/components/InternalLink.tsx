@@ -1,12 +1,11 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import React, { ComponentProps } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
-import { useStyles } from 'sku/react-treat';
 
 import { parseInternalHref } from '../private/url';
 
-import * as styleRefs from './InternalLink.treat';
+import * as styles from './InternalLink.css';
 
 interface Props
   extends Omit<ComponentProps<typeof NavHashLink>, 'scroll' | 'smooth' | 'to'> {
@@ -33,9 +32,7 @@ export const InternalLink = ({
 
   const to = parseInternalHref(href, location);
 
-  const styles = useStyles(styleRefs);
-
-  const mergedClassNames = classNames(
+  const mergedClassNames = clsx(
     {
       [styles.reset]: reset,
     },
@@ -45,7 +42,7 @@ export const InternalLink = ({
   return (
     <NavHashLink
       {...restProps}
-      activeClassName={classNames(activeClassName)}
+      activeClassName={clsx(activeClassName)}
       className={mergedClassNames}
       scroll={scroll}
       smooth

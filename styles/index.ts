@@ -1,7 +1,10 @@
 import capsize from 'capsize';
 import { Theme } from 'treat/theme';
 
-import { CodeSize } from './private/size';
+import { CodeSize } from '../src/private/size';
+
+// GitHub default for light theme
+export const codeBackgroundColor = '#f6f8fa';
 
 // SEEK's corporate font + GitHub defaults
 export const monospaceFontFamily =

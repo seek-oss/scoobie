@@ -1,11 +1,10 @@
 import { Box, Stack } from 'braid-design-system';
 import React from 'react';
-import { useStyles } from 'sku/react-treat';
 
 import { SIZE_TO_SPACE, Size } from './size';
 import { StackChildrenProps } from './types';
 
-import * as styleRefs from './Wrapper.treat';
+import * as styles from './Wrapper.css';
 
 export type WrapperComponent = React.FunctionComponent<StackChildrenProps>;
 
@@ -19,8 +18,6 @@ export const Wrapper = ({
   component: Component,
   size,
 }: WrapperProps) => {
-  const styles = useStyles(styleRefs);
-
   const space = SIZE_TO_SPACE[size];
 
   return (

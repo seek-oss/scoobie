@@ -46,7 +46,9 @@ yarn add --exact scoobie
   - [TableRow](#tablerow)
   - [TocRenderer](#tocrenderer)
   - [WrapperRenderer](#wrapperrenderer)
-  - [useImageStyles](#useimagestyles)
+- [Styling reference](#styling-reference)
+  - [img](#img)
+  - [monospaceFontStyles](#monospaceFontStyles)
 - [Webpack reference](#webpack-reference)
   - [ScoobieWebpackPlugin](#scoobiewebpackplugin)
   - [dangerouslySetWebpackConfig](#dangerouslysetwebpackconfig)
@@ -534,23 +536,34 @@ export const NodeCount = (Document: MDX.Document) => (
 );
 ```
 
-### useImageStyles
+## Styling reference
+
+Scoobie distributes some treat and vanilla-extract styles via a `scoobie/styles` submodule.
+
+### img
 
 Render an image with the same styling as our [MdxProvider](#mdxprovider):
 
-```typescript
+```tsx
 import React from 'react';
-import { useImageStyles } from 'scoobie';
+import * as styles from 'scoobie/styles/index.css';
 
-export const MySvg = () => {
-  const styles = useImageStyles();
+export const MySvg = () => (
+  <svg className={styles.img}>
+    <path />
+  </svg>
+);
+```
 
-  return (
-    <svg className={styles.svg}>
-      <path />
-    </svg>
-  );
-};
+### monospaceFontStyles
+
+Render text with the same monospace styling as our [CodeBlock](#codeblock):
+
+```typescript
+import { style } from 'sku/treat';
+import { monospaceFontStyles } from 'scoobie/styles';
+
+export const myStyle = style((theme) => monospaceFontStyles(theme, 'small'));
 ```
 
 ## Webpack reference

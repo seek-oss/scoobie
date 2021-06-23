@@ -2,7 +2,7 @@
   "name": "scoobie",
   "description": "Component library for SEEK documentation sites",
   "license": "MIT",
-  "main": "src",
+  "main": "src/index.ts",
   "sideEffects": false,
   "version": "0.0.0-semantically-released",
   "dependencies": {
@@ -11,8 +11,10 @@
     "@mermaid-js/mermaid-cli": "^8.9.2",
     "@types/mdx-js__react": "^1.5.2",
     "@types/react-router-hash-link": "^2.0.0",
+    "@vanilla-extract/css": "^1.1.0",
+    "@vanilla-extract/css-utils": "^0.1.1",
     "capsize": "^2.0.0",
-    "classnames": "^2.2.6",
+    "clsx": "^1.1.1",
     "find-up": "^5.0.0",
     "fs-extra": "^10.0.0",
     "polished": "^4.0.0",
@@ -30,7 +32,7 @@
     "@storybook/storybook-deployer": "2.8.10",
     "@types/react": "17.0.11",
     "@types/react-helmet": "6.1.1",
-    "braid-design-system": "29.32.1",
+    "braid-design-system": "30.0.0",
     "loki": "0.28.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -47,10 +49,10 @@
     "typography.ts"
   ],
   "peerDependencies": {
-    "braid-design-system": ">= 29.10.0",
-    "react": ">= 16.12.0 < 18",
+    "braid-design-system": ">= 30",
+    "react": ">= 17 < 18",
     "react-router-dom": "^5.2.0",
-    "sku": "^10.0.0"
+    "sku": "^10.13.4"
   },
   "repository": {
     "type": "git",

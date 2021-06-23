@@ -1,4 +1,4 @@
-import { style } from 'sku/treat';
+import { style } from '@vanilla-extract/css';
 
 export const fullWidth = style({
   width: '100%',
