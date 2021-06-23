@@ -44,6 +44,7 @@
   "files": [
     "src",
     "remark",
+    "styles",
     "webpack",
     "types.d.ts",
     "typography.ts"
