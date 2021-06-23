@@ -1,11 +1,9 @@
 import { Box, List, Stack, Strong, Text } from 'braid-design-system';
 import React from 'react';
-import { useStyles } from 'sku/react-treat';
 
 import { Blockquote } from '../components/Blockquote';
 import { InlineCode } from '../components/InlineCode';
 import { SmartTextLink } from '../components/SmartTextLink';
-import { useImageStyles } from '../hooks/useImageStyles';
 
 import { HorizontalRule } from './HorizontalRule';
 import { createMdxCodeBlock } from './MdxCodeBlock';
@@ -17,16 +15,14 @@ import { BaseTableRow } from './TableRow';
 import { Wrapper } from './Wrapper';
 import { SIZE_TO_SPACE, Size } from './size';
 
-import * as styleRefs from './useMdxComponents.treat';
+import * as imageStyles from '../../styles/index.css';
+import * as styles from './useMdxComponents.css';
 
 interface Props {
   size: Size;
 }
 
 export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
-  const imageStyles = useImageStyles();
-  const styles = useStyles(styleRefs);
-
   const space = SIZE_TO_SPACE[size];
 
   return {

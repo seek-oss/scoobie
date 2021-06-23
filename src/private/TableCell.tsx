@@ -1,11 +1,10 @@
 import { Box, Stack } from 'braid-design-system';
 import React, { ComponentProps, useContext } from 'react';
-import { useStyles } from 'sku/react-treat';
 
 import { TableAlign, TableContext } from './TableContext';
 import { SIZE_TO_SPACE, SIZE_TO_TABLE_PADDING } from './size';
 
-import * as styleRefs from './TableCell.treat';
+import * as styles from './TableCell.css';
 
 interface Props {
   align?: TableAlign | null;
@@ -14,8 +13,6 @@ interface Props {
 }
 
 export const TableCell = ({ align, children, component }: Props) => {
-  const styles = useStyles(styleRefs);
-
   const { size, type } = useContext(TableContext);
 
   const padding = SIZE_TO_TABLE_PADDING[size];

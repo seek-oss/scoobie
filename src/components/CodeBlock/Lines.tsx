@@ -5,7 +5,7 @@ import { useStyles } from 'sku/react-treat';
 
 import { CodeSize } from '../../private/size';
 
-import * as styleRefs from '../CodeBlock.treat';
+import * as treatStyleRefs from '../CodeBlock.treat';
 
 type Token = Parameters<Highlight['getTokenProps']>[0]['token'];
 
@@ -16,13 +16,13 @@ interface Props {
 }
 
 export const Lines = ({ codeSize, getTokenProps, lines }: Props) => {
-  const styles = useStyles(styleRefs);
+  const treatStyles = useStyles(treatStyleRefs);
 
   return (
     <Box padding="medium">
       <Stack space="small">
         {lines.map((line, lineIndex) => (
-          <Box className={styles.code[codeSize]} key={lineIndex}>
+          <Box className={treatStyles.code[codeSize]} key={lineIndex}>
             <Box component="pre">
               {line.map((token, tokenIndex) => {
                 const props = getTokenProps({ token });

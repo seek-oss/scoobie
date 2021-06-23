@@ -1,16 +1,13 @@
 import { Box, Stack } from 'braid-design-system';
 import React, { ComponentProps, useContext } from 'react';
-import { useStyles } from 'sku/react-treat';
 
 import { TableContext } from '../private/TableContext';
 
-import * as styleRefs from './TableRow.treat';
+import * as styles from './TableRow.css';
 
 type Props = Pick<ComponentProps<typeof Stack>, 'children'>;
 
 export const BaseTableRow = ({ children }: Props) => {
-  const styles = useStyles(styleRefs);
-
   const { type } = useContext(TableContext);
 
   return (
