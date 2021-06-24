@@ -47,8 +47,8 @@ yarn add --exact scoobie
   - [TocRenderer](#tocrenderer)
   - [WrapperRenderer](#wrapperrenderer)
 - [Styling reference](#styling-reference)
+  - [code](#code)
   - [img](#img)
-  - [monospaceFontStyles](#monospaceFontStyles)
 - [Webpack reference](#webpack-reference)
   - [ScoobieWebpackPlugin](#scoobiewebpackplugin)
   - [dangerouslySetWebpackConfig](#dangerouslysetwebpackconfig)
@@ -522,7 +522,7 @@ Render an MDX document with a [customised wrapper].
 
 This allows you to derive arbitrary components from select parts of the document.
 
-```typescript
+```tsx
 import { Text } from 'braid-design-system';
 import React from 'react';
 import { WrapperRenderer } from 'scoobie';
@@ -538,7 +538,23 @@ export const NodeCount = (Document: MDX.Document) => (
 
 ## Styling reference
 
-Scoobie distributes some treat and vanilla-extract styles via a `scoobie/styles` submodule.
+Scoobie distributes some vanilla-extract styles via `scoobie/styles` submodules.
+
+### code
+
+Render text with the same monospace styling as our [CodeBlock](#codeblock):
+
+```tsx
+import { Box } from 'braid-design-system';
+import React from 'react';
+import { code } from 'scoobie/styles/code.css';
+
+export const MyBox = () => (
+  <Box className={code.standard}>
+    <Box component="pre">Hello</Box>
+  </Box>
+);
+```
 
 ### img
 
@@ -546,24 +562,13 @@ Render an image with the same styling as our [MdxProvider](#mdxprovider):
 
 ```tsx
 import React from 'react';
-import * as styles from 'scoobie/styles/index.css';
+import { img } from 'scoobie/styles/img.css';
 
 export const MySvg = () => (
-  <svg className={styles.img}>
+  <svg className={img}>
     <path />
   </svg>
 );
-```
-
-### monospaceFontStyles
-
-Render text with the same monospace styling as our [CodeBlock](#codeblock):
-
-```typescript
-import { style } from 'sku/treat';
-import { monospaceFontStyles } from 'scoobie/styles';
-
-export const myStyle = style((theme) => monospaceFontStyles(theme, 'small'));
 ```
 
 ## Webpack reference
