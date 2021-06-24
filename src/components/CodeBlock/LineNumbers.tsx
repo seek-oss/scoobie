@@ -1,27 +1,24 @@
 import { Box, Stack } from 'braid-design-system';
 import React from 'react';
-import { useStyles } from 'sku/react-treat';
 
-import { CodeSize } from '../../private/size';
+import { Size } from '../../private/size';
 
+import { code } from '../../../styles/code.css';
 import * as styles from '../CodeBlock.css';
-import * as treatStyleRefs from '../CodeBlock.treat';
 
 interface Props {
-  codeSize: CodeSize;
   count: number;
+  size: Size;
 }
 
-export const LineNumbers = ({ count, codeSize }: Props) => {
-  const treatStyles = useStyles(treatStyleRefs);
-
+export const LineNumbers = ({ count, size }: Props) => {
   const numbers = [...new Array(count)].map((_, index) => index + 1);
 
   return (
     <Box aria-hidden className={styles.lineNumberContainer} padding="medium">
       <Stack align="right" space="small">
         {numbers.map((number) => (
-          <Box className={treatStyles.code[codeSize]} key={number}>
+          <Box className={code[size]} key={number}>
             <Box component="pre">{number}</Box>
           </Box>
         ))}

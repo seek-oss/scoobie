@@ -6,13 +6,13 @@ export const DEFAULT_SIZE: Size = 'standard';
 
 export const SIZES = ['standard', 'large'] as const;
 
-export const CODE_SIZES = ['small', 'standard'] as const;
+export const SMALLER_SIZES = ['small', 'standard'] as const;
 
-export type CodeSize = typeof CODE_SIZES[number];
+export type SmallerSize = typeof SMALLER_SIZES[number];
 
 export type Size = typeof SIZES[number];
 
-export const SIZE_TO_CODE_SIZE: Record<Size, CodeSize> = {
+export const SIZE_TO_SMALLER: Record<Size, SmallerSize> = {
   standard: 'small',
   large: 'standard',
 };

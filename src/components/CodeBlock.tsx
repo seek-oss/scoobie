@@ -6,7 +6,7 @@ import { Prism, prismTheme } from '../private/Prism';
 import { ScrollableInline } from '../private/ScrollableInline';
 import {
   DEFAULT_SIZE,
-  SIZE_TO_CODE_SIZE,
+  SIZE_TO_SMALLER,
   SIZE_TO_TABLE_PADDING,
   Size,
 } from '../private/size';
@@ -49,7 +49,7 @@ export const CodeBlock = ({
     trim,
   );
 
-  const codeSize = SIZE_TO_CODE_SIZE[size];
+  const smallerSize = SIZE_TO_SMALLER[size];
   const tablePadding = SIZE_TO_TABLE_PADDING[size];
 
   const [index, setIndex] = useState(0);
@@ -80,7 +80,7 @@ export const CodeBlock = ({
                 paddingLeft={labelIndex === 0 ? undefined : tablePadding}
               >
                 <Text
-                  size={codeSize}
+                  size={smallerSize}
                   tone={index === labelIndex ? 'secondary' : undefined}
                   weight="medium"
                 >
@@ -98,7 +98,7 @@ export const CodeBlock = ({
 
           <Box display="flex">
             <Box component="span" paddingLeft={tablePadding}>
-              <CopyableText size={codeSize}>{child.code}</CopyableText>
+              <CopyableText size={smallerSize}>{child.code}</CopyableText>
             </Box>
 
             {graphqlPlaygroundButton}
@@ -115,13 +115,9 @@ export const CodeBlock = ({
         >
           {({ getTokenProps, tokens }) => (
             <Box display="flex">
-              <LineNumbers codeSize={codeSize} count={tokens.length} />
+              <LineNumbers count={tokens.length} size={size} />
 
-              <Lines
-                codeSize={codeSize}
-                getTokenProps={getTokenProps}
-                lines={tokens}
-              />
+              <Lines getTokenProps={getTokenProps} lines={tokens} size={size} />
             </Box>
           )}
         </Highlight>

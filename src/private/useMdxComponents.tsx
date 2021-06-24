@@ -15,7 +15,7 @@ import { BaseTableRow } from './TableRow';
 import { Wrapper } from './Wrapper';
 import { SIZE_TO_SPACE, Size } from './size';
 
-import * as imageStyles from '../../styles/index.css';
+import { img } from '../../styles/img.css';
 import * as styles from './useMdxComponents.css';
 
 interface Props {
@@ -46,7 +46,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     }) => (
       <Box
         {...props}
-        className={style === 'none' ? undefined : imageStyles.img}
+        className={style === 'none' ? undefined : img}
         component="img"
         display="block"
       />
