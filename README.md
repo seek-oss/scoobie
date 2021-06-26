@@ -73,7 +73,7 @@ module.exports = {
 };
 ```
 
-For detailed usage, see the [Webpack reference].
+For detailed usage, see the [Webpack reference](#webpack-reference).
 
 ### `src/render.tsx`
 
