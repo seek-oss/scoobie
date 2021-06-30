@@ -31,31 +31,29 @@ interface Props {
   metastring?: string;
 }
 
-export const createMdxCodeBlock = (size: Size) => ({
-  children,
-  className,
-  metastring,
-}: Props) => {
-  const graphqlPlayground = useGraphQLPlayground();
+export const createMdxCodeBlock =
+  (size: Size) =>
+  ({ children, className, metastring }: Props) => {
+    const graphqlPlayground = useGraphQLPlayground();
 
-  if (className === 'language-scoobie-merged-code' && metastring) {
-    const data = JSON.parse(metastring) as MdastCode[];
+    if (className === 'language-scoobie-merged-code' && metastring) {
+      const data = JSON.parse(metastring) as MdastCode[];
+
+      return (
+        <CodeBlock graphqlPlayground={graphqlPlayground} size={size}>
+          {data.map(toCodeChildProps)}
+        </CodeBlock>
+      );
+    }
 
     return (
-      <CodeBlock graphqlPlayground={graphqlPlayground} size={size}>
-        {data.map(toCodeChildProps)}
+      <CodeBlock
+        graphqlPlayground={graphqlPlayground}
+        label={toLabel(metastring)}
+        language={className?.replace(/^language-/, '')}
+        size={size}
+      >
+        {String(children)}
       </CodeBlock>
     );
-  }
-
-  return (
-    <CodeBlock
-      graphqlPlayground={graphqlPlayground}
-      label={toLabel(metastring)}
-      language={className?.replace(/^language-/, '')}
-      size={size}
-    >
-      {String(children)}
-    </CodeBlock>
-  );
-};
+  };
