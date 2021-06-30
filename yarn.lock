@@ -4808,10 +4808,10 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@30.0.0:
-  version "30.0.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.0.0.tgz#689da28a64a2268597b61613af512a153248843f"
-  integrity sha512-54r85yBqpKotLvRlIhuhqitiulE+iNUbR52nkSzyIoM2SZJPhFu/3BcRhqbQo0/T26TXEwGC392XHFlfsEXwIQ==
+braid-design-system@30.0.3:
+  version "30.0.3"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.0.3.tgz#a410c67161237bf0075800eefb9e40e01ae68db5"
+  integrity sha512-Hban4jdLrW1i6oCybDufPCyVEBBtl6ciIaIPKAUuQH0TuSg4d/SpAVXzDnbiWfHRgMEUpydAu2QDuam4QvrzSQ==
   dependencies:
     "@types/autosuggest-highlight" "^3.1.1"
     "@types/classnames" "^2.2.11"
@@ -4825,7 +4825,7 @@ braid-design-system@30.0.0:
     assert "^2.0.0"
     autosuggest-highlight "^3.1.1"
     capsize "^2.0.0"
-    classnames "^2.2.6"
+    clsx "^1.1.1"
     csstype "^3.0.6"
     dedent "0.7.0"
     gradient-parser "^1.0.0"
