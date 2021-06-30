@@ -62,29 +62,31 @@ const determineUniqueLabels = (rawChildren: CodeChildProps[]) => {
 
 type Labeller = (children: CodeChildWithLanguage[]) => string[];
 
-const createLabeller = (
-  fallback: Labeller,
-  ...matchers: Array<{
-    languages: string[];
-    labels: Labeller;
-  }>
-) => (children: CodeChildWithLanguage[]) => {
-  if (children.some((child) => child.label)) {
-    return fallback(children);
-  }
-
-  const actualLanguages = JSON.stringify(
-    children.map((child) => child.language),
-  );
-
-  for (const { languages, labels } of matchers) {
-    if (JSON.stringify(languages) === actualLanguages) {
-      return labels(children);
+const createLabeller =
+  (
+    fallback: Labeller,
+    ...matchers: Array<{
+      languages: string[];
+      labels: Labeller;
+    }>
+  ) =>
+  (children: CodeChildWithLanguage[]) => {
+    if (children.some((child) => child.label)) {
+      return fallback(children);
     }
-  }
 
-  return fallback(children);
-};
+    const actualLanguages = JSON.stringify(
+      children.map((child) => child.language),
+    );
+
+    for (const { languages, labels } of matchers) {
+      if (JSON.stringify(languages) === actualLanguages) {
+        return labels(children);
+      }
+    }
+
+    return fallback(children);
+  };
 
 /**
  * Infer the operation type from a trimmed GraphQL operation definition.
