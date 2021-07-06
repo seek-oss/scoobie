@@ -46,6 +46,7 @@ path.er.relationshipLine {
 }
 
 g.edgeLabel span.edgeLabel,
+g.node div,
 g.node span.nodeLabel {
   font-family: var(--font-family);
   font-size: var(--font-size);
