@@ -28,26 +28,14 @@ export const CopyableText = ({
 }: Props) => {
   const [copied, setCopied] = useState<boolean>(false);
 
-  const copyText = useCallback(() => {
+  const copyText = useCallback(async () => {
     if (copied) {
       return;
     }
 
     setCopied(true);
 
-    const textarea = document.createElement('textarea');
-    textarea.readOnly = true;
-    textarea.style.height = '0';
-    textarea.style.opacity = '0.01';
-    textarea.style.position = 'absolute';
-    textarea.style.zIndex = '-1';
-    textarea.value = children;
-
-    document.body.appendChild(textarea);
-
-    textarea.select();
-    document.execCommand('copy');
-    textarea.remove();
+    await navigator.clipboard.writeText(children);
 
     setTimeout(() => setCopied(false), 2000);
   }, [children, copied]);
