@@ -9,9 +9,10 @@
   --mermaid-er-label-fill: rgba(255, 255, 255, 0.85);
 
   /*  https://github.com/seek-oss/braid-design-system/blob/5fdf62b66a8c1ee94722e85f57edf78000a40f56/lib/themes/apac/tokens.ts#L1*/
-  --braid-apac-body-background-color: #f5f6f8;
-  --braid-apac-body-background-color-darker: #e6e9ee; /* matches Scoobie inline code border color */
-  --braid-apac-secondary-foreground-color: #596581;
+  --braid-apac-grey-50: #f5f6f8;
+  --braid-apac-grey-100: #e8eaee;
+  --braid-apac-grey-300: #b8beca;
+  --braid-apac-grey-500: #596581;
   --braid-caution-box-shadow-color: #fcf6e1;
   --braid-caution-border-color: #ffc600;
 }
@@ -27,8 +28,8 @@ text {
 /* er */
 
 path.er.entityBox {
-  fill: var(--braid-apac-body-background-color);
-  stroke: var(--braid-apac-body-background-color-darker);
+  fill: var(--braid-apac-grey-50);
+  stroke: var(--braid-apac-grey-100);
 }
 
 path.er.relationshipLabelBox {
@@ -36,16 +37,25 @@ path.er.relationshipLabelBox {
 }
 
 path.er.relationshipLine {
-  stroke: var(--braid-apac-secondary-foreground-color);
+  stroke: var(--braid-apac-grey-500);
 }
 
 /* flowchart v2 */
+
+/* subgraphs */
+g.cluster path,
+g.cluster rect {
+  fill: none;
+  stroke: var(--braid-apac-grey-300);
+}
 
 .edge-thickness-normal {
   stroke-width: 1px;
 }
 
+g.cluster div,
 g.edgeLabel span.edgeLabel,
+g.label div,
 g.node div,
 g.node span.nodeLabel {
   font-family: var(--font-family);
@@ -63,8 +73,8 @@ g.edgeLabel span.edgeLabel {
 g.node path,
 g.node polygon,
 g.node rect {
-  fill: var(--braid-apac-body-background-color);
-  stroke: var(--braid-apac-body-background-color-darker);
+  fill: var(--braid-apac-grey-50);
+  stroke: var(--braid-apac-grey-100);
 }
 
 g.node div {
@@ -75,13 +85,15 @@ g.node span.nodeLabel {
   display: block;
 }
 
+g.edgePath path.path,
 g.edgePaths path.transition {
   fill: none;
-  stroke: var(--braid-apac-secondary-foreground-color);
+  stroke: var(--braid-apac-grey-500);
 }
 
+g.edgePath marker,
 path.arrowMarkerPath {
-  fill: var(--braid-apac-secondary-foreground-color);
+  fill: var(--braid-apac-grey-500);
 }
 
 /* sequence */
@@ -93,13 +105,13 @@ text.messageText {
 }
 
 rect.actor {
-  fill: var(--braid-apac-body-background-color);
+  fill: var(--braid-apac-grey-50);
 
-  stroke: var(--braid-apac-body-background-color-darker);
+  stroke: var(--braid-apac-grey-100);
 }
 
 text.sequenceNumber {
-  fill: var(--braid-apac-body-background-color);
+  fill: var(--braid-apac-grey-50);
 
   font-size: 12px;
 }
@@ -117,13 +129,13 @@ path.loopLine {
 path.actor-line,
 path.messageLine0,
 path.path {
-  stroke: var(--braid-apac-secondary-foreground-color);
+  stroke: var(--braid-apac-grey-500);
 }
 
 #arrowhead > path,
 #crosshead > path,
 #sequencenumber {
-  fill: var(--braid-apac-secondary-foreground-color);
+  fill: var(--braid-apac-grey-500);
   stroke: none;
 }
 
