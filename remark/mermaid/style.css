@@ -91,7 +91,7 @@ g.edgePaths path.transition {
   stroke: var(--braid-apac-grey-500);
 }
 
-g.edgePath marker,
+g.edgePath marker path.arrowheadPath,
 path.arrowMarkerPath {
   fill: var(--braid-apac-grey-500);
 }
