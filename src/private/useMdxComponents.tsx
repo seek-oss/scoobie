@@ -44,12 +44,15 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
       'data-scoobie-style': style,
       ...props
     }) => (
-      <Box
-        {...props}
-        className={style === 'none' ? undefined : img}
-        component="img"
-        display="block"
-      />
+      // For wide SVGs like Mermaid diagrams
+      <Box overflow="auto">
+        <Box
+          {...props}
+          className={style === 'none' ? undefined : img}
+          component="img"
+          display="block"
+        />
+      </Box>
     ),
     li: ({ children }) => <Stack space={space}>{children}</Stack>,
     ol: (props) => <MdxOrderedList {...props} size={size} />,
@@ -59,12 +62,7 @@ export const useMdxComponents = ({ size }: Props): MDX.ProviderComponents => {
     // remark plugin, not here.
     p: ({ children }) => <Text size={size}>{children}</Text>,
     pre: ({ children }) => <Box className={styles.pre}>{children}</Box>,
-    span: (props) => (
-      // For wide SVGs like Mermaid diagrams
-      <Box overflow="auto">
-        <Box {...props} component="span" />
-      </Box>
-    ),
+    span: (props) => <Box {...props} component="span" />,
     strong: Strong,
     table: ({ children }) => <MdxTable>{children}</MdxTable>,
     td: ({ align, children }) => (
