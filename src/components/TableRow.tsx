@@ -8,13 +8,14 @@ import { BaseTableRow } from '../private/TableRow';
 
 interface Props {
   children: ComponentProps<typeof Stack>['children'] | string[];
+  selected?: boolean;
 }
 
-export const TableRow = ({ children }: Props) => {
+export const TableRow = ({ children, selected }: Props) => {
   const { align, component } = useContext(TableContext);
 
   return (
-    <BaseTableRow>
+    <BaseTableRow selected={selected}>
       {React.Children.map(flattenChildren(children), (child, index) => (
         <TableCell align={align?.[index]} component={component}>
           {typeof child === 'number' || typeof child === 'string' ? (

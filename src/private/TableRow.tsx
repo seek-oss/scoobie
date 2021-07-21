@@ -5,13 +5,22 @@ import { TableContext } from '../private/TableContext';
 
 import * as styles from './TableRow.css';
 
-type Props = Pick<ComponentProps<typeof Stack>, 'children'>;
+interface Props {
+  children: ComponentProps<typeof Stack>['children'];
+  selected?: boolean;
+}
 
-export const BaseTableRow = ({ children }: Props) => {
+export const BaseTableRow = ({ children, selected }: Props) => {
   const { type } = useContext(TableContext);
 
   return (
-    <Box className={styles.tableRow[type]} component="tr">
+    <Box
+      className={{
+        [styles.tableRow[type]]: true,
+        [styles.tableRowSelection]: selected,
+      }}
+      component="tr"
+    >
       {children}
     </Box>
   );

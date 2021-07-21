@@ -1,6 +1,10 @@
 import { styleVariants } from '@vanilla-extract/css';
 import { vars } from 'braid-design-system/css';
 
+import { SIZE_TO_TABLE_PADDING, Size } from './size';
+
+import { tableRowSelection } from './TableRow.css';
+
 export const tableCell = styleVariants({
   stripe: {
     borderBottomWidth: vars.borderWidth.standard,
@@ -29,26 +33,52 @@ export const tableCell = styleVariants({
   },
 });
 
-export const td = styleVariants({
-  stripe: {
-    selectors: {
-      'tr:last-child &:first-child': {
-        borderBottomLeftRadius: vars.borderRadius.standard,
-      },
-      'tr:last-child &:last-child': {
-        borderBottomRightRadius: vars.borderRadius.standard,
+const tdForSize = (size: Size) =>
+  styleVariants({
+    stripe: {
+      selectors: {
+        [`${tableRowSelection} &:first-child`]: {
+          borderLeftColor: vars.borderColor.focus,
+          borderLeftWidth: vars.borderWidth.large,
+        },
+        [`${tableRowSelection} &:last-child`]: {
+          borderRightColor: vars.borderColor.focus,
+          borderRightWidth: vars.borderWidth.large,
+        },
+        'tr:last-child &:first-child': {
+          borderBottomLeftRadius: vars.borderRadius.standard,
+        },
+        'tr:last-child &:last-child': {
+          borderBottomRightRadius: vars.borderRadius.standard,
+        },
       },
     },
-  },
-  subtle: {
-    selectors: {
-      'tr:last-child &': {
-        borderBottomWidth: 0,
-        paddingBottom: 0,
+    subtle: {
+      selectors: {
+        [`${tableRowSelection} &:first-child`]: {
+          borderLeftColor: vars.borderColor.focus,
+          borderLeftWidth: vars.borderWidth.large,
+          borderLeftStyle: 'solid',
+          paddingLeft: vars.space[SIZE_TO_TABLE_PADDING[size]],
+        },
+        [`${tableRowSelection} &:last-child`]: {
+          borderRightColor: vars.borderColor.focus,
+          borderRightWidth: vars.borderWidth.large,
+          borderRightStyle: 'solid',
+          paddingRight: vars.space[SIZE_TO_TABLE_PADDING[size]],
+        },
+        'tr:last-child &': {
+          borderBottomWidth: 0,
+          paddingBottom: 0,
+        },
       },
     },
-  },
-});
+  });
+
+export const td = {
+  large: tdForSize('large'),
+  standard: tdForSize('standard'),
+};
 
 export const th = styleVariants({
   stripe: {
