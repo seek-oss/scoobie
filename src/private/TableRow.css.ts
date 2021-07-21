@@ -1,4 +1,4 @@
-import { styleVariants } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 import { vars } from 'braid-design-system/css';
 
 export const tableRow = styleVariants({
@@ -11,3 +11,5 @@ export const tableRow = styleVariants({
   },
   subtle: {},
 });
+
+export const tableRowSelection = style({});

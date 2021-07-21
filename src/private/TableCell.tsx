@@ -22,7 +22,7 @@ export const TableCell = ({ align, children, component }: Props) => {
     <Box
       className={[
         styles.tableCell[type],
-        component === 'td' ? styles.td[type] : styles.th[type],
+        component === 'td' ? styles.td[size][type] : styles.th[type],
       ]}
       component={component}
       padding={padding}
