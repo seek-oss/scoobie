@@ -1,7 +1,10 @@
 import { Box } from 'braid-design-system';
-import React, { ReactNode } from 'react';
+import React, { Fragment, ReactNode } from 'react';
 
 import * as styles from './InlineCode.css';
+
+const isHexColour = (value: unknown): value is string =>
+  typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value);
 
 interface Props {
   children: ReactNode;
@@ -9,11 +12,36 @@ interface Props {
 }
 
 export const InlineCode = ({ children, weight = 'regular' }: Props) => (
-  <Box
-    borderRadius="standard"
-    className={[styles.base, styles.weight[weight]]}
-    component="code"
-  >
-    {children}
-  </Box>
+  <Fragment>
+    {isHexColour(children) ? (
+      <Box component="span" className={styles.colourBlockWrapper}>
+        <Box
+          borderRadius="standard"
+          className={[
+            styles.base,
+            styles.colourBlock,
+            styles.weightBorder[weight],
+          ]}
+          component="span"
+          display="inlineBlock"
+          height="full"
+          style={{ backgroundColor: children }}
+        >
+          {' '}
+        </Box>{' '}
+      </Box>
+    ) : undefined}
+
+    <Box
+      borderRadius="standard"
+      className={[
+        styles.base,
+        styles.weight[weight],
+        styles.weightBorder[weight],
+      ]}
+      component="code"
+    >
+      {children}
+    </Box>
+  </Fragment>
 );
