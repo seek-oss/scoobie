@@ -54,6 +54,7 @@ g.cluster rect {
 }
 
 g.cluster div,
+g.edgeLabel foreignObject,
 g.edgeLabel span.edgeLabel,
 g.label div,
 g.node div,
