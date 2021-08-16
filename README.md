@@ -392,8 +392,8 @@ Render all underlying links as follows:
   and pass through the `v` URL parameter for UI version switching
 - External links open in a new tab
 - Download links prompt user to download attachments.
-  Link components must set `download` attribute to set file name.
-  If no value is provided, default file name will be given.
+  Link components must set `download` attribute with suggested file name value.
+  If no value is provided, a default file name will be given.
 
 This should be supplied to [BraidProvider] as the custom `linkComponent`:
 
