@@ -15,6 +15,7 @@ export const ScoobieLink = makeLinkComponent(
           {...restProps}
           href={href}
           ref={ref}
+          download={download}
         >
           {children}
         </a>
