@@ -391,6 +391,8 @@ Render all underlying links as follows:
 - Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
   and pass through the `v` URL parameter for UI version switching
 - External links open in a new tab
+- Attachment links open attachments in a new tab.
+  Link components must set `datatype` attribute to `attachments`
 
 This should be supplied to [BraidProvider] as the custom `linkComponent`:
 
