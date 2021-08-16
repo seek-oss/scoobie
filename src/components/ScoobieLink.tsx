@@ -7,7 +7,7 @@ import { InternalLink } from './InternalLink';
 
 export const ScoobieLink = makeLinkComponent(
   ({ children, href, download, ...restProps }, ref) => {
-    if (isExternalHref(href) || download) {
+    if (isExternalHref(href)) {
       return (
         <a
           rel="noreferrer"
@@ -15,8 +15,15 @@ export const ScoobieLink = makeLinkComponent(
           {...restProps}
           href={href}
           ref={ref}
-          download={download}
         >
+          {children}
+        </a>
+      );
+    }
+
+    if (download) {
+      return (
+        <a {...restProps} href={href} ref={ref} download={download}>
           {children}
         </a>
       );
