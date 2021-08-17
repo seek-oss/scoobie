@@ -13,6 +13,7 @@ export const ScoobieLink = makeLinkComponent(
           rel="noreferrer"
           target="_blank"
           {...restProps}
+          download={download}
           href={href}
           ref={ref}
         >
