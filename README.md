@@ -391,9 +391,9 @@ Render all underlying links as follows:
 - Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
   and pass through the `v` URL parameter for UI version switching
 - External links open in a new tab
-- Download links prompt user to download attachments.
-  Link components must set `download` attribute and a suggested file name value may be provided.
-  If no value is provided, a default file name will be given.
+- Links with a [`download` attribute] prompt the user with a file download
+
+[`download` attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download
 
 This should be supplied to [BraidProvider] as the custom `linkComponent`:
 
