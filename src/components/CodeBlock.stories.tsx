@@ -1,16 +1,17 @@
 import '../storybook/register';
 
-import { boolean, select, text } from 'sku/@storybook/addon-knobs';
 import React from 'react';
+import { boolean, select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 
-import { BraidStorybookProvider, withProviders } from '../storybook/provider';
+import { withDecorator } from '../storybook/decorator';
+import { StorybookProvider } from '../storybook/provider';
 
 import { CodeBlock } from './CodeBlock';
 
 storiesOf('CodeBlock', module)
   .add('Single', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <CodeBlock
         language={text('language', 'graphql')}
         graphqlPlayground={text(
@@ -22,10 +23,10 @@ storiesOf('CodeBlock', module)
       >
         {text('children', 'query {\n  version\n}\n')}
       </CodeBlock>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Multi', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <CodeBlock
         graphqlPlayground={text(
           'graphqlPlayground',
@@ -52,6 +53,6 @@ storiesOf('CodeBlock', module)
           },
         ]}
       </CodeBlock>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
-  .addDecorator(withProviders);
+  .addDecorator(withDecorator);

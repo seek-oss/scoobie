@@ -1,18 +1,19 @@
 import '../storybook/register';
 
-import { select } from 'sku/@storybook/addon-knobs';
 import { Text } from 'braid-design-system';
 import React, { Fragment } from 'react';
+import { select } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 
-import { BraidStorybookProvider, withProviders } from '../storybook/provider';
+import { withDecorator } from '../storybook/decorator';
+import { StorybookProvider } from '../storybook/provider';
 
 import { Table } from './Table';
 import { TableRow } from './TableRow';
 
 storiesOf('Table', module)
   .add('Defaults', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Table header={['Column A', 'Column B']}>
         <TableRow>
           <Fragment>This is body cell A1.</Fragment>
@@ -24,10 +25,10 @@ storiesOf('Table', module)
           <Fragment>This is body cell B2.</Fragment>
         </TableRow>
       </Table>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Stripe', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Table
         align={['left', 'right']}
         header={
@@ -50,10 +51,10 @@ storiesOf('Table', module)
           <Fragment>This is body cell B2.</Fragment>
         </TableRow>
       </Table>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Subtle', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Table
         header={['Column A', 'Column B']}
         size={select('size', ['standard', 'large'], 'standard')}
@@ -70,6 +71,6 @@ storiesOf('Table', module)
           <Fragment>This is body cell B2.</Fragment>
         </TableRow>
       </Table>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
-  .addDecorator(withProviders);
+  .addDecorator(withDecorator);

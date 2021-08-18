@@ -5,7 +5,8 @@ import { List, Text } from 'braid-design-system';
 import React from 'react';
 import { storiesOf } from 'sku/@storybook/react';
 
-import { BraidStorybookProvider, withProviders } from '../storybook/provider';
+import { withDecorator } from '../storybook/decorator';
+import { StorybookProvider } from '../storybook/provider';
 
 import { Blockquote } from './Blockquote';
 
@@ -14,14 +15,14 @@ storiesOf('Blockquote', module)
     const size = select('size', ['standard', 'large'], 'standard');
 
     return (
-      <BraidStorybookProvider>
+      <StorybookProvider>
         <Blockquote size={size}>
           <Text size={size}>This is a paragraph.</Text>
           <List size={size}>
             <Text size={size}>This is a bullet point.</Text>
           </List>
         </Blockquote>
-      </BraidStorybookProvider>
+      </StorybookProvider>
     );
   })
-  .addDecorator(withProviders);
+  .addDecorator(withDecorator);

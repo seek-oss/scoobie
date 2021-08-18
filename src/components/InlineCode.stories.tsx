@@ -1,17 +1,18 @@
 import '../storybook/register';
 
-import { select, text } from 'sku/@storybook/addon-knobs';
 import { Text } from 'braid-design-system';
 import React from 'react';
+import { select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 
-import { BraidStorybookProvider, withProviders } from '../storybook/provider';
+import { withDecorator } from '../storybook/decorator';
+import { StorybookProvider } from '../storybook/provider';
 
 import { InlineCode } from './InlineCode';
 
 storiesOf('InlineCode', module)
   .add('Custom', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Text>
         Some text with{' '}
         <InlineCode weight={select('weight', ['regular', 'weak'], 'regular')}>
@@ -19,6 +20,6 @@ storiesOf('InlineCode', module)
         </InlineCode>
         !
       </Text>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
-  .addDecorator(withProviders);
+  .addDecorator(withDecorator);

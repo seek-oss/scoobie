@@ -4,15 +4,16 @@ import { Stack, Text } from 'braid-design-system';
 import React from 'react';
 import { storiesOf } from 'sku/@storybook/react';
 
+import { withDecorator } from '../storybook/decorator';
 import Headings from '../storybook/markdown/headings.mdx';
-import { BraidStorybookProvider, withProviders } from '../storybook/provider';
+import { StorybookProvider } from '../storybook/provider';
 
 import { SmartTextLink } from './SmartTextLink';
 import { TocRenderer } from './TocRenderer';
 
 storiesOf('TocRenderer', module)
   .add('Example', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Stack space="medium">
         <TocRenderer document={Headings}>
           {(toc) => (
@@ -28,6 +29,6 @@ storiesOf('TocRenderer', module)
           )}
         </TocRenderer>
       </Stack>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
-  .addDecorator(withProviders);
+  .addDecorator(withDecorator);

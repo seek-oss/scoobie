@@ -3,6 +3,7 @@ import '../storybook/register';
 import React from 'react';
 import { storiesOf } from 'sku/@storybook/react';
 
+import { withDecorator } from '../storybook/decorator';
 import BlockquoteMarkdown from '../storybook/markdown/blockquote.mdx';
 import Code from '../storybook/markdown/code.mdx';
 import Combination from '../storybook/markdown/combination.mdx';
@@ -12,57 +13,57 @@ import ImagesInternal from '../storybook/markdown/images-internal.mdx';
 import Inline from '../storybook/markdown/inline.mdx';
 import Lists from '../storybook/markdown/lists.mdx';
 import TableMarkdown from '../storybook/markdown/table.mdx';
-import { BraidStorybookProvider, withProviders } from '../storybook/provider';
+import { StorybookProvider } from '../storybook/provider';
 
 storiesOf('MdxProvider', module)
   .add('Blockquote', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <BlockquoteMarkdown />
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Code', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Code />
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Combination', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Combination />
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Headings', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Headings />
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add(
     'ImagesExternal',
     () => (
-      <BraidStorybookProvider>
+      <StorybookProvider>
         {' '}
         <ImagesExternal />
-      </BraidStorybookProvider>
+      </StorybookProvider>
     ),
     { loki: { skip: true } },
   )
   .add('ImagesInternal', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <ImagesInternal />
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Inline', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Inline />
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Lists', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <Lists />
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
   .add('Table', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <TableMarkdown />
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
-  .addDecorator(withProviders);
+  .addDecorator(withDecorator);

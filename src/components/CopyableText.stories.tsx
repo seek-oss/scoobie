@@ -1,16 +1,17 @@
 import '../storybook/register';
 
-import { select, text } from 'sku/@storybook/addon-knobs';
 import React from 'react';
+import { select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 
-import { BraidStorybookProvider, withProviders } from '../storybook/provider';
+import { withDecorator } from '../storybook/decorator';
+import { StorybookProvider } from '../storybook/provider';
 
 import { CopyableText } from './CopyableText';
 
 storiesOf('CopyableText', module)
   .add('Custom', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <CopyableText
         copiedLabel={select(
           'copiedLabel',
@@ -30,6 +31,6 @@ storiesOf('CopyableText', module)
       >
         {text('children', 'copy me')}
       </CopyableText>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
-  .addDecorator(withProviders);
+  .addDecorator(withDecorator);

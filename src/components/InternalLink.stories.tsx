@@ -1,17 +1,18 @@
 import '../storybook/register';
 
-import { boolean, text } from 'sku/@storybook/addon-knobs';
 import { Alert, Stack, Text } from 'braid-design-system';
 import React from 'react';
+import { boolean, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 
-import { BraidStorybookProvider, withProviders } from '../storybook/provider';
+import { withDecorator } from '../storybook/decorator';
+import { StorybookProvider } from '../storybook/provider';
 
 import { InternalLink } from './InternalLink';
 
 storiesOf('InternalLink', module)
   .add('Custom', () => (
-    <BraidStorybookProvider>
+    <StorybookProvider>
       <InternalLink
         href={text('href', 'page#id')}
         reset={boolean('reset', true)}
@@ -28,6 +29,6 @@ storiesOf('InternalLink', module)
           </Stack>
         </Alert>
       </InternalLink>
-    </BraidStorybookProvider>
+    </StorybookProvider>
   ))
-  .addDecorator(withProviders);
+  .addDecorator(withDecorator);
