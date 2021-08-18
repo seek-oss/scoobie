@@ -1,76 +1,74 @@
-import '../storybook/register';
+import 'braid-design-system/reset';
+import 'loki/configure-react';
 
+import { select } from '@storybook/addon-knobs';
 import { Text } from 'braid-design-system';
 import React, { Fragment } from 'react';
-import { select } from 'sku/@storybook/addon-knobs';
-import { storiesOf } from 'sku/@storybook/react';
 
-import { withDecorator } from '../storybook/decorator';
-import { StorybookProvider } from '../storybook/provider';
+import { ScoobieDecorator } from '../storybook/decorator';
 
 import { Table } from './Table';
 import { TableRow } from './TableRow';
 
-storiesOf('Table', module)
-  .add('Defaults', () => (
-    <StorybookProvider>
-      <Table header={['Column A', 'Column B']}>
-        <TableRow>
-          <Fragment>This is body cell A1.</Fragment>
-          <Fragment>B1</Fragment>
-        </TableRow>
+export default {
+  decorators: [ScoobieDecorator],
+  title: 'Table',
+};
 
-        <TableRow>
-          <Fragment>A2</Fragment>
-          <Fragment>This is body cell B2.</Fragment>
-        </TableRow>
-      </Table>
-    </StorybookProvider>
-  ))
-  .add('Stripe', () => (
-    <StorybookProvider>
-      <Table
-        align={['left', 'right']}
-        header={
-          <Fragment>
-            <Fragment>Column A</Fragment>
-            <Text weight="regular">Column B</Text>
-          </Fragment>
-        }
-        size={select('size', ['standard', 'large'], 'standard')}
-        type="stripe"
-        width={select('width', { undefined, full: 'full' }, undefined)}
-      >
-        <TableRow>
-          <Text>This is body cell A1.</Text>
-          <Text weight="strong">B1</Text>
-        </TableRow>
+export const Defaults = () => (
+  <Table header={['Column A', 'Column B']}>
+    <TableRow>
+      <Fragment>This is body cell A1.</Fragment>
+      <Fragment>B1</Fragment>
+    </TableRow>
 
-        <TableRow>
-          <Fragment>A2</Fragment>
-          <Fragment>This is body cell B2.</Fragment>
-        </TableRow>
-      </Table>
-    </StorybookProvider>
-  ))
-  .add('Subtle', () => (
-    <StorybookProvider>
-      <Table
-        header={['Column A', 'Column B']}
-        size={select('size', ['standard', 'large'], 'standard')}
-        type="subtle"
-        width={select('width', { undefined, full: 'full' }, undefined)}
-      >
-        <TableRow>
-          <Fragment>This is body cell A1.</Fragment>
-          <Fragment>B1</Fragment>
-        </TableRow>
+    <TableRow>
+      <Fragment>A2</Fragment>
+      <Fragment>This is body cell B2.</Fragment>
+    </TableRow>
+  </Table>
+);
 
-        <TableRow>
-          <Fragment>A2</Fragment>
-          <Fragment>This is body cell B2.</Fragment>
-        </TableRow>
-      </Table>
-    </StorybookProvider>
-  ))
-  .addDecorator(withDecorator);
+export const Stripe = () => (
+  <Table
+    align={['left', 'right']}
+    header={
+      <Fragment>
+        <Fragment>Column A</Fragment>
+        <Text weight="regular">Column B</Text>
+      </Fragment>
+    }
+    size={select('size', ['standard', 'large'], 'standard')}
+    type="stripe"
+    width={select('width', { undefined, full: 'full' }, undefined)}
+  >
+    <TableRow>
+      <Text>This is body cell A1.</Text>
+      <Text weight="strong">B1</Text>
+    </TableRow>
+
+    <TableRow>
+      <Fragment>A2</Fragment>
+      <Fragment>This is body cell B2.</Fragment>
+    </TableRow>
+  </Table>
+);
+
+export const Subtle = () => (
+  <Table
+    header={['Column A', 'Column B']}
+    size={select('size', ['standard', 'large'], 'standard')}
+    type="subtle"
+    width={select('width', { undefined, full: 'full' }, undefined)}
+  >
+    <TableRow>
+      <Fragment>This is body cell A1.</Fragment>
+      <Fragment>B1</Fragment>
+    </TableRow>
+
+    <TableRow>
+      <Fragment>A2</Fragment>
+      <Fragment>This is body cell B2.</Fragment>
+    </TableRow>
+  </Table>
+);

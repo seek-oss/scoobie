@@ -1,69 +1,39 @@
-import '../storybook/register';
+import 'braid-design-system/reset';
+import 'loki/configure-react';
 
 import React from 'react';
-import { storiesOf } from 'sku/@storybook/react';
 
-import { withDecorator } from '../storybook/decorator';
+import { ScoobieDecorator } from '../storybook/decorator';
 import BlockquoteMarkdown from '../storybook/markdown/blockquote.mdx';
-import Code from '../storybook/markdown/code.mdx';
-import Combination from '../storybook/markdown/combination.mdx';
-import Headings from '../storybook/markdown/headings.mdx';
-import ImagesExternal from '../storybook/markdown/images-external.mdx';
-import ImagesInternal from '../storybook/markdown/images-internal.mdx';
-import Inline from '../storybook/markdown/inline.mdx';
-import Lists from '../storybook/markdown/lists.mdx';
+import CodeMarkdown from '../storybook/markdown/code.mdx';
+import CombinationMarkdown from '../storybook/markdown/combination.mdx';
+import HeadingsMarkdown from '../storybook/markdown/headings.mdx';
+import ImagesExternalMarkdown from '../storybook/markdown/images-external.mdx';
+import ImagesInternalMarkdown from '../storybook/markdown/images-internal.mdx';
+import InlineMarkdown from '../storybook/markdown/inline.mdx';
+import ListsMarkdown from '../storybook/markdown/lists.mdx';
 import TableMarkdown from '../storybook/markdown/table.mdx';
-import { StorybookProvider } from '../storybook/provider';
 
-storiesOf('MdxProvider', module)
-  .add('Blockquote', () => (
-    <StorybookProvider>
-      <BlockquoteMarkdown />
-    </StorybookProvider>
-  ))
-  .add('Code', () => (
-    <StorybookProvider>
-      <Code />
-    </StorybookProvider>
-  ))
-  .add('Combination', () => (
-    <StorybookProvider>
-      <Combination />
-    </StorybookProvider>
-  ))
-  .add('Headings', () => (
-    <StorybookProvider>
-      <Headings />
-    </StorybookProvider>
-  ))
-  .add(
-    'ImagesExternal',
-    () => (
-      <StorybookProvider>
-        {' '}
-        <ImagesExternal />
-      </StorybookProvider>
-    ),
-    { loki: { skip: true } },
-  )
-  .add('ImagesInternal', () => (
-    <StorybookProvider>
-      <ImagesInternal />
-    </StorybookProvider>
-  ))
-  .add('Inline', () => (
-    <StorybookProvider>
-      <Inline />
-    </StorybookProvider>
-  ))
-  .add('Lists', () => (
-    <StorybookProvider>
-      <Lists />
-    </StorybookProvider>
-  ))
-  .add('Table', () => (
-    <StorybookProvider>
-      <TableMarkdown />
-    </StorybookProvider>
-  ))
-  .addDecorator(withDecorator);
+export default {
+  decorators: [ScoobieDecorator],
+  title: 'MdxProvider',
+};
+
+export const Blockquote = () => <BlockquoteMarkdown />;
+
+export const Code = () => <CodeMarkdown />;
+
+export const Combination = () => <CombinationMarkdown />;
+
+export const Headings = () => <HeadingsMarkdown />;
+
+export const ImagesExternal = () => <ImagesExternalMarkdown />;
+ImagesExternal.parameters = { loki: { skip: true } };
+
+export const ImagesInternal = () => <ImagesInternalMarkdown />;
+
+export const Inline = () => <InlineMarkdown />;
+
+export const Lists = () => <ListsMarkdown />;
+
+export const Table = () => <TableMarkdown />;
