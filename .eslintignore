@@ -3,7 +3,6 @@ dist-storybook-tmp/
 # managed by sku
 *.less.d.ts
 coverage/
-dist-playroom/
 dist-storybook/
 dist/
 report/

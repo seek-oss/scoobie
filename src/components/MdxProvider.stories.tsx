@@ -1,4 +1,5 @@
-import '../storybook/register';
+import 'braid-design-system/reset';
+import 'loki/configure-react';
 
 import React from 'react';
 import { storiesOf } from 'sku/@storybook/react';
@@ -13,57 +14,15 @@ import ImagesInternal from '../storybook/markdown/images-internal.mdx';
 import Inline from '../storybook/markdown/inline.mdx';
 import Lists from '../storybook/markdown/lists.mdx';
 import TableMarkdown from '../storybook/markdown/table.mdx';
-import { StorybookProvider } from '../storybook/provider';
 
 storiesOf('MdxProvider', module)
-  .add('Blockquote', () => (
-    <StorybookProvider>
-      <BlockquoteMarkdown />
-    </StorybookProvider>
-  ))
-  .add('Code', () => (
-    <StorybookProvider>
-      <Code />
-    </StorybookProvider>
-  ))
-  .add('Combination', () => (
-    <StorybookProvider>
-      <Combination />
-    </StorybookProvider>
-  ))
-  .add('Headings', () => (
-    <StorybookProvider>
-      <Headings />
-    </StorybookProvider>
-  ))
-  .add(
-    'ImagesExternal',
-    () => (
-      <StorybookProvider>
-        {' '}
-        <ImagesExternal />
-      </StorybookProvider>
-    ),
-    { loki: { skip: true } },
-  )
-  .add('ImagesInternal', () => (
-    <StorybookProvider>
-      <ImagesInternal />
-    </StorybookProvider>
-  ))
-  .add('Inline', () => (
-    <StorybookProvider>
-      <Inline />
-    </StorybookProvider>
-  ))
-  .add('Lists', () => (
-    <StorybookProvider>
-      <Lists />
-    </StorybookProvider>
-  ))
-  .add('Table', () => (
-    <StorybookProvider>
-      <TableMarkdown />
-    </StorybookProvider>
-  ))
-  .addDecorator(withDecorator);
+  .addDecorator(withDecorator)
+  .add('Blockquote', () => <BlockquoteMarkdown />)
+  .add('Code', () => <Code />)
+  .add('Combination', () => <Combination />)
+  .add('Headings', () => <Headings />)
+  .add('ImagesExternal', () => <ImagesExternal />, { loki: { skip: true } })
+  .add('ImagesInternal', () => <ImagesInternal />)
+  .add('Inline', () => <Inline />)
+  .add('Lists', () => <Lists />)
+  .add('Table', () => <TableMarkdown />);
