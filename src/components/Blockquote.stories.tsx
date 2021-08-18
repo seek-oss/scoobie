@@ -4,23 +4,25 @@ import 'loki/configure-react';
 import { select } from '@storybook/addon-knobs';
 import { List, Text } from 'braid-design-system';
 import React from 'react';
-import { storiesOf } from 'sku/@storybook/react';
 
-import { withDecorator } from '../storybook/decorator';
+import { ScoobieDecorator } from '../storybook/decorator';
 
 import { Blockquote } from './Blockquote';
 
-storiesOf('Blockquote', module)
-  .addDecorator(withDecorator)
-  .add('Custom', () => {
-    const size = select('size', ['standard', 'large'], 'standard');
+export default {
+  decorators: [ScoobieDecorator],
+  title: 'Blockquote',
+};
 
-    return (
-      <Blockquote size={size}>
-        <Text size={size}>This is a paragraph.</Text>
-        <List size={size}>
-          <Text size={size}>This is a bullet point.</Text>
-        </List>
-      </Blockquote>
-    );
-  });
+export const Custom = () => {
+  const size = select('size', ['standard', 'large'], 'standard');
+
+  return (
+    <Blockquote size={size}>
+      <Text size={size}>This is a paragraph.</Text>
+      <List size={size}>
+        <Text size={size}>This is a bullet point.</Text>
+      </List>
+    </Blockquote>
+  );
+};
