@@ -52,7 +52,7 @@ const MdxStorybookProvider = ({ children }: Props) => (
 
 type DecoratorFunction = Parameters<typeof addDecorator>[0];
 
-export const withDecorator: DecoratorFunction = (story) => (
+export const ScoobieDecorator: DecoratorFunction = (story) => (
   <BrowserRouter>
     <Helmet>
       <link href={robotoHref} rel="stylesheet" />
