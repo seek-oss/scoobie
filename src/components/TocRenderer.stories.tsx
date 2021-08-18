@@ -11,7 +11,11 @@ import { SmartTextLink } from './SmartTextLink';
 import { TocRenderer } from './TocRenderer';
 
 export default {
+  component: TocRenderer,
   decorators: [ScoobieDecorator],
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
   title: 'TocRenderer',
 };
 

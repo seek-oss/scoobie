@@ -1,3 +1,8 @@
+/**
+ * `@storybook/addon-controls` is not currently usable in decorators.
+ *
+ * {@link https://github.com/storybookjs/storybook/issues/11984}
+ */
 import { select, text } from '@storybook/addon-knobs';
 import { BraidLoadableProvider, Card, ContentBlock } from 'braid-design-system';
 import React, { ReactNode } from 'react';
