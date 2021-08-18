@@ -1,8 +1,8 @@
 import '../storybook/register';
 
-import { select } from '@storybook/addon-knobs';
 import { List, Text } from 'braid-design-system';
 import React from 'react';
+import { select } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 
 import { withDecorator } from '../storybook/decorator';
