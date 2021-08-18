@@ -20,7 +20,7 @@ import { CopyableText } from './CopyableText';
 import * as styles from './CodeBlock.css';
 
 interface Props {
-  children: CodeChildProps[] | string;
+  children: ReadonlyArray<CodeChildProps> | string;
   graphqlPlayground?: string;
   label?: string;
   language?: string;

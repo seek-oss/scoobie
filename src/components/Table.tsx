@@ -13,9 +13,9 @@ import { DEFAULT_SIZE, Size } from '../private/size';
 import { TableRow } from './TableRow';
 
 interface Props {
-  align?: TableAlign[];
+  align?: ReadonlyArray<TableAlign>;
   children: ReactNode;
-  header: ComponentProps<typeof Stack>['children'] | string[];
+  header: ComponentProps<typeof Stack>['children'] | ReadonlyArray<string>;
   size?: Size;
   type?: TableType;
   width?: 'full';
