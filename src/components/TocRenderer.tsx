@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { Children, FunctionComponent, ReactNode } from 'react';
 
 import { HeadingLevel, StackChildrenProps } from '../private/types';
 import { isMdxElement } from '../private/validation';
@@ -28,7 +28,7 @@ const isHeading = (component: unknown): component is HeadingElement =>
   isMdxElement(component) && /^h[1-6]$/.test(component.props.mdxType);
 
 const wrapperToToc = ({ children }: StackChildrenProps): Toc =>
-  React.Children.toArray(children)
+  Children.toArray(children)
     .filter(isHeading)
     .map((child) => ({
       children: child.props.children,
@@ -40,7 +40,7 @@ export const TocRenderer = ({
   children: render,
   document: Document,
 }: {
-  children: (toc: Toc) => ReturnType<React.FunctionComponent>;
+  children: (toc: Toc) => ReturnType<FunctionComponent>;
   document: MDX.Document;
 }) => (
   <WrapperRenderer document={Document}>

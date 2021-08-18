@@ -1,5 +1,5 @@
 import { Box, Heading, IconLink, Text } from 'braid-design-system';
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import { SmartTextLink } from '../components/SmartTextLink';
 
@@ -9,7 +9,7 @@ import * as styles from './SpacedHeading.css';
 
 const headingForLevel: Record<
   HeadingLevel,
-  React.FunctionComponent<{ children: ReactNode }>
+  FunctionComponent<{ children: ReactNode }>
 > = {
   1: ({ children }) => <Heading level="2">{children}</Heading>,
   2: ({ children }) => <Heading level="3">{children}</Heading>,
