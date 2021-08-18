@@ -14,8 +14,14 @@ import InlineMarkdown from '../storybook/markdown/inline.mdx';
 import ListsMarkdown from '../storybook/markdown/lists.mdx';
 import TableMarkdown from '../storybook/markdown/table.mdx';
 
+import { MdxProvider } from './MdxProvider';
+
 export default {
+  component: MdxProvider,
   decorators: [ScoobieDecorator],
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
   title: 'MdxProvider',
 };
 

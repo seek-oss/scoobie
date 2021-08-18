@@ -1,31 +1,53 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
 
-import { boolean, text } from '@storybook/addon-knobs';
 import { Alert, Stack, Text } from 'braid-design-system';
 import React from 'react';
+import { ComponentProps } from 'react';
 
 import { ScoobieDecorator } from '../storybook/decorator';
 
 import { InternalLink } from './InternalLink';
 
 export default {
+  argTypes: {
+    href: {
+      defaultValue: 'page#id',
+    },
+    reset: {
+      defaultValue: true,
+    },
+  },
+  component: InternalLink,
   decorators: [ScoobieDecorator],
   title: 'InternalLink',
 };
 
-export const Custom = () => (
-  <InternalLink href={text('href', 'page#id')} reset={boolean('reset', true)}>
+type Args = ComponentProps<typeof InternalLink>;
+
+interface CustomArgs extends Args {
+  line1: string;
+  line2: string;
+}
+
+export const Custom = ({ line1, line2, ...args }: CustomArgs) => (
+  <InternalLink {...args}>
     <Alert tone="caution">
       <Stack space="gutter">
-        <Text>
-          {text('line1', 'InternalLink supports complex components.')}
-        </Text>
+        <Text>{line1}</Text>
 
-        <Text size="small">
-          {text('line2', 'For example, this whole Alert is a link!')}
-        </Text>
+        <Text size="small">{line2}</Text>
       </Stack>
     </Alert>
   </InternalLink>
 );
+Custom.argTypes = {
+  line1: {
+    control: { type: 'text' },
+    defaultValue: 'InternalLink supports complex components.',
+  },
+  line2: {
+    control: { type: 'text' },
+    defaultValue: 'For example, this whole Alert is a link!',
+  },
+};

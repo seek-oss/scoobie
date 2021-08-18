@@ -1,23 +1,32 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
 
-import { text } from '@storybook/addon-knobs';
 import { Text } from 'braid-design-system';
-import React from 'react';
+import React, { ComponentProps } from 'react';
 
 import { ScoobieDecorator } from '../storybook/decorator';
 
 import { SmartTextLink } from './SmartTextLink';
 
 export default {
+  argTypes: {
+    children: {
+      control: { type: 'text' },
+      defaultValue: 'SEEK Schema',
+    },
+    href: {
+      defaultValue: 'https://developer.seek.com/schema',
+    },
+  },
+  component: SmartTextLink,
   decorators: [ScoobieDecorator],
   title: 'SmartTextLink',
 };
 
-export const Custom = () => (
+type Args = ComponentProps<typeof SmartTextLink>;
+
+export const Custom = (args: Args) => (
   <Text>
-    <SmartTextLink href={text('href', 'https://developer.seek.com/schema')}>
-      {text('children', 'SEEK Schema')}
-    </SmartTextLink>
+    <SmartTextLink {...args} />
   </Text>
 );
