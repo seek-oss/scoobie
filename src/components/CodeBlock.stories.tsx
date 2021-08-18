@@ -1,8 +1,8 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
 
+import { boolean, select, text } from '@storybook/addon-knobs';
 import React from 'react';
-import { boolean, select, text } from 'sku/@storybook/addon-knobs';
 import { storiesOf } from 'sku/@storybook/react';
 
 import { withDecorator } from '../storybook/decorator';

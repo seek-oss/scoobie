@@ -4,13 +4,12 @@ module.exports = {
   orderImports: true,
   rootResolution: false,
   srcPaths: ['./src', './styles'],
+  storybookAddons: ['@storybook/addon-knobs'],
 
-  dangerouslySetESLintConfig: (skuEslintConfig) => ({
-    ...skuEslintConfig,
-
+  dangerouslySetESLintConfig: (config) => ({
+    ...config,
     rules: {
-      ...skuEslintConfig.rules,
-
+      ...config.rules,
       'sort-imports': [
         'error',
         {
