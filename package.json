@@ -29,9 +29,10 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
-    "@storybook/addons": "5.3.21",
+    "@storybook/addon-knobs": "6.3.0",
     "@storybook/storybook-deployer": "2.8.10",
     "@types/react": "17.0.18",
+    "@types/react-dom": "17.0.9",
     "@types/react-helmet": "6.1.2",
     "braid-design-system": "30.3.0",
     "loki": "0.28.1",
@@ -40,7 +41,7 @@
     "react-helmet": "6.1.0",
     "react-router-dom": "5.2.0",
     "semantic-release": "17.4.5",
-    "sku": "10.14.2"
+    "sku": "11.0.1"
   },
   "files": [
     "src",
@@ -54,7 +55,7 @@
     "braid-design-system": ">= 30",
     "react": ">= 17 < 18",
     "react-router-dom": "^5.2.0",
-    "sku": "^10.13.4"
+    "sku": ">= 10.13.4 < 12"
   },
   "repository": {
     "type": "git",
