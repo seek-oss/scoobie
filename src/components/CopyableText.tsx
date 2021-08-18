@@ -1,5 +1,11 @@
 import { IconCopy, IconTick, Text, TextLinkButton } from 'braid-design-system';
-import React, { ComponentProps, Fragment, useCallback, useState } from 'react';
+import React, {
+  ComponentProps,
+  Fragment,
+  ReactNode,
+  useCallback,
+  useState,
+} from 'react';
 
 const DefaultCopiedLabel = () => (
   <Fragment>
@@ -15,8 +21,8 @@ const DefaultCopyLabel = () => (
 
 interface Props {
   children: string;
-  copiedLabel?: React.ReactNode;
-  copyLabel?: React.ReactNode;
+  copiedLabel?: ReactNode;
+  copyLabel?: ReactNode;
   size?: ComponentProps<typeof Text>['size'];
 }
 

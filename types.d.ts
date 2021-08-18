@@ -11,7 +11,7 @@ declare module '*.mdx' {
 }
 
 declare namespace MDX {
-  type Document = React.FunctionComponent<{
+  type Document = import('react').FunctionComponent<{
     components?:
       | ProviderComponents
       | ((components: ProviderComponents) => ProviderComponents);
@@ -19,9 +19,8 @@ declare namespace MDX {
 
   // Braid's type-level strictness does not play well with dynamic ReactNodes,
   // so we simply lie to TypeScript.
-  type ProviderComponent<Props = Record<string, unknown>> = React.ComponentType<
-    { children: any } & Props
-  >;
+  type ProviderComponent<Props = Record<string, unknown>> =
+    import('react').ComponentType<{ children: any } & Props>;
 
   type ProviderComponents = Partial<{
     a: ProviderComponent<{ href: string; title?: string }>;

@@ -1,12 +1,13 @@
-import { Box, Stack } from 'braid-design-system';
-import React, { ComponentProps, useContext } from 'react';
+import { Box } from 'braid-design-system';
+import React, { useContext } from 'react';
 
 import { TableContext } from '../private/TableContext';
 
+import { StackChildrenProps } from './types';
+
 import * as styles from './TableRow.css';
 
-interface Props {
-  children: ComponentProps<typeof Stack>['children'];
+interface Props extends StackChildrenProps {
   selected?: boolean;
 }
 

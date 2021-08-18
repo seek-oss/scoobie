@@ -1,14 +1,14 @@
 import { Box, Stack } from 'braid-design-system';
-import React, { ComponentProps, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { TableAlign, TableContext } from './TableContext';
 import { SIZE_TO_SPACE, SIZE_TO_TABLE_PADDING } from './size';
+import { StackChildrenProps } from './types';
 
 import * as styles from './TableCell.css';
 
-interface Props {
+interface Props extends StackChildrenProps {
   align?: TableAlign | null;
-  children: ComponentProps<typeof Stack>['children'];
   component: 'td' | 'th';
 }
 
