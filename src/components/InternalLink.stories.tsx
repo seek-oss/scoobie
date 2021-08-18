@@ -5,7 +5,7 @@ import { Alert, Stack, Text } from 'braid-design-system';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { ScoobieDecorator } from '../storybook/decorator';
+import { DesignDecorator } from '../storybook/decorators';
 
 import { InternalLink } from './InternalLink';
 
@@ -19,7 +19,7 @@ export default {
     },
   },
   component: InternalLink,
-  decorators: [ScoobieDecorator],
+  decorators: [DesignDecorator],
   title: 'InternalLink',
 };
 

@@ -4,7 +4,7 @@ import 'loki/configure-react';
 import { Text } from 'braid-design-system';
 import React, { ComponentProps } from 'react';
 
-import { ScoobieDecorator } from '../storybook/decorator';
+import { DesignDecorator } from '../storybook/decorators';
 
 import { SmartTextLink } from './SmartTextLink';
 
@@ -19,7 +19,7 @@ export default {
     },
   },
   component: SmartTextLink,
-  decorators: [ScoobieDecorator],
+  decorators: [DesignDecorator],
   title: 'SmartTextLink',
 };
 
