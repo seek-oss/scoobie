@@ -132,7 +132,7 @@ const labeller = createLabeller(
  * - Ensure label uniqueness
  */
 export const normaliseChildren = (
-  rawChildren: CodeChildProps[],
+  rawChildren: ReadonlyArray<CodeChildProps>,
   trim: boolean,
 ) => {
   const children = rawChildren.map((child) => ({
