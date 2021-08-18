@@ -1,0 +1,6 @@
+/storybook/**/*
+
+**/*.stories.ts
+**/*.stories.tsx
+**/*.test.ts
+**/*.test.tsx
