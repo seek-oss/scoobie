@@ -1,11 +1,13 @@
 import { MDXProvider } from '@mdx-js/react';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { GraphQLPlaygroundProvider } from '../private/hooks/graphqlPlayground';
 import { DEFAULT_SIZE, Size } from '../private/size';
 import { useMdxComponents } from '../private/useMdxComponents';
 
 interface MdxProviderProps {
+  children: ReactNode;
+
   /**
    * Optional base URL of a GraphQL Playground
    *
@@ -19,11 +21,11 @@ interface MdxProviderProps {
   size?: Size;
 }
 
-export const MdxProvider: React.FunctionComponent<MdxProviderProps> = ({
+export const MdxProvider = ({
   children,
   graphqlPlayground,
   size = DEFAULT_SIZE,
-}) => {
+}: MdxProviderProps) => {
   const components = useMdxComponents({ size });
 
   return (

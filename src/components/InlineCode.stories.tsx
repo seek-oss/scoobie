@@ -1,25 +1,33 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
 
-import { select, text } from '@storybook/addon-knobs';
 import { Text } from 'braid-design-system';
 import React from 'react';
+import { ComponentProps } from 'react';
 
 import { ScoobieDecorator } from '../storybook/decorator';
 
 import { InlineCode } from './InlineCode';
 
 export default {
+  argTypes: {
+    children: {
+      control: { type: 'text' },
+      defaultValue: 'SEEK Schema',
+    },
+    weight: {
+      defaultValue: 'regular',
+    },
+  },
+  component: InlineCode,
   decorators: [ScoobieDecorator],
   title: 'InlineCode',
 };
 
-export const Custom = () => (
+type Args = ComponentProps<typeof InlineCode>;
+
+export const Custom = (args: Args) => (
   <Text>
-    Some text with{' '}
-    <InlineCode weight={select('weight', ['regular', 'weak'], 'regular')}>
-      {text('children', 'inline code')}
-    </InlineCode>
-    !
+    Some text with <InlineCode {...args} />!
   </Text>
 );

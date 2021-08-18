@@ -1,4 +1,5 @@
 import { Stack } from 'braid-design-system';
+import { ComponentProps } from 'react';
 
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -8,7 +9,4 @@ export interface MdxElement {
   };
 }
 
-export type StackChildrenProps = Pick<
-  React.ComponentProps<typeof Stack>,
-  'children'
->;
+export type StackChildrenProps = Pick<ComponentProps<typeof Stack>, 'children'>;

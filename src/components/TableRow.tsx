@@ -1,5 +1,5 @@
 import { Stack, Text } from 'braid-design-system';
-import React, { ComponentProps, useContext } from 'react';
+import React, { Children, ComponentProps, useContext } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { TableCell } from '../private/TableCell';
@@ -16,7 +16,7 @@ export const TableRow = ({ children, selected }: Props) => {
 
   return (
     <BaseTableRow selected={selected}>
-      {React.Children.map(flattenChildren(children), (child, index) => (
+      {Children.map(flattenChildren(children), (child, index) => (
         <TableCell align={align?.[index]} component={component}>
           {typeof child === 'number' || typeof child === 'string' ? (
             <Text weight={component === 'td' ? undefined : 'strong'}>

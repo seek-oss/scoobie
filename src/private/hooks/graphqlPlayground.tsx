@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { createContext, useContext } from 'react';
+import { ReactNode } from 'react';
 
-const ctx = React.createContext<string | undefined>(undefined);
+const ctx = createContext<string | undefined>(undefined);
 
-export const GraphQLPlaygroundProvider: React.FunctionComponent<{
+interface Props {
+  children: ReactNode;
   value: string | undefined;
-}> = ({ children, value }) => (
+}
+
+export const GraphQLPlaygroundProvider = ({ children, value }: Props) => (
   <ctx.Provider value={value}>{children}</ctx.Provider>
 );
 
