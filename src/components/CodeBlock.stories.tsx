@@ -36,16 +36,8 @@ Single.argTypes = {
   },
 };
 
-/**
- * `@storybook/addon-controls` mangles the children array if we specify `args`.
- *
- * ```text
- * Objects are not valid as a React child (found: object with keys {code, label, language}).
- * If you meant to render a collection of children, use an array instead.
- * ```
- */
-export const Multi = () => (
-  <CodeBlock>
+export const Multi = (args: Args) => (
+  <CodeBlock {...args}>
     {[
       {
         code: 'query {\n  version\n}\n',
@@ -67,4 +59,19 @@ export const Multi = () => (
 );
 Multi.parameters = {
   controls: { hideNoControlsWarning: true },
+  docs: {
+    source: {
+      /**
+       * Storybook mangles the children array without this.
+       *
+       * ```text
+       * Objects are not valid as a React child (found: object with keys {code, label, language}).
+       * If you meant to render a collection of children, use an array instead.
+       * ```
+       *
+       * {@link https://github.com/storybookjs/storybook/issues/11543#issuecomment-684130442}
+       */
+      type: 'code',
+    },
+  },
 };
