@@ -5,28 +5,31 @@ import { List, Text } from 'braid-design-system';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { argTypes } from '../storybook/controls';
-import { DesignDecorator } from '../storybook/decorators';
+import { defaultArgTypes, defaultArgs } from '../storybook/controls';
+import { withBraidProvider } from '../storybook/decorators';
 
-import { Blockquote } from './Blockquote';
+import { Blockquote as Component } from './Blockquote';
 
 export default {
-  argTypes: {
-    size: argTypes.size,
+  args: {
+    size: defaultArgs.size,
   },
-  component: Blockquote,
-  decorators: [DesignDecorator],
-  title: 'Blockquote',
+  argTypes: {
+    size: defaultArgTypes.size,
+  },
+  component: Component,
+  decorators: [withBraidProvider],
+  title: 'Standalone/Blockquote',
 };
 
-type Args = ComponentProps<typeof Blockquote>;
+type Args = ComponentProps<typeof Component>;
 
-export const Custom = ({ size, ...args }: Args) => (
-  <Blockquote {...args} size={size}>
+export const Blockquote = ({ size, ...args }: Args) => (
+  <Component {...args} size={size}>
     <Text size={size}>This is a paragraph.</Text>
 
     <List size={size}>
       <Text size={size}>This is a bullet point.</Text>
     </List>
-  </Blockquote>
+  </Component>
 );

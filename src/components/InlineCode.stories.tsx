@@ -5,29 +5,28 @@ import { Text } from 'braid-design-system';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 
-import { InlineCode } from './InlineCode';
+import { InlineCode as Component } from './InlineCode';
 
 export default {
-  argTypes: {
-    children: {
-      control: { type: 'text' },
-      defaultValue: 'inline code',
-    },
-    weight: {
-      defaultValue: 'regular',
-    },
+  args: {
+    children: 'inline code',
+    weight: 'regular',
   },
-  component: InlineCode,
-  decorators: [DesignDecorator],
-  title: 'InlineCode',
+  argTypes: {
+    children: { control: { type: 'text' } },
+  },
+  component: Component,
+  decorators: [withBraidProvider],
+  title: 'Standalone/InlineCode',
 };
 
-type Args = ComponentProps<typeof InlineCode>;
+type Args = ComponentProps<typeof Component>;
 
-export const Custom = (args: Args) => (
+export const InlineCode = (args: Args) => (
   <Text>
-    Some text with <InlineCode {...args} />!
+    Some text with <Component {...args} />!
   </Text>
 );
+InlineCode.storyName = 'InlineCode';
