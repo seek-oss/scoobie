@@ -4,24 +4,24 @@ import 'loki/configure-react';
 import { Stack, Text } from 'braid-design-system';
 import React from 'react';
 
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 import Headings from '../storybook/markdown/headings.mdx';
 
 import { SmartTextLink } from './SmartTextLink';
-import { TocRenderer } from './TocRenderer';
+import { TocRenderer as Component } from './TocRenderer';
 
 export default {
-  component: TocRenderer,
-  decorators: [DesignDecorator],
+  component: Component,
+  decorators: [withBraidProvider],
   parameters: {
     controls: { hideNoControlsWarning: true },
   },
-  title: 'TocRenderer',
+  title: 'MDX/TocRenderer',
 };
 
-export const Example = () => (
+export const TocRenderer = () => (
   <Stack space="medium">
-    <TocRenderer document={Headings}>
+    <Component document={Headings}>
       {(toc) => (
         <Text>
           <Stack space="small">
@@ -33,6 +33,7 @@ export const Example = () => (
           </Stack>
         </Text>
       )}
-    </TocRenderer>
+    </Component>
   </Stack>
 );
+TocRenderer.storyName = 'TocRenderer';

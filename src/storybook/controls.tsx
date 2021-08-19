@@ -1,6 +1,10 @@
-export const argTypes = {
+export const defaultArgs = {
+  size: 'standard',
+};
+
+export const defaultArgTypes = {
   size: {
-    control: { options: ['standard', 'large'], type: 'radio' },
-    defaultValue: 'standard',
+    control: { type: 'radio' },
+    options: ['standard', 'large'],
   },
 };

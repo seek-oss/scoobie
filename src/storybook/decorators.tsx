@@ -43,7 +43,7 @@ const BraidStorybookProvider = ({ children }: ProviderProps) => (
 
 type DecoratorFn = Parameters<typeof addDecorator>[0];
 
-export const DesignDecorator: DecoratorFn = (story) => (
+export const withBraidProvider: DecoratorFn = (story) => (
   <BrowserRouter>
     <Helmet>
       <link href={robotoHref} rel="stylesheet" />
@@ -58,7 +58,7 @@ export const DesignDecorator: DecoratorFn = (story) => (
   </BrowserRouter>
 );
 
-export const MdxDecorator: DecoratorFn = (story) => (
+export const withMdxProvider: DecoratorFn = (story) => (
   <MdxProvider
     graphqlPlayground={
       text(

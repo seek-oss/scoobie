@@ -3,7 +3,10 @@
   packageRules: [
     {
       // We need to match the Storybook version bundled in sku.
-      matchPackageNames: ['@storybook/addons'],
+      matchPackageNames: [
+        '@storybook/addon-essentials',
+        '@storybook/addon-knobs',
+      ],
       matchManagers: ['npm'],
       matchUpdateTypes: ['major'],
       enabled: false,

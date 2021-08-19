@@ -3,41 +3,38 @@ import 'loki/configure-react';
 
 import React, { ComponentProps } from 'react';
 
-import { argTypes } from '../storybook/controls';
-import { DesignDecorator } from '../storybook/decorators';
+import { defaultArgTypes, defaultArgs } from '../storybook/controls';
+import { withBraidProvider } from '../storybook/decorators';
 
-import { CodeBlock } from './CodeBlock';
+import { CodeBlock as Component } from './CodeBlock';
 
 export default {
-  argTypes: {
-    graphqlPlayground: {
-      defaultValue: 'https://graphql.seek.com/graphql',
-    },
-    language: {
-      defaultValue: 'graphql',
-    },
-    size: argTypes.size,
-    trim: {
-      defaultValue: true,
-    },
+  args: {
+    graphqlPlayground: 'https://graphql.seek.com/graphql',
+    language: 'graphql',
+    size: defaultArgs.size,
+    trim: true,
   },
-  component: CodeBlock,
-  decorators: [DesignDecorator],
-  title: 'CodeBlock',
+  argTypes: {
+    size: defaultArgTypes.size,
+  },
+  component: Component,
+  decorators: [withBraidProvider],
+  title: 'Standalone/CodeBlock',
 };
 
-type Args = ComponentProps<typeof CodeBlock>;
+type Args = ComponentProps<typeof Component>;
 
-export const Single = (args: Args) => <CodeBlock {...args} />;
+export const Single = (args: Args) => <Component {...args} />;
+Single.args = {
+  children: 'query {\n  version\n}\n',
+};
 Single.argTypes = {
-  children: {
-    control: { type: 'text' },
-    defaultValue: 'query {\n  version\n}\n',
-  },
+  children: { control: { type: 'text' } },
 };
 
 export const Multi = (args: Args) => (
-  <CodeBlock {...args}>
+  <Component {...args}>
     {[
       {
         code: 'query {\n  version\n}\n',
@@ -55,7 +52,7 @@ export const Multi = (args: Args) => (
         language: 'jsonc',
       },
     ]}
-  </CodeBlock>
+  </Component>
 );
 Multi.parameters = {
   controls: { hideNoControlsWarning: true },
