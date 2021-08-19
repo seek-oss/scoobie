@@ -52,6 +52,7 @@ yarn add --exact scoobie
 - [Webpack reference](#webpack-reference)
   - [ScoobieWebpackPlugin](#scoobiewebpackplugin)
   - [dangerouslySetWebpackConfig](#dangerouslysetwebpackconfig)
+  - [merge](#merge)
 - [Contributing](https://github.com/seek-oss/scoobie/blob/master/CONTRIBUTING.md)
 
 ## Setup
@@ -579,10 +580,7 @@ export const MySvg = () => (
 Scoobie distributes its Webpack config via a `scoobie/webpack` submodule:
 
 ```typescript
-const {
-  ScoobieWebpackPlugin,
-  dangerouslySetWebpackConfig,
-} = require('scoobie/webpack');
+const { ScoobieWebpackPlugin } = require('scoobie/webpack');
 ```
 
 Compatibility notes:
@@ -598,25 +596,24 @@ A bundle of MDX and image loaders that complement sku's Webpack config.
 This needs to be ordered to run after SkuWebpackPlugin:
 
 ```javascript
-const { dangerouslySetWebpackConfig } = require('scoobie/webpack');
+const { ScoobieWebpackPlugin, merge } = require('scoobie/webpack');
 
 module.exports = {
   // ...
 
   compilePackages: ['scoobie'],
-  dangerouslySetWebpackConfig: (config) => ({
-    ...config,
-    plugins: [
-      ...config.plugins,
-      new ScoobieWebpackPlugin({
-        // Optional configuration option to enable mermaid support.
-        // Temporary files are written to `${rootDir}/mermaid`.
-        mermaid: {
-          rootDir: __dirname,
-        },
-      }),
-    ],
-  }),
+  dangerouslySetWebpackConfig: (config) =>
+    merge(config, {
+      plugins: [
+        new ScoobieWebpackPlugin({
+          // Optional configuration option to enable mermaid support.
+          // Temporary files are written to `${rootDir}/mermaid`.
+          mermaid: {
+            rootDir: __dirname,
+          },
+        }),
+      ],
+    }),
 };
 ```
 
@@ -627,3 +624,9 @@ Zero-config option referenced in [sku.config.js](#skuconfigjs) above.
 This slots in on top of sku without much fuss.
 If you're wrangling other Webpack config and need something more composable,
 see [ScoobieWebpackPlugin](#scoobiewebpackplugin).
+
+### merge
+
+Re-export of [webpack-merge] for convenience.
+
+[webpack-merge]: https://github.com/survivejs/webpack-merge
