@@ -129,7 +129,7 @@ const inferImageSrc = (processModulePath, url) => {
     return `"${encodeURI(url)}"`;
   }
 
-  // Resolve default export for other images
+  // Resolve default ESM export
   return `require('${processModulePath(url)}').default`;
 };
 
