@@ -5,7 +5,7 @@ import { Text } from 'braid-design-system';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { ScoobieDecorator } from '../storybook/decorator';
+import { DesignDecorator } from '../storybook/decorators';
 
 import { InlineCode } from './InlineCode';
 
@@ -20,7 +20,7 @@ export default {
     },
   },
   component: InlineCode,
-  decorators: [ScoobieDecorator],
+  decorators: [DesignDecorator],
   title: 'InlineCode',
 };
 

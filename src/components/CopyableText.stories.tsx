@@ -4,7 +4,7 @@ import 'loki/configure-react';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { ScoobieDecorator } from '../storybook/decorator';
+import { DesignDecorator } from '../storybook/decorators';
 
 import { CopyableText } from './CopyableText';
 
@@ -27,7 +27,7 @@ export default {
     },
   },
   component: CopyableText,
-  decorators: [ScoobieDecorator],
+  decorators: [DesignDecorator],
   title: 'CopyableText',
 };
 

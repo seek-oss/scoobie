@@ -5,7 +5,7 @@ import { Text } from 'braid-design-system';
 import React, { ComponentProps, Fragment } from 'react';
 
 import { argTypes } from '../storybook/controls';
-import { ScoobieDecorator } from '../storybook/decorator';
+import { DesignDecorator } from '../storybook/decorators';
 
 import { Table } from './Table';
 import { TableRow } from './TableRow';
@@ -22,7 +22,7 @@ export default {
     },
   },
   component: Table,
-  decorators: [ScoobieDecorator],
+  decorators: [DesignDecorator],
   title: 'Table',
 };
 
