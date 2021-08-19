@@ -6,6 +6,7 @@ const { remarkPlugin } = require('../remark');
  * {@link https://github.com/seek-oss/sku/blob/v11.0.1/config/webpack/utils/index.js#L10-L11}
  */
 const SKU_WEBPACK_UTILS = {
+  IMAGE: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
   SVG: /\.svg$/,
 };
 
@@ -24,6 +25,20 @@ const createMdxRule = (remarkPlugins) => ({
       loader: '@mdx-js/loader',
       options: {
         remarkPlugins,
+      },
+    },
+  ],
+});
+
+const createImageRule = (compiler) => ({
+  test: [/\.jpe?g$/i, /\.png$/i],
+  use: [
+    {
+      loader: require.resolve('file-loader'),
+      options: {
+        // Avoid emitting static assets twice, which is unnecessary and can lead
+        // to mismatches in markup.
+        emitFile: compiler.options.name === 'client',
       },
     },
   ],
@@ -101,6 +116,7 @@ class ScoobieWebpackPlugin {
     );
 
     rules.push(createMdxRule(this.remarkPlugins));
+    rules.push(createImageRule(compiler));
     rules.push(createSvgRule(compiler));
 
     compiler.options.module.rules = rules;
