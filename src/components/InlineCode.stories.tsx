@@ -13,7 +13,7 @@ export default {
   argTypes: {
     children: {
       control: { type: 'text' },
-      defaultValue: 'SEEK Schema',
+      defaultValue: 'inline code',
     },
     weight: {
       defaultValue: 'regular',
