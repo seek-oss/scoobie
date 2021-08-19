@@ -7,24 +7,22 @@ import React, { Children } from 'react';
 import { DesignDecorator } from '../storybook/decorators';
 import Wrapper from '../storybook/markdown/wrapper.mdx';
 
-import { WrapperRenderer } from './WrapperRenderer';
+import { WrapperRenderer as Component } from './WrapperRenderer';
 
 export default {
-  component: WrapperRenderer,
+  component: Component,
   decorators: [DesignDecorator],
   parameters: {
     controls: { hideNoControlsWarning: true },
   },
-  title: 'WrapperRenderer',
+  title: 'MDX/WrapperRenderer',
 };
 
-export const Example = () => (
-  <WrapperRenderer document={Wrapper}>
+export const WrapperRenderer = () => (
+  <Component document={Wrapper}>
     {({ children }) => (
       <Text>{Children.toArray(children).length} top-level node(s)</Text>
     )}
-  </WrapperRenderer>
+  </Component>
 );
-Example.parameters = {
-  controls: { hideNoControlsWarning: true },
-};
+WrapperRenderer.storyName = 'WrapperRenderer';

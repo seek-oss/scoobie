@@ -6,42 +6,34 @@ import { ComponentProps } from 'react';
 
 import { DesignDecorator } from '../storybook/decorators';
 
-import { CopyableText } from './CopyableText';
+import { CopyableText as Component } from './CopyableText';
 
 export default {
+  args: {
+    children: 'copy me',
+    copiedLabel: 'undefined',
+    copyLabel: 'undefined',
+    size: 'standard',
+  },
   argTypes: {
-    children: {
-      control: { type: 'text' },
-      defaultValue: 'copy me',
-    },
+    children: { control: { type: 'text' } },
     copiedLabel: {
-      control: { options: ['undefined', 'custom'], type: 'radio' },
-      defaultValue: 'undefined',
+      control: { type: 'radio' },
+      mapping: { undefined, custom: 'Custom copied label' },
+      options: ['undefined', 'custom'],
     },
     copyLabel: {
-      control: { options: ['undefined', 'custom'], type: 'radio' },
-      defaultValue: 'undefined',
-    },
-    size: {
-      defaultValue: 'standard',
+      control: { type: 'radio' },
+      mapping: { undefined, custom: 'Custom copy label' },
+      options: ['undefined', 'custom'],
     },
   },
-  component: CopyableText,
+  component: Component,
   decorators: [DesignDecorator],
-  title: 'CopyableText',
+  title: 'Standalone/CopyableText',
 };
 
-interface Args extends ComponentProps<typeof CopyableText> {
-  copiedLabel: 'undefined' | 'custom';
-  copyLabel: 'undefined' | 'custom';
-}
+type Args = ComponentProps<typeof Component>;
 
-export const Custom = ({ copiedLabel, copyLabel, ...args }: Args) => (
-  <CopyableText
-    {...args}
-    copiedLabel={
-      copiedLabel === 'undefined' ? undefined : 'Custom copied label'
-    }
-    copyLabel={copyLabel === 'undefined' ? undefined : 'Custom copy label'}
-  />
-);
+export const CopyableText = (args: Args) => <Component {...args} />;
+CopyableText.storyName = 'CopyableText';

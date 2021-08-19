@@ -22,7 +22,7 @@ export default {
   parameters: {
     controls: { hideNoControlsWarning: true },
   },
-  title: 'MdxProvider',
+  title: 'MDX/MdxProvider',
 };
 
 export const Blockquote = () => <BlockquoteMarkdown />;

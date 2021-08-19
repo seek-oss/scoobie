@@ -6,27 +6,26 @@ import React, { ComponentProps } from 'react';
 
 import { DesignDecorator } from '../storybook/decorators';
 
-import { SmartTextLink } from './SmartTextLink';
+import { SmartTextLink as Component } from './SmartTextLink';
 
 export default {
-  argTypes: {
-    children: {
-      control: { type: 'text' },
-      defaultValue: 'SEEK Schema',
-    },
-    href: {
-      defaultValue: 'https://developer.seek.com/schema',
-    },
+  args: {
+    children: 'SEEK Schema',
+    href: 'https://developer.seek.com/schema',
   },
-  component: SmartTextLink,
+  argTypes: {
+    children: { control: { type: 'text' } },
+  },
+  component: Component,
   decorators: [DesignDecorator],
-  title: 'SmartTextLink',
+  title: 'Standalone/SmartTextLink',
 };
 
-type Args = ComponentProps<typeof SmartTextLink>;
+type Args = ComponentProps<typeof Component>;
 
-export const Custom = (args: Args) => (
+export const SmartTextLink = (args: Args) => (
   <Text>
-    <SmartTextLink {...args} />
+    <Component {...args} />
   </Text>
 );
+SmartTextLink.storyName = 'SmartTextLink';

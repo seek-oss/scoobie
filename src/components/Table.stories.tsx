@@ -4,34 +4,34 @@ import 'loki/configure-react';
 import { Text } from 'braid-design-system';
 import React, { ComponentProps, Fragment } from 'react';
 
-import { argTypes } from '../storybook/controls';
+import { defaultArgTypes, defaultArgs } from '../storybook/controls';
 import { DesignDecorator } from '../storybook/decorators';
 
-import { Table } from './Table';
+import { Table as Component } from './Table';
 import { TableRow } from './TableRow';
 
 export default {
+  args: {
+    size: defaultArgs.size,
+    width: 'undefined',
+  },
   argTypes: {
-    size: argTypes.size,
+    size: defaultArgTypes.size,
     width: {
-      control: {
-        options: ['undefined', 'full'],
-        type: 'radio',
-      },
-      defaultValue: 'undefined',
+      control: { type: 'radio' },
+      mapping: { undefined, full: 'full' },
+      options: ['undefined', 'full'],
     },
   },
-  component: Table,
+  component: Component,
   decorators: [DesignDecorator],
-  title: 'Table',
+  title: 'Standalone/Table',
 };
 
-interface Args extends Omit<ComponentProps<typeof Table>, 'width'> {
-  width: 'full' | 'undefined';
-}
+type Args = Omit<ComponentProps<typeof Component>, 'width'>;
 
-export const Defaults = ({ width, ...args }: Args) => (
-  <Table {...args} width={width === 'undefined' ? undefined : width}>
+export const Defaults = (args: Args) => (
+  <Component {...args}>
     <TableRow>
       <Fragment>This is body cell A1.</Fragment>
       <Fragment>B1</Fragment>
@@ -41,16 +41,14 @@ export const Defaults = ({ width, ...args }: Args) => (
       <Fragment>A2</Fragment>
       <Fragment>This is body cell B2.</Fragment>
     </TableRow>
-  </Table>
+  </Component>
 );
-Defaults.argTypes = {
-  header: {
-    defaultValue: ['Column A', 'Column B'],
-  },
+Defaults.args = {
+  header: ['Column A', 'Column B'],
 };
 
-export const Stripe = ({ width, ...args }: Args) => (
-  <Table {...args} width={width === 'undefined' ? undefined : width}>
+export const Stripe = (args: Args) => (
+  <Component {...args}>
     <TableRow>
       <Text>This is body cell A1.</Text>
       <Text weight="strong">B1</Text>
@@ -60,27 +58,21 @@ export const Stripe = ({ width, ...args }: Args) => (
       <Fragment>A2</Fragment>
       <Fragment>This is body cell B2.</Fragment>
     </TableRow>
-  </Table>
+  </Component>
 );
-Stripe.argTypes = {
-  align: {
-    defaultValue: ['left', 'right'],
-  },
-  header: {
-    defaultValue: (
-      <Fragment>
-        <Fragment>Column A</Fragment>
-        <Text weight="regular">Column B</Text>
-      </Fragment>
-    ),
-  },
-  type: {
-    defaultValue: 'stripe',
-  },
+Stripe.args = {
+  align: ['left', 'right'],
+  header: (
+    <Fragment>
+      <Fragment>Column A</Fragment>
+      <Text weight="regular">Column B</Text>
+    </Fragment>
+  ),
+  type: 'stripe',
 };
 
-export const Subtle = ({ width, ...args }: Args) => (
-  <Table {...args} width={width === 'undefined' ? undefined : width}>
+export const Subtle = (args: Args) => (
+  <Component {...args}>
     <TableRow>
       <Fragment>This is body cell A1.</Fragment>
       <Fragment>B1</Fragment>
@@ -90,13 +82,9 @@ export const Subtle = ({ width, ...args }: Args) => (
       <Fragment>A2</Fragment>
       <Fragment>This is body cell B2.</Fragment>
     </TableRow>
-  </Table>
+  </Component>
 );
-Subtle.argTypes = {
-  header: {
-    defaultValue: ['Column A', 'Column B'],
-  },
-  type: {
-    defaultValue: 'subtle',
-  },
+Subtle.args = {
+  header: ['Column A', 'Column B'],
+  type: 'subtle',
 };
