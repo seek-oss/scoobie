@@ -14,11 +14,11 @@ import { MdxProvider, ScoobieLink } from '..';
 import { robotoHref, robotoMonoHref } from '../../typography';
 import { DEFAULT_SIZE, SIZES } from '../private/size';
 
-interface Props {
+interface ProviderProps {
   children: ReactNode;
 }
 
-const BraidStorybookProvider = ({ children }: Props) => (
+const BraidStorybookProvider = ({ children }: ProviderProps) => (
   <BraidLoadableProvider
     linkComponent={ScoobieLink}
     themeName={select(
@@ -41,7 +41,24 @@ const BraidStorybookProvider = ({ children }: Props) => (
   </BraidLoadableProvider>
 );
 
-const MdxStorybookProvider = ({ children }: Props) => (
+type DecoratorFn = Parameters<typeof addDecorator>[0];
+
+export const DesignDecorator: DecoratorFn = (story) => (
+  <BrowserRouter>
+    <Helmet>
+      <link href={robotoHref} rel="stylesheet" />
+      <link href={robotoMonoHref} rel="stylesheet" />
+    </Helmet>
+
+    <BraidStorybookProvider>
+      <ContentBlock>
+        <Card>{story()}</Card>
+      </ContentBlock>
+    </BraidStorybookProvider>
+  </BrowserRouter>
+);
+
+export const MdxDecorator: DecoratorFn = (story) => (
   <MdxProvider
     graphqlPlayground={
       text(
@@ -51,25 +68,6 @@ const MdxStorybookProvider = ({ children }: Props) => (
     }
     size={select('MdxProvider.size', SIZES, DEFAULT_SIZE)}
   >
-    {children}
+    {story()}
   </MdxProvider>
-);
-
-type DecoratorFunction = Parameters<typeof addDecorator>[0];
-
-export const ScoobieDecorator: DecoratorFunction = (story) => (
-  <BrowserRouter>
-    <Helmet>
-      <link href={robotoHref} rel="stylesheet" />
-      <link href={robotoMonoHref} rel="stylesheet" />
-    </Helmet>
-
-    <BraidStorybookProvider>
-      <MdxStorybookProvider>
-        <ContentBlock>
-          <Card>{story()}</Card>
-        </ContentBlock>
-      </MdxStorybookProvider>
-    </BraidStorybookProvider>
-  </BrowserRouter>
 );

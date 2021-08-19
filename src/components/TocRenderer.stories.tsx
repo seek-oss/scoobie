@@ -4,7 +4,7 @@ import 'loki/configure-react';
 import { Stack, Text } from 'braid-design-system';
 import React from 'react';
 
-import { ScoobieDecorator } from '../storybook/decorator';
+import { DesignDecorator } from '../storybook/decorators';
 import Headings from '../storybook/markdown/headings.mdx';
 
 import { SmartTextLink } from './SmartTextLink';
@@ -12,7 +12,7 @@ import { TocRenderer } from './TocRenderer';
 
 export default {
   component: TocRenderer,
-  decorators: [ScoobieDecorator],
+  decorators: [DesignDecorator],
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

@@ -3,7 +3,7 @@ import 'loki/configure-react';
 
 import React from 'react';
 
-import { ScoobieDecorator } from '../storybook/decorator';
+import { DesignDecorator, MdxDecorator } from '../storybook/decorators';
 import BlockquoteMarkdown from '../storybook/markdown/blockquote.mdx';
 import CodeMarkdown from '../storybook/markdown/code.mdx';
 import CombinationMarkdown from '../storybook/markdown/combination.mdx';
@@ -18,7 +18,7 @@ import { MdxProvider } from './MdxProvider';
 
 export default {
   component: MdxProvider,
-  decorators: [ScoobieDecorator],
+  decorators: [DesignDecorator, MdxDecorator],
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

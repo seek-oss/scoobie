@@ -4,7 +4,7 @@ import 'loki/configure-react';
 import React, { ComponentProps } from 'react';
 
 import { argTypes } from '../storybook/controls';
-import { ScoobieDecorator } from '../storybook/decorator';
+import { DesignDecorator } from '../storybook/decorators';
 
 import { CodeBlock } from './CodeBlock';
 
@@ -22,7 +22,7 @@ export default {
     },
   },
   component: CodeBlock,
-  decorators: [ScoobieDecorator],
+  decorators: [DesignDecorator],
   title: 'CodeBlock',
 };
 
