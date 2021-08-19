@@ -15,6 +15,7 @@
     "@vanilla-extract/css-utils": "^0.1.1",
     "capsize": "^2.0.0",
     "clsx": "^1.1.1",
+    "file-loader": "^6.2.0",
     "find-up": "^5.0.0",
     "fs-extra": "^10.0.0",
     "polished": "^4.0.0",

@@ -3,7 +3,7 @@ const { remarkPlugin } = require('../remark');
 /**
  * Vendored from `sku/config/webpack/utils`.
  *
- * {@link https://github.com/seek-oss/sku/blob/v10.12.0/config/webpack/utils/index.js#L10-L11}
+ * {@link https://github.com/seek-oss/sku/blob/v11.0.1/config/webpack/utils/index.js#L10-L11}
  */
 const SKU_WEBPACK_UTILS = {
   SVG: /\.svg$/,

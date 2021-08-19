@@ -11,12 +11,6 @@ const TITLE_DIRECTIVE = /^=([0-9]*)x([0-9]*)$/;
  */
 const cleanseDoubleQuotes = (str) => str.replace(/"/g, "''");
 
-/**
- *
- * @param {string} url
- */
-const isSvgUrl = (url) => url.toLocaleLowerCase().endsWith('.svg');
-
 let $repoRoot;
 /**
  * @returns {string}
@@ -133,11 +127,6 @@ const inferImageSrc = (processModulePath, url) => {
   // Use directly
   if (url.startsWith('https://')) {
     return `"${encodeURI(url)}"`;
-  }
-
-  // Resolve direct export for SVGs
-  if (isSvgUrl(url)) {
-    return `require('${processModulePath(url)}')`;
   }
 
   // Resolve default export for other images
