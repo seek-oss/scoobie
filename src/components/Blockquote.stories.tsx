@@ -6,7 +6,7 @@ import React from 'react';
 import { ComponentProps } from 'react';
 
 import { defaultArgTypes, defaultArgs } from '../storybook/controls';
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 
 import { Blockquote as Component } from './Blockquote';
 
@@ -18,7 +18,7 @@ export default {
     size: defaultArgTypes.size,
   },
   component: Component,
-  decorators: [DesignDecorator],
+  decorators: [withBraidProvider],
   title: 'Standalone/Blockquote',
 };
 

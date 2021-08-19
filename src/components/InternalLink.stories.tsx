@@ -5,7 +5,7 @@ import { Alert, Stack, Text } from 'braid-design-system';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 
 import { InternalLink as Component } from './InternalLink';
 
@@ -15,7 +15,7 @@ export default {
     reset: true,
   },
   component: Component,
-  decorators: [DesignDecorator],
+  decorators: [withBraidProvider],
   title: 'Standalone/InternalLink',
 };
 

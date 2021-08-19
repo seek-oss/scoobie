@@ -5,7 +5,7 @@ import { Text } from 'braid-design-system';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 
 import { InlineCode as Component } from './InlineCode';
 
@@ -18,7 +18,7 @@ export default {
     children: { control: { type: 'text' } },
   },
   component: Component,
-  decorators: [DesignDecorator],
+  decorators: [withBraidProvider],
   title: 'Standalone/InlineCode',
 };
 

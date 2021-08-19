@@ -4,7 +4,7 @@ import 'loki/configure-react';
 import { Text } from 'braid-design-system';
 import React, { ComponentProps } from 'react';
 
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 
 import { SmartTextLink as Component } from './SmartTextLink';
 
@@ -17,7 +17,7 @@ export default {
     children: { control: { type: 'text' } },
   },
   component: Component,
-  decorators: [DesignDecorator],
+  decorators: [withBraidProvider],
   title: 'Standalone/SmartTextLink',
 };
 

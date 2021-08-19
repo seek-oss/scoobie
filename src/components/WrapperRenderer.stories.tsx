@@ -4,14 +4,14 @@ import 'loki/configure-react';
 import { Text } from 'braid-design-system';
 import React, { Children } from 'react';
 
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 import Wrapper from '../storybook/markdown/wrapper.mdx';
 
 import { WrapperRenderer as Component } from './WrapperRenderer';
 
 export default {
   component: Component,
-  decorators: [DesignDecorator],
+  decorators: [withBraidProvider],
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

@@ -4,7 +4,7 @@ import 'loki/configure-react';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 
 import { CopyableText as Component } from './CopyableText';
 
@@ -29,7 +29,7 @@ export default {
     },
   },
   component: Component,
-  decorators: [DesignDecorator],
+  decorators: [withBraidProvider],
   title: 'Standalone/CopyableText',
 };
 

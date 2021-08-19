@@ -5,7 +5,7 @@ import { Text } from 'braid-design-system';
 import React, { ComponentProps, Fragment } from 'react';
 
 import { defaultArgTypes, defaultArgs } from '../storybook/controls';
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 
 import { Table as Component } from './Table';
 import { TableRow } from './TableRow';
@@ -24,7 +24,7 @@ export default {
     },
   },
   component: Component,
-  decorators: [DesignDecorator],
+  decorators: [withBraidProvider],
   title: 'Standalone/Table',
 };
 

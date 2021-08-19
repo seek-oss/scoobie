@@ -4,7 +4,7 @@ import 'loki/configure-react';
 import React, { ComponentProps } from 'react';
 
 import { defaultArgTypes, defaultArgs } from '../storybook/controls';
-import { DesignDecorator } from '../storybook/decorators';
+import { withBraidProvider } from '../storybook/decorators';
 
 import { CodeBlock as Component } from './CodeBlock';
 
@@ -19,7 +19,7 @@ export default {
     size: defaultArgTypes.size,
   },
   component: Component,
-  decorators: [DesignDecorator],
+  decorators: [withBraidProvider],
   title: 'Standalone/CodeBlock',
 };
 
