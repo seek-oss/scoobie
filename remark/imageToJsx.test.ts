@@ -293,7 +293,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg')}
+          src={require('./drawing.svg').default}
           title=\\"\\"
         />",
         }
@@ -314,7 +314,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg')}
+          src={require('./drawing.svg').default}
           title=\\"\\"
         />",
         }
@@ -335,7 +335,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('../src/assets/drawing.svg')}
+          src={require('../src/assets/drawing.svg').default}
           title=\\"\\"
         />",
         }
@@ -358,7 +358,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"bravo\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg')}
+          src={require('./drawing.svg').default}
           title=\\"alpha\\"
         />",
         }
@@ -380,7 +380,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"bravo\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg')}
+          src={require('./drawing.svg').default}
           title=\\"\\"
         />",
         }
@@ -423,7 +423,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg')}
+          src={require('./drawing.svg').default}
           style={{ height: 50, maxWidth: '100%', width: 100 }}
           title=\\"Alpha\\"
         />",
@@ -446,7 +446,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"none\\"
-          src={require('./drawing.svg')}
+          src={require('./drawing.svg').default}
           title=\\"Alpha\\"
         />",
         }
