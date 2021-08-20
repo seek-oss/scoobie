@@ -5180,10 +5180,10 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@30.3.0:
-  version "30.3.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.3.0.tgz#94a65a5c359c09ccd88d5a61e0a16883d62422cd"
-  integrity sha512-Qhl6wTgdq4XlU26yndG3moJqk+KepNzp+pZBJsCRcOqdjH1tU8gP29AYCKDRmOY6/3sNusYcpEpwp2cz6k6wzA==
+braid-design-system@30.4.0:
+  version "30.4.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.4.0.tgz#e963a5a1d896ae8d560c7a6c8a7c08df3208ea31"
+  integrity sha512-EOqRYqvlolPTXFrMObsg8z3vFHd4hgCaYarWsGF+0RTr5l/3B//O9yF+xsmLHS3vDEhahhcNSWnXAuZ2tmOBqQ==
   dependencies:
     "@types/autosuggest-highlight" "^3.1.1"
     "@types/classnames" "^2.2.11"
