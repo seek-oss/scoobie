@@ -2,8 +2,19 @@ import 'braid-design-system/reset';
 import 'loki/configure-react';
 
 import React from 'react';
+import { ReactNode } from 'react';
 
-import { withBraidProvider, withMdxProvider } from '../storybook/decorators';
+import {
+  BraidArgs,
+  MdxArgs,
+  defaultArgTypes,
+  defaultArgs,
+} from '../storybook/controls';
+import {
+  BraidStorybookProvider,
+  MdxStorybookProvider,
+  withRouter,
+} from '../storybook/decorators';
 import BlockquoteMarkdown from '../storybook/markdown/blockquote.mdx';
 import CodeMarkdown from '../storybook/markdown/code.mdx';
 import CombinationMarkdown from '../storybook/markdown/combination.mdx';
@@ -17,29 +28,79 @@ import TableMarkdown from '../storybook/markdown/table.mdx';
 import { MdxProvider } from './MdxProvider';
 
 export default {
-  component: MdxProvider,
-  decorators: [withBraidProvider, withMdxProvider],
-  parameters: {
-    controls: { hideNoControlsWarning: true },
+  args: {
+    braidThemeName: defaultArgs.braidThemeName,
+    mdxSize: defaultArgs.mdxSize,
   },
+  argTypes: {
+    braidThemeName: defaultArgTypes.braidThemeName,
+    mdxSize: defaultArgTypes.mdxSize,
+  },
+  component: MdxProvider,
+  decorators: [withRouter],
   title: 'MDX/MdxProvider',
 };
 
-export const Blockquote = () => <BlockquoteMarkdown />;
+type Args = { children: ReactNode } & BraidArgs & MdxArgs;
 
-export const Code = () => <CodeMarkdown />;
+const Provider = ({ braidThemeName, children, mdxSize }: Args) => (
+  <BraidStorybookProvider braidThemeName={braidThemeName}>
+    <MdxStorybookProvider mdxSize={mdxSize}>{children}</MdxStorybookProvider>
+  </BraidStorybookProvider>
+);
 
-export const Combination = () => <CombinationMarkdown />;
+export const Blockquote = (args: Args) => (
+  <Provider {...args}>
+    <BlockquoteMarkdown />
+  </Provider>
+);
 
-export const Headings = () => <HeadingsMarkdown />;
+export const Code = (args: Args) => (
+  <Provider {...args}>
+    <CodeMarkdown />
+  </Provider>
+);
 
-export const ImagesExternal = () => <ImagesExternalMarkdown />;
+export const Combination = (args: Args) => (
+  <Provider {...args}>
+    <CombinationMarkdown />
+  </Provider>
+);
+
+export const Headings = (args: Args) => (
+  <Provider {...args}>
+    <HeadingsMarkdown />
+  </Provider>
+);
+
+export const ImagesExternal = (args: Args) => (
+  <Provider {...args}>
+    <ImagesExternalMarkdown />
+  </Provider>
+);
 ImagesExternal.parameters = { loki: { skip: true } };
 
-export const ImagesInternal = () => <ImagesInternalMarkdown />;
+export const ImagesInternal = (args: Args) => (
+  <Provider {...args}>
+    <ImagesInternalMarkdown />
+  </Provider>
+);
+ImagesInternal.parameters = { loki: { skip: true } };
 
-export const Inline = () => <InlineMarkdown />;
+export const Inline = (args: Args) => (
+  <Provider {...args}>
+    <InlineMarkdown />
+  </Provider>
+);
 
-export const Lists = () => <ListsMarkdown />;
+export const Lists = (args: Args) => (
+  <Provider {...args}>
+    <ListsMarkdown />
+  </Provider>
+);
 
-export const Table = () => <TableMarkdown />;
+export const Table = (args: Args) => (
+  <Provider {...args}>
+    <TableMarkdown />
+  </Provider>
+);
