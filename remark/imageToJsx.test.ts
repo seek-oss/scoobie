@@ -427,8 +427,8 @@ describe('imageToJsx', () => {
           style={{ height: 50, maxWidth: '100%', width: 100 }}
           title=\\"Alpha\\"
         />",
-      }
-  `);
+        }
+      `);
     });
 
     it('respects unstyled directive', () => {
