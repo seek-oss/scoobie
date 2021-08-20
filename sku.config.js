@@ -4,7 +4,7 @@ module.exports = {
   orderImports: true,
   rootResolution: false,
   srcPaths: ['./src', './styles'],
-  storybookAddons: ['@storybook/addon-essentials', '@storybook/addon-knobs'],
+  storybookAddons: ['@storybook/addon-essentials'],
 
   dangerouslySetESLintConfig: (config) => ({
     ...config,

@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@storybook/addon-essentials": "6.3.7",
-    "@storybook/addon-knobs": "6.3.0",
     "@storybook/storybook-deployer": "2.8.10",
     "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",

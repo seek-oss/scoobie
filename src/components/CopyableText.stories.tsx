@@ -4,18 +4,21 @@ import 'loki/configure-react';
 import React from 'react';
 import { ComponentProps } from 'react';
 
-import { withBraidProvider } from '../storybook/decorators';
+import { BraidArgs, defaultArgTypes, defaultArgs } from '../storybook/controls';
+import { BraidStorybookProvider, withRouter } from '../storybook/decorators';
 
 import { CopyableText as Component } from './CopyableText';
 
 export default {
   args: {
+    braidThemeName: defaultArgs.braidThemeName,
     children: 'copy me',
     copiedLabel: 'undefined',
     copyLabel: 'undefined',
     size: 'standard',
   },
   argTypes: {
+    braidThemeName: defaultArgTypes.braidThemeName,
     children: { control: { type: 'text' } },
     copiedLabel: {
       control: { type: 'radio' },
@@ -29,11 +32,15 @@ export default {
     },
   },
   component: Component,
-  decorators: [withBraidProvider],
+  decorators: [withRouter],
   title: 'Standalone/CopyableText',
 };
 
-type Args = ComponentProps<typeof Component>;
+type Args = ComponentProps<typeof Component> & BraidArgs;
 
-export const CopyableText = (args: Args) => <Component {...args} />;
+export const CopyableText = ({ braidThemeName, ...args }: Args) => (
+  <BraidStorybookProvider braidThemeName={braidThemeName}>
+    <Component {...args} />
+  </BraidStorybookProvider>
+);
 CopyableText.storyName = 'CopyableText';
