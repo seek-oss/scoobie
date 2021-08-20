@@ -63,46 +63,50 @@ g.node span.nodeLabel {
   font-size: var(--font-size);
 }
 
-g.edgeLabel div {
+.edgeLabel div {
   background-color: var(--mermaid-er-label-fill);
 }
 
-g.edgeLabel span.edgeLabel {
+.edgeLabel span.edgeLabel {
   background-color: transparent;
 }
 
-g.node path,
-g.node polygon,
-g.node rect {
+.node path,
+.node polygon,
+.node rect {
   fill: var(--braid-apac-grey-50);
   stroke: var(--braid-apac-grey-100);
 }
 
-g.node div {
+.node div {
   text-align: center;
 }
 
-g.node span.nodeLabel {
+.label div,
+.nodeLabel {
   display: block;
+  white-space: nowrap;
 }
 
-g.edgePath path.path,
-g.edgePaths path.transition {
+.edgePath path.path,
+.edgePaths path.transition {
   fill: none;
   stroke: var(--braid-apac-grey-500);
 }
 
-g.edgePath marker path.arrowheadPath,
+.edgePath marker path.arrowheadPath,
 path.arrowMarkerPath {
   fill: var(--braid-apac-grey-500);
 }
 
 /* sequence */
 
+text.actor,
 text.messageText {
   font-family: var(--font-family);
   font-size: var(--font-size);
   stroke: none;
+  text-anchor: middle;
 }
 
 rect.actor {
@@ -130,6 +134,7 @@ path.loopLine {
 path.actor-line,
 path.messageLine0,
 path.path {
+  fill: none;
   stroke: var(--braid-apac-grey-500);
 }
 

@@ -64,11 +64,19 @@ const createSvgRule = (compiler) => ({
         plugins: [
           {
             name: 'preset-default',
-            overrides: {
-              // This destyles mermaid diagram text for some reason.
-              inlineStyles: false,
+            params: {
+              overrides: {
+                // This breaks our mermaid diagram `<style>`.
+                inlineStyles: false,
 
-              removeViewBox: false,
+                removeViewBox: false,
+              },
+            },
+          },
+          {
+            name: 'removeAttrs',
+            params: {
+              attrs: 'style',
             },
           },
           {
