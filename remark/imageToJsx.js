@@ -129,8 +129,8 @@ const inferImageSrc = (processModulePath, url) => {
     return `"${encodeURI(url)}"`;
   }
 
-  // Resolve default ESM export
-  return `require('${processModulePath(url)}').default`;
+  // Resolve an asset module
+  return `require('${processModulePath(url)}')`;
 };
 
 /**
