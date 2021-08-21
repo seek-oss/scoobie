@@ -28,7 +28,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./assets/image.png').default}
+          src={require('./assets/image.png')}
           title=\\"\\"
         />",
         }
@@ -49,7 +49,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./assets/image.png').default}
+          src={require('./assets/image.png')}
           title=\\"\\"
         />",
         }
@@ -70,7 +70,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./image.png').default}
+          src={require('./image.png')}
           title=\\"\\"
         />",
         }
@@ -91,7 +91,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('../src/assets/image.png').default}
+          src={require('../src/assets/image.png')}
           title=\\"\\"
         />",
         }
@@ -293,7 +293,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg').default}
+          src={require('./drawing.svg')}
           title=\\"\\"
         />",
         }
@@ -314,7 +314,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg').default}
+          src={require('./drawing.svg')}
           title=\\"\\"
         />",
         }
@@ -335,7 +335,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('../src/assets/drawing.svg').default}
+          src={require('../src/assets/drawing.svg')}
           title=\\"\\"
         />",
         }
@@ -358,7 +358,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"bravo\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg').default}
+          src={require('./drawing.svg')}
           title=\\"alpha\\"
         />",
         }
@@ -380,7 +380,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"bravo\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg').default}
+          src={require('./drawing.svg')}
           title=\\"\\"
         />",
         }
@@ -423,7 +423,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"default\\"
-          src={require('./drawing.svg').default}
+          src={require('./drawing.svg')}
           style={{ height: 50, maxWidth: '100%', width: 100 }}
           title=\\"Alpha\\"
         />",
@@ -446,7 +446,7 @@ describe('imageToJsx', () => {
           "value": "<img
           alt=\\"\\"
           data-scoobie-style=\\"none\\"
-          src={require('./drawing.svg').default}
+          src={require('./drawing.svg')}
           title=\\"Alpha\\"
         />",
         }
