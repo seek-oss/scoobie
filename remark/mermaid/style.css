@@ -5,16 +5,16 @@
     sans-serif;
   --font-size: 14px;
 
-  /* https://github.com/mermaid-js/mermaid/blob/8.5.2/src/diagrams/er/erRenderer.js#L248-L249 */
+  /* https://github.com/mermaid-js/mermaid/blob/8.11.5/src/diagrams/er/erRenderer.js#L405-L406 */
   --mermaid-er-label-fill: rgba(255, 255, 255, 0.85);
 
-  /*  https://github.com/seek-oss/braid-design-system/blob/5fdf62b66a8c1ee94722e85f57edf78000a40f56/lib/themes/apac/tokens.ts#L1*/
-  --braid-apac-grey-50: #f5f6f8;
-  --braid-apac-grey-100: #e8eaee;
-  --braid-apac-grey-300: #b8beca;
-  --braid-apac-grey-500: #596581;
-  --braid-caution-box-shadow-color: #fcf6e1;
-  --braid-caution-border-color: #ffc600;
+  /* https://github.com/seek-oss/braid-design-system/blob/v30.4.0/lib/color/palette.ts */
+  --braid-grey-50: #f6f8fa;
+  --braid-grey-100: #e8ecf0;
+  --braid-grey-300: #abb3c1;
+  --braid-grey-500: #5b6881;
+  --braid-yellow-100: #fef8de;
+  --braid-yellow-500: #fdc222;
 }
 
 /* shared */
@@ -28,8 +28,8 @@ text {
 /* er */
 
 path.er.entityBox {
-  fill: var(--braid-apac-grey-50);
-  stroke: var(--braid-apac-grey-100);
+  fill: var(--braid-grey-50);
+  stroke: var(--braid-grey-100);
 }
 
 path.er.relationshipLabelBox {
@@ -37,7 +37,7 @@ path.er.relationshipLabelBox {
 }
 
 path.er.relationshipLine {
-  stroke: var(--braid-apac-grey-500);
+  stroke: var(--braid-grey-500);
 }
 
 /* flowchart v2 */
@@ -46,7 +46,7 @@ path.er.relationshipLine {
 g.cluster path,
 g.cluster rect {
   fill: none;
-  stroke: var(--braid-apac-grey-300);
+  stroke: var(--braid-grey-300);
 }
 
 .edge-thickness-normal {
@@ -74,8 +74,8 @@ g.node span.nodeLabel {
 .node path,
 .node polygon,
 .node rect {
-  fill: var(--braid-apac-grey-50);
-  stroke: var(--braid-apac-grey-100);
+  fill: var(--braid-grey-50);
+  stroke: var(--braid-grey-100);
 }
 
 .node div {
@@ -91,12 +91,12 @@ g.node span.nodeLabel {
 .edgePath path.path,
 .edgePaths path.transition {
   fill: none;
-  stroke: var(--braid-apac-grey-500);
+  stroke: var(--braid-grey-500);
 }
 
 .edgePath marker path.arrowheadPath,
 path.arrowMarkerPath {
-  fill: var(--braid-apac-grey-500);
+  fill: var(--braid-grey-500);
 }
 
 /* sequence */
@@ -110,24 +110,24 @@ text.messageText {
 }
 
 rect.actor {
-  fill: var(--braid-apac-grey-50);
+  fill: var(--braid-grey-50);
 
-  stroke: var(--braid-apac-grey-100);
+  stroke: var(--braid-grey-100);
 }
 
 text.sequenceNumber {
-  fill: var(--braid-apac-grey-50);
+  fill: var(--braid-grey-50);
 
   font-size: 12px;
 }
 
 path.labelBox {
-  fill: var(--braid-caution-box-shadow-color);
+  fill: var(--braid-yellow-100);
 }
 
 path.labelBox,
 path.loopLine {
-  stroke: var(--braid-caution-border-color);
+  stroke: var(--braid-yellow-500);
   stroke-dasharray: none;
 }
 
@@ -135,13 +135,13 @@ path.actor-line,
 path.messageLine0,
 path.path {
   fill: none;
-  stroke: var(--braid-apac-grey-500);
+  stroke: var(--braid-grey-500);
 }
 
 #arrowhead > path,
 #crosshead > path,
 #sequencenumber {
-  fill: var(--braid-apac-grey-500);
+  fill: var(--braid-grey-500);
   stroke: none;
 }
 
