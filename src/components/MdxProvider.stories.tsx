@@ -89,7 +89,6 @@ export const ImagesInternal = (args: Args) => (
     <ImagesInternalMarkdown />
   </Provider>
 );
-ImagesInternal.parameters = { loki: { skip: true } };
 ImagesInternal.storyName = 'Images › Internal';
 
 export const Inline = (args: Args) => (
