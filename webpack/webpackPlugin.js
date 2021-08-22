@@ -30,17 +30,23 @@ const createMdxRule = (remarkPlugins) => ({
   ],
 });
 
+/**
+ * Avoid emitting static assets twice, which is unnecessary and can lead to
+ * mismatches in markup.
+ *
+ * - `client` is from sku, which also has `render`.
+ * - `preview` is from Storybook, which also has `manager`.
+ *
+ * {@link https://github.com/seek-oss/sku/blob/v11.0.2/config/webpack/webpack.config.js#L125}
+ */
+const shouldEmit = (compiler) =>
+  compiler.options.name === 'client' || compiler.options.name === 'preview';
+
 const createImageRule = (compiler) => ({
   test: [/\.jpe?g$/i, /\.png$/i],
   type: 'asset/resource',
   generator: {
-    /**
-     * Avoid emitting static assets twice, which is unnecessary and can lead to
-     * mismatches in markup.
-     *
-     * {@link https://github.com/seek-oss/sku/blob/v11.0.2/config/webpack/webpack.config.js#L125}
-     */
-    emit: compiler.options.name === 'client',
+    emit: shouldEmit(compiler),
   },
 });
 
@@ -48,13 +54,7 @@ const createSvgRule = (compiler) => ({
   test: /\.svg$/i,
   type: 'asset/resource',
   generator: {
-    /**
-     * Avoid emitting static assets twice, which is unnecessary and can lead to
-     * mismatches in markup.
-     *
-     * {@link https://github.com/seek-oss/sku/blob/v11.0.2/config/webpack/webpack.config.js#L125}
-     */
-    emit: compiler.options.name === 'client',
+    emit: shouldEmit(compiler),
   },
   use: [
     {

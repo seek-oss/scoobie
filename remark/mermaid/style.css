@@ -71,6 +71,7 @@ g.node span.nodeLabel {
   background-color: transparent;
 }
 
+circle.label-container,
 .node path,
 .node polygon,
 .node rect {
@@ -147,4 +148,14 @@ path.path {
 
 path.actor-line {
   stroke-dasharray: 4;
+}
+
+rect.activation0 {
+  fill: var(--braid-grey-100);
+  stroke: var(--braid-grey-300);
+}
+
+rect.note {
+  fill: var(--braid-yellow-100);
+  stroke: var(--braid-yellow-500);
 }

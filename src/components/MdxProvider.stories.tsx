@@ -23,6 +23,9 @@ import ImagesExternalMarkdown from '../storybook/markdown/images-external.mdx';
 import ImagesInternalMarkdown from '../storybook/markdown/images-internal.mdx';
 import InlineMarkdown from '../storybook/markdown/inline.mdx';
 import ListsMarkdown from '../storybook/markdown/lists.mdx';
+import MermaidErMarkdown from '../storybook/markdown/mermaid-er.mdx';
+import MermaidFlowchartMarkdown from '../storybook/markdown/mermaid-flowchart.mdx';
+import MermaidSequenceMarkdown from '../storybook/markdown/mermaid-sequence.mdx';
 import TableMarkdown from '../storybook/markdown/table.mdx';
 
 import { MdxProvider } from './MdxProvider';
@@ -79,6 +82,7 @@ export const ImagesExternal = (args: Args) => (
   </Provider>
 );
 ImagesExternal.parameters = { loki: { skip: true } };
+ImagesExternal.storyName = 'Images › External';
 
 export const ImagesInternal = (args: Args) => (
   <Provider {...args}>
@@ -86,6 +90,7 @@ export const ImagesInternal = (args: Args) => (
   </Provider>
 );
 ImagesInternal.parameters = { loki: { skip: true } };
+ImagesInternal.storyName = 'Images › Internal';
 
 export const Inline = (args: Args) => (
   <Provider {...args}>
@@ -98,6 +103,27 @@ export const Lists = (args: Args) => (
     <ListsMarkdown />
   </Provider>
 );
+
+export const MermaidEr = (args: Args) => (
+  <Provider {...args}>
+    <MermaidErMarkdown />
+  </Provider>
+);
+MermaidEr.storyName = 'Mermaid › ER';
+
+export const MermaidFlowchart = (args: Args) => (
+  <Provider {...args}>
+    <MermaidFlowchartMarkdown />
+  </Provider>
+);
+MermaidFlowchart.storyName = 'Mermaid › Flowchart';
+
+export const MermaidSequence = (args: Args) => (
+  <Provider {...args}>
+    <MermaidSequenceMarkdown />
+  </Provider>
+);
+MermaidSequence.storyName = 'Mermaid › Sequence';
 
 export const Table = (args: Args) => (
   <Provider {...args}>
