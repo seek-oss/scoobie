@@ -1,4 +1,4 @@
-const { dangerouslySetWebpackConfig } = require('./webpack');
+const { ScoobieWebpackPlugin, merge } = require('./webpack');
 
 module.exports = {
   orderImports: true,
@@ -18,5 +18,14 @@ module.exports = {
       ],
     },
   }),
-  dangerouslySetWebpackConfig,
+  dangerouslySetWebpackConfig: (config) =>
+    merge(config, {
+      plugins: [
+        new ScoobieWebpackPlugin({
+          mermaid: {
+            rootDir: __dirname,
+          },
+        }),
+      ],
+    }),
 };
