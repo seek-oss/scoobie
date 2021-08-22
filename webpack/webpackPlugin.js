@@ -74,12 +74,6 @@ const createSvgRule = (compiler) => ({
             },
           },
           {
-            name: 'removeAttrs',
-            params: {
-              attrs: 'style',
-            },
-          },
-          {
             name: 'addAttributesToSVGElement',
             params: {
               attributes: [{ focusable: false }],
