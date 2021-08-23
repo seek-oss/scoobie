@@ -6,7 +6,7 @@ import React from 'react';
 
 import { BraidArgs, defaultArgTypes, defaultArgs } from '../storybook/controls';
 import { BraidStorybookProvider, withRouter } from '../storybook/decorators';
-import Headings from '../storybook/markdown/headings.mdx';
+import HeadingMarkdown from '../storybook/markdown/heading.mdx';
 
 import { SmartTextLink } from './SmartTextLink';
 import { TocRenderer as Component } from './TocRenderer';
@@ -30,7 +30,7 @@ type Args = BraidArgs;
 export const TocRenderer = ({ braidThemeName }: Args) => (
   <BraidStorybookProvider braidThemeName={braidThemeName}>
     <Stack space="medium">
-      <Component document={Headings}>
+      <Component document={HeadingMarkdown}>
         {(toc) => (
           <Text>
             <Stack space="small">

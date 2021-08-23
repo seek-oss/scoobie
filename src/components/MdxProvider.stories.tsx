@@ -17,12 +17,11 @@ import {
 } from '../storybook/decorators';
 import BlockquoteMarkdown from '../storybook/markdown/blockquote.mdx';
 import CodeMarkdown from '../storybook/markdown/code.mdx';
-import CombinationMarkdown from '../storybook/markdown/combination.mdx';
-import HeadingsMarkdown from '../storybook/markdown/headings.mdx';
-import ImagesExternalMarkdown from '../storybook/markdown/images-external.mdx';
-import ImagesInternalMarkdown from '../storybook/markdown/images-internal.mdx';
-import InlineMarkdown from '../storybook/markdown/inline.mdx';
-import ListsMarkdown from '../storybook/markdown/lists.mdx';
+import HeadingMarkdown from '../storybook/markdown/heading.mdx';
+import ImageExternalMarkdown from '../storybook/markdown/image-external.mdx';
+import ImageInternalMarkdown from '../storybook/markdown/image-internal.mdx';
+import InlineReactMarkdown from '../storybook/markdown/inline-react.mdx';
+import ListMarkdown from '../storybook/markdown/list.mdx';
 import MermaidErMarkdown from '../storybook/markdown/mermaid-er.mdx';
 import MermaidFlowchartMarkdown from '../storybook/markdown/mermaid-flowchart.mdx';
 import MermaidSequenceMarkdown from '../storybook/markdown/mermaid-sequence.mdx';
@@ -64,42 +63,36 @@ export const Code = (args: Args) => (
   </Provider>
 );
 
-export const Combination = (args: Args) => (
+export const Heading = (args: Args) => (
   <Provider {...args}>
-    <CombinationMarkdown />
+    <HeadingMarkdown />
   </Provider>
 );
 
-export const Headings = (args: Args) => (
+export const ImageExternal = (args: Args) => (
   <Provider {...args}>
-    <HeadingsMarkdown />
+    <ImageExternalMarkdown />
   </Provider>
 );
+ImageExternal.parameters = { loki: { skip: true } };
+ImageExternal.storyName = 'Image › External';
 
-export const ImagesExternal = (args: Args) => (
+export const ImageInternal = (args: Args) => (
   <Provider {...args}>
-    <ImagesExternalMarkdown />
+    <ImageInternalMarkdown />
   </Provider>
 );
-ImagesExternal.parameters = { loki: { skip: true } };
-ImagesExternal.storyName = 'Images › External';
+ImageInternal.storyName = 'Image › Internal';
 
-export const ImagesInternal = (args: Args) => (
+export const InlineReact = (args: Args) => (
   <Provider {...args}>
-    <ImagesInternalMarkdown />
-  </Provider>
-);
-ImagesInternal.storyName = 'Images › Internal';
-
-export const Inline = (args: Args) => (
-  <Provider {...args}>
-    <InlineMarkdown />
+    <InlineReactMarkdown />
   </Provider>
 );
 
 export const Lists = (args: Args) => (
   <Provider {...args}>
-    <ListsMarkdown />
+    <ListMarkdown />
   </Provider>
 );
 
