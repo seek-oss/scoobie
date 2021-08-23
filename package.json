@@ -53,7 +53,7 @@
     "typography.ts"
   ],
   "peerDependencies": {
-    "braid-design-system": ">= 30",
+    "braid-design-system": ">= 30.4.0",
     "react": ">= 17 < 18",
     "react-router-dom": "^5.2.0",
     "sku": ">= 10.13.4 < 12"

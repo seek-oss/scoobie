@@ -7,8 +7,8 @@ import { codeBackgroundColor } from '../../styles';
 
 export const lineNumberContainer = style({
   backgroundColor: darken(0.05, codeBackgroundColor),
-  borderTopLeftRadius: vars.borderRadius.standard,
-  borderBottomLeftRadius: vars.borderRadius.standard,
+  borderTopLeftRadius: vars.borderRadius.large,
+  borderBottomLeftRadius: vars.borderRadius.large,
   color: vars.foregroundColor.secondary,
   userSelect: 'none',
 });

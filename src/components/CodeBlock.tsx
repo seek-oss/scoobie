@@ -106,7 +106,7 @@ export const CodeBlock = ({
         </Box>
       </ScrollableInline>
 
-      <Box borderRadius="standard" className={styles.codeContainer}>
+      <Box borderRadius="large" className={styles.codeContainer}>
         <Highlight
           Prism={Prism}
           code={child.code}

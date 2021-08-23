@@ -16,7 +16,7 @@ export const InlineCode = ({ children, weight = 'regular' }: Props) => (
     {isHexColour(children) ? (
       <Box component="span" className={styles.colourBlockWrapper}>
         <Box
-          borderRadius="standard"
+          borderRadius="large"
           className={[
             styles.base,
             styles.colourBlock,
@@ -33,7 +33,7 @@ export const InlineCode = ({ children, weight = 'regular' }: Props) => (
     ) : undefined}
 
     <Box
-      borderRadius="standard"
+      borderRadius="large"
       className={[
         styles.base,
         styles.weight[weight],

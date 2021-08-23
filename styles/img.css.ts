@@ -2,7 +2,7 @@ import { composeStyles, style } from '@vanilla-extract/css';
 import { atoms, vars } from 'braid-design-system/css';
 
 const atomStyle = atoms({
-  borderRadius: 'standard',
+  borderRadius: 'large',
   boxShadow: 'small',
   display: 'block',
 });
