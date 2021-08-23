@@ -46,10 +46,10 @@ const tdForSize = (size: Size) =>
           borderRightWidth: vars.borderWidth.large,
         },
         'tr:last-child &:first-child': {
-          borderBottomLeftRadius: vars.borderRadius.standard,
+          borderBottomLeftRadius: vars.borderRadius.large,
         },
         'tr:last-child &:last-child': {
-          borderBottomRightRadius: vars.borderRadius.standard,
+          borderBottomRightRadius: vars.borderRadius.large,
         },
       },
     },
@@ -87,10 +87,10 @@ export const th = styleVariants({
         borderTopWidth: 1,
       },
       'tr:first-child &:first-child': {
-        borderTopLeftRadius: vars.borderRadius.standard,
+        borderTopLeftRadius: vars.borderRadius.large,
       },
       'tr:first-child &:last-child': {
-        borderTopRightRadius: vars.borderRadius.standard,
+        borderTopRightRadius: vars.borderRadius.large,
       },
     },
   },
