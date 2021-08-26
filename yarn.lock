@@ -1146,6 +1146,18 @@
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-3.1.0.tgz#8ff71d51053cd5ee4981e5a501d80a536244f7fd"
   integrity sha512-GcIY79elgB+azP74j8vqkiXz8xLFfIzbQJdlwOPisgbKT00tviJQuEghOXSMVxJ00HoYJbGswr4kcllUc4xCcg==
 
+"@capsizecss/core@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-3.0.0.tgz#81b2fb222bd9716d211e4ddd0dc9cc42f71b4f37"
+  integrity sha512-tJNEWMmhHcU5z6ITAiVNN9z+PCTylybVIJqgX7Ts4zN66fe/W2Fe5UWJCCZIP/5uutsl5fYOaVVHZIjsuTVhBQ==
+
+"@capsizecss/vanilla-extract@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/vanilla-extract/-/vanilla-extract-1.0.0.tgz#da05e7643b77e1ba37ea185026bb87becf546187"
+  integrity sha512-/cY34CgCAmuf6SmpgPXmDJaIdJOaRe37MsoeZIeZme4k0F0HFts+poTxq4m8UtBH7LRxpUkfUHDoRO9OYjjVBg==
+  dependencies:
+    "@capsizecss/core" "^3.0.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -5180,11 +5192,13 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@30.4.0:
-  version "30.4.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.4.0.tgz#e963a5a1d896ae8d560c7a6c8a7c08df3208ea31"
-  integrity sha512-EOqRYqvlolPTXFrMObsg8z3vFHd4hgCaYarWsGF+0RTr5l/3B//O9yF+xsmLHS3vDEhahhcNSWnXAuZ2tmOBqQ==
+braid-design-system@30.4.1:
+  version "30.4.1"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.4.1.tgz#f77e77d2b60f8614b1289a36952e981b842791f5"
+  integrity sha512-lzxK9zcLptJwjxXz78Ss7cquuEpdieZ8O7lqrUL+mTZLJdqHMF0SEGI7HlCYaoCp7Dl69gPnaeDqLZW9amNaQQ==
   dependencies:
+    "@capsizecss/core" "^3.0.0"
+    "@capsizecss/vanilla-extract" "^1.0.0"
     "@types/autosuggest-highlight" "^3.1.1"
     "@types/classnames" "^2.2.11"
     "@types/dedent" "^0.7.0"
@@ -5196,7 +5210,6 @@ braid-design-system@30.4.0:
     "@vanilla-extract/sprinkles" "^0.4.3"
     assert "^2.0.0"
     autosuggest-highlight "^3.1.1"
-    capsize "^2.0.0"
     clsx "^1.1.1"
     csstype "^3.0.6"
     dedent "0.7.0"
