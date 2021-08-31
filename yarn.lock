@@ -3687,7 +3687,7 @@
     dedent "^0.7.0"
     deep-object-diff "^1.1.0"
 
-"@vanilla-extract/integration@^1.0.0", "@vanilla-extract/integration@^1.1.0":
+"@vanilla-extract/integration@^1.0.0", "@vanilla-extract/integration@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/integration/-/integration-1.2.0.tgz#057a9a74bd6bf8ea2cfadb89d9b90fb8629efae9"
   integrity sha512-mawQst1Kk8LnsTXNcQ5VBTmg11DeYgctUG/G/l4ELlaINUAdvc7mguuf46nqXA1lfkrMbjquaBeiZQ9/Vz6x0g==
@@ -3711,12 +3711,12 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-0.4.4.tgz#067364a997f71f152286a160f45babd06afbc24e"
   integrity sha512-uz77Up4oFXYM2jXg3F+Oqz4dnvOTBan28T8mVK1u0i3DTJHV9MuStknP89gcsPMa1irOsgxv06P7aVEg0QR5xQ==
 
-"@vanilla-extract/webpack-plugin@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-1.1.0.tgz#9761dbfeb24271c6ca541fca311551413a79462e"
-  integrity sha512-HOcW7TYipzIBor+HruGW96fW9suWA5fgSHdsxngROm/F7AUk6SjAk/AOFD6kq4CLIG33d6ZryjRSPjb9STrfxw==
+"@vanilla-extract/webpack-plugin@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-2.0.0.tgz#4f48f120adcc20bd9fd607f1dd8b24f814c4d4d2"
+  integrity sha512-g8iwbwhLPtqzOpuumq0kGqyYZxwinpbZJXswkfP2Bd7GT0Njj3CXAHsMsRrhj80a8VthHGkThqcVk/60w3q5AA==
   dependencies:
-    "@vanilla-extract/integration" "^1.1.0"
+    "@vanilla-extract/integration" "^1.2.0"
     chalk "^4.1.1"
     debug "^4.3.1"
     loader-utils "^2.0.0"
@@ -16457,10 +16457,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@11.0.2:
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-11.0.2.tgz#d2bddbcf99eb99b9c0242b455bf7f4d7adbada7d"
-  integrity sha512-1JZS4TOI+5DvyLlM1ha4aedOVTfJUhEwmuTCUT75WPneSFrKOLRy80c4jUtGiqdmxMWKH9G1dFey+b5f38Ml8g==
+sku@11.0.3:
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-11.0.3.tgz#02eef92bf9b37aae9ee540858773f02795985dff"
+  integrity sha512-XZJvg+ziFmfMRcV5xxFbHj0URnRGXGpuUGxd44s6X+3Z4PoJRywwbPAwX4I7WrNvU0Ptp4MFsGv8d38U+8TVfw==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-react-constant-elements" "^7.12.1"
@@ -16481,7 +16481,7 @@ sku@11.0.2:
     "@types/jest" "^27.0.0"
     "@types/loadable__component" "^5.13.1"
     "@vanilla-extract/babel-plugin" "^1.0.0"
-    "@vanilla-extract/webpack-plugin" "^1.0.0"
+    "@vanilla-extract/webpack-plugin" "^2.0.0"
     "@vocab/core" "^1.0.1"
     "@vocab/phrase" "^1.0.0"
     "@vocab/webpack" "^1.0.0"
