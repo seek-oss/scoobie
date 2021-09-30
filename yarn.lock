@@ -3706,7 +3706,7 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/css-utils/-/css-utils-0.1.1.tgz#f4f58f85347d8a841ef74c60db111ec264011860"
   integrity sha512-9fDV8IhSfzgDd9Z+64jVcS38S2dVc6c1eOd+hgO8zPMRba6rEB8kEjg5+AQ3xPCdzl1m8olqFHnfQRNOn1OXuA==
 
-"@vanilla-extract/css@^1.0.0", "@vanilla-extract/css@^1.2.3", "@vanilla-extract/css@^1.5.0":
+"@vanilla-extract/css@^1.2.3", "@vanilla-extract/css@^1.5.0", "@vanilla-extract/css@^1.6.1":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.6.1.tgz#39c3b58f2b5f1b728e901b059c5021b8769d5a99"
   integrity sha512-MTR8pHVV80/B4H37JqyUwC8GUwA6DMdClcjgrU98svLrnmWq2Y8BWox9OQAOovoOwGtZwkJhjTQUmPkK0D13Bw==
@@ -3740,10 +3740,10 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/private/-/private-1.0.1.tgz#c9479cebea7e7fbb07a1fe5b5c988a8753ef04ed"
   integrity sha512-ABrFJGSmF7a1M+eDTsIeAErPhIeRyBY3ypyLQPc4bUVEK1mvF7F2gx4fTP81pm12bkS0GhjSJtM854lcPWhB+w==
 
-"@vanilla-extract/sprinkles@^0.4.3":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-0.4.4.tgz#067364a997f71f152286a160f45babd06afbc24e"
-  integrity sha512-uz77Up4oFXYM2jXg3F+Oqz4dnvOTBan28T8mVK1u0i3DTJHV9MuStknP89gcsPMa1irOsgxv06P7aVEg0QR5xQ==
+"@vanilla-extract/sprinkles@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.3.0.tgz#c7f50d900490df7024f227256fe73a7943e2d2da"
+  integrity sha512-MF4ShklyUxAfXm+M6NkizNQSPFfGycZVHc/HIYqXrqDIFDc+6UQoBwiygWUla/6pXzZk9u1TViirhfZIH/zEmA==
 
 "@vanilla-extract/webpack-plugin@^2.0.0":
   version "2.1.0"
@@ -5143,10 +5143,10 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@30.4.2:
-  version "30.4.2"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.4.2.tgz#4d1121d4bc1502877d352ae51bf76f82122354d6"
-  integrity sha512-ixihs36N//3DIUdjvJdhJ5AkWJ2oQrNFsvCNVsJW6Hj7Dn2y+VMLFWFpc8h6K2C3gQtN0peZzHaOiZnauAkFQg==
+braid-design-system@30.4.3:
+  version "30.4.3"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.4.3.tgz#cd8690cffbb61dac8285402b92bf33142c372fcd"
+  integrity sha512-eHAMzY5Wpsfb5Wbxp9aSMpDVfX8EvyVDxX/8gfvOBDyNj0ycxjvsjUuPENGB74qyx+7UvXPtajKhsYUR7m1QxQ==
   dependencies:
     "@capsizecss/core" "^3.0.0"
     "@capsizecss/vanilla-extract" "^1.0.0"
@@ -5156,9 +5156,9 @@ braid-design-system@30.4.2:
     "@types/lodash" "^4.14.168"
     "@types/react" "^16.8.8"
     "@types/uuid" "^8.3.0"
-    "@vanilla-extract/css" "^1.0.0"
+    "@vanilla-extract/css" "^1.6.1"
     "@vanilla-extract/css-utils" "^0.1.1"
-    "@vanilla-extract/sprinkles" "^0.4.3"
+    "@vanilla-extract/sprinkles" "^1.3.0"
     assert "^2.0.0"
     autosuggest-highlight "^3.1.1"
     clsx "^1.1.1"
