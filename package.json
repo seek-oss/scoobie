@@ -9,6 +9,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@mermaid-js/mermaid-cli": "^8.11.4",
+    "@types/history": "^4.7.9",
     "@types/mdx-js__react": "^1.5.4",
     "@types/react-router-hash-link": "^2.4.1",
     "@vanilla-extract/css": "^1.2.3",

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { LocationState } from 'history';
 import React, { ComponentProps } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
@@ -7,10 +8,11 @@ import { parseInternalHref } from '../private/url';
 
 import * as styles from './InternalLink.css';
 
-interface Props
+interface Props<S = LocationState>
   extends Omit<ComponentProps<typeof NavHashLink>, 'scroll' | 'smooth' | 'to'> {
   href: string;
   reset?: boolean;
+  state?: S;
 }
 
 export const InternalLink = ({
@@ -18,6 +20,7 @@ export const InternalLink = ({
   className,
   href,
   reset = true,
+  state,
   ...restProps
 }: Props) => {
   const scroll = (element: Element) =>
@@ -30,7 +33,7 @@ export const InternalLink = ({
 
   const location = useLocation();
 
-  const to = parseInternalHref(href, location);
+  const to = { ...parseInternalHref(href, location), state };
 
   const mergedClassNames = clsx(
     {
