@@ -37,11 +37,11 @@ export const InternalLink = forwardRef(
         {...restProps}
         className={
           // TODO: DefinitelyTyped/DefinitelyTyped#56976
-          (((isActive: boolean) =>
+          ((isActive: boolean) =>
             clsx(
               reset ? styles.reset : null,
               typeof className === 'function' ? className(isActive) : className,
-            )) as unknown) as string
+            )) as unknown as string
         }
         // TODO: verify if this actually works as intended
         ref={ref as any}
