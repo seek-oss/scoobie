@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import type { LocationState } from 'history';
 import React, { ComponentProps } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
@@ -8,11 +7,11 @@ import { parseInternalHref } from '../private/url';
 
 import * as styles from './InternalLink.css';
 
-interface Props<S = LocationState>
+interface Props
   extends Omit<ComponentProps<typeof NavHashLink>, 'scroll' | 'smooth' | 'to'> {
   href: string;
   reset?: boolean;
-  state?: S;
+  state?: any;
 }
 
 export const InternalLink = ({
