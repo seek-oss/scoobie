@@ -12,15 +12,13 @@ interface Props
     ComponentProps<typeof NavHashLink>,
     'className' | 'scroll' | 'smooth' | 'to'
   > {
-  activeClassName?: ClassValue;
-  className?: ClassValue;
+  className?: ClassValue | ((isActive: boolean) => ClassValue);
   href: string;
   reset?: boolean;
   state?: any;
 }
 
 export const InternalLink = ({
-  activeClassName,
   className,
   href,
   reset = true,
@@ -47,8 +45,7 @@ export const InternalLink = ({
         (((isActive: boolean) =>
           clsx(
             reset ? styles.reset : null,
-            activeClassName && isActive ? activeClassName : null,
-            className,
+            typeof className === 'function' ? className(isActive) : className,
           )) as unknown) as string
       }
       scroll={scroll}
