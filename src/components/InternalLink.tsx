@@ -1,5 +1,4 @@
-import clsx from 'clsx';
-import type { LocationState } from 'history';
+import clsx, { ClassValue } from 'clsx';
 import React, { ComponentProps } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
@@ -8,8 +7,13 @@ import { parseInternalHref } from '../private/url';
 
 import * as styles from './InternalLink.css';
 
-interface Props<S = LocationState>
-  extends Omit<ComponentProps<typeof NavHashLink>, 'scroll' | 'smooth' | 'to'> {
+interface Props<S = any>
+  extends Omit<
+    ComponentProps<typeof NavHashLink>,
+    'className' | 'scroll' | 'smooth' | 'to'
+  > {
+  activeClassName?: ClassValue;
+  className?: ClassValue;
   href: string;
   reset?: boolean;
   state?: S;
@@ -35,18 +39,18 @@ export const InternalLink = ({
 
   const to = { ...parseInternalHref(href, location), state };
 
-  const mergedClassNames = clsx(
-    {
-      [styles.reset]: reset,
-    },
-    className,
-  );
-
   return (
     <NavHashLink
       {...restProps}
-      activeClassName={clsx(activeClassName)}
-      className={mergedClassNames}
+      className={
+        // TODO: DefinitelyTyped/DefinitelyTyped#56976
+        (((isActive: boolean) =>
+          clsx(
+            reset ? styles.reset : null,
+            activeClassName && isActive ? activeClassName : null,
+            className,
+          )) as unknown) as string
+      }
       scroll={scroll}
       smooth
       to={to}
