@@ -7,7 +7,7 @@ import { parseInternalHref } from '../private/url';
 
 import * as styles from './InternalLink.css';
 
-interface Props<S = any>
+interface Props
   extends Omit<
     ComponentProps<typeof NavHashLink>,
     'className' | 'scroll' | 'smooth' | 'to'
@@ -16,7 +16,7 @@ interface Props<S = any>
   className?: ClassValue;
   href: string;
   reset?: boolean;
-  state?: S;
+  state?: any;
 }
 
 export const InternalLink = ({
