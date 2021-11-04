@@ -3529,15 +3529,6 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^16.8.8":
-  version "16.14.20"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.20.tgz#ff6e932ad71d92c27590e4a8667c7a53a7d0baad"
-  integrity sha512-SV7TaVc8e9E/5Xuv6TIyJ5VhQpZoVFJqX6IZgj5HZoFCtIDCArE3qXkcHlc6O/Ud4UwcMoX+tlvDA95YrKdLgA==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
 "@types/retry@^0.12.0":
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.1.tgz#d8f1c0d0dc23afad6dc16a9e993a0865774b4065"
@@ -5208,10 +5199,10 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@30.5.0:
-  version "30.5.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.5.0.tgz#ed1faa8fb2c685ca5a01917fd2d3b8bd7939bdc9"
-  integrity sha512-bkj10huqhubKJyFW9kPdLdWYArI+xtQNBVk3k7myxbkud9YMespwBMTOFElQ0bS2T0vCPMV4WGKezV1Y2CH6ZQ==
+braid-design-system@30.5.1:
+  version "30.5.1"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-30.5.1.tgz#1a18015b9016dbf9cba9f13fb39625efcbca9e2d"
+  integrity sha512-edrSrk6/KX5n+RhCxhIzZwVCMjjP9QozNbpufZsk1jOiNR0hEu0jGFxBXyhDnCyTooqoBAKfV0FcIRKghs0mLA==
   dependencies:
     "@capsizecss/core" "^3.0.0"
     "@capsizecss/vanilla-extract" "^1.0.0"
@@ -5219,7 +5210,6 @@ braid-design-system@30.5.0:
     "@types/classnames" "^2.2.11"
     "@types/dedent" "^0.7.0"
     "@types/lodash" "^4.14.168"
-    "@types/react" "^16.8.8"
     "@types/uuid" "^8.3.0"
     "@vanilla-extract/css" "^1.6.1"
     "@vanilla-extract/css-utils" "^0.1.1"
