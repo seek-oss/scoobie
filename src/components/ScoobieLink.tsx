@@ -31,7 +31,7 @@ export const ScoobieLink = makeLinkComponent(
     }
 
     return (
-      <InternalLink {...restProps} href={href} innerRef={ref} reset={false}>
+      <InternalLink {...restProps} href={href} ref={ref} reset={false}>
         {children}
       </InternalLink>
     );
