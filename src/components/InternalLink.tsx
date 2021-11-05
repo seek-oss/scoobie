@@ -41,9 +41,9 @@ export const InternalLink = forwardRef<HTMLAnchorElement, Props>(
             clsx(
               reset ? styles.reset : null,
               typeof className === 'function' ? className(isActive) : className,
-            )) as unknown as string
+            )) as unknown as any
         }
-        // TODO: verify if this actually works as intended
+        // TODO: DefinitelyTyped/DefinitelyTyped#56982
         ref={ref as any}
         scroll={scroll}
         smooth
