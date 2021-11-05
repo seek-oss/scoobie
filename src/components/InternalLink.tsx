@@ -18,8 +18,8 @@ interface Props
   state?: any;
 }
 
-export const InternalLink = forwardRef(
-  ({ className, href, reset = true, state, ...restProps }: Props, ref) => {
+export const InternalLink = forwardRef<HTMLAnchorElement, Props>(
+  ({ className, href, reset = true, state, ...restProps }, ref) => {
     const scroll = (element: Element) =>
       setTimeout(() => {
         // Scroll to the header's `Stack` element so we don't cut off the heading
