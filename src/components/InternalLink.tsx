@@ -35,16 +35,17 @@ export const InternalLink = forwardRef<HTMLAnchorElement, Props>(
     return (
       <NavHashLink
         {...restProps}
-        className={
-          // TODO: DefinitelyTyped/DefinitelyTyped#56976
-          ((isActive: boolean) =>
-            clsx(
-              reset ? styles.reset : null,
-              typeof className === 'function' ? className(isActive) : className,
-            )) as unknown as any
-        }
-        // TODO: DefinitelyTyped/DefinitelyTyped#56982
-        ref={ref as any}
+        className={(prop) => {
+          // The boolean prop was introduced in React Router v5.3 as a bridge to
+          // v6, then v6 decided to break the function signature anyway 🙃.
+          const isActive = typeof prop === 'boolean' ? prop : prop.isActive;
+
+          return clsx(
+            reset ? styles.reset : null,
+            typeof className === 'function' ? className(isActive) : className,
+          );
+        }}
+        ref={ref}
         scroll={scroll}
         smooth
         to={to}
