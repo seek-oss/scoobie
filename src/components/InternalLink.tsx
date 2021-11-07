@@ -38,7 +38,10 @@ export const InternalLink = forwardRef<HTMLAnchorElement, Props>(
         className={(prop) => {
           // The boolean prop was introduced in React Router v5.3 as a bridge to
           // v6, then v6 decided to break the function signature anyway 🙃.
-          const isActive = typeof prop === 'boolean' ? prop : prop.isActive;
+          const isActive =
+            typeof prop === 'boolean'
+              ? prop
+              : (prop as { isActive: boolean }).isActive;
 
           return clsx(
             reset ? styles.reset : null,
