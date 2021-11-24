@@ -8,7 +8,7 @@ const atomStyle = atoms({
 });
 
 const rawStyle = style({
-  borderColor: vars.borderColor.standard,
+  borderColor: vars.borderColor.neutralLight,
   borderWidth: vars.borderWidth.standard,
   borderStyle: 'solid',
   maxWidth: '100%',
