@@ -3,5 +3,5 @@ import { vars } from 'braid-design-system/css';
 
 export const hr = style({
   height: vars.borderWidth.standard,
-  backgroundColor: vars.borderColor.standard,
+  backgroundColor: vars.borderColor.neutralLight,
 });

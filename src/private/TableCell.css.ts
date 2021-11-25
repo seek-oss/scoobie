@@ -8,7 +8,7 @@ import { tableRowSelection } from './TableRow.css';
 export const tableCell = styleVariants({
   stripe: {
     borderBottomWidth: vars.borderWidth.standard,
-    borderColor: vars.borderColor.standard,
+    borderColor: vars.borderColor.neutralLight,
     borderRightWidth: vars.borderWidth.standard,
     borderStyle: 'solid',
     verticalAlign: 'top',
@@ -19,7 +19,7 @@ export const tableCell = styleVariants({
   },
   subtle: {
     borderBottomWidth: vars.borderWidth.standard,
-    borderColor: vars.borderColor.standard,
+    borderColor: vars.borderColor.neutralLight,
     borderStyle: 'solid',
     verticalAlign: 'top',
 

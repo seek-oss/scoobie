@@ -14,6 +14,8 @@ export const defaultArgs = {
   size: 'standard',
 };
 
+export type BraidThemeOptions = 'apac' | 'docs' | 'wireframe';
+
 export const defaultArgTypes = {
   braidThemeName: {
     control: { type: 'radio' },
