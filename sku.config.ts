@@ -1,15 +1,17 @@
-const { ScoobieWebpackPlugin, merge } = require('./webpack');
+import type { SkuConfig } from 'sku';
 
-module.exports = {
+import { ScoobieWebpackPlugin, merge } from './webpack';
+
+const config: SkuConfig = {
   orderImports: true,
   rootResolution: false,
   srcPaths: ['./src', './styles'],
   storybookAddons: ['@storybook/addon-essentials'],
 
-  dangerouslySetESLintConfig: (config) => ({
-    ...config,
+  dangerouslySetESLintConfig: (prevConfig) => ({
+    ...prevConfig,
     rules: {
-      ...config.rules,
+      ...prevConfig.rules,
       'sort-imports': [
         'error',
         {
@@ -18,8 +20,8 @@ module.exports = {
       ],
     },
   }),
-  dangerouslySetWebpackConfig: (config) =>
-    merge(config, {
+  dangerouslySetWebpackConfig: (prevConfig) =>
+    merge(prevConfig, {
       plugins: [
         new ScoobieWebpackPlugin({
           mermaid: {
@@ -29,3 +31,5 @@ module.exports = {
       ],
     }),
 };
+
+export default config;
