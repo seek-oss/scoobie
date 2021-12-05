@@ -1,4 +1,4 @@
-import { SkuConfig } from 'sku';
+import type { SkuConfig } from 'sku';
 
 // TODO: This is included from other package's Sku config which doesn't seem
 // to work with TypeScript
