@@ -1,10 +1,4 @@
-import type { Compiler } from 'webpack';
-
-// TODO: Convert our Remark logic to TypeScript
-// @ts-ignore
-import { remarkPlugin } from '../remark';
-
-type RemarkPlugin = unknown;
+const { remarkPlugin } = require('../remark');
 
 /**
  * Vendored from `sku/config/webpack/utils`.
@@ -18,7 +12,7 @@ const SKU_WEBPACK_UTILS = {
 
 const ruleTestsToRemove = new Set(Object.values(SKU_WEBPACK_UTILS).map(String));
 
-const createMdxRule = (remarkPlugins: RemarkPlugin[]) => ({
+const createMdxRule = (remarkPlugins) => ({
   test: /\.mdx?$/i,
   use: [
     {
@@ -45,10 +39,10 @@ const createMdxRule = (remarkPlugins: RemarkPlugin[]) => ({
  *
  * {@link https://github.com/seek-oss/sku/blob/v11.0.2/config/webpack/webpack.config.js#L125}
  */
-const shouldEmit = (compiler: Compiler) =>
+const shouldEmit = (compiler) =>
   compiler.options.name === 'client' || compiler.options.name === 'preview';
 
-const createImageRule = (compiler: Compiler) => ({
+const createImageRule = (compiler) => ({
   test: [/\.jpe?g$/i, /\.png$/i],
   type: 'asset/resource',
   generator: {
@@ -56,7 +50,7 @@ const createImageRule = (compiler: Compiler) => ({
   },
 });
 
-const createSvgRule = (compiler: Compiler) => ({
+const createSvgRule = (compiler) => ({
   test: /\.svg$/i,
   type: 'asset/resource',
   generator: {
@@ -91,15 +85,14 @@ const createSvgRule = (compiler: Compiler) => ({
   ],
 });
 
-interface Config {
-  mermaid?: { rootDir: string };
-  remark?: (defaultPlugins: unknown[]) => unknown[];
-}
-
-export class ScoobieWebpackPlugin {
-  private remarkPlugins: unknown[];
-
-  constructor(config: Config = {}) {
+class ScoobieWebpackPlugin {
+  /**
+   * @param {{
+   *   mermaid?: { rootDir: string };
+   *   remark?: (defaultPlugins: unknown[]) => unknown[];
+   * }} config
+   */
+  constructor(config = {}) {
     const defaultRemarkPlugins = [
       ...(config.mermaid ? [[remarkPlugin.mermaid, config.mermaid]] : []),
       remarkPlugin.slug,
@@ -114,7 +107,7 @@ export class ScoobieWebpackPlugin {
       : defaultRemarkPlugins;
   }
 
-  apply(compiler: Compiler) {
+  apply(compiler) {
     /**
      * Get rid of the image and SVG rules from `SkuWebpackPlugin`.
      *
@@ -133,7 +126,7 @@ export class ScoobieWebpackPlugin {
      * {@link https://webpack.js.org/guides/asset-modules/}
      */
     const rules = compiler.options.module.rules.filter(
-      (rule) => rule === '...' || !ruleTestsToRemove.has(String(rule.test)),
+      (rule) => !ruleTestsToRemove.has(String(rule.test)),
     );
 
     rules.push(createMdxRule(this.remarkPlugins));
@@ -143,3 +136,7 @@ export class ScoobieWebpackPlugin {
     compiler.options.module.rules = rules;
   }
 }
+
+module.exports = {
+  ScoobieWebpackPlugin,
+};

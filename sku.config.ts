@@ -1,5 +1,8 @@
-import type { SkuConfig } from 'sku';
+import { SkuConfig } from 'sku';
 
+// TODO: This is included from other package's Sku config which doesn't seem
+// to work with TypeScript
+// @ts-ignore
 import { ScoobieWebpackPlugin, merge } from './webpack';
 
 const config: SkuConfig = {
