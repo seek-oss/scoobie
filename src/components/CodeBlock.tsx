@@ -57,12 +57,12 @@ export const CodeBlock = ({
 
   const child = children[index];
 
-  const rawVariables =
+  const jsoncVariables =
     children[0].language === 'graphql' && children[1]?.label === 'Variables'
       ? children[1].code
       : undefined;
 
-  const variables = JSON.stringify(parse(rawVariables ?? '{}'), null, 2);
+  const variables = JSON.stringify(parse(jsoncVariables ?? '{}'), null, 2);
 
   const graphqlPlaygroundButton =
     children[0].language === 'graphql' && graphqlPlayground ? (
