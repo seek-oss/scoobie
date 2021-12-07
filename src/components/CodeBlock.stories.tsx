@@ -11,7 +11,7 @@ import { CodeBlock as Component } from './CodeBlock';
 export default {
   args: {
     braidThemeName: defaultArgs.braidThemeName,
-    graphqlPlayground: 'https://graphql.seek.com/graphql',
+    graphqlPlayground: 'https://manage.developer.seek.com/graphql-explorer',
     language: 'graphql',
     size: defaultArgs.size,
     trim: true,

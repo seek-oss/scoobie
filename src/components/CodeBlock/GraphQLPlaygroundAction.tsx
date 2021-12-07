@@ -9,7 +9,7 @@ const URL = url.URL ?? window.URL;
 
 interface Props {
   query: string;
-  variables: string;
+  variables: string | undefined;
   graphqlPlayground: string;
   size: Size;
 }
@@ -22,7 +22,7 @@ export const GraphQLPlaygroundAction = ({
 }: Props) => {
   const playgroundUrl = new URL(graphqlPlayground);
   playgroundUrl.searchParams.set('query', query);
-  playgroundUrl.searchParams.set('variables', variables);
+  playgroundUrl.searchParams.set('variables', variables ?? '{}');
   const href = playgroundUrl.toString();
 
   const smallerSize = SIZE_TO_SMALLER[size];
@@ -30,7 +30,7 @@ export const GraphQLPlaygroundAction = ({
   return (
     <Text size={smallerSize} weight="medium">
       <TextLink href={href} rel="noreferrer" target="_blank">
-        <IconVideo alignY="lowercase" /> Playground
+        <IconVideo alignY="lowercase" /> GraphQL Explorer
       </TextLink>
     </Text>
   );

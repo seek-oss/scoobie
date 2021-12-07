@@ -56,14 +56,19 @@ export const CodeBlock = ({
 
   const child = children[index];
 
+  const variables =
+    children[0].language === 'graphql' && children[1]?.label === 'Variables'
+      ? children[1].code
+      : undefined;
+
   const graphqlPlaygroundButton =
-    child.language === 'graphql' && graphqlPlayground ? (
+    children[0].language === 'graphql' && graphqlPlayground ? (
       <Box component="span" paddingLeft={tablePadding}>
         <GraphQLPlaygroundAction
           graphqlPlayground={graphqlPlayground}
           size={size}
-          query={child.code}
-          variables={children[1].code}
+          query={children[0].code}
+          variables={variables}
         />
       </Box>
     ) : undefined;
