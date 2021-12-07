@@ -62,9 +62,9 @@ export const CodeBlock = ({
         <GraphQLPlaygroundAction
           graphqlPlayground={graphqlPlayground}
           size={size}
-        >
-          {child.code}
-        </GraphQLPlaygroundAction>
+          query={child.code}
+          variables={children[1].code}
+        />
       </Box>
     ) : undefined;
 
