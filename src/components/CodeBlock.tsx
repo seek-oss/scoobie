@@ -62,7 +62,8 @@ export const CodeBlock = ({
       ? children[1].code
       : undefined;
 
-  const variables = JSON.stringify(parse(jsoncVariables ?? '{}'), null, 2);
+  const variables =
+    jsoncVariables && JSON.stringify(parse(jsoncVariables), null, 2);
 
   const graphqlPlaygroundButton =
     children[0].language === 'graphql' && graphqlPlayground ? (
