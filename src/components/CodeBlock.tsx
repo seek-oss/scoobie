@@ -1,4 +1,5 @@
 import { Box, Stack, Text, TextLinkButton } from 'braid-design-system';
+import { parse } from 'jsonc-parser';
 import Highlight from 'prism-react-renderer';
 import React, { useState } from 'react';
 
@@ -56,15 +57,23 @@ export const CodeBlock = ({
 
   const child = children[index];
 
+  const jsoncVariables =
+    children[0].language === 'graphql' && children[1]?.label === 'Variables'
+      ? children[1].code
+      : undefined;
+
+  const variables =
+    jsoncVariables && JSON.stringify(parse(jsoncVariables), null, 2);
+
   const graphqlPlaygroundButton =
-    child.language === 'graphql' && graphqlPlayground ? (
+    children[0].language === 'graphql' && graphqlPlayground ? (
       <Box component="span" paddingLeft={tablePadding}>
         <GraphQLPlaygroundAction
           graphqlPlayground={graphqlPlayground}
           size={size}
-        >
-          {child.code}
-        </GraphQLPlaygroundAction>
+          query={children[0].code}
+          variables={variables}
+        />
       </Box>
     ) : undefined;
 
