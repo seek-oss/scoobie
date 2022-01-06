@@ -168,7 +168,8 @@ export const App = () => (
 
 Scoobie optionally supports simple, source-controlled diagrams via [mermaid].
 
-This requires the `mermaid` configuration option to be set on [ScoobieWebpackPlugin](#scoobiewebpackplugin).
+This requires the `mermaid` configuration option to be set on [ScoobieWebpackPlugin](#scoobiewebpackplugin),
+and `@mermaid-js/mermaid-cli` to be installed as a peer dependency.
 From there, the easiest way to get started is to check out the [mermaid live editor].
 
 You can use a named code block in Markdown files:
@@ -607,6 +608,7 @@ module.exports = {
       plugins: [
         new ScoobieWebpackPlugin({
           // Optional configuration option to enable mermaid support.
+          // `@mermaid-js/mermaid-cli` must be installed as a peer dependency.
           // Temporary files are written to `${rootDir}/mermaid`.
           mermaid: {
             rootDir: __dirname,
