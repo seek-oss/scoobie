@@ -11,20 +11,34 @@ const config: SkuConfig = {
   srcPaths: ['./src', './styles'],
   storybookAddons: ['@storybook/addon-essentials'],
 
-  dangerouslySetESLintConfig: (prevConfig) => ({
-    ...prevConfig,
-    rules: {
-      ...prevConfig.rules,
-      'sort-imports': [
-        'error',
-        {
-          ignoreDeclarationSort: true,
+  dangerouslySetESLintConfig: (skuConfig) => ({
+    ...skuConfig,
+    overrides: [
+      ...(skuConfig.overrides ?? []),
+      {
+        files: [
+          // sku configuration
+          './sku.config.ts',
+          // External type declarations
+          '*.d.ts',
+          // Storybook stories
+          '*.docs.tsx',
+          '*.stories.tsx',
+        ],
+        rules: {
+          'import/no-default-export': 'off',
         },
-      ],
+      },
+    ],
+    rules: {
+      ...skuConfig.rules,
+      // https://basarat.gitbook.io/typescript/main-1/defaultisbad
+      'import/no-default-export': 'error',
+      'sort-imports': ['error', { ignoreDeclarationSort: true }],
     },
   }),
-  dangerouslySetWebpackConfig: (prevConfig) =>
-    merge(prevConfig, {
+  dangerouslySetWebpackConfig: (skuConfig) =>
+    merge(skuConfig, {
       plugins: [
         new ScoobieWebpackPlugin({
           mermaid: {
