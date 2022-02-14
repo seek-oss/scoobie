@@ -33,7 +33,7 @@
     "@mermaid-js/mermaid-cli": "8.13.8",
     "@storybook/addon-essentials": "6.4.13",
     "@storybook/storybook-deployer": "2.8.10",
-    "@types/react": "17.0.38",
+    "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
     "@types/react-helmet": "6.1.5",
     "braid-design-system": "31.4.0",
