@@ -96,6 +96,15 @@ const skuRender: Render<RenderContext> = {
 };
 ```
 
+If you manually manage the [Content Security Policy] of your site,
+you can specify the following sources along with the script hashes from [typography.ts](typography.ts):
+
+```http
+Content-Security-Policy: font-src https://fonts.gstatic.com; script-src 'sha256-...' 'sha256-...'; style-src https://fonts.googleapis.com
+```
+
+[content security policy]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+
 ### `src/scoobie.d.ts`
 
 Import TypeScript definitions for `MDX`, `*.md` and `*.mdx`:
