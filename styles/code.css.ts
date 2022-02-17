@@ -1,6 +1,6 @@
+import { createStyleObject, getCapHeight } from '@capsizecss/core';
 import { styleVariants } from '@vanilla-extract/css';
 import { responsiveStyle } from 'braid-design-system/css';
-import capsize, { getCapHeight } from 'capsize';
 
 import { Size } from '../src/private/size';
 
@@ -56,7 +56,7 @@ const monospaceFontStylesForTarget = (
   size: Size,
   target: 'mobile' | 'tablet',
 ) =>
-  capsize({
+  createStyleObject({
     capHeight: getCapHeight({
       fontSize: tokens.typography.code[size][target].fontSize,
       fontMetrics: monospaceFontMetrics,
