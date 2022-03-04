@@ -63,6 +63,10 @@ g.node span.nodeLabel {
   font-size: var(--font-size);
 }
 
+g.node foreignObject.label {
+  overflow-y: visible;
+}
+
 .edgeLabel div {
   background-color: var(--mermaid-er-label-fill);
 }
