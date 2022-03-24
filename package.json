@@ -81,7 +81,8 @@
     "storybook:build": "sku build-storybook",
     "storybook:deploy": "storybook-to-ghpages --existing-output-dir=dist-storybook",
     "storybook:start": "sku storybook",
-    "test": "sku test"
+    "test": "sku test",
+    "test:ci": "sku test --coverage"
   },
   "loki": {
     "configurations": {
