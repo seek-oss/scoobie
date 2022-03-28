@@ -3898,10 +3898,10 @@
     loader-utils "^2.0.0"
     virtual-resource-loader "^1.0.0"
 
-"@vocab/core@^1.0.0", "@vocab/core@^1.0.1", "@vocab/core@^1.0.2":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@vocab/core/-/core-1.0.3.tgz#b9c8f380981992259feda68ab826da6b5be0b4e8"
-  integrity sha512-y/imwmy0fOXruDOOrCRGc4zjn6IDF5nn6E36U97rP9DNbwNIH6TloiytHN1bpFU5GpRHYGLkY55xgBmVSxp0gw==
+"@vocab/core@^1.0.0", "@vocab/core@^1.0.2", "@vocab/core@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@vocab/core/-/core-1.0.4.tgz#d1562ad387d82db810a29ea13e61f5b62f2f0ddc"
+  integrity sha512-LwKv4pzHl8rdF2lV6sxNChZ98uV0WsAkp4EhmMWcofFPPYFup+wdmhhZ/RsRc1EGwMtuUHNasQCBiO5o0OP+aA==
   dependencies:
     "@formatjs/icu-messageformat-parser" "^2.0.10"
     "@vocab/types" "^1.0.1"
@@ -16378,10 +16378,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@11.2.7:
-  version "11.2.7"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-11.2.7.tgz#0754d78d64568ff5f4d49898abe1ee1ea91f6c61"
-  integrity sha512-rtlGeq5P+jub9KxR5meO8+SMAypvFK2OEPAgtT+4Uxwc0O+qQQGSfR1HhikSq3hson0/bvJOT7h6ddCUGPKi7A==
+sku@11.2.8:
+  version "11.2.8"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-11.2.8.tgz#c58d7371d931b65be0a96e5bbd64c754ae4ff736"
+  integrity sha512-90jzfVLK92unJXxd3OtgwdfnoluB5WB7h00IKJn0dT4iqCvPDJdW7Bo8FfT5dKAKSFr/+23YUfDrdrlncf62Gw==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-react-constant-elements" "^7.12.1"
@@ -16403,7 +16403,7 @@ sku@11.2.7:
     "@types/loadable__component" "^5.13.1"
     "@vanilla-extract/babel-plugin" "^1.0.0"
     "@vanilla-extract/webpack-plugin" "^2.0.0"
-    "@vocab/core" "^1.0.1"
+    "@vocab/core" "^1.0.4"
     "@vocab/phrase" "^1.0.0"
     "@vocab/webpack" "^1.0.0"
     autoprefixer "^10.3.1"
