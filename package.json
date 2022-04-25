@@ -32,20 +32,20 @@
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "8.14.0",
-    "@storybook/addon-essentials": "6.4.19",
-    "@storybook/storybook-deployer": "2.8.10",
+    "@storybook/addon-essentials": "6.4.22",
+    "@storybook/storybook-deployer": "2.8.11",
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
     "@types/react-helmet": "6.1.5",
     "braid-design-system": "31.10.0",
-    "loki": "0.28.1",
+    "loki": "0.29.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "react-router-dom": "6.2.1",
+    "react-router-dom": "6.3.0",
     "semantic-release": "19.0.2",
     "sku": "11.3.3",
-    "webpack": "5.69.0"
+    "webpack": "5.72.0"
   },
   "files": [
     "src",
