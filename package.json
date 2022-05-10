@@ -44,7 +44,7 @@
     "react-helmet": "6.1.0",
     "react-router-dom": "6.3.0",
     "semantic-release": "19.0.2",
-    "sku": "11.3.3",
+    "sku": "11.4.0",
     "webpack": "5.72.0"
   },
   "files": [
