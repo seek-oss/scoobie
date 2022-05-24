@@ -5940,10 +5940,10 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@31.12.0:
-  version "31.12.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-31.12.0.tgz#6bc9ea2424b1c179ec66cae0a9722076c4b18831"
-  integrity sha512-2KkBT7EPhK9nkQVuaTt2qkTxuOWk2IgAs3t5YHDBTzmP8xuARJ87B9iJ4YwwAVtEpX73xfgRFlf7VTxq2kf1tA==
+braid-design-system@31.13.0:
+  version "31.13.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-31.13.0.tgz#9918c450de8ba36e8157a9d8a4db8f87ceb5a0fd"
+  integrity sha512-bXcq4hEX7LX+/fo2zwopC+YJSd/mnY6Hkodkzg35aYquMH3sykZbDtaVuV5fzCmu2gTqGFZipdE2OTuBgA5nlQ==
   dependencies:
     "@capsizecss/core" "^3.0.0"
     "@capsizecss/vanilla-extract" "^1.0.0"
@@ -17297,10 +17297,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@11.4.0:
-  version "11.4.0"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-11.4.0.tgz#ccbdeabea80274039a09a59fd5f113274fe2ea1d"
-  integrity sha512-RoLoAdKPyyD2y9UcQuz8nutNJKbZLnkAAFv89PDh0OaLGqA8Dt0zC3pc6Q29LLMgRzWbyOI0EZmYvdbnNSwmBA==
+sku@11.4.2:
+  version "11.4.2"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-11.4.2.tgz#6747e7c17f07f6d1e18a2a9d0ee5527b65792067"
+  integrity sha512-QHefH5jEdBXyW8/c/QrQde9/HrIjCUc4JW7MIuZrRKg2v9ILWXkw3AxMVpdFe5SyCmNCWik+wxzB+HmKXCTwGg==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-react-constant-elements" "^7.12.1"
