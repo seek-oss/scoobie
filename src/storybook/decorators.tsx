@@ -5,7 +5,7 @@
  */
 import { BraidProvider, Card, ContentBlock } from 'braid-design-system';
 import React, { ReactNode } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import loadable from 'sku/@loadable/component';
 import { addDecorator } from 'sku/@storybook/react';
@@ -66,11 +66,13 @@ type DecoratorFn = Parameters<typeof addDecorator>[0];
 
 export const withRouter: DecoratorFn = (story) => (
   <BrowserRouter>
-    <Helmet>
-      <link href={robotoHref} rel="stylesheet" />
-      <link href={robotoMonoHref} rel="stylesheet" />
-    </Helmet>
+    <HelmetProvider>
+      <Helmet>
+        <link href={robotoHref} rel="stylesheet" />
+        <link href={robotoMonoHref} rel="stylesheet" />
+      </Helmet>
 
-    {story()}
+      {story()}
+    </HelmetProvider>
   </BrowserRouter>
 );

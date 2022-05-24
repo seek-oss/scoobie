@@ -30,11 +30,16 @@ const isHeading = (component: unknown): component is HeadingElement =>
 const wrapperToToc = ({ children }: StackChildrenProps): Toc =>
   Children.toArray(children)
     .filter(isHeading)
-    .map((child) => ({
-      children: child.props.children,
-      id: child.props.id,
-      level: headingToLevel(child),
-    }));
+    .map((incorrectlyTypedChild) => {
+      // TypeScript isn't respecting our `isHeading` type guard here ☹️
+      const child = incorrectlyTypedChild as unknown as HeadingElement;
+
+      return {
+        children: child.props.children,
+        id: child.props.id,
+        level: headingToLevel(child),
+      };
+    });
 
 export const TocRenderer = ({
   children: render,
