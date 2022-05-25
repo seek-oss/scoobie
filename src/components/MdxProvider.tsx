@@ -1,4 +1,4 @@
-import { MDXProvider, MDXProviderComponents } from '@mdx-js/react';
+import { MDXProvider } from '@mdx-js/react';
 import React, { ReactNode } from 'react';
 
 import { GraphQLPlaygroundProvider } from '../private/hooks/graphqlPlayground';
@@ -30,10 +30,7 @@ export const MdxProvider = ({
 
   return (
     <GraphQLPlaygroundProvider value={graphqlPlayground}>
-      {/* `@types/mdx-js__react` does not play nicely with React 18 */}
-      <MDXProvider components={components as MDXProviderComponents}>
-        {children}
-      </MDXProvider>
+      <MDXProvider components={components}>{children}</MDXProvider>
     </GraphQLPlaygroundProvider>
   );
 };
