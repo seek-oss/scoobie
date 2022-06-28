@@ -36,6 +36,11 @@ const config: SkuConfig = {
       'import/no-default-export': 'error',
       'sort-imports': ['error', { ignoreDeclarationSort: true }],
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
   }),
   dangerouslySetWebpackConfig: (skuConfig) =>
     merge(skuConfig, {

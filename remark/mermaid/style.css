@@ -8,13 +8,13 @@
   /* https://github.com/mermaid-js/mermaid/blob/8.11.5/src/diagrams/er/erRenderer.js#L405-L406 */
   --mermaid-er-label-fill: rgba(255, 255, 255, 0.85);
 
-  /* https://github.com/seek-oss/braid-design-system/blob/v30.4.0/lib/color/palette.ts */
-  --braid-grey-50: #f6f8fa;
-  --braid-grey-100: #e8ecf0;
+  /* https://github.com/seek-oss/braid-design-system/blob/v31.14.0/lib/color/palette.ts */
+  --braid-grey-50: #f7f8fb;
+  --braid-grey-100: #eaecf1;
   --braid-grey-300: #abb3c1;
-  --braid-grey-500: #5b6881;
+  --braid-grey-500: #5a6881;
   --braid-yellow-100: #fef8de;
-  --braid-yellow-500: #fdc222;
+  --braid-yellow-500: #fdc221;
 }
 
 /* shared */
