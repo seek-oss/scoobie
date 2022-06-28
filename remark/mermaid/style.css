@@ -9,12 +9,12 @@
   --mermaid-er-label-fill: rgba(255, 255, 255, 0.85);
 
   /* https://github.com/seek-oss/braid-design-system/blob/v31.14.0/lib/color/palette.ts */
-  --braid-grey-50: #F7F8FB;
-  --braid-grey-100: #EAECF1;
-  --braid-grey-300: #ABB3C1;
-  --braid-grey-500: #5A6881;
-  --braid-yellow-100: #FEF8DE;
-  --braid-yellow-500: #FDC221;
+  --braid-grey-50: #f7f8fb;
+  --braid-grey-100: #eaecf1;
+  --braid-grey-300: #abb3c1;
+  --braid-grey-500: #5a6881;
+  --braid-yellow-100: #fef8de;
+  --braid-yellow-500: #fdc221;
 }
 
 /* shared */
