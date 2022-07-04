@@ -31,20 +31,20 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
-    "@mermaid-js/mermaid-cli": "9.0.2",
-    "@storybook/addon-essentials": "6.4.22",
+    "@mermaid-js/mermaid-cli": "9.1.3",
+    "@storybook/addon-essentials": "6.5.9",
     "@storybook/storybook-deployer": "2.8.11",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
     "braid-design-system": "31.14.0",
-    "loki": "0.29.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "loki": "0.30.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-helmet-async": "1.3.0",
     "react-router-dom": "6.3.0",
     "semantic-release": "19.0.3",
     "sku": "11.4.3",
-    "webpack": "5.72.0"
+    "webpack": "5.73.0"
   },
   "files": [
     "src",
