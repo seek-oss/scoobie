@@ -4088,10 +4088,10 @@
     intl-messageformat "^9.9.0"
     prettier "^2.1.2"
 
-"@vocab/phrase@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@vocab/phrase/-/phrase-1.0.1.tgz#8c125d6cbbfa5a8ba46540006e9e6ebaf9c55cda"
-  integrity sha512-Y7siFbTjWZL9dbUenmdjqunD5Wx6wIwwhHgd7SPrmh6lhXXu6vFnpoIGQkOecT9SD8qzNNdb6q6vc4R7BqDAwA==
+"@vocab/phrase@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@vocab/phrase/-/phrase-1.1.0.tgz#8814440506dd5ba40f864025ac3d469c48b440eb"
+  integrity sha512-CMLrFC9yHKaniIH7cQ6w1ouKJ5Iln1ZLyYcm3JyB2JXJxRn2jSz25kXU8rPWGCpFYCpcf7sCgY9OYAD1YQ7OAg==
   dependencies:
     "@vocab/core" "^1.0.0"
     "@vocab/types" "^1.0.0"
@@ -15744,10 +15744,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@11.4.5:
-  version "11.4.5"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-11.4.5.tgz#46b6c238c7757b29e96fa7f43b1058a58d156c84"
-  integrity sha512-qugG684Q3TTxLZLubffFuMFgLKAbVg7soZLeN8MitONyLrDIag1KKrs8JjUm+tqdr/HhFproE9lvlrrX25sHWw==
+sku@11.5.0:
+  version "11.5.0"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-11.5.0.tgz#46913e380b50c83c36e1a18a9e5565f495c0673a"
+  integrity sha512-ppQ5EhCxebbgnBA0IylWy9VKpw4jCfvuA+Pu7thosBrCTLM0dcMY/nM8Wu123+bCGK6iWGF1FBCgqKODcPz5Yg==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-react-constant-elements" "^7.12.1"
@@ -15770,7 +15770,7 @@ sku@11.4.5:
     "@vanilla-extract/babel-plugin" "^1.0.0"
     "@vanilla-extract/webpack-plugin" "^2.0.0"
     "@vocab/core" "^1.1.0"
-    "@vocab/phrase" "^1.0.0"
+    "@vocab/phrase" "^1.1.0"
     "@vocab/pseudo-localize" "^1.0.0"
     "@vocab/webpack" "^1.1.0"
     autoprefixer "^10.3.1"
