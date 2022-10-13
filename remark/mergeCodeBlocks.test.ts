@@ -27,11 +27,11 @@ describe('mergeCodeBlocks', () => {
     mergeCodeBlocks()(astCopy);
 
     expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "children": Array [
-          Object {
+      {
+        "children": [
+          {
             "lang": "scoobie-merged-code",
-            "meta": "[{\\"type\\":\\"code\\",\\"value\\":\\"1\\"},{\\"type\\":\\"code\\",\\"value\\":\\"2\\",\\"lang\\":\\"lang\\"},{\\"type\\":\\"code\\",\\"value\\":\\"3\\",\\"meta\\":\\"meta\\"}]",
+            "meta": "[{"type":"code","value":"1"},{"type":"code","value":"2","lang":"lang"},{"type":"code","value":"3","meta":"meta"}]",
             "type": "code",
             "value": "1",
           },
@@ -57,9 +57,9 @@ describe('mergeCodeBlocks', () => {
     mergeCodeBlocks()(astCopy);
 
     expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "children": Array [
-          Object {
+      {
+        "children": [
+          {
             "type": "code",
             "value": "1",
           },
@@ -92,16 +92,16 @@ describe('mergeCodeBlocks', () => {
     mergeCodeBlocks()(astCopy);
 
     expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "children": Array [
-          Object {
+      {
+        "children": [
+          {
             "type": "code",
             "value": "1",
           },
-          Object {
+          {
             "type": "thematicBreak",
           },
-          Object {
+          {
             "type": "code",
             "value": "2",
           },

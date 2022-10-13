@@ -17,21 +17,22 @@ describe('normaliseChildren', () => {
             label: 'Gql',
           },
         ],
+
         true,
       ),
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "code": "1",
           "label": "Text",
           "language": "text",
         },
-        Object {
+        {
           "code": "2",
           "label": "GraphQL",
           "language": "graphql",
         },
-        Object {
+        {
           "code": "3",
           "label": "Gql",
           "language": "text",
@@ -55,21 +56,22 @@ describe('normaliseChildren', () => {
             label: 'Gql',
           },
         ],
+
         false,
       ),
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "code": "  1",
           "label": "Text",
           "language": "text",
         },
-        Object {
+        {
           "code": "2  ",
           "label": "GraphQL",
           "language": "graphql",
         },
-        Object {
+        {
           "code": "
       3
       ",
@@ -92,16 +94,17 @@ describe('normaliseChildren', () => {
             language: 'json',
           },
         ],
+
         true,
       ),
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "code": "1",
           "label": "Query",
           "language": "graphql",
         },
-        Object {
+        {
           "code": "2",
           "label": "Variables",
           "language": "json",
@@ -126,21 +129,22 @@ describe('normaliseChildren', () => {
             language: 'json',
           },
         ],
+
         true,
       ),
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "code": "1",
           "label": "Query",
           "language": "graphql",
         },
-        Object {
+        {
           "code": "2",
           "label": "Variables",
           "language": "json",
         },
-        Object {
+        {
           "code": "3",
           "label": "Result",
           "language": "json",
@@ -161,16 +165,17 @@ describe('normaliseChildren', () => {
             language: 'http',
           },
         ],
+
         true,
       ),
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "code": "1",
           "label": "Request",
           "language": "http",
         },
-        Object {
+        {
           "code": "2",
           "label": "Response",
           "language": "http",
@@ -193,16 +198,17 @@ describe('normaliseChildren', () => {
             label: 'Request',
           },
         ],
+
         true,
       ),
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "code": "1",
           "label": "Response",
           "language": "http",
         },
-        Object {
+        {
           "code": "2",
           "label": "Request",
           "language": "http",
@@ -231,26 +237,27 @@ describe('normaliseChildren', () => {
             label: 'Response 1 1',
           },
         ],
+
         true,
       ),
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "code": "1",
           "label": "Response 1",
           "language": "text",
         },
-        Object {
+        {
           "code": "2",
           "label": "Response 2",
           "language": "text",
         },
-        Object {
+        {
           "code": "3",
           "label": "Response 3",
           "language": "text",
         },
-        Object {
+        {
           "code": "4",
           "label": "Response 1 1",
           "language": "text",
