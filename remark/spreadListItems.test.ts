@@ -21,13 +21,13 @@ describe('spreadListItems', () => {
     spreadListItems()(astCopy);
 
     expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "children": Array [
-          Object {
+      {
+        "children": [
+          {
             "spread": true,
             "type": "listItem",
           },
-          Object {
+          {
             "spread": true,
             "type": "listItem",
           },

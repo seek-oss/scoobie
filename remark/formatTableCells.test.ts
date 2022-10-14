@@ -41,17 +41,17 @@ describe('formatTableCells', () => {
     formatTableCells()(astCopy);
 
     expect(astCopy).toMatchInlineSnapshot(`
-      Object {
-        "children": Array [
-          Object {
-            "children": Array [
-              Object {
-                "children": Array [
-                  Object {
-                    "children": Array [
-                      Object {
-                        "children": Array [
-                          Object {
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
                             "type": "text",
                             "value": "header cell",
                           },
@@ -67,13 +67,13 @@ describe('formatTableCells', () => {
             ],
             "type": "tableRow",
           },
-          Object {
-            "children": Array [
-              Object {
-                "children": Array [
-                  Object {
-                    "children": Array [
-                      Object {
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
                         "type": "text",
                         "value": "regular cell",
                       },
