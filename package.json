@@ -28,7 +28,7 @@
     "svgo-loader": "^3.0.0",
     "unist-util-visit": "^2.0.3",
     "webpack-merge": "^5.8.0",
-    "which": "^2.0.2"
+    "which": "^3.0.0"
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "9.1.6",
