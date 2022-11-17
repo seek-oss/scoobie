@@ -1,35 +1,21 @@
 import { IconCopy, IconTick, Text, TextLinkButton } from 'braid-design-system';
-import React, {
-  ComponentProps,
-  Fragment,
-  ReactNode,
-  useCallback,
-  useState,
-} from 'react';
-
-const DefaultCopiedLabel = () => (
-  <Fragment>
-    <IconTick alignY="lowercase" /> Copied
-  </Fragment>
-);
-
-const DefaultCopyLabel = () => (
-  <Fragment>
-    <IconCopy alignY="lowercase" /> Copy
-  </Fragment>
-);
+import React, { ComponentProps, ReactNode, useCallback, useState } from 'react';
 
 interface Props {
   children: string;
+  copiedIcon?: ComponentProps<typeof Text>['icon'] | false;
   copiedLabel?: ReactNode;
+  copyIcon?: ComponentProps<typeof TextLinkButton>['icon'] | false;
   copyLabel?: ReactNode;
   size?: ComponentProps<typeof Text>['size'];
 }
 
 export const CopyableText = ({
   children,
-  copiedLabel = <DefaultCopiedLabel />,
-  copyLabel = <DefaultCopyLabel />,
+  copiedIcon = <IconTick alignY="lowercase" />,
+  copiedLabel = 'Copied',
+  copyIcon = <IconCopy alignY="lowercase" />,
+  copyLabel = 'Copy',
   size,
 }: Props) => {
   const [copied, setCopied] = useState<boolean>(false);
@@ -47,12 +33,19 @@ export const CopyableText = ({
   }, [children, copied]);
 
   return copied ? (
-    <Text size={size} tone="positive" weight="medium">
+    <Text
+      icon={copiedIcon || undefined}
+      size={size}
+      tone="positive"
+      weight="medium"
+    >
       {copiedLabel}
     </Text>
   ) : (
     <Text size={size} weight="medium">
-      <TextLinkButton onClick={copyText}>{copyLabel}</TextLinkButton>
+      <TextLinkButton icon={copyIcon || undefined} onClick={copyText}>
+        {copyLabel}
+      </TextLinkButton>
     </Text>
   );
 };

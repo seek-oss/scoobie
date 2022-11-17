@@ -29,8 +29,13 @@ export const GraphQLPlaygroundAction = ({
 
   return (
     <Text size={smallerSize} weight="medium">
-      <TextLink href={href} rel="noreferrer" target="_blank">
-        <IconVideo alignY="lowercase" /> GraphQL Explorer
+      <TextLink
+        href={href}
+        icon={<IconVideo alignY="lowercase" />}
+        rel="noreferrer"
+        target="_blank"
+      >
+        GraphQL Explorer
       </TextLink>
     </Text>
   );

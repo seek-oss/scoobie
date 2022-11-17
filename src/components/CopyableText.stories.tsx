@@ -13,17 +13,29 @@ export default {
   args: {
     braidThemeName: defaultArgs.braidThemeName,
     children: 'copy me',
+    copiedIcon: 'undefined',
     copiedLabel: 'undefined',
+    copyIcon: 'undefined',
     copyLabel: 'undefined',
     size: 'standard',
   },
   argTypes: {
     braidThemeName: defaultArgTypes.braidThemeName,
     children: { control: { type: 'text' } },
+    copiedIcon: {
+      control: { type: 'radio' },
+      mapping: { undefined, false: false },
+      options: ['undefined', 'false'],
+    },
     copiedLabel: {
       control: { type: 'radio' },
       mapping: { undefined, custom: 'Custom copied label' },
       options: ['undefined', 'custom'],
+    },
+    copyIcon: {
+      control: { type: 'radio' },
+      mapping: { undefined, false: false },
+      options: ['undefined', 'false'],
     },
     copyLabel: {
       control: { type: 'radio' },
