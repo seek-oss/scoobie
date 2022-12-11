@@ -4160,6 +4160,13 @@
     media-query-parser "^2.0.2"
     outdent "^0.8.0"
 
+"@vanilla-extract/dynamic@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/dynamic/-/dynamic-2.0.3.tgz#44b4e018cbdfb6af3d27e73c78b38617dfe419ad"
+  integrity sha512-Rglfw2gXAYiBzAQ4jgUG7rBgE2c88e/zcG27ZVoIqMHVq56wf2C1katGMm1yFMNBgzqM7oBNYzz4YOMzznydkg==
+  dependencies:
+    "@vanilla-extract/private" "^1.0.3"
+
 "@vanilla-extract/integration@^5.0.0":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/integration/-/integration-5.0.1.tgz#d94fd1e7179325495f099b8e1a921930ac7e3e76"
@@ -5534,10 +5541,10 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@31.22.1:
-  version "31.22.1"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-31.22.1.tgz#ecc61353d5977c40b4cc351fb0ac5680379536ce"
-  integrity sha512-I3Y1DlyF9nZf6jcef/QSVZpTj8JDXY/tHUjm3pguQFf4BalSH0uqiWqYaosyifZkUGYeDGDm3MxxFNN8AVnmQg==
+braid-design-system@31.22.2:
+  version "31.22.2"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-31.22.2.tgz#ca6327c001b6ba835e8c57b906ee80d0cfc47de3"
+  integrity sha512-PNfle91GoaF7cKvGqF8em+akIkuF9QhNlBkPjqPdk6bAOlWMb8r7mDg1weRbKv92Fwh9mx//l3gGxvq5GiBkmQ==
   dependencies:
     "@capsizecss/core" "^3.0.0"
     "@capsizecss/vanilla-extract" "^1.0.0"
@@ -5546,6 +5553,7 @@ braid-design-system@31.22.1:
     "@types/lodash" "^4.14.168"
     "@vanilla-extract/css" "^1.7.4"
     "@vanilla-extract/css-utils" "^0.1.1"
+    "@vanilla-extract/dynamic" "^2.0.3"
     "@vanilla-extract/sprinkles" "^1.3.3"
     assert "^2.0.0"
     autosuggest-highlight "^3.1.1"
