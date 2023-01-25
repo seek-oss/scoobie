@@ -7,7 +7,7 @@
   "version": "0.0.0-semantically-released",
   "dependencies": {
     "@capsizecss/core": "^3.0.0",
-    "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/loader": "^2.2.1",
     "@mdx-js/react": "^1.6.22",
     "@types/mdx-js__react": "^1.5.5",
     "@types/react-router-hash-link": "^2.4.1",
