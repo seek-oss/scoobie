@@ -1,7 +1,7 @@
 import { DEFAULT_SIZE, SIZES, Size } from '../private/size';
 
 export interface BraidArgs {
-  braidThemeName: string;
+  braidThemeName: BraidThemeName;
 }
 
 export interface MdxArgs {
@@ -9,12 +9,12 @@ export interface MdxArgs {
 }
 
 export const defaultArgs = {
-  braidThemeName: 'apac',
+  braidThemeName: 'apac' as const,
   mdxSize: DEFAULT_SIZE,
   size: 'standard',
 };
 
-export type BraidThemeOptions = 'apac' | 'docs' | 'wireframe';
+export type BraidThemeName = 'apac' | 'docs' | 'wireframe';
 
 export const defaultArgTypes = {
   braidThemeName: {
