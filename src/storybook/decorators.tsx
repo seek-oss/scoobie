@@ -4,25 +4,24 @@
  * {@link https://github.com/storybookjs/storybook/issues/11984}
  */
 import { BraidProvider, Card, ContentBlock } from 'braid-design-system';
+import apac from 'braid-design-system/themes/apac';
+import docs from 'braid-design-system/themes/docs';
+import wireframe from 'braid-design-system/themes/wireframe';
 import React, { ReactNode } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
-import loadable from 'sku/@loadable/component';
 import { addDecorator } from 'sku/@storybook/react';
 
 import { MdxProvider, ScoobieLink } from '..';
 import { robotoHref, robotoMonoHref } from '../../typography';
 import { Size } from '../private/size';
 
-import { BraidThemeOptions } from './controls';
+import { BraidThemeName } from './controls';
 
-const BraidTheme = loadable.lib(
-  (props: { themeName: BraidThemeOptions }) =>
-    import(`braid-design-system/themes/${props.themeName}`),
-);
+const THEMES = { apac, docs, wireframe };
 
 interface ProviderProps {
-  braidThemeName: string;
+  braidThemeName: BraidThemeName;
   children: ReactNode;
 }
 
@@ -30,19 +29,11 @@ export const BraidStorybookProvider = ({
   braidThemeName,
   children,
 }: ProviderProps) => (
-  <BraidTheme themeName={braidThemeName}>
-    {({
-      default: theme,
-    }: {
-      default: React.ComponentProps<typeof BraidProvider>['theme'];
-    }) => (
-      <BraidProvider theme={theme} linkComponent={ScoobieLink}>
-        <ContentBlock>
-          <Card>{children}</Card>
-        </ContentBlock>
-      </BraidProvider>
-    )}
-  </BraidTheme>
+  <BraidProvider theme={THEMES[braidThemeName]} linkComponent={ScoobieLink}>
+    <ContentBlock>
+      <Card>{children}</Card>
+    </ContentBlock>
+  </BraidProvider>
 );
 
 interface MdxStorybookProviderProps {
