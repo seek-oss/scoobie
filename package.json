@@ -43,7 +43,7 @@
     "react-helmet-async": "1.3.0",
     "react-router-dom": "6.3.0",
     "semantic-release": "19.0.5",
-    "sku": "11.7.1",
+    "sku": "11.7.2",
     "webpack": "5.74.0"
   },
   "files": [
