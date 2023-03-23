@@ -5777,10 +5777,10 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@32.1.0:
-  version "32.1.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.1.0.tgz#9a0a40a67cf4566164745601b8984556ad718b1a"
-  integrity sha512-b0CeBr9ItxTaOdqOd0ZaS7HWFuFw58u2tFfKtjkxL63BwVkdmDD2hhUtntkO0fIw5HU6ZLY97F0yjdtrOfbR9Q==
+braid-design-system@32.1.1:
+  version "32.1.1"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.1.1.tgz#fb489563a5d0d2955466fd38ee3ed4b43797bb1e"
+  integrity sha512-5NhvB+wQmjCsZ2bRMmJXjpmOxeerK2h6Pr6GWlgvRaEllRXV+VTIOQti2fLgrk90CD35MNh+o2qcdB3BjPUvHg==
   dependencies:
     "@capsizecss/core" "^3.0.0"
     "@capsizecss/vanilla-extract" "^1.0.0"
