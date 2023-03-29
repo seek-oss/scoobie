@@ -345,8 +345,7 @@ export const MyFirstInlineCode = () => (
 
 Render an internal link with the same opinions as our [MdxProvider](#mdxprovider):
 
-- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
-  and pass through the `v` URL parameter for UI version switching
+- Internal links pass through the `v` URL parameter for UI version switching
 
 Unlike [SmartTextLink](#smarttextlink), this is not bound to a parent [Text] as it has no underlying [TextLink].
 It can be used to make complex components navigable rather than just sections of text.
@@ -399,8 +398,7 @@ export const Component = () => (
 
 Render all underlying links as follows:
 
-- Internal links use client-side navigation with smooth scrolling via [react-router-hash-link],
-  and pass through the `v` URL parameter for UI version switching
+- Internal links pass through the `v` URL parameter for UI version switching
 - External links open in a new tab
 - Links with a [`download` attribute] prompt the user with a file download
 
@@ -429,7 +427,6 @@ Render a text link with the same opinions as our [MdxProvider](#mdxprovider):
 
 - External links open in a new tab and have an [IconNewWindow] suffix
 
-[react-router-hash-link]: https://github.com/rafrex/react-router-hash-link
 [iconnewwindow]: https://seek-oss.github.io/braid-design-system/components/IconNewWindow
 
 ```tsx
