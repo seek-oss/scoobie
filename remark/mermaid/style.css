@@ -2,8 +2,8 @@
 
 * {
   /* https://github.com/mermaid-js/mermaid/blob/v10.1.0/packages/mermaid/src/diagrams/gantt/styles.js#L3-L6 */
-  --mermaid-font-family: Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial,
-    sans-serif;
+  --mermaid-font-family: Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica,
+    Arial, sans-serif;
   --mermaid-font-size: 14px;
 
   /* https://github.com/mermaid-js/mermaid/blob/8.11.5/src/diagrams/er/erRenderer.js#L405-L406 */
@@ -183,8 +183,7 @@ text.taskText.activeText1,
 text.taskTextOutside0.activeText1,
 text.taskTextOutside1.activeText1,
 text.taskTextOutside0.milestoneText,
-text.taskTextOutside1.milestoneText
- {
+text.taskTextOutside1.milestoneText {
   fill: var(--braid-blue-700) !important;
 }
 
