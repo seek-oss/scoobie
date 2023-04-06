@@ -7,6 +7,16 @@
     "diagramPadding": 1,
     "useMaxWidth": false
   },
+  "gantt": {
+    "barGap": 7,
+    "barHeight": 28,
+    "gridLineStartPadding": 0,
+    "leftPadding": 70,
+    "rightPadding": 70,
+    "titleTopMargin": 0,
+    "topPadding": 70,
+    "useMaxWidth": false
+  },
   "sequence": {
     "bottomMarginAdj": 14,
     "boxMargin": 14,
@@ -15,5 +25,6 @@
     "mirrorActors": true,
     "useMaxWidth": false
   },
-  "themeCSS": "/* loaded from style.css */"
+  "themeCSS": "/* loaded from style.css */",
+  "themeVariables": {}
 }
