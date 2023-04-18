@@ -46,7 +46,13 @@ path.er.relationshipLabelBox {
 }
 
 path.er.relationshipLine {
+  fill: none;
   stroke: var(--braid-grey-500);
+}
+
+text.er {
+  dominant-baseline: central;
+  text-anchor: middle;
 }
 
 /* flowchart v2 */
