@@ -345,7 +345,7 @@ export const MyFirstInlineCode = () => (
 
 Render an internal link with the same opinions as our [MdxProvider](#mdxprovider):
 
-- Internal links pass through the `v` URL parameter for UI version switching
+- Internal links pass through the `v` and `v-panel` URL parameters for UI version switching
 
 Unlike [SmartTextLink](#smarttextlink), this is not bound to a parent [Text] as it has no underlying [TextLink].
 It can be used to make complex components navigable rather than just sections of text.
@@ -398,7 +398,7 @@ export const Component = () => (
 
 Render all underlying links as follows:
 
-- Internal links pass through the `v` URL parameter for UI version switching
+- Internal links pass through the `v` and `v-panel` URL parameters for UI version switching
 - External links open in a new tab
 - Links with a [`download` attribute] prompt the user with a file download
 

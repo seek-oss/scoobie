@@ -36,6 +36,19 @@ describe('parseInternalHref', () => {
     });
   });
 
+  it('preferences the v-panel URL parameter from location', () => {
+    const to = parseInternalHref('/hello?v-panel=v1&b=b1', {
+      pathname: '/',
+      search: '?a=1&v-panel=2&b=3',
+    });
+
+    expect(to).toEqual({
+      hash: '',
+      pathname: '/hello',
+      search: 'v-panel=2&b=b1',
+    });
+  });
+
   describe.each(['/page-1', '/page-1/'])(
     'given pathname %s',
     (inputPathname) => {

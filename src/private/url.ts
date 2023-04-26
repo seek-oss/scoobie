@@ -5,10 +5,13 @@ const URLSearchParams = url.URLSearchParams ?? window.URLSearchParams;
 
 const EXAMPLE_BASE_URL = 'https://example.com';
 
-const parseVersionParam = (search: string) => {
+const parseVersionParams = (search: string) => {
   const urlSearchParams = new URLSearchParams(search);
 
-  return urlSearchParams.get('v');
+  return {
+    v: urlSearchParams.get('v'),
+    vPanel: urlSearchParams.get('v-panel'),
+  };
 };
 
 const hrefToUrl = (href: string, pathname: string) => {
@@ -32,10 +35,13 @@ export const parseInternalHref = (
 ) => {
   const { hash, pathname, searchParams } = hrefToUrl(href, location.pathname);
 
-  const v = parseVersionParam(location.search);
+  const { v, vPanel } = parseVersionParams(location.search);
 
   if (v !== null) {
     searchParams.set('v', v);
+  }
+  if (vPanel !== null) {
+    searchParams.set('v-panel', vPanel);
   }
 
   const search = searchParams.toString();
