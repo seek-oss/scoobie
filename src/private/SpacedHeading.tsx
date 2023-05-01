@@ -1,9 +1,9 @@
 import { Box, Heading, IconLink, Text } from 'braid-design-system';
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { type FunctionComponent, type ReactNode } from 'react';
 
 import { SmartTextLink } from '../components/SmartTextLink';
 
-import { HeadingLevel } from './types';
+import type { HeadingLevel } from './types';
 
 import * as styles from './SpacedHeading.css';
 

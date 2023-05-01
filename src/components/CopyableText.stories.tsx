@@ -1,10 +1,13 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
 
-import React from 'react';
-import { ComponentProps } from 'react';
+import React, { type ComponentProps } from 'react';
 
-import { BraidArgs, defaultArgTypes, defaultArgs } from '../storybook/controls';
+import {
+  type BraidArgs,
+  defaultArgTypes,
+  defaultArgs,
+} from '../storybook/controls';
 import { BraidStorybookProvider, withRouter } from '../storybook/decorators';
 
 import { CopyableText as Component } from './CopyableText';

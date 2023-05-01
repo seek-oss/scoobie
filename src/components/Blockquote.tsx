@@ -1,8 +1,8 @@
 import { Box, Heading, Secondary, Stack } from 'braid-design-system';
 import React from 'react';
 
-import { DEFAULT_SIZE, SIZE_TO_SPACE, Size } from '../private/size';
-import { StackChildrenProps } from '../private/types';
+import { DEFAULT_SIZE, SIZE_TO_SPACE, type Size } from '../private/size';
+import type { StackChildrenProps } from '../private/types';
 
 import * as styles from './Blockquote.css';
 

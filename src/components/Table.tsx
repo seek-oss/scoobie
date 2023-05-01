@@ -1,14 +1,14 @@
-import { Box, Stack } from 'braid-design-system';
-import React, { ComponentProps, ReactNode } from 'react';
+import { Box, type Stack } from 'braid-design-system';
+import React, { type ComponentProps, type ReactNode } from 'react';
 
 import { BaseTable } from '../private/Table';
 import {
   DEFAULT_TABLE_TYPE,
-  TableAlign,
+  type TableAlign,
   TableContext,
-  TableType,
+  type TableType,
 } from '../private/TableContext';
-import { DEFAULT_SIZE, Size } from '../private/size';
+import { DEFAULT_SIZE, type Size } from '../private/size';
 
 import { TableRow } from './TableRow';
 

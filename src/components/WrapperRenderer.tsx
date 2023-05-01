@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { WrapperComponent } from '../private/Wrapper';
+import type { WrapperComponent } from '../private/Wrapper';
 import { DEFAULT_SIZE } from '../private/size';
 import { useMdxWrapper } from '../private/useMdxWrapper';
 

@@ -13,10 +13,10 @@ import { MdxTable } from './Table';
 import { TableCell } from './TableCell';
 import { BaseTableRow } from './TableRow';
 import { Wrapper } from './Wrapper';
-import { SIZE_TO_SPACE, Size } from './size';
+import { SIZE_TO_SPACE, type Size } from './size';
 
-import { img } from '../../styles/img.css';
 import * as styles from './useMdxComponents.css';
+import { img } from '../../styles/img.css';
 
 interface Props {
   size: Size;

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { CodeBlock } from '../components/CodeBlock';
-import { CodeChildProps } from '../components/CodeBlock/CodeChild';
+import type { CodeChildProps } from '../components/CodeBlock/CodeChild';
 
 import { useGraphQLPlayground } from './hooks/graphqlPlayground';
-import { Size } from './size';
+import type { Size } from './size';
 
 const toLabel = (meta?: string) => meta?.match(/label="([^"]+)"/)?.[1];
 

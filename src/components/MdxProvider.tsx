@@ -1,8 +1,8 @@
 import { MDXProvider } from '@mdx-js/react';
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import { GraphQLPlaygroundProvider } from '../private/hooks/graphqlPlayground';
-import { DEFAULT_SIZE, Size } from '../private/size';
+import { DEFAULT_SIZE, type Size } from '../private/size';
 import { useMdxComponents } from '../private/useMdxComponents';
 
 interface MdxProviderProps {

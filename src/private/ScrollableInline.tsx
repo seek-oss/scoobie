@@ -1,5 +1,5 @@
 import { Box } from 'braid-design-system';
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import * as styles from './ScrollableInline.css';
 

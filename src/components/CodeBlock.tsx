@@ -9,10 +9,10 @@ import {
   DEFAULT_SIZE,
   SIZE_TO_SMALLER,
   SIZE_TO_TABLE_PADDING,
-  Size,
+  type Size,
 } from '../private/size';
 
-import { CodeChildProps, normaliseChildren } from './CodeBlock/CodeChild';
+import { type CodeChildProps, normaliseChildren } from './CodeBlock/CodeChild';
 import { GraphQLPlaygroundAction } from './CodeBlock/GraphQLPlaygroundAction';
 import { LineNumbers } from './CodeBlock/LineNumbers';
 import { Lines } from './CodeBlock/Lines';

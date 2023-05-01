@@ -1,8 +1,8 @@
 import { Box, Stack } from 'braid-design-system';
-import React, { FunctionComponent } from 'react';
+import React, { type FunctionComponent } from 'react';
 
-import { SIZE_TO_SPACE, Size } from './size';
-import { StackChildrenProps } from './types';
+import { SIZE_TO_SPACE, type Size } from './size';
+import type { StackChildrenProps } from './types';
 
 import * as styles from './Wrapper.css';
 

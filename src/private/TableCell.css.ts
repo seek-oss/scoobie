@@ -1,7 +1,7 @@
 import { styleVariants } from '@vanilla-extract/css';
 import { vars } from 'braid-design-system/css';
 
-import { SIZE_TO_TABLE_PADDING, Size } from './size';
+import { SIZE_TO_TABLE_PADDING, type Size } from './size';
 
 import { tableRowSelection } from './TableRow.css';
 
