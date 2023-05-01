@@ -11,6 +11,7 @@ declare module '*.mdx' {
 }
 
 declare namespace MDX {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   type Document = import('react').FunctionComponent<{
     components?:
       | ProviderComponents
@@ -20,6 +21,7 @@ declare namespace MDX {
   // Braid's type-level strictness does not play well with dynamic ReactNodes,
   // so we simply lie to TypeScript.
   type ProviderComponent<Props = Record<string, unknown>> =
+    // eslint-disable-next-line @typescript-eslint/consistent-type-imports
     import('react').ComponentType<{ children: any } & Props>;
 
   type ProviderComponents = Partial<{
