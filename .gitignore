@@ -15,3 +15,5 @@ dist/
 report/
 tsconfig.json
 # end managed by sku
+
+!/remark/tsconfig.json

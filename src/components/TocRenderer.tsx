@@ -1,6 +1,6 @@
-import React, { Children, FunctionComponent, ReactNode } from 'react';
+import React, { Children, type FunctionComponent, type ReactNode } from 'react';
 
-import { HeadingLevel, StackChildrenProps } from '../private/types';
+import type { HeadingLevel, StackChildrenProps } from '../private/types';
 import { isMdxElement } from '../private/validation';
 
 import { WrapperRenderer } from './WrapperRenderer';

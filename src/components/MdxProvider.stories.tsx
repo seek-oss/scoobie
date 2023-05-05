@@ -1,12 +1,11 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
 
-import React from 'react';
-import { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import {
-  BraidArgs,
-  MdxArgs,
+  type BraidArgs,
+  type MdxArgs,
   defaultArgTypes,
   defaultArgs,
 } from '../storybook/controls';

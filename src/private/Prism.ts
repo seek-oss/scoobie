@@ -1,4 +1,4 @@
-import { Language, Prism } from 'prism-react-renderer';
+import { type Language, Prism } from 'prism-react-renderer';
 // @ts-ignore
 import csharpLang from 'refractor/lang/csharp';
 // @ts-ignore

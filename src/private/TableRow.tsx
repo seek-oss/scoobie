@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 
 import { TableContext } from '../private/TableContext';
 
-import { StackChildrenProps } from './types';
+import type { StackChildrenProps } from './types';
 
 import * as styles from './TableRow.css';
 

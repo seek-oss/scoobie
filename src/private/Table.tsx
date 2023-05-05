@@ -1,13 +1,13 @@
 import { Box } from 'braid-design-system';
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import {
   DEFAULT_TABLE_CELL_COMPONENT,
   DEFAULT_TABLE_TYPE,
   TableContext,
-  TableType,
+  type TableType,
 } from './TableContext';
-import { DEFAULT_SIZE, Size } from './size';
+import { DEFAULT_SIZE, type Size } from './size';
 
 import * as styles from './Table.css';
 

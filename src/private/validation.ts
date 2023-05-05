@@ -1,4 +1,4 @@
-import { MdxElement } from './types';
+import type { MdxElement } from './types';
 
 const isObject = (value: unknown): value is Record<PropertyKey, unknown> =>
   typeof value === 'object' && value !== null;

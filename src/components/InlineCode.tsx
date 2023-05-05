@@ -1,5 +1,5 @@
 import { Box } from 'braid-design-system';
-import React, { Fragment, ReactNode } from 'react';
+import React, { Fragment, type ReactNode } from 'react';
 
 import * as styles from './InlineCode.css';
 

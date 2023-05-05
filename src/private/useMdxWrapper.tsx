@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Wrapper, WrapperComponent } from './Wrapper';
-import { Size } from './size';
-import { StackChildrenProps } from './types';
+import { Wrapper, type WrapperComponent } from './Wrapper';
+import type { Size } from './size';
+import type { StackChildrenProps } from './types';
 
 export const useMdxWrapper =
   (component: WrapperComponent, size: Size) =>

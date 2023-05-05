@@ -1,5 +1,5 @@
 import { TextLink } from 'braid-design-system';
-import React, { ComponentProps, ReactNode } from 'react';
+import React, { type ComponentProps, type ReactNode } from 'react';
 
 import { ExternalTextLink } from '../private/ExternalTextLink';
 import { isExternalHref } from '../private/url';

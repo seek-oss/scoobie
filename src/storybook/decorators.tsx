@@ -7,16 +7,16 @@ import { BraidProvider, Card, ContentBlock } from 'braid-design-system';
 import apac from 'braid-design-system/themes/apac';
 import docs from 'braid-design-system/themes/docs';
 import wireframe from 'braid-design-system/themes/wireframe';
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
-import { addDecorator } from 'sku/@storybook/react';
+import type { addDecorator } from 'sku/@storybook/react';
 
 import { MdxProvider, ScoobieLink } from '..';
 import { robotoHref, robotoMonoHref } from '../../typography';
-import { Size } from '../private/size';
+import type { Size } from '../private/size';
 
-import { BraidThemeName } from './controls';
+import type { BraidThemeName } from './controls';
 
 const THEMES = { apac, docs, wireframe };
 

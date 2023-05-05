@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { DEFAULT_SIZE, Size } from './size';
+import { DEFAULT_SIZE, type Size } from './size';
 
 interface TableContextValue {
   align?: ReadonlyArray<TableAlign>;

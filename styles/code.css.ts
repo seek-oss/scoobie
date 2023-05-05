@@ -2,7 +2,7 @@ import { createStyleObject, getCapHeight } from '@capsizecss/core';
 import { styleVariants } from '@vanilla-extract/css';
 import { responsiveStyle } from 'braid-design-system/css';
 
-import { Size } from '../src/private/size';
+import type { Size } from '../src/private/size';
 
 import { monospaceFontFamily } from '.';
 

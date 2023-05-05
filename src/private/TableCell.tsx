@@ -1,9 +1,9 @@
 import { Box, Stack } from 'braid-design-system';
 import React, { useContext } from 'react';
 
-import { TableAlign, TableContext } from './TableContext';
+import { type TableAlign, TableContext } from './TableContext';
 import { SIZE_TO_SPACE, SIZE_TO_TABLE_PADDING } from './size';
-import { StackChildrenProps } from './types';
+import type { StackChildrenProps } from './types';
 
 import * as styles from './TableCell.css';
 

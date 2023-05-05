@@ -1,5 +1,5 @@
-import { Stack, Text } from 'braid-design-system';
-import React, { Children, ComponentProps, useContext } from 'react';
+import { type Stack, Text } from 'braid-design-system';
+import React, { Children, type ComponentProps, useContext } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { TableCell } from '../private/TableCell';

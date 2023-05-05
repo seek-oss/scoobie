@@ -2,9 +2,13 @@ import 'braid-design-system/reset';
 import 'loki/configure-react';
 
 import { Text } from 'braid-design-system';
-import React, { ComponentProps, Fragment } from 'react';
+import React, { type ComponentProps, Fragment } from 'react';
 
-import { BraidArgs, defaultArgTypes, defaultArgs } from '../storybook/controls';
+import {
+  type BraidArgs,
+  defaultArgTypes,
+  defaultArgs,
+} from '../storybook/controls';
 import { BraidStorybookProvider, withRouter } from '../storybook/decorators';
 
 import { Table as Component } from './Table';

@@ -1,5 +1,10 @@
 import { IconCopy, IconTick, Text, TextLinkButton } from 'braid-design-system';
-import React, { ComponentProps, ReactNode, useCallback, useState } from 'react';
+import React, {
+  type ComponentProps,
+  type ReactNode,
+  useCallback,
+  useState,
+} from 'react';
 
 interface Props {
   children: string;

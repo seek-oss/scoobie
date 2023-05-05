@@ -4,7 +4,11 @@ import 'loki/configure-react';
 import { Stack, Text } from 'braid-design-system';
 import React from 'react';
 
-import { BraidArgs, defaultArgTypes, defaultArgs } from '../storybook/controls';
+import {
+  type BraidArgs,
+  defaultArgTypes,
+  defaultArgs,
+} from '../storybook/controls';
 import { BraidStorybookProvider, withRouter } from '../storybook/decorators';
 import HeadingMarkdown from '../storybook/markdown/heading.mdx';
 

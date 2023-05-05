@@ -2,10 +2,13 @@ import 'braid-design-system/reset';
 import 'loki/configure-react';
 
 import { List, Text } from 'braid-design-system';
-import React from 'react';
-import { ComponentProps } from 'react';
+import React, { type ComponentProps } from 'react';
 
-import { BraidArgs, defaultArgTypes, defaultArgs } from '../storybook/controls';
+import {
+  type BraidArgs,
+  defaultArgTypes,
+  defaultArgs,
+} from '../storybook/controls';
 import { BraidStorybookProvider, withRouter } from '../storybook/decorators';
 
 import { Blockquote as Component } from './Blockquote';

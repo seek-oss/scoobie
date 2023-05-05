@@ -1,7 +1,7 @@
 import { Box, Stack } from 'braid-design-system';
 import React from 'react';
 
-import { Size } from '../../private/size';
+import type { Size } from '../../private/size';
 
 import { code } from '../../../styles/code.css';
 import * as styles from '../CodeBlock.css';

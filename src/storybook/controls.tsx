@@ -1,4 +1,4 @@
-import { DEFAULT_SIZE, SIZES, Size } from '../private/size';
+import { DEFAULT_SIZE, SIZES, type Size } from '../private/size';
 
 export interface BraidArgs {
   braidThemeName: BraidThemeName;
