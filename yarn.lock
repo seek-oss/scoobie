@@ -8284,10 +8284,10 @@ eslint-config-prettier@^8.6.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.8.0.tgz#bfda738d412adc917fd7b038857110efe98c9348"
   integrity sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==
 
-eslint-config-seek@^11.0.0:
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-seek/-/eslint-config-seek-11.0.1.tgz#6217cd2b3d7ee248e2683c1279508c704b054b27"
-  integrity sha512-bGkX29Jtthb3fkDodNtkZ7/vzS72PShC0x6UUErjcn6IMkpH6RPpDitTtVWWkmeM6sPiBwzmZLtiF1Km6d7+lA==
+eslint-config-seek@^11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-seek/-/eslint-config-seek-11.1.0.tgz#347f9ca8645abc09a27b325325041adfaa12dc42"
+  integrity sha512-PQZd9gpeOcO91V8feCpVb+ambVytczikQUl1eEedKxdxGcsE42mcRSR8nr712HJnaEkj2gGhrjvok5i5X8sA3Q==
   dependencies:
     "@babel/core" "^7.21.0"
     "@babel/eslint-parser" "^7.19.1"
@@ -16368,10 +16368,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@11.10.0:
-  version "11.10.0"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-11.10.0.tgz#6aa8a5536206bd7bf79f33abded6e95e7cd45451"
-  integrity sha512-ubguTgM74nXxWNh9S9cjO1tFb8RpT3I1GY3BIvMyn+uvEwi/ccnRuz25oq/v2+lYkc4JEgtPaLtfc5HVQPleSw==
+sku@11.11.0:
+  version "11.11.0"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-11.11.0.tgz#3ca520b49250b9636f30310a5d9e57d5aabd1e8a"
+  integrity sha512-8kE+Q0dcOQQ8xONMgzDRfbSmIugdxryWcLcH8qjYo0/2EbhASLaF1JwFO+WwkCfhJOBJYJjCqJ4TSYFylx3FVg==
   dependencies:
     "@babel/core" "^7.18.0"
     "@babel/plugin-transform-react-constant-elements" "^7.18.0"
@@ -16428,7 +16428,7 @@ sku@11.10.0:
     esbuild-register "^3.3.3"
     escape-string-regexp "^4.0.0"
     eslint "^7.18.0"
-    eslint-config-seek "^11.0.0"
+    eslint-config-seek "^11.1.0"
     exception-formatter "^2.1.2"
     express "^4.16.3"
     fast-glob "^3.2.5"
