@@ -16,6 +16,7 @@ export const ExternalTextLink = ({ children, href, icon, title }: Props) => (
     target="_blank"
     title={title}
   >
-    {children} <IconNewWindow alignY="lowercase" />
+    {children}&nbsp;
+    <IconNewWindow alignY="lowercase" />
   </TextLink>
 );
