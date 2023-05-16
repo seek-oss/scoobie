@@ -1,9 +1,9 @@
 import { Box, Stack, Text, TextLinkButton } from 'braid-design-system';
 import { parse } from 'jsonc-parser';
-import Highlight from 'prism-react-renderer';
+import { Highlight } from 'prism-react-renderer';
 import React, { useState } from 'react';
 
-import { Prism, prismTheme } from '../private/Prism';
+import { Prism, themes } from '../private/Prism';
 import { ScrollableInline } from '../private/ScrollableInline';
 import {
   DEFAULT_SIZE,
@@ -117,10 +117,10 @@ export const CodeBlock = ({
 
       <Box borderRadius="large" className={styles.codeContainer}>
         <Highlight
-          Prism={Prism}
+          prism={Prism}
           code={child.code}
           language={child.language}
-          theme={prismTheme}
+          theme={themes.github}
         >
           {({ getTokenProps, tokens }) => (
             <Box display="flex">
