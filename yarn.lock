@@ -16368,10 +16368,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@11.11.2:
-  version "11.11.2"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-11.11.2.tgz#487e0b2b60523109cacf9e4b9892531dbbd3c6ce"
-  integrity sha512-ogcTlax7xuhVzZaHvlHtRVGOIajSnfdmKkXRuRsFsohsnRtGhnQPARaoANXCpjixwyWpUCuyLTCay7IMHXz2mQ==
+sku@11.12.0:
+  version "11.12.0"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-11.12.0.tgz#e586838638df5b9f497ad8e28929e6acce511512"
+  integrity sha512-NgOMXx3tOvUUTNUlvm8h+emMtF8wWvFz92twkWUdH2ZgOml9L9isGylFeJ5BqDVRVGUPX7xU4rdq4WOngx3tqA==
   dependencies:
     "@babel/core" "^7.18.0"
     "@babel/plugin-transform-react-constant-elements" "^7.18.0"
