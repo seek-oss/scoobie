@@ -1,11 +1,9 @@
-import url from 'url';
-
 import { IconVideo, Text, TextLink } from 'braid-design-system';
 import React from 'react';
 
 import { SIZE_TO_SMALLER, type Size } from '../../private/size';
 
-const URL = url.URL ?? window.URL;
+const URL = window.URL;
 
 interface Props {
   query: string;

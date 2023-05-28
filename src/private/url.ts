@@ -1,7 +1,5 @@
-import url from 'url';
-
-const URL = url.URL ?? window.URL;
-const URLSearchParams = url.URLSearchParams ?? window.URLSearchParams;
+const URL = window.URL;
+const URLSearchParams = window.URLSearchParams;
 
 const EXAMPLE_BASE_URL = 'https://example.com';
 
