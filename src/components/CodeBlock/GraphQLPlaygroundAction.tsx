@@ -3,8 +3,6 @@ import React from 'react';
 
 import { SIZE_TO_SMALLER, type Size } from '../../private/size';
 
-const URL = window.URL;
-
 interface Props {
   query: string;
   variables: string | undefined;

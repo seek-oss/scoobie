@@ -1,6 +1,3 @@
-const URL = window.URL;
-const URLSearchParams = window.URLSearchParams;
-
 const EXAMPLE_BASE_URL = 'https://example.com';
 
 const parseVersionParams = (search: string) => {
