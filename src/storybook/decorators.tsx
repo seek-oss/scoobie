@@ -3,7 +3,7 @@
  *
  * {@link https://github.com/storybookjs/storybook/issues/11984}
  */
-import { BraidProvider, Card, ContentBlock } from 'braid-design-system';
+import { BraidProvider, Card, PageBlock } from 'braid-design-system';
 import apac from 'braid-design-system/themes/apac';
 import docs from 'braid-design-system/themes/docs';
 import wireframe from 'braid-design-system/themes/wireframe';
@@ -30,9 +30,9 @@ export const BraidStorybookProvider = ({
   children,
 }: ProviderProps) => (
   <BraidProvider theme={THEMES[braidThemeName]} linkComponent={ScoobieLink}>
-    <ContentBlock>
+    <PageBlock>
       <Card>{children}</Card>
-    </ContentBlock>
+    </PageBlock>
   </BraidProvider>
 );
 
