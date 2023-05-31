@@ -4,11 +4,14 @@ import csharpLang from 'refractor/lang/csharp';
 // @ts-ignore
 import httpLang from 'refractor/lang/http';
 // @ts-ignore
+import jsonLang from 'refractor/lang/json';
+// @ts-ignore
 import splunkSplLang from 'refractor/lang/splunk-spl';
 
 csharpLang(Prism);
 httpLang(Prism);
 splunkSplLang(Prism);
+jsonLang(Prism);
 
 export { Prism } from 'prism-react-renderer';
 export { themes } from 'prism-react-renderer';
