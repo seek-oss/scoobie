@@ -345,11 +345,12 @@ export const MyFirstInlineCode = () => (
 
 Render an internal link with the same opinions as our [MdxProvider](#mdxprovider):
 
-- Internal links pass through the `v` and `v-panel` URL parameters for UI version switching
+- Internal links pass through the `v` or [ScoobieLinkProvider] URL parameters for UI version switching
 
 Unlike [SmartTextLink](#smarttextlink), this is not bound to a parent [Text] as it has no underlying [TextLink].
 It can be used to make complex components navigable rather than just sections of text.
 
+[scoobielinkprovider]: #scoobielinkprovider
 [text]: https://seek-oss.github.io/braid-design-system/components/Text/
 [textlink]: https://seek-oss.github.io/braid-design-system/components/TextLink/
 
@@ -398,7 +399,7 @@ export const Component = () => (
 
 Render all underlying links as follows:
 
-- Internal links pass through the `v` and `v-panel` URL parameters for UI version switching
+- Internal links pass through the `v` or [ScoobieLinkProvider] URL parameters for UI version switching
 - External links open in a new tab
 - Links with a [`download` attribute] prompt the user with a file download
 
@@ -420,6 +421,25 @@ export const Component = () => (
 ```
 
 [braidprovider]: https://seek-oss.github.io/braid-design-system/components/BraidProvider
+
+### ScoobieLinkProvider
+
+Propagate a custom set of URL parameters on internal links.
+
+```tsx
+import { BraidProvider, TextLink } from 'braid-design-system';
+import apacTheme from 'braid-design-system/themes/apac';
+import React from 'react';
+import { ScoobieLink } from 'scoobie';
+
+export const Component = () => (
+  <ScoobieLinkProvider propagateSearchParams={['debug', 'v']}>
+    <BraidProvider linkComponent={ScoobieLink} theme={apacTheme}>
+      <TextLink href="/root-relative">Internal link</TextLink>
+    </BraidProvider>
+  </ScoobieLinkProvider>
+);
+```
 
 ### SmartTextLink
 

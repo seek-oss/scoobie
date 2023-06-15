@@ -4,6 +4,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 import { parseInternalHref } from '../private/url';
 
+import { useScoobieLink } from './ScoobieLinkProvider';
+
 import * as styles from './InternalLink.css';
 
 interface Props
@@ -18,7 +20,12 @@ export const InternalLink = forwardRef<HTMLAnchorElement, Props>(
   ({ className, href, reset = true, state, ...restProps }, ref) => {
     const location = useLocation();
 
-    const to = { ...parseInternalHref(href, location), state };
+    const { propagateSearchParams } = useScoobieLink();
+
+    const to = {
+      ...parseInternalHref(href, location, propagateSearchParams),
+      state,
+    };
 
     return (
       <NavLink
