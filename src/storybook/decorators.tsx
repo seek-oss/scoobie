@@ -10,7 +10,7 @@ import wireframe from 'braid-design-system/themes/wireframe';
 import React, { type ReactNode } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
-import type { addDecorator } from 'sku/@storybook/react';
+import type { Decorator } from 'sku/@storybook/react';
 
 import { MdxProvider, ScoobieLink } from '..';
 import { robotoHref, robotoMonoHref } from '../../typography';
@@ -53,17 +53,14 @@ export const MdxStorybookProvider = ({
   </MdxProvider>
 );
 
-type DecoratorFn = Parameters<typeof addDecorator>[0];
-
-export const withRouter: DecoratorFn = (story) => (
+export const withRouter: Decorator = (Story) => (
   <BrowserRouter>
     <HelmetProvider>
       <Helmet>
         <link href={robotoHref} rel="stylesheet" />
         <link href={robotoMonoHref} rel="stylesheet" />
       </Helmet>
-
-      {story()}
+      <Story />
     </HelmetProvider>
   </BrowserRouter>
 );
