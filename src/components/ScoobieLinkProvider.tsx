@@ -22,8 +22,8 @@ interface ScoobieLinkProviderProps {
 export const ScoobieLinkProvider = ({
   children,
   ...value
-}: ScoobieLinkProviderProps) => {
-  <ctx.Provider value={value}>{children}</ctx.Provider>;
-};
+}: ScoobieLinkProviderProps) => (
+  <ctx.Provider value={value}>{children}</ctx.Provider>
+)
 
 export const useScoobieLink = () => useContext(ctx);
