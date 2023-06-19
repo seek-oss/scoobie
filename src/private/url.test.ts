@@ -24,10 +24,14 @@ describe('isExternalHref', () => {
 
 describe('parseInternalHref', () => {
   it('preferences the v URL parameter from location', () => {
-    const to = parseInternalHref('/hello?v=v1&b=b1', {
-      pathname: '/',
-      search: '?a=1&v=2&b=3',
-    });
+    const to = parseInternalHref(
+      '/hello?v=v1&b=b1',
+      {
+        pathname: '/',
+        search: '?a=1&v=2&b=3',
+      },
+      ['v'],
+    );
 
     expect(to).toEqual({
       hash: '',
@@ -37,15 +41,36 @@ describe('parseInternalHref', () => {
   });
 
   it('preferences the v-panel URL parameter from location', () => {
-    const to = parseInternalHref('/hello?v-panel=v1&b=b1', {
-      pathname: '/',
-      search: '?a=1&v-panel=2&b=3',
-    });
+    const to = parseInternalHref(
+      '/hello?v-panel=v1&b=b1',
+      {
+        pathname: '/',
+        search: '?a=1&v-panel=2&b=3',
+      },
+      ['v', 'v-panel'],
+    );
 
     expect(to).toEqual({
       hash: '',
       pathname: '/hello',
       search: 'v-panel=2&b=b1',
+    });
+  });
+
+  it('propagates multiple parameters from location', () => {
+    const to = parseInternalHref(
+      '/hello?d=4',
+      {
+        pathname: '/',
+        search: '?a=1&b=2&c=3',
+      },
+      ['a', 'b'],
+    );
+
+    expect(to).toEqual({
+      hash: '',
+      pathname: '/hello',
+      search: 'd=4&a=1&b=2',
     });
   });
 
@@ -117,10 +142,14 @@ describe('parseInternalHref', () => {
           },
         ],
       ])('handles %s', (_, inputHref, expected) => {
-        const to = parseInternalHref(inputHref, {
-          pathname: inputPathname,
-          search: '',
-        });
+        const to = parseInternalHref(
+          inputHref,
+          {
+            pathname: inputPathname,
+            search: '',
+          },
+          ['debug'],
+        );
 
         expect(to).toEqual(expected);
       });

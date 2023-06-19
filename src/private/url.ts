@@ -1,14 +1,5 @@
 const EXAMPLE_BASE_URL = 'https://example.com';
 
-const parseVersionParams = (search: string) => {
-  const urlSearchParams = new URLSearchParams(search);
-
-  return {
-    v: urlSearchParams.get('v'),
-    vPanel: urlSearchParams.get('v-panel'),
-  };
-};
-
 const hrefToUrl = (href: string, pathname: string) => {
   if (href.startsWith('/')) {
     return new URL(`${EXAMPLE_BASE_URL}${href}`);
@@ -27,16 +18,18 @@ export const parseInternalHref = (
     pathname: string;
     search: string;
   },
+  propagateSearchParams: string[],
 ) => {
   const { hash, pathname, searchParams } = hrefToUrl(href, location.pathname);
 
-  const { v, vPanel } = parseVersionParams(location.search);
+  const priorSearchParams = new URLSearchParams(location.search);
 
-  if (v !== null) {
-    searchParams.set('v', v);
-  }
-  if (vPanel !== null) {
-    searchParams.set('v-panel', vPanel);
+  for (const key of propagateSearchParams) {
+    const value = priorSearchParams.get(key);
+
+    if (value !== null) {
+      searchParams.set(key, value);
+    }
   }
 
   const search = searchParams.toString();
