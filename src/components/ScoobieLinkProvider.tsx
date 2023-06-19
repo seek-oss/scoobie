@@ -24,6 +24,6 @@ export const ScoobieLinkProvider = ({
   ...value
 }: ScoobieLinkProviderProps) => (
   <ctx.Provider value={value}>{children}</ctx.Provider>
-)
+);
 
 export const useScoobieLink = () => useContext(ctx);
