@@ -1,4 +1,3 @@
-import 'braid-design-system/reset';
 import 'loki/configure-react';
 
 import type { StoryObj } from 'sku/@storybook/react';

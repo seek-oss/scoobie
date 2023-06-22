@@ -1,4 +1,3 @@
-import 'braid-design-system/reset';
 import 'loki/configure-react';
 import { Text } from 'braid-design-system';
 import React, { type ComponentProps } from 'react';

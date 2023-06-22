@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { robotoHref, robotoMonoHref } from '../typography';
 import type { Preview } from 'sku/@storybook/react';
-import { DEFAULT_SIZE, SIZES, type Size } from '../src/private/size';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
 import apac from 'braid-design-system/themes/apac';

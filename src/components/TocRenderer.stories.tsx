@@ -1,4 +1,3 @@
-import 'braid-design-system/reset';
 import 'loki/configure-react';
 
 import { Stack, Text } from 'braid-design-system';

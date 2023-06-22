@@ -1,4 +1,3 @@
-import 'braid-design-system/reset';
 import 'loki/configure-react';
 
 import type { MDXProvider } from '@mdx-js/react';
