@@ -13,38 +13,8 @@ import docs from 'braid-design-system/themes/docs';
 import wireframe from 'braid-design-system/themes/wireframe';
 
 const THEMES = { seekJobs, apac, docs, wireframe };
-export interface BraidArgs {
-  braidThemeName: BraidThemeName;
-}
-
-export interface MdxArgs {
-  mdxSize: Size;
-}
-
-export const defaultArgs = {
-  braidThemeName: 'apac' as const,
-  mdxSize: DEFAULT_SIZE,
-  size: 'standard',
-};
 
 export type BraidThemeName = 'seekJobs' | 'apac' | 'docs' | 'wireframe';
-
-export const defaultArgTypes = {
-  braidThemeName: {
-    control: { type: 'radio' },
-    name: 'Braid theme',
-    options: ['apac', 'docs', 'wireframe'],
-  },
-  mdxSize: {
-    control: { type: 'radio' },
-    name: 'MDX size',
-    options: SIZES,
-  },
-  size: {
-    control: { type: 'radio' },
-    options: ['standard', 'large'],
-  },
-};
 
 export default {
   globalTypes: {
