@@ -1,19 +1,11 @@
 import 'braid-design-system/reset';
 import 'loki/configure-react';
 
-import React, { type ReactNode } from 'react';
+import type { MDXProvider } from '@mdx-js/react';
+import React from 'react';
+import type { StoryObj } from 'sku/@storybook/react';
 
-import {
-  type BraidArgs,
-  type MdxArgs,
-  defaultArgTypes,
-  defaultArgs,
-} from '../storybook/controls';
-import {
-  BraidStorybookProvider,
-  MdxStorybookProvider,
-  withRouter,
-} from '../storybook/decorators';
+import { SIZES } from '../private/size';
 import BlockquoteMarkdown from '../storybook/markdown/blockquote.mdx';
 import CodeMarkdown from '../storybook/markdown/code.mdx';
 import HeadingMarkdown from '../storybook/markdown/heading.mdx';
@@ -29,95 +21,89 @@ import TableMarkdown from '../storybook/markdown/table.mdx';
 import { MdxProvider } from './MdxProvider';
 
 export default {
+  title: 'MDX/MdxProvider',
+  component: MdxProvider,
   args: {
-    braidThemeName: defaultArgs.braidThemeName,
-    mdxSize: defaultArgs.mdxSize,
+    mdxSize: 'standard',
   },
   argTypes: {
-    braidThemeName: defaultArgTypes.braidThemeName,
-    mdxSize: defaultArgTypes.mdxSize,
+    control: { type: 'radio' },
+    name: 'MDX size',
+    options: SIZES,
   },
-  component: MdxProvider,
-  decorators: [withRouter],
-  title: 'MDX/MdxProvider',
 };
 
-type Args = { children: ReactNode } & BraidArgs & MdxArgs;
+type Story = StoryObj<typeof MDXProvider>;
 
-const Provider = ({ braidThemeName, children, mdxSize }: Args) => (
-  <BraidStorybookProvider braidThemeName={braidThemeName}>
-    <MdxStorybookProvider mdxSize={mdxSize}>{children}</MdxStorybookProvider>
-  </BraidStorybookProvider>
-);
+export const Blockquote: Story = {
+  args: {
+    children: <BlockquoteMarkdown />,
+  },
+};
 
-export const Blockquote = (args: Args) => (
-  <Provider {...args}>
-    <BlockquoteMarkdown />
-  </Provider>
-);
+export const Code: Story = {
+  args: {
+    children: <CodeMarkdown />,
+  },
+};
 
-export const Code = (args: Args) => (
-  <Provider {...args}>
-    <CodeMarkdown />
-  </Provider>
-);
+export const Heading: Story = {
+  args: {
+    children: <HeadingMarkdown />,
+  },
+};
 
-export const Heading = (args: Args) => (
-  <Provider {...args}>
-    <HeadingMarkdown />
-  </Provider>
-);
+export const ImageExternal: Story = {
+  args: {
+    children: <ImageExternalMarkdown />,
+  },
+  parameters: { loki: { skip: true } },
+  name: 'Image › External',
+};
 
-export const ImageExternal = (args: Args) => (
-  <Provider {...args}>
-    <ImageExternalMarkdown />
-  </Provider>
-);
-ImageExternal.parameters = { loki: { skip: true } };
-ImageExternal.storyName = 'Image › External';
+export const ImageInternal: Story = {
+  args: {
+    children: <ImageInternalMarkdown />,
+  },
+  parameters: { loki: { skip: true } },
+  name: 'Image › Internal',
+};
 
-export const ImageInternal = (args: Args) => (
-  <Provider {...args}>
-    <ImageInternalMarkdown />
-  </Provider>
-);
-ImageInternal.storyName = 'Image › Internal';
+export const InlineReact: Story = {
+  args: {
+    children: <InlineReactMarkdown />,
+  },
+};
 
-export const InlineReact = (args: Args) => (
-  <Provider {...args}>
-    <InlineReactMarkdown />
-  </Provider>
-);
+export const Lists: Story = {
+  args: {
+    children: <ListMarkdown />,
+  },
+};
 
-export const Lists = (args: Args) => (
-  <Provider {...args}>
-    <ListMarkdown />
-  </Provider>
-);
+export const MermaidEr: Story = {
+  args: {
+    children: <MermaidErMarkdown />,
+  },
+  name: 'Mermaid › ER',
+};
 
-export const MermaidEr = (args: Args) => (
-  <Provider {...args}>
-    <MermaidErMarkdown />
-  </Provider>
-);
-MermaidEr.storyName = 'Mermaid › ER';
+export const MermaidFlowchart: Story = {
+  args: {
+    children: <MermaidFlowchartMarkdown />,
+  },
+  name: 'Mermaid › Flowchart',
+};
 
-export const MermaidFlowchart = (args: Args) => (
-  <Provider {...args}>
-    <MermaidFlowchartMarkdown />
-  </Provider>
-);
-MermaidFlowchart.storyName = 'Mermaid › Flowchart';
+export const MermaidSequence: Story = {
+  args: {
+    children: <MermaidSequenceMarkdown />,
+  },
+  name: 'Mermaid › Sequence',
+};
 
-export const MermaidSequence = (args: Args) => (
-  <Provider {...args}>
-    <MermaidSequenceMarkdown />
-  </Provider>
-);
-MermaidSequence.storyName = 'Mermaid › Sequence';
-
-export const Table = (args: Args) => (
-  <Provider {...args}>
-    <TableMarkdown />
-  </Provider>
-);
+export const Table: Story = {
+  args: {
+    children: <TableMarkdown />,
+  },
+};
