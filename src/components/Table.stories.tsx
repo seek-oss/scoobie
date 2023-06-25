@@ -2,7 +2,7 @@ import 'loki/configure-react';
 
 import { Text } from 'braid-design-system';
 import React, { Fragment } from 'react';
-import type { StoryObj } from 'sku/@storybook/react';
+import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { Table as Component } from './Table';
 import { TableRow } from './TableRow';
@@ -11,7 +11,7 @@ export default {
   component: Component,
   args: {
     size: 'standard',
-    width: 'undefined',
+    width: undefined,
   },
   argTypes: {
     size: {
@@ -21,10 +21,10 @@ export default {
     width: {
       control: { type: 'radio' },
       mapping: { undefined, full: 'full' },
-      options: ['undefined', 'full'],
+      options: [undefined, 'full'],
     },
   },
-};
+} satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof Component>;
 

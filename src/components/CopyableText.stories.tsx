@@ -1,6 +1,6 @@
 import 'loki/configure-react';
 
-import type { StoryObj } from 'sku/@storybook/react';
+import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { CopyableText as Component } from './CopyableText';
 
@@ -30,11 +30,11 @@ export default {
       options: ['undefined', 'custom'],
     },
   },
-};
+} satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof Component>;
 
-export const Default: Story = {
+export const CopyableText: Story = {
   args: {
     children: 'copy me',
     copiedIcon: undefined,
@@ -43,5 +43,4 @@ export const Default: Story = {
     copyLabel: undefined,
     size: 'standard',
   },
-  name: 'CopyableText',
 };

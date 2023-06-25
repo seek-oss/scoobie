@@ -2,7 +2,7 @@ import 'loki/configure-react';
 
 import { Stack, Text } from 'braid-design-system';
 import React from 'react';
-import type { StoryObj } from 'sku/@storybook/react';
+import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import HeadingMarkdown from '../storybook/markdown/heading.mdx';
 
@@ -12,11 +12,11 @@ import { TocRenderer as Component } from './TocRenderer';
 export default {
   title: 'MDX/TocRenderer',
   component: Component,
-};
+} satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof Component>;
 
-export const Default: Story = {
+export const TocRenderer: Story = {
   args: {
     document: HeadingMarkdown,
     children: (toc) => (
@@ -31,5 +31,4 @@ export const Default: Story = {
       </Text>
     ),
   },
-  name: 'TocRenderer',
 };

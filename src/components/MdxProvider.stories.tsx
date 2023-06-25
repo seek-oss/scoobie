@@ -2,7 +2,7 @@ import 'loki/configure-react';
 
 import type { MDXProvider } from '@mdx-js/react';
 import React from 'react';
-import type { StoryObj } from 'sku/@storybook/react';
+import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { SIZES } from '../private/size';
 import BlockquoteMarkdown from '../storybook/markdown/blockquote.mdx';
@@ -17,20 +17,22 @@ import MermaidFlowchartMarkdown from '../storybook/markdown/mermaid-flowchart.md
 import MermaidSequenceMarkdown from '../storybook/markdown/mermaid-sequence.mdx';
 import TableMarkdown from '../storybook/markdown/table.mdx';
 
-import { MdxProvider } from './MdxProvider';
+import { MdxProvider as Component } from './MdxProvider';
 
 export default {
   title: 'MDX/MdxProvider',
-  component: MdxProvider,
+  component: Component,
   args: {
-    mdxSize: 'standard',
+    size: 'standard',
   },
   argTypes: {
-    control: { type: 'radio' },
-    name: 'MDX size',
-    options: SIZES,
+    size: {
+      control: { type: 'radio' },
+      name: 'MDX size',
+      options: SIZES,
+    },
   },
-};
+} satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof MDXProvider>;
 

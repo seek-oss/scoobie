@@ -2,18 +2,18 @@ import 'loki/configure-react';
 
 import { List, Text } from 'braid-design-system';
 import React from 'react';
-import type { StoryObj } from 'sku/@storybook/react';
+import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { Blockquote as Component } from './Blockquote';
 
 export default {
   title: 'Standalone/Blockquote',
   component: Component,
-};
+} satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof Component>;
 
-export const Default: Story = {
+export const Blockquote: Story = {
   args: {
     size: 'standard',
     children: (
@@ -25,5 +25,4 @@ export const Default: Story = {
       </>
     ),
   },
-  name: 'Blockquote',
 };

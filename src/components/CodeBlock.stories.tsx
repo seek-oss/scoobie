@@ -1,6 +1,6 @@
 import 'loki/configure-react';
 
-import type { StoryObj } from 'sku/@storybook/react';
+import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { CodeBlock as Component } from './CodeBlock';
 
@@ -19,7 +19,7 @@ export default {
       options: ['standard', 'large'],
     },
   },
-};
+} satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof Component>;
 
