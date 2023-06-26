@@ -6,14 +6,13 @@ import { robotoHref, robotoMonoHref } from '../typography';
 import type { Preview } from 'sku/@storybook/react';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
-import apac from 'braid-design-system/themes/apac';
 import seekJobs from 'braid-design-system/themes/seekJobs';
 import docs from 'braid-design-system/themes/docs';
 import wireframe from 'braid-design-system/themes/wireframe';
 
-const THEMES = { seekJobs, apac, docs, wireframe };
+const THEMES = { docs, seekJobs, wireframe };
 
-export type BraidThemeName = 'seekJobs' | 'apac' | 'docs' | 'wireframe';
+export type BraidThemeName = 'docs' | 'seekJobs' | 'wireframe';
 
 export default {
   globalTypes: {
