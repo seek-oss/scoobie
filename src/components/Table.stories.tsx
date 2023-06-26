@@ -20,7 +20,6 @@ export default {
     },
     width: {
       control: { type: 'radio' },
-      mapping: { undefined, full: 'full' },
       options: [undefined, 'full'],
     },
   },

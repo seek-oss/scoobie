@@ -11,23 +11,19 @@ export default {
     children: { control: { type: 'text' } },
     copiedIcon: {
       control: { type: 'radio' },
-      mapping: { undefined, false: false },
-      options: ['undefined', 'false'],
+      options: [undefined, false],
     },
     copiedLabel: {
       control: { type: 'radio' },
-      mapping: { undefined, custom: 'Custom copied label' },
-      options: ['undefined', 'custom'],
+      options: [undefined, 'Custom copied label'],
     },
     copyIcon: {
       control: { type: 'radio' },
-      mapping: { undefined, false: false },
-      options: ['undefined', 'false'],
+      options: [undefined, false],
     },
     copyLabel: {
       control: { type: 'radio' },
-      mapping: { undefined, custom: 'Custom copy label' },
-      options: ['undefined', 'custom'],
+      options: [undefined, 'Custom copy label'],
     },
   },
 } satisfies Meta<typeof Component>;
