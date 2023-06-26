@@ -1,5 +1,4 @@
 dist-storybook-tmp/
-typography.ts
 
 # managed by sku
 *.less.d.ts
