@@ -1,5 +1,6 @@
-import React from 'react';
 import 'braid-design-system/reset';
+
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { robotoHref, robotoMonoHref } from '../typography';
