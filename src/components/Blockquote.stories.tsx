@@ -1,42 +1,28 @@
-import 'braid-design-system/reset';
 import 'loki/configure-react';
 
 import { List, Text } from 'braid-design-system';
-import React, { type ComponentProps } from 'react';
-
-import {
-  type BraidArgs,
-  defaultArgTypes,
-  defaultArgs,
-} from '../storybook/controls';
-import { BraidStorybookProvider, withRouter } from '../storybook/decorators';
+import React from 'react';
+import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { Blockquote as Component } from './Blockquote';
 
 export default {
-  args: {
-    braidThemeName: defaultArgs.braidThemeName,
-    size: defaultArgs.size,
-  },
-  argTypes: {
-    braidThemeName: defaultArgTypes.braidThemeName,
-    size: defaultArgTypes.size,
-  },
-  component: Component,
-  decorators: [withRouter],
   title: 'Standalone/Blockquote',
+  component: Component,
+} satisfies Meta<typeof Component>;
+
+type Story = StoryObj<typeof Component>;
+
+export const Blockquote: Story = {
+  args: {
+    size: 'standard',
+    children: (
+      <>
+        <Text size={'standard'}>This is a paragraph.</Text>
+        <List size={'standard'}>
+          <Text size={'standard'}>This is a bullet point.</Text>
+        </List>
+      </>
+    ),
+  },
 };
-
-type Args = ComponentProps<typeof Component> & BraidArgs;
-
-export const Blockquote = ({ braidThemeName, size, ...args }: Args) => (
-  <BraidStorybookProvider braidThemeName={braidThemeName}>
-    <Component {...args} size={size}>
-      <Text size={size}>This is a paragraph.</Text>
-
-      <List size={size}>
-        <Text size={size}>This is a bullet point.</Text>
-      </List>
-    </Component>
-  </BraidStorybookProvider>
-);

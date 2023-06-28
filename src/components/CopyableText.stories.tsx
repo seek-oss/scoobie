@@ -1,61 +1,42 @@
-import 'braid-design-system/reset';
 import 'loki/configure-react';
 
-import React, { type ComponentProps } from 'react';
-
-import {
-  type BraidArgs,
-  defaultArgTypes,
-  defaultArgs,
-} from '../storybook/controls';
-import { BraidStorybookProvider, withRouter } from '../storybook/decorators';
+import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { CopyableText as Component } from './CopyableText';
 
 export default {
-  args: {
-    braidThemeName: defaultArgs.braidThemeName,
-    children: 'copy me',
-    copiedIcon: 'undefined',
-    copiedLabel: 'undefined',
-    copyIcon: 'undefined',
-    copyLabel: 'undefined',
-    size: 'standard',
-  },
+  title: 'Standalone/CopyableText',
+  component: Component,
   argTypes: {
-    braidThemeName: defaultArgTypes.braidThemeName,
     children: { control: { type: 'text' } },
     copiedIcon: {
       control: { type: 'radio' },
-      mapping: { undefined, false: false },
-      options: ['undefined', 'false'],
+      options: [undefined, false],
     },
     copiedLabel: {
       control: { type: 'radio' },
-      mapping: { undefined, custom: 'Custom copied label' },
-      options: ['undefined', 'custom'],
+      options: [undefined, 'Custom copied label'],
     },
     copyIcon: {
       control: { type: 'radio' },
-      mapping: { undefined, false: false },
-      options: ['undefined', 'false'],
+      options: [undefined, false],
     },
     copyLabel: {
       control: { type: 'radio' },
-      mapping: { undefined, custom: 'Custom copy label' },
-      options: ['undefined', 'custom'],
+      options: [undefined, 'Custom copy label'],
     },
   },
-  component: Component,
-  decorators: [withRouter],
-  title: 'Standalone/CopyableText',
+} satisfies Meta<typeof Component>;
+
+type Story = StoryObj<typeof Component>;
+
+export const CopyableText: Story = {
+  args: {
+    children: 'copy me',
+    copiedIcon: undefined,
+    copiedLabel: undefined,
+    copyIcon: undefined,
+    copyLabel: undefined,
+    size: 'standard',
+  },
 };
-
-type Args = ComponentProps<typeof Component> & BraidArgs;
-
-export const CopyableText = ({ braidThemeName, ...args }: Args) => (
-  <BraidStorybookProvider braidThemeName={braidThemeName}>
-    <Component {...args} />
-  </BraidStorybookProvider>
-);
-CopyableText.storyName = 'CopyableText';

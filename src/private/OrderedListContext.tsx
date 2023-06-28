@@ -4,7 +4,7 @@ const LIST_TYPES = ['number', 'alpha', 'roman'] as const;
 
 const DEFAULT_LIST_TYPE = LIST_TYPES[0];
 
-type ListType = typeof LIST_TYPES[number];
+type ListType = (typeof LIST_TYPES)[number];
 
 const nextListType = (type: ListType): ListType =>
   LIST_TYPES[LIST_TYPES.indexOf(type) + 1] ?? DEFAULT_LIST_TYPE;
