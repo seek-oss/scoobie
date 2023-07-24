@@ -1,5 +1,6 @@
 import path from 'path';
 
+// @ts-expect-error
 import { imageToJsx } from './imageToJsx';
 
 describe('imageToJsx', () => {

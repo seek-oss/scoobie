@@ -1,3 +1,4 @@
+// @ts-expect-error
 import { formatTableCells } from './formatTableCells';
 
 describe('formatTableCells', () => {
