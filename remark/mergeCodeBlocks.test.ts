@@ -1,3 +1,4 @@
+// @ts-expect-error
 import { mergeCodeBlocks } from './mergeCodeBlocks';
 
 describe('mergeCodeBlocks', () => {

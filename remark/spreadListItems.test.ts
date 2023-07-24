@@ -1,3 +1,4 @@
+// @ts-expect-error
 import { spreadListItems } from './spreadListItems';
 
 describe('spreadListItems', () => {
