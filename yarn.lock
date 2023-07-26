@@ -5455,6 +5455,11 @@ babel-plugin-transform-react-remove-prop-types@^0.4.24:
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
 
+babel-plugin-transform-remove-imports@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-remove-imports/-/babel-plugin-transform-remove-imports-1.7.0.tgz#3fdfeec58592078544547155b1bffc4a4a0fcfa8"
+  integrity sha512-gprmWf6ry5qrnxMyiDaxZpXzZJP6R9FRA+p0AImLIWRmSEGtlKcFprHKeGMZYkII9rJR6Q1hYou+n1fk6rWf2g==
+
 babel-plugin-unassert@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-unassert/-/babel-plugin-unassert-3.2.0.tgz#4ea8f65709905cc540627baf4ce4c837281a317d"
@@ -14057,10 +14062,10 @@ skin-tone@^2.0.0:
   dependencies:
     unicode-emoji-modifier-base "^1.0.0"
 
-sku@12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-12.2.0.tgz#35ac4fbd974cea1313f8c22714b818fc59ed20d8"
-  integrity sha512-i/nZ9oiYySNDu0rg+EfE3eBFwRTC+0A9FpWICDM60v3mseUbtLRdXOB+MSRmFJjATwbX+pIrVUTLYTb9Atujug==
+sku@12.3.1:
+  version "12.3.1"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-12.3.1.tgz#65a7e7b8b89b790c69a102d71b08eb6b57cae0ad"
+  integrity sha512-m3iSFAhbeJbQ6uvekevglKaw0HJn5qx91wr9IcN1sjjmfMi0KHSI/4gIwTFdjI4AQkufgbGjgWorWbL/+XD25g==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/plugin-transform-react-constant-elements" "^7.21.3"
@@ -14095,6 +14100,7 @@ sku@12.2.0:
     babel-plugin-macros "^3.1.0"
     babel-plugin-module-resolver "^5.0.0"
     babel-plugin-transform-react-remove-prop-types "^0.4.24"
+    babel-plugin-transform-remove-imports "^1.7.0"
     babel-plugin-unassert "^3.1.0"
     browserslist "^4.16.1"
     browserslist-config-seek "^2.1.0"
