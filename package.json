@@ -34,7 +34,7 @@
     "@storybook/storybook-deployer": "2.8.16",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
-    "braid-design-system": "32.8.1",
+    "braid-design-system": "32.8.2",
     "loki": "0.31.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
