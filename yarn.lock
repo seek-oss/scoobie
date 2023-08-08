@@ -14067,10 +14067,10 @@ skin-tone@^2.0.0:
   dependencies:
     unicode-emoji-modifier-base "^1.0.0"
 
-sku@12.3.1:
-  version "12.3.1"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-12.3.1.tgz#65a7e7b8b89b790c69a102d71b08eb6b57cae0ad"
-  integrity sha512-m3iSFAhbeJbQ6uvekevglKaw0HJn5qx91wr9IcN1sjjmfMi0KHSI/4gIwTFdjI4AQkufgbGjgWorWbL/+XD25g==
+sku@12.3.2:
+  version "12.3.2"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-12.3.2.tgz#6ef6d3ed7aaf6b38aa40ba007405ac60de1e7ba5"
+  integrity sha512-dh62H/Cnb31nDBlTWaGAM/zK+JocADAxALlMFuVmZyT1GWVSlb/j8Om/i8OdhWh1g84R3mleDH56sOpXLYYWag==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/plugin-transform-react-constant-elements" "^7.21.3"
