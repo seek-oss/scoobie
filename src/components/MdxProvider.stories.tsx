@@ -1,7 +1,7 @@
 import 'loki/configure-react';
 
 import type { MDXProvider } from '@mdx-js/react';
-import React from 'react';
+import type { ReactNode } from 'react';
 import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { SIZES } from '../private/size';
@@ -34,7 +34,7 @@ export default {
   },
 } satisfies Meta<typeof Component>;
 
-type Story = StoryObj<typeof MDXProvider>;
+type Story = StoryObj<typeof MDXProvider & { children: ReactNode }>;
 
 export const Blockquote: Story = {
   args: {
