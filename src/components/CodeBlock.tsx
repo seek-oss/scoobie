@@ -21,7 +21,7 @@ import { CopyableText } from './CopyableText';
 import * as styles from './CodeBlock.css';
 
 interface Props {
-  children: ReadonlyArray<CodeChildProps> | string;
+  children: readonly CodeChildProps[] | string;
   graphqlPlayground?: string;
   label?: string;
   language?: string;

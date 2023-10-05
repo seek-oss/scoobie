@@ -3,7 +3,7 @@ import { createContext } from 'react';
 import { DEFAULT_SIZE, type Size } from './size';
 
 interface TableContextValue {
-  align?: ReadonlyArray<TableAlign>;
+  align?: readonly TableAlign[];
   component: TableCellComponent;
   size: Size;
   type: TableType;

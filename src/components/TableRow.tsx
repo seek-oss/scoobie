@@ -7,7 +7,7 @@ import { TableContext } from '../private/TableContext';
 import { BaseTableRow } from '../private/TableRow';
 
 interface Props {
-  children: ComponentProps<typeof Stack>['children'] | ReadonlyArray<string>;
+  children: ComponentProps<typeof Stack>['children'] | readonly string[];
   selected?: boolean;
 }
 
