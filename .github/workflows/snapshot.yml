@@ -1,27 +1,20 @@
-name: Release
+name: Snapshot
 
-on:
-  push:
-    branches:
-      - beta
-      - master
+on: workflow_dispatch
 
 permissions: {}
 
 jobs:
-  release:
-    name: Publish & Deploy
+  publish:
+    name: Publish Snapshot
     permissions:
-      contents: write
+      id-token: write
     runs-on: ubuntu-latest
-    env:
-      SKU_TELEMETRY: false
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          lfs: true
           token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
       - name: Set up Node.js 18.x
@@ -33,15 +26,9 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Publish to npm
-        uses: changesets/action@v1
+        uses: seek-oss/changesets-snapshot@v0
         with:
-          publish: yarn release
-          version: yarn stage
+          pre-publish: yarn build
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}
-
-      - name: Publish Storybook
-        run: yarn storybook:build && yarn storybook:deploy -- --ci --host-token-env-variable=GITHUB_TOKEN
-        env:
-          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
