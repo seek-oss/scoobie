@@ -75,7 +75,7 @@
     "loki:test": "loki test --host host.docker.internal --port 8081",
     "loki:test:ci": "cp -R dist-storybook/. dist-storybook-tmp/ && loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'",
     "loki:update": "loki update --host host.docker.internal --port 8081",
-    "release": "yarn build && changeset publish",
+    "release": "changeset publish",
     "stage": "changeset version && yarn format",
     "storybook:build": "sku build-storybook",
     "storybook:deploy": "storybook-to-ghpages --existing-output-dir=dist-storybook",
