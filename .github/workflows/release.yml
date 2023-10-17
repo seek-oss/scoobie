@@ -44,4 +44,4 @@ jobs:
       - name: Publish Storybook
         run: yarn storybook:build && yarn storybook:deploy -- --ci --host-token-env-variable=GITHUB_TOKEN
         env:
-          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
