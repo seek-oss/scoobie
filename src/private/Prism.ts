@@ -2,6 +2,8 @@ import { Prism } from 'prism-react-renderer';
 // @ts-ignore
 import csharpLang from 'refractor/lang/csharp';
 // @ts-ignore
+import diffLang from 'refractor/lang/diff';
+// @ts-ignore
 import httpLang from 'refractor/lang/http';
 // @ts-ignore
 import jsonLang from 'refractor/lang/json';
@@ -9,6 +11,7 @@ import jsonLang from 'refractor/lang/json';
 import splunkSplLang from 'refractor/lang/splunk-spl';
 
 csharpLang(Prism);
+diffLang(Prism);
 httpLang(Prism);
 splunkSplLang(Prism);
 jsonLang(Prism);
