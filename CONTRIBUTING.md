@@ -139,7 +139,14 @@ yarn test
 We use [Changesets] to manage package releases.
 You'll see a 🦋 bot gliding around pull requests.
 
-You should write a changeset if you are changing the public interface.
+You should write a changeset if you are changing the public Scoobie interface,
+which includes:
+
+- Top-level exports from [src/index.ts](/src/index.ts)
+- Top-level exports from [webpack/index.js](/webpack/index.js)
+- Bundled configuration files [types.d.ts](/types.d.ts) and [typography.ts](/typography.ts)
+- [npm dependencies](/package.json)
+
 On the other hand,
 a changeset is not necessary for:
 
