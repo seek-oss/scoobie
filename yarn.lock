@@ -4658,9 +4658,8 @@
     "@types/emscripten" "^1.39.6"
     tslib "^1.13.0"
 
-"@zendesk/babel-plugin-react-displayname@github:zendesk/babel-plugin-react-displayname#7a837f2":
+"@zendesk/babel-plugin-react-displayname@zendesk/babel-plugin-react-displayname#7a837f2":
   version "1.0.0"
-  uid "7a837f2e92fbd6c5e348dcd178dc9de05309a804"
   resolved "https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2e92fbd6c5e348dcd178dc9de05309a804"
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -14113,7 +14112,7 @@ sku@12.4.2:
     "@vocab/phrase" "^1.2.4"
     "@vocab/pseudo-localize" "^1.0.1"
     "@vocab/webpack" "^1.2.1"
-    "@zendesk/babel-plugin-react-displayname" "github:zendesk/babel-plugin-react-displayname#7a837f2"
+    "@zendesk/babel-plugin-react-displayname" zendesk/babel-plugin-react-displayname#7a837f2
     autoprefixer "^10.3.1"
     babel-jest "^29.0.0"
     babel-loader "^9.1.2"
