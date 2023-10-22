@@ -32,7 +32,6 @@
     "@changesets/get-github-info": "0.5.2",
     "@mermaid-js/mermaid-cli": "10.4.0",
     "@storybook/addon-essentials": "7.4.6",
-    "@storybook/storybook-deployer": "2.8.16",
     "@types/react": "18.2.25",
     "@types/react-dom": "18.2.10",
     "braid-design-system": "32.12.2",
@@ -82,7 +81,6 @@
     "release": "changeset publish",
     "stage": "changeset version && yarn format",
     "storybook:build": "sku build-storybook",
-    "storybook:deploy": "storybook-to-ghpages --existing-output-dir=dist-storybook",
     "storybook:start": "sku storybook",
     "test": "sku test",
     "test:ci": "sku test --coverage"

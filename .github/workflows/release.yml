@@ -41,7 +41,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}
 
-      - name: Publish Storybook
-        run: yarn storybook:build && yarn storybook:deploy -- --ci --host-token-env-variable=GITHUB_TOKEN
-        env:
-          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+      - name: Build Storybook
+        run: yarn storybook:build
+
+      - name: Deploy Storybook
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
+          publish_dir: ./dist-storybook
