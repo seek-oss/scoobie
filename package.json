@@ -32,7 +32,7 @@
     "@changesets/get-github-info": "0.5.2",
     "@mermaid-js/mermaid-cli": "10.5.0",
     "@storybook/addon-essentials": "7.5.1",
-    "@types/react": "18.2.33",
+    "@types/react": "18.2.34",
     "@types/react-dom": "18.2.14",
     "braid-design-system": "32.12.5",
     "loki": "0.32.0",
