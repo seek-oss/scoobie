@@ -34,7 +34,7 @@
     "@storybook/addon-essentials": "7.5.2",
     "@types/react": "18.2.34",
     "@types/react-dom": "18.2.14",
-    "braid-design-system": "32.12.5",
+    "braid-design-system": "32.13.0",
     "loki": "0.33.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
