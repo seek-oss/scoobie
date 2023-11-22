@@ -18,9 +18,9 @@ export const Blockquote: Story = {
     size: 'standard',
     children: (
       <>
-        <Text size={'standard'}>This is a paragraph.</Text>
-        <List size={'standard'}>
-          <Text size={'standard'}>This is a bullet point.</Text>
+        <Text size="standard">This is a paragraph.</Text>
+        <List size="standard">
+          <Text size="standard">This is a bullet point.</Text>
         </List>
       </>
     ),
