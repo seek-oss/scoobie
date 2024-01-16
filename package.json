@@ -40,7 +40,7 @@
     "react-dom": "18.2.0",
     "react-helmet-async": "1.3.0",
     "react-router-dom": "6.21.2",
-    "sku": "12.4.7",
+    "sku": "12.4.8",
     "webpack": "5.89.0",
     "@mdx-js/loader": "^1.6.22"
   },
