@@ -1191,13 +1191,6 @@
   resolved "https://registry.yarnpkg.com/@capsizecss/metrics/-/metrics-1.2.0.tgz#7c6f8817efa910eb1b0257a785300ab4e033ad26"
   integrity sha512-zUYcqaR0rv4TYXyY97G1vRMMOyz+3EteXqLsM1XO/N8LnThwR1wYSE5cU15CUx3KPAiAEIbUZ13B7+plxYjHUA==
 
-"@capsizecss/vanilla-extract@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@capsizecss/vanilla-extract/-/vanilla-extract-1.0.0.tgz#da05e7643b77e1ba37ea185026bb87becf546187"
-  integrity sha512-/cY34CgCAmuf6SmpgPXmDJaIdJOaRe37MsoeZIeZme4k0F0HFts+poTxq4m8UtBH7LRxpUkfUHDoRO9OYjjVBg==
-  dependencies:
-    "@capsizecss/core" "^3.0.0"
-
 "@changesets/apply-release-plan@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-7.0.0.tgz#ce3c3dfc5720550a5d592b54ad2f411f816ec5ff"
@@ -5349,14 +5342,13 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@32.14.2:
-  version "32.14.2"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.14.2.tgz#02b6f8092ec4165838a8cb8308f8e86cca785603"
-  integrity sha512-BHu/Mtucd7UX8Diha/mkZr+XbNbcmTIHDpw+mvrQTWYYksFqupqwz9d8uqefkl9ELsJkIzyLuhg2gxY9Fs312w==
+braid-design-system@32.14.4:
+  version "32.14.4"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.14.4.tgz#e174e0b360f2727c1acb3c70eac19d0f903d6dc8"
+  integrity sha512-KVOjq9+SiZApXsDkrmnOMPdlh07fJqO8ebdFwt68x6cIs0oFS5YBhHWejFazRZOszukhcDDrJrRc/3wlziRjXw==
   dependencies:
     "@capsizecss/core" "^3.1.0"
     "@capsizecss/metrics" "^1.1.1"
-    "@capsizecss/vanilla-extract" "^1.0.0"
     "@types/autosuggest-highlight" "^3.1.1"
     "@types/dedent" "^0.7.0"
     "@types/lodash" "^4.14.168"
