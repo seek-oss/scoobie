@@ -11,12 +11,19 @@ export default {
   component: Component,
   args: {
     size: 'standard',
-    width: undefined,
   },
   argTypes: {
+    overflowX: {
+      control: { type: 'radio' },
+      options: [undefined, 'scroll'],
+    },
     size: {
       control: { type: 'radio' },
       options: ['standard', 'large'],
+    },
+    whiteSpace: {
+      control: { type: 'radio' },
+      options: [undefined, 'nowrap'],
     },
     width: {
       control: { type: 'radio' },
