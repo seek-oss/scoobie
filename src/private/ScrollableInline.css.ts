@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 import { vars } from 'braid-design-system/css';
 
@@ -12,7 +12,11 @@ export const scrollX = style({
   overflowX: 'auto',
   overflowY: 'hidden',
   scrollbarWidth: 'none',
-  whiteSpace: 'nowrap',
 
   WebkitOverflowScrolling: 'touch',
 });
+
+export const whiteSpace = styleVariants(
+  { undefined, nowrap: 'nowrap' } as const,
+  (value) => ({ whiteSpace: value }),
+);

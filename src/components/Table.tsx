@@ -12,7 +12,7 @@ import { DEFAULT_SIZE, type Size } from '../private/size';
 
 import { TableRow } from './TableRow';
 
-interface Props {
+interface BaseProps {
   align?: readonly TableAlign[];
   children: ReactNode;
   header: ComponentProps<typeof Stack>['children'] | readonly string[];
@@ -21,15 +21,29 @@ interface Props {
   width?: 'full';
 }
 
+type Props = BaseProps &
+  (
+    | {
+        overflowX: 'scroll';
+        whiteSpace?: 'nowrap';
+      }
+    | {
+        overflowX?: never;
+        whiteSpace?: never;
+      }
+  );
+
 export const Table = ({
   align,
   children,
   header,
+  overflowX,
   size = DEFAULT_SIZE,
   type = DEFAULT_TABLE_TYPE,
+  whiteSpace,
   width,
 }: Props) => (
-  <BaseTable width={width}>
+  <BaseTable overflowX={overflowX} whiteSpace={whiteSpace} width={width}>
     <TableContext.Provider
       value={{
         align,

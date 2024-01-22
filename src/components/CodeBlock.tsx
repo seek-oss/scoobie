@@ -79,7 +79,7 @@ export const CodeBlock = ({
 
   return (
     <Stack space={tablePadding}>
-      <ScrollableInline>
+      <ScrollableInline whiteSpace="nowrap">
         <Box display="flex" justifyContent="spaceBetween">
           <Box display="flex">
             {children.map(({ label }, labelIndex) => (

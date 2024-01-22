@@ -1,6 +1,7 @@
 import { Box } from 'braid-design-system';
-import React, { type ReactNode } from 'react';
+import React, { Fragment, type ReactNode } from 'react';
 
+import { ScrollableInline } from './ScrollableInline';
 import {
   DEFAULT_TABLE_CELL_COMPONENT,
   DEFAULT_TABLE_TYPE,
@@ -13,17 +14,33 @@ import * as styles from './Table.css';
 
 interface BaseTableProps {
   children: ReactNode;
+  overflowX?: 'scroll';
+  whiteSpace?: 'nowrap';
   width?: 'full';
 }
 
-export const BaseTable = ({ children, width }: BaseTableProps) => (
-  <Box
-    component="table"
-    className={{ [styles.table]: true, [styles.fullWidth]: width === 'full' }}
-  >
-    {children}
-  </Box>
-);
+export const BaseTable = ({
+  children,
+  overflowX,
+  whiteSpace,
+  width,
+}: BaseTableProps) => {
+  const Wrapper = overflowX === 'scroll' ? ScrollableInline : Fragment;
+
+  return (
+    <Wrapper {...(overflowX === 'scroll' ? { whiteSpace } : {})}>
+      <Box
+        component="table"
+        className={{
+          [styles.table]: true,
+          [styles.fullWidth]: width === 'full',
+        }}
+      >
+        {children}
+      </Box>
+    </Wrapper>
+  );
+};
 
 interface MdxTableProps {
   children: ReactNode;
