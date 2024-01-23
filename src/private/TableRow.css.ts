@@ -1,11 +1,12 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { vars } from 'braid-design-system/css';
+
+import { codeBackgroundColor } from '../../styles';
 
 export const tableRow = styleVariants({
   stripe: {
     selectors: {
       'tbody &:nth-child(odd)': {
-        backgroundColor: vars.backgroundColor.body,
+        backgroundColor: codeBackgroundColor,
       },
     },
   },
