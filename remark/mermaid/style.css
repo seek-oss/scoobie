@@ -91,6 +91,7 @@ g.node foreignObject.label {
 }
 
 circle.label-container,
+.node circle,
 .node path,
 .node polygon,
 .node rect {
