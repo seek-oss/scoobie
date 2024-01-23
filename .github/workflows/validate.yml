@@ -33,3 +33,6 @@ jobs:
 
       - name: Lint
         run: yarn lint
+
+      - name: Loki
+        run: yarn storybook:build && yarn loki:test:ci
