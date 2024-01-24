@@ -1,5 +1,19 @@
 # scoobie
 
+## 15.2.0
+
+### Minor Changes
+
+- **MdxProvider:** Set `Table`s to `overflowX="scroll" width="full"` ([#605](https://github.com/seek-oss/scoobie/pull/605))
+
+### Patch Changes
+
+- **Table:** Restore `type="stripe"` styling ([#605](https://github.com/seek-oss/scoobie/pull/605))
+
+- **CodeBlock:** Restore `bash` and `shell` syntax highlighting ([#605](https://github.com/seek-oss/scoobie/pull/605))
+
+- **mermaid:** Colour flowchart circle nodes ([#605](https://github.com/seek-oss/scoobie/pull/605))
+
 ## 15.1.0
 
 ### Minor Changes
