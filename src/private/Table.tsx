@@ -60,8 +60,8 @@ export const MdxTable = ({
       type,
     }}
   >
-    <Box className={styles.tableWrapper}>
-      <BaseTable>{children}</BaseTable>
-    </Box>
+    <BaseTable overflowX="scroll" width="full">
+      {children}
+    </BaseTable>
   </TableContext.Provider>
 );

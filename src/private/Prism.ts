@@ -1,15 +1,18 @@
 import { Prism } from 'prism-react-renderer';
-// @ts-ignore
+// @ts-expect-error
+import bashLang from 'refractor/lang/bash';
+// @ts-expect-error
 import csharpLang from 'refractor/lang/csharp';
-// @ts-ignore
+// @ts-expect-error
 import diffLang from 'refractor/lang/diff';
-// @ts-ignore
+// @ts-expect-error
 import httpLang from 'refractor/lang/http';
-// @ts-ignore
+// @ts-expect-error
 import jsonLang from 'refractor/lang/json';
-// @ts-ignore
+// @ts-expect-error
 import splunkSplLang from 'refractor/lang/splunk-spl';
 
+bashLang(Prism);
 csharpLang(Prism);
 diffLang(Prism);
 httpLang(Prism);
