@@ -5342,10 +5342,10 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@32.15.0:
-  version "32.15.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.15.0.tgz#8336686b4c2b04d6fe093ecd60fd916cf944d0ed"
-  integrity sha512-ftEK9q6CUMB4WWuDBMYUZbg7HfkyOAwrG0j+sH21hsS3grrReumEw+xkeB22iz39CKutsazEspWWNG1pM52eYQ==
+braid-design-system@32.15.1:
+  version "32.15.1"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.15.1.tgz#3da81e068754bdcd19ee7879cbd8f476877a1e1c"
+  integrity sha512-pau1UghJb9rR9RYRBe0fn9xyB1v2YGvjOWCMWBSzrRkco2HDwdN39gl9ckfldWbNh9kAMSx1ytQpIgDoOA+rww==
   dependencies:
     "@capsizecss/core" "^3.1.0"
     "@capsizecss/metrics" "^1.1.1"
@@ -5365,7 +5365,7 @@ braid-design-system@32.15.0:
     is-mobile "^2.2.2"
     lodash "^4.17.21"
     polished "^4.1.0"
-    react-focus-lock "^2.9.1"
+    react-focus-lock "^2.9.7"
     react-is "^18.2.0"
     react-popper-tooltip "^4.3.1"
     react-remove-scroll "^2.5.3"
@@ -11768,10 +11768,10 @@ react-fast-compare@^3.0.1, react-fast-compare@^3.2.0:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
 
-react-focus-lock@^2.9.1:
-  version "2.9.6"
-  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.6.tgz#cad168a150fdd72d5ab2419ba8e62780788011b1"
-  integrity sha512-B7gYnCjHNrNYwY2juS71dHbf0+UpXXojt02svxybj8N5bxceAkzPChKEncHuratjUHkIFNCn06k2qj1DRlzTug==
+react-focus-lock@^2.9.7:
+  version "2.9.7"
+  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.7.tgz#778358691b55db38a9954a989341048bd4065935"
+  integrity sha512-EfhX040SELLqnQ9JftqsmQCG49iByg8F5X5m19Er+n371OaETZ35dlNPZrLOOTlnnwD4c2Zv0KDgabDTc7dPHw==
   dependencies:
     "@babel/runtime" "^7.0.0"
     focus-lock "^1.0.0"
