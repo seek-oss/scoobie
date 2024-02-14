@@ -5306,10 +5306,10 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@32.16.0:
-  version "32.16.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.16.0.tgz#e40997c9c44e3f1db2e5ad771d9857e1566dafa5"
-  integrity sha512-g1evDOTyOvoEHEOMLlTkl+8IL1OxYshiEde0kciIUAD6N/OWiCISqpCLdmhovMd+Yz01rU/ObyP477nAfdNPOQ==
+braid-design-system@32.16.1:
+  version "32.16.1"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.16.1.tgz#f9052d08a8cce38a250818d6a5d8748baff3553f"
+  integrity sha512-sAAdXZNL8VITLnCHFdcYg6jWyd7mJwvjtoz1JgIM5es7KgvUOLd2TY3NWVle1WSnUaAorQ/G8O9oMZJMiz0ngA==
   dependencies:
     "@capsizecss/core" "^3.1.0"
     "@capsizecss/metrics" "^1.1.1"
