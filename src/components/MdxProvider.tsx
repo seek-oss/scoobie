@@ -19,18 +19,26 @@ interface MdxProviderProps {
    * Optional scaling factor for text and spacing
    */
   size?: Size;
+
+  /**
+   * Optional components to use in addition to or in place of the default ones
+   */
+  components?: MDX.ProviderComponents;
 }
 
 export const MdxProvider = ({
   children,
   graphqlPlayground,
   size = DEFAULT_SIZE,
+  components: componentOverrides,
 }: MdxProviderProps) => {
   const components = useMdxComponents({ size });
 
   return (
     <GraphQLPlaygroundProvider value={graphqlPlayground}>
-      <MDXProvider components={components}>{children}</MDXProvider>
+      <MDXProvider components={{ ...components, ...componentOverrides }}>
+        {children}
+      </MDXProvider>
     </GraphQLPlaygroundProvider>
   );
 };
