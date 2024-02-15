@@ -1,5 +1,11 @@
 # scoobie
 
+## 15.3.0
+
+### Minor Changes
+
+- Add components override to MdxProvider ([#617](https://github.com/seek-oss/scoobie/pull/617))
+
 ## 15.2.0
 
 ### Minor Changes
