@@ -1179,17 +1179,31 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@capsizecss/core@^3.0.0", "@capsizecss/core@^3.1.0":
+"@capsizecss/core@^3.0.0":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-3.1.1.tgz#16d607345c6c2728195b614137f7362a02989921"
   integrity sha512-1YxfErFXdxcyDyc8peDwH2hiJF5U8sBY5i5HX0f/tpvabbu40w9r8VHYMOOw9Fox5O/+kf2gAhyfVe+sLnaaBA==
   dependencies:
     csstype "^3.1.1"
 
-"@capsizecss/metrics@^1.1.1":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@capsizecss/metrics/-/metrics-1.2.0.tgz#7c6f8817efa910eb1b0257a785300ab4e033ad26"
-  integrity sha512-zUYcqaR0rv4TYXyY97G1vRMMOyz+3EteXqLsM1XO/N8LnThwR1wYSE5cU15CUx3KPAiAEIbUZ13B7+plxYjHUA==
+"@capsizecss/core@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-4.0.0.tgz#b786e84bd902be9aec7d2b4bd9631101ac54da05"
+  integrity sha512-fcQRqAa4aqYqrsa1qNi72JllUkdcEG0vX4ix2YDhYT+O2l/+M7OVTBqqZFM26GytO/Iqsrt7xdzAv9Ca7oagzg==
+  dependencies:
+    csstype "^3.1.1"
+
+"@capsizecss/metrics@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/metrics/-/metrics-2.0.0.tgz#dd97926daa68466c15cd0caa5810e2474fa57e92"
+  integrity sha512-tbYOyIXIMqWZJ2mw2JXvpQiecgTpvioBmduzUEJ+55xGbJz4AtlcatiuNI/rVYiOLLLvGuOOxpkuaY8qAxN63g==
+
+"@capsizecss/vanilla-extract@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/vanilla-extract/-/vanilla-extract-2.0.0.tgz#4b9880f59f0336504fe043c332e5a31398f0426e"
+  integrity sha512-6FNLEOcAYo2AklxT7XVEm9Yam2hv76DLEhD6RWK3hJ87Nb9i95Y+rdYHJ3LBlbrzb+ZVJXxzZvg5OAZAqr/K3Q==
+  dependencies:
+    "@capsizecss/core" "^4.0.0"
 
 "@changesets/apply-release-plan@^7.0.0":
   version "7.0.0"
@@ -5306,13 +5320,14 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@32.16.2:
-  version "32.16.2"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.16.2.tgz#8fb48447915e8dc8f91220e7e532b61514161ad0"
-  integrity sha512-gUg8ZEN8CRwONEQMpq7ugxYeymMR2SaolZ/lt12yA4NFNj4rYlYgRNQZ3GVLCce093fAw6cFDmfo8Cut1m1G+A==
+braid-design-system@32.16.3:
+  version "32.16.3"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.16.3.tgz#3091967356ee38b9977e4abbd19a430fcae8109d"
+  integrity sha512-7IA2z1IImYIeW2uLgyfRJQXlAxt05tMRskn0JfZXq2E4DlytsPObw5ZvfP/DTKQAJTcS1JruywTS5vaMqrN2JQ==
   dependencies:
-    "@capsizecss/core" "^3.1.0"
-    "@capsizecss/metrics" "^1.1.1"
+    "@capsizecss/core" "^4.0.0"
+    "@capsizecss/metrics" "^2.0.0"
+    "@capsizecss/vanilla-extract" "^2.0.0"
     "@types/autosuggest-highlight" "^3.1.1"
     "@types/dedent" "^0.7.0"
     "@types/lodash" "^4.14.168"
