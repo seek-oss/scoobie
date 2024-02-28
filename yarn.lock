@@ -1179,13 +1179,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@capsizecss/core@^3.0.0":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-3.1.1.tgz#16d607345c6c2728195b614137f7362a02989921"
-  integrity sha512-1YxfErFXdxcyDyc8peDwH2hiJF5U8sBY5i5HX0f/tpvabbu40w9r8VHYMOOw9Fox5O/+kf2gAhyfVe+sLnaaBA==
-  dependencies:
-    csstype "^3.1.1"
-
 "@capsizecss/core@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-4.0.0.tgz#b786e84bd902be9aec7d2b4bd9631101ac54da05"
