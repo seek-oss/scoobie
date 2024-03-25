@@ -7,7 +7,7 @@
   "version": "15.3.0",
   "dependencies": {
     "@capsizecss/core": "^4.0.0",
-    "@mdx-js/react": "^1.6.22",
+    "@mdx-js/react": "^3.0.0",
     "@types/mdx-js__react": "^1.5.5",
     "@vanilla-extract/css": "^1.2.3",
     "@vanilla-extract/css-utils": "^0.1.1",
@@ -58,7 +58,7 @@
     "react": ">= 17 < 19",
     "react-router-dom": ">= 5.3.0",
     "sku": ">= 10.13.4 < 13",
-    "@mdx-js/loader": "^1.6.22"
+    "@mdx-js/loader": "^1.6.22 || ^3.0.0"
   },
   "peerDependenciesMeta": {
     "@mermaid-js/mermaid-cli": {
