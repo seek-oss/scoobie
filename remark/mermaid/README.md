@@ -11,3 +11,4 @@ Changes:
 - Base `mermaid.config.json` and `style.css` inspired by the Braid APAC theme
 - Custom per-diagram `.mmd.json`
 - Caching of rendered code blocks
+- Typescriptified

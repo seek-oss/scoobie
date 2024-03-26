@@ -1,16 +1,10 @@
+const remarkGfm = require('remark-gfm').default;
+
+const { recmaPlugins } = require('../recma');
+const { rehypePlugins } = require('../rehype');
 const { remarkPlugin } = require('../remark');
 
-/**
- * Vendored from `sku/config/webpack/utils`.
- *
- * {@link https://github.com/seek-oss/sku/blob/v11.0.1/config/webpack/utils/index.js#L10-L11}
- */
-const SKU_WEBPACK_UTILS = {
-  IMAGE: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-  SVG: /\.svg$/,
-};
-
-const ruleTestsToRemove = new Set(Object.values(SKU_WEBPACK_UTILS).map(String));
+const ruleTestsToRemove = new Set([String(/\.svg$/)]);
 
 const createMdxRule = (remarkPlugins) => ({
   test: /\.mdx?$/i,
@@ -18,13 +12,16 @@ const createMdxRule = (remarkPlugins) => ({
     {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env', '@babel/preset-react'],
+        presets: ['@babel/preset-env'],
       },
     },
     {
       loader: '@mdx-js/loader',
       options: {
+        providerImportSource: '@mdx-js/react',
         remarkPlugins,
+        recmaPlugins,
+        rehypePlugins,
       },
     },
   ],
@@ -39,16 +36,9 @@ const createMdxRule = (remarkPlugins) => ({
  *
  * {@link https://github.com/seek-oss/sku/blob/v11.0.2/config/webpack/webpack.config.js#L125}
  */
+
 const shouldEmit = (compiler) =>
   compiler.options.name === 'client' || compiler.options.name === 'preview';
-
-const createImageRule = (compiler) => ({
-  test: [/\.jpe?g$/i, /\.png$/i],
-  type: 'asset/resource',
-  generator: {
-    emit: shouldEmit(compiler),
-  },
-});
 
 const createSvgRule = (compiler) => ({
   test: /\.svg$/i,
@@ -85,21 +75,16 @@ const createSvgRule = (compiler) => ({
   ],
 });
 
-class ScoobieWebpackPlugin {
-  /**
-   * @param {{
-   *   mermaid?: { rootDir: string };
-   *   remark?: (defaultPlugins: unknown[]) => unknown[];
-   * }} config
-   */
+export class ScoobieWebpackPlugin {
   constructor(config = {}) {
     const defaultRemarkPlugins = [
+      remarkGfm,
       ...(config.mermaid ? [[remarkPlugin.mermaid, config.mermaid]] : []),
       remarkPlugin.slug,
       remarkPlugin.mergeCodeBlocks,
       remarkPlugin.spreadListItems,
       remarkPlugin.formatTableCells,
-      remarkPlugin.imageToJsx,
+      remarkPlugin.importImages,
     ];
 
     this.remarkPlugins = config.remark
@@ -109,11 +94,7 @@ class ScoobieWebpackPlugin {
 
   apply(compiler) {
     /**
-     * Get rid of the image and SVG rules from `SkuWebpackPlugin`.
-     *
-     * The image loaders can be made compatible, but it's probably better for us
-     * to declare our own so we can manage the dependency between our Asset
-     * Modules and Remark `imageToJsx` plugin.
+     * Get rid of the SVG rules from `SkuWebpackPlugin`.
      *
      * `asset/source` exports each SVG as source, which prevents us from styling
      * the container through the MDX processing pipeline. Instead, we load SVGs
@@ -126,17 +107,14 @@ class ScoobieWebpackPlugin {
      * {@link https://webpack.js.org/guides/asset-modules/}
      */
     const rules = compiler.options.module.rules.filter(
-      (rule) => !ruleTestsToRemove.has(String(rule.test)),
+      (rule) =>
+        !(typeof rule === 'object' && rule !== null) ||
+        !ruleTestsToRemove.has(String(rule.test)),
     );
 
     rules.push(createMdxRule(this.remarkPlugins));
-    rules.push(createImageRule(compiler));
     rules.push(createSvgRule(compiler));
 
     compiler.options.module.rules = rules;
   }
 }
-
-module.exports = {
-  ScoobieWebpackPlugin,
-};

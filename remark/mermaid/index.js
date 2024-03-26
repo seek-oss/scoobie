@@ -6,11 +6,7 @@ const fs = require('fs-extra');
 const visit = require('unist-util-visit');
 
 const { MERMAID_DIR, PLUGIN_NAME } = require('./constants');
-const utils = require('./utils');
-
-const render = utils.render;
-const renderFromFile = utils.renderFromFile;
-const createMermaidDiv = utils.createMermaidDiv;
+const { createMermaidDiv, render, renderFromFile } = require('./utils');
 
 /**
  * Does this URL have a `.mermaid` or `.mmd` file extension?

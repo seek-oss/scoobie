@@ -1,18 +1,29 @@
 import { Box, Stack } from 'braid-design-system';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
-import { type TableAlign, TableContext } from './TableContext';
+import { TableContext } from './TableContext';
 import { SIZE_TO_SPACE, SIZE_TO_TABLE_PADDING } from './size';
 import type { StackChildrenProps } from './types';
 
 import * as styles from './TableCell.css';
 
 interface Props extends StackChildrenProps {
-  align?: TableAlign | null;
+  align?: string;
   component: 'td' | 'th';
 }
 
+const isValidAlign = (
+  align: unknown,
+): align is 'left' | 'center' | 'right' | null =>
+  ['left', 'center', 'right', null].includes(align as string | null);
+
 export const TableCell = ({ align, children, component }: Props) => {
+  if (!isValidAlign(align)) {
+    throw new Error(
+      `TableCell: Invalid align prop "${align}". Must be one of: left, center, right, null`,
+    );
+  }
+
   const { size, type } = useContext(TableContext);
 
   const padding = SIZE_TO_TABLE_PADDING[size];

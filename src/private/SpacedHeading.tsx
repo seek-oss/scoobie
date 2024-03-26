@@ -30,8 +30,8 @@ const headingForLevel: Record<
 };
 
 interface Props {
-  children: ReactNode;
-  id: string;
+  children?: ReactNode;
+  id?: string;
 }
 
 export const createSpacedHeading = (level: HeadingLevel) => {

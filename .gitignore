@@ -1,6 +1,6 @@
 dist-storybook-tmp/
 lib/
-mermaid/
+/mermaid/
 node_modules/
 
 .DS_Store

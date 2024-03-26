@@ -5,14 +5,16 @@ import { ExternalTextLink } from '../private/ExternalTextLink';
 import { isExternalHref } from '../private/url';
 
 interface Props {
-  children: ReactNode;
-  href: string;
+  children?: ReactNode;
+  href?: string;
   icon?: ComponentProps<typeof TextLink>['icon'];
   title?: string;
 }
 
-export const SmartTextLink = ({ children, href, icon, title }: Props) =>
-  isExternalHref(href) ? (
+export const SmartTextLink = ({ children, href, icon, title }: Props) => {
+  if (!href) throw new Error('SmartTextLink missing required prop: href');
+
+  return isExternalHref(href) ? (
     <ExternalTextLink href={href} icon={icon} title={title}>
       {children}
     </ExternalTextLink>
@@ -21,3 +23,4 @@ export const SmartTextLink = ({ children, href, icon, title }: Props) =>
       {children}
     </TextLink>
   );
+};

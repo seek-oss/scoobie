@@ -555,10 +555,11 @@ This allows you to derive arbitrary components from select parts of the document
 
 ```tsx
 import { Text } from 'braid-design-system';
-import React, { Children } from 'react';
+import type { MDXContent } from 'mdx/types';
+import { Children } from 'react';
 import { WrapperRenderer } from 'scoobie';
 
-export const NodeCount = (Document: MDX.Document) => (
+export const NodeCount = (Document: MDXContent) => (
   <WrapperRenderer document={Document}>
     {({ children }) => (
       <Text>{Children.toArray(children).length} top-level node(s)</Text>

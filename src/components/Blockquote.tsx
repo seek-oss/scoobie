@@ -1,5 +1,4 @@
 import { Box, Heading, Secondary, Stack } from 'braid-design-system';
-import React from 'react';
 
 import { DEFAULT_SIZE, SIZE_TO_SPACE, type Size } from '../private/size';
 import type { StackChildrenProps } from '../private/types';
@@ -10,7 +9,7 @@ interface Props extends StackChildrenProps {
   size: Size;
 }
 
-export const Blockquote = ({ children, size = DEFAULT_SIZE }: Props) => {
+export const Blockquote = ({ children = null, size = DEFAULT_SIZE }: Props) => {
   const space = SIZE_TO_SPACE[size];
 
   return (

@@ -1,13 +1,13 @@
 import path from 'path';
 
 // @ts-expect-error
-import { imageToJsx } from './imageToJsx';
+import { importImages } from './importImages';
 
-describe('imageToJsx', () => {
+describe('importImages', () => {
   const runPlugin = (ast: Readonly<Record<string, unknown>>) => {
     const astCopy = { ...ast };
 
-    imageToJsx()(astCopy, {
+    importImages()(astCopy, {
       history: [path.join(__dirname, 'test.mdx')],
     });
 

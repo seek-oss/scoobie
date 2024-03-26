@@ -15,7 +15,7 @@ const containsParagraphNode = (node) =>
  *
  * This can be disabled by using an explicit `<p>` tag in the cell.
  */
-module.exports.formatTableCells = () => (tree) =>
+export const formatTableCells = () => (tree) =>
   visit(tree, 'table', (node) =>
     node.children.forEach((row, rowIndex) =>
       row.children.forEach((cell) => {

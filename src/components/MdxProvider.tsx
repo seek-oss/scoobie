@@ -1,4 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
+import type { MDXComponents } from 'mdx/types';
 import React, { type ReactNode } from 'react';
 
 import { GraphQLPlaygroundProvider } from '../private/hooks/graphqlPlayground';
@@ -23,7 +24,7 @@ interface MdxProviderProps {
   /**
    * Optional components to use in addition to or in place of the default ones
    */
-  components?: MDX.ProviderComponents;
+  components?: MDXComponents;
 }
 
 export const MdxProvider = ({

@@ -1,7 +1,7 @@
-import React, { Children, type FunctionComponent, type ReactNode } from 'react';
+import type { MDXContent } from 'mdx/types';
+import { Children, type FunctionComponent, type ReactNode } from 'react';
 
 import type { HeadingLevel, StackChildrenProps } from '../private/types';
-import { isMdxElement } from '../private/validation';
 
 import { WrapperRenderer } from './WrapperRenderer';
 
@@ -9,8 +9,8 @@ interface HeadingElement {
   props: {
     children: string;
     id: string;
-    mdxType: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   };
+  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 export type Toc = TocItem[];
@@ -22,10 +22,14 @@ export interface TocItem {
 }
 
 const headingToLevel = (component: HeadingElement): HeadingLevel =>
-  Number(component.props.mdxType.replace(/^h/, '')) as HeadingLevel;
+  Number(component.type.replace(/^h/, '')) as HeadingLevel;
 
 const isHeading = (component: unknown): component is HeadingElement =>
-  isMdxElement(component) && /^h[1-6]$/.test(component.props.mdxType);
+  typeof component === 'object' &&
+  component !== null &&
+  'type' in component &&
+  typeof component.type === 'string' &&
+  /^h[1-6]$/.test(component.type);
 
 const wrapperToToc = ({ children }: StackChildrenProps): Toc =>
   Children.toArray(children)
@@ -46,7 +50,7 @@ export const TocRenderer = ({
   document: Document,
 }: {
   children: (toc: Toc) => ReturnType<FunctionComponent>;
-  document: MDX.Document;
+  document: MDXContent;
 }) => (
   <WrapperRenderer document={Document}>
     {({ children }) => {

@@ -1,6 +1,6 @@
 import 'loki/configure-react';
 import { Text } from 'braid-design-system';
-import React, { Children } from 'react';
+import { Children } from 'react';
 import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import Wrapper from '../storybook/markdown/wrapper.mdx';
