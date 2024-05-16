@@ -12636,10 +12636,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@12.5.1:
-  version "12.5.1"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-12.5.1.tgz#c7bb3ca9176e6a03e33646ce77c639a025b31997"
-  integrity sha512-SyULkGtBoIolhGcuRZsZFUlOpcLrXfqKQQP9Ji8vhHK0t9moLY6QNU5TtXVXAUcyna47tyyVu5Vek7b4QEMiyQ==
+sku@12.6.1:
+  version "12.6.1"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-12.6.1.tgz#b115dde5688da102512e389a49e00000060b1046"
+  integrity sha512-pku0SHZpyMb1Hioc700xDSh16nEfF2Crg079xeVLsi8JoAXMFv55wqU2kQknS7Jhp+ukxCPI1nxdYnEB+EfsLQ==
   dependencies:
     "@antfu/ni" "^0.21.8"
     "@babel/core" "^7.21.8"
