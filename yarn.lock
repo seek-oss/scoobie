@@ -1182,17 +1182,17 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@capsizecss/core@^4.0.0", "@capsizecss/core@^4.1.0":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-4.1.1.tgz#919a327a0eab01b18dfc70bf33a7b75d1258bb49"
-  integrity sha512-eNf+VsAaNfMVlzqczOAO3t0XNZD1j/0JdihYzYw+1iv3FNCtS8Kurl/IkwYeGLAU+49urdBySai8BT16KBQ1HQ==
+"@capsizecss/core@^4.0.0", "@capsizecss/core@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-4.1.2.tgz#a278e19953ed4922653d2c2a7614915fd8fc5f24"
+  integrity sha512-5tMjLsVsaEEwJ816y3eTfhhTIyUWNFt58x6YcHni0eV5tta8MGDOAIe+CV5ICb5pguXgDpNGLprqhPqBWtkFSg==
   dependencies:
     csstype "^3.1.1"
 
-"@capsizecss/metrics@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@capsizecss/metrics/-/metrics-2.2.0.tgz#f8cad1e2911e2e1bb16c2cb69da41be8f5c9b31b"
-  integrity sha512-DkFIser1KbGxWyG2hhQQeCit72TnOQDx5pr9bkA7+XlIy7qv+4lYtslH3bidVxm2qkY2guAgypSIPYuQQuk70A==
+"@capsizecss/metrics@^3.0.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/metrics/-/metrics-3.2.0.tgz#7a97a39bdb65b1cb08c0eb90822b1422759fa9ea"
+  integrity sha512-EVWRXJaakH6NTq+7cZawgFiqA+UyESMszN/c1oDHbC/b0SAzQJ/QLS0xpaa3Y+YMfXOkEEjkuChYIV5pSkgmcg==
 
 "@capsizecss/vanilla-extract@^2.0.0":
   version "2.0.0"
@@ -5303,13 +5303,13 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-braid-design-system@32.17.0:
-  version "32.17.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.17.0.tgz#ecb463f0111d6a24521a9d0ff17377bfc8e63751"
-  integrity sha512-j/YCtM9ae9vYuscOaJzb9SFEqms9yOD0D6DTMcf8LSxM8WfRkTnrrwiJwt05/0A+wOPYMAR0f0+jPs+KPgW7zw==
+braid-design-system@32.18.0:
+  version "32.18.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.18.0.tgz#647739acc20a37533d86a9d653d3af96eeeb957f"
+  integrity sha512-SZPEve/9FzL+nfg67AQx5Byo/T1zWFEe/09chqKXqlXNYb8UJp4d8TUt6KLnS40bhE3k+DssE93k066mh6wcxA==
   dependencies:
-    "@capsizecss/core" "^4.1.0"
-    "@capsizecss/metrics" "^2.2.0"
+    "@capsizecss/core" "^4.1.2"
+    "@capsizecss/metrics" "^3.0.0"
     "@capsizecss/vanilla-extract" "^2.0.0"
     "@types/autosuggest-highlight" "^3.1.1"
     "@types/dedent" "^0.7.0"
