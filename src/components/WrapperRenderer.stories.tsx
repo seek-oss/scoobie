@@ -15,7 +15,7 @@ export default {
 type Story = StoryObj<typeof Component>;
 export const WrapperRenderer: Story = {
   args: {
-    document: Wrapper,
+    document: Wrapper as MDX.Document,
     children: ({ children }) => (
       <Text>{Children.toArray(children).length} top-level node(s)</Text>
     ),
