@@ -2,13 +2,13 @@ dist-storybook-tmp/
 typography.ts
 
 # managed by sku
-*.less.d.ts
 .eslintcache
 .eslintrc
 .prettierrc
-.storybook/main.js
 coverage/
-dist-storybook/
 dist/
 report/
+tsconfig.json
 # end managed by sku
+
+dist-storybook/
