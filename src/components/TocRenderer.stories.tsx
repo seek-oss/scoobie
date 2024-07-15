@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Component>;
 
 export const TocRenderer: Story = {
   args: {
-    document: HeadingMarkdown,
+    document: HeadingMarkdown as MDX.Document,
     children: (toc) => (
       <Text>
         <Stack space="small">
