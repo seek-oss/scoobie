@@ -1,6 +1,6 @@
 import 'loki/configure-react';
 
-import type { Meta, StoryObj } from 'sku/@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { CopyableText as Component } from './CopyableText';
 

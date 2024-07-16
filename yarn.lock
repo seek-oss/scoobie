@@ -4638,7 +4638,7 @@
     "@types/emscripten" "^1.39.6"
     tslib "^1.13.0"
 
-"@zendesk/babel-plugin-react-displayname@github:zendesk/babel-plugin-react-displayname#7a837f2":
+"@zendesk/babel-plugin-react-displayname@zendesk/babel-plugin-react-displayname#7a837f2":
   version "1.0.0"
   resolved "https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2e92fbd6c5e348dcd178dc9de05309a804"
   dependencies:

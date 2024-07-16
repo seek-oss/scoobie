@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { robotoHref, robotoMonoHref } from '../typography';
-import type { Preview } from 'sku/@storybook/react';
+import type { Preview } from '@storybook/react';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
 import seekJobs from 'braid-design-system/themes/seekJobs';
@@ -29,7 +29,10 @@ export default {
   },
   decorators: [
     (Story, { globals }) => (
-      <BraidProvider theme={THEMES[globals.theme]} linkComponent={ScoobieLink}>
+      <BraidProvider
+        theme={THEMES[globals.theme as BraidThemeName]}
+        linkComponent={ScoobieLink}
+      >
         <BrowserRouter>
           <HelmetProvider>
             <Helmet>

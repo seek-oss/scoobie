@@ -1,8 +1,8 @@
 import 'loki/configure-react';
 
 import type { MDXProvider } from '@mdx-js/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import type { ReactNode } from 'react';
-import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { SIZES } from '../private/size';
 import BlockquoteMarkdown from '../storybook/markdown/blockquote.mdx';
