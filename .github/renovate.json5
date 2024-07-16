@@ -1,15 +1,3 @@
 {
   extends: ['github>seek-oss/rynovate'],
-  packageRules: [
-    {
-      // We need to match the Storybook version bundled in sku.
-      matchPackageNames: [
-        '@storybook/addon-essentials',
-        '@storybook/addon-knobs',
-      ],
-      matchManagers: ['npm'],
-      matchUpdateTypes: ['major'],
-      enabled: false,
-    },
-  ],
 }
