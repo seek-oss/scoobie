@@ -13,6 +13,7 @@ export default {
   },
   addons: [
     '@storybook/addon-webpack5-compiler-babel', // Required for Storybook >=8.0.0
+    '@storybook/addon-essentials',
   ],
   babel,
   webpackFinal,
