@@ -1,5 +1,15 @@
 # scoobie
 
+## 16.0.0
+
+### Major Changes
+
+- Bump minimum supported version of sku to 13.0.0 ([#666](https://github.com/seek-oss/scoobie/pull/666))
+
+- **deps:** webpack-merge ^6.0.0 ([#665](https://github.com/seek-oss/scoobie/pull/665))
+
+  This release bumps the minimum supported Node version to `18.18`.
+
 ## 15.3.0
 
 ### Minor Changes
