@@ -1,4 +1,3 @@
-// .storybook/main.ts
 import { babel, webpackFinal } from 'sku/config/storybook';
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
