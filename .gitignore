@@ -10,12 +10,11 @@ npm-debug.log
 .eslintcache
 .eslintrc
 .prettierrc
-.storybook/main.js
 coverage/
-dist-storybook/
 dist/
 report/
 tsconfig.json
 # end managed by sku
 
 !/remark/tsconfig.json
+dist-storybook/

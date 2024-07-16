@@ -1,8 +1,8 @@
 import 'loki/configure-react';
 
+import type { Meta, StoryObj } from '@storybook/react';
 import { List, Text } from 'braid-design-system';
 import React from 'react';
-import type { Meta, StoryObj } from 'sku/@storybook/react';
 
 import { Blockquote as Component } from './Blockquote';
 

@@ -6,10 +6,8 @@ import type { SkuConfig } from 'sku';
 import { ScoobieWebpackPlugin, merge } from './webpack';
 
 const config: SkuConfig = {
-  orderImports: true,
   rootResolution: false,
   srcPaths: ['./src', './styles'],
-  storybookAddons: ['@storybook/addon-essentials'],
 
   dangerouslySetESLintConfig: (skuConfig) => ({
     ...skuConfig,
@@ -52,6 +50,13 @@ const config: SkuConfig = {
         }),
       ],
     }),
+  dangerouslySetTSConfig: (tsConfig) => ({
+    ...tsConfig,
+    include: [
+      '**/*', // Implicit default value if `include` is not set and `files` is not set
+      '.storybook/*', // 👈 Add this line
+    ],
+  }),
 };
 
 export default config;
