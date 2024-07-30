@@ -4031,7 +4031,7 @@ autoprefixer@^10.3.1:
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
 
-autosuggest-highlight@^3.1.1:
+autosuggest-highlight@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/autosuggest-highlight/-/autosuggest-highlight-3.3.4.tgz#d71b575ba8eab40b5adba73df9244e9ba88cc387"
   integrity sha512-j6RETBD2xYnrVcoV1S5R4t3WxOlWZKyDQjkwnggDPSjF5L4jV98ZltBpvPvbkM1HtoSe5o+bNrTHyjPbieGeYA==
@@ -4319,10 +4319,10 @@ braces@^3.0.3, braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-braid-design-system@32.20.0:
-  version "32.20.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.20.0.tgz#a3afcf4e9b9345318113525ab36fde6d7e5ba43e"
-  integrity sha512-jNxwYDvSFgMjwpiSc8paE4oJElxBJtin3EfoknQ/O3F6SIppbyDBoy/Z9WGt1eJApjjB0hLWkRwsUKqbQh4dmw==
+braid-design-system@32.21.0:
+  version "32.21.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.21.0.tgz#dbcc65ff2516a1eb775b1e6ed917ee2247f959c1"
+  integrity sha512-RAEz8yojfl2SwKXW5WUSPcoL8znrJShP8ETMyFXFz5XSum8yWHXhWoQ12TWN1g822JvFsH/JoWhfZqVIyl+zCA==
   dependencies:
     "@capsizecss/core" "^4.1.2"
     "@capsizecss/metrics" "^3.0.0"
@@ -4332,7 +4332,7 @@ braid-design-system@32.20.0:
     "@vanilla-extract/dynamic" "^2.0.3"
     "@vanilla-extract/sprinkles" "^1.5.1"
     assert "^2.0.0"
-    autosuggest-highlight "^3.1.1"
+    autosuggest-highlight "^3.3.4"
     clsx "^2.1.1"
     csstype "^3.0.6"
     dedent "^1.5.3"
