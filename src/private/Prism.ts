@@ -1,7 +1,4 @@
 import Prism from 'prismjs';
-
-import 'prismjs/components/prism-php';
-
 // @ts-expect-error
 import bashLang from 'refractor/lang/bash';
 // @ts-expect-error
@@ -16,6 +13,8 @@ import javaLang from 'refractor/lang/java';
 import jsonLang from 'refractor/lang/json';
 // @ts-expect-error
 import splunkSplLang from 'refractor/lang/splunk-spl';
+
+import 'prismjs/components/prism-php';
 
 bashLang(Prism);
 csharpLang(Prism);
