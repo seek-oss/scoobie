@@ -84,7 +84,7 @@
     "loki:update": "loki update --host host.docker.internal --port 8081",
     "release": "changeset publish",
     "stage": "changeset version && yarn format",
-    "storybook:build": "storybook build",
+    "storybook:build": "storybook build --output-dir dist-storybook",
     "storybook:start": "storybook dev",
     "test": "sku test",
     "test:ci": "sku test --coverage"
