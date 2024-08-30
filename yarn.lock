@@ -3757,6 +3757,7 @@
 
 "@zendesk/babel-plugin-react-displayname@zendesk/babel-plugin-react-displayname#7a837f2":
   version "1.0.0"
+  uid "7a837f2e92fbd6c5e348dcd178dc9de05309a804"
   resolved "https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2e92fbd6c5e348dcd178dc9de05309a804"
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -4320,11 +4321,6 @@ better-path-resolve@1.0.0:
   dependencies:
     is-windows "^1.0.0"
 
-big-integer@^1.6.7:
-  version "1.6.52"
-  resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.52.tgz#60a887f3047614a8e1bffe5d7173490a97dc8c85"
-  integrity sha512-QxD8cf2eVqJOOz63z6JIN9BzvVs/dlySa5HGSBH5xtR8dPteIRQnBxxKqkNTiT6jbDTF6jAfrd4oMcND9RGbQg==
-
 big.js@^5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
@@ -4375,13 +4371,6 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
 
-bplist-parser@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/bplist-parser/-/bplist-parser-0.1.1.tgz#d60d5dcc20cba6dc7e1f299b35d3e1f95dafbae6"
-  integrity sha512-2AEM0FXy8ZxVLBuqX0hqt1gDwcnz2zygEkQ6zaD5Wko/sB9paUNwlpawrFtKeHUAQUOzjVy9AO4oeonqIHKA9Q==
-  dependencies:
-    big-integer "^1.6.7"
-
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -4404,10 +4393,10 @@ braces@^3.0.3, braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-braid-design-system@32.23.0:
-  version "32.23.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.23.0.tgz#d4e2c76636b415d9d6a5a29bcd6e471b955ab8be"
-  integrity sha512-0oqISHlfHvd+usrXtbOoYeWWNr6hkzApuGokt+JuW7Ws+i7yDMHAMxukKUxAYFEPohZHpEJjOnFjUeSIEjbcuA==
+braid-design-system@32.23.1:
+  version "32.23.1"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.23.1.tgz#129e2c39f3f588071e07d1b6308da9180a201240"
+  integrity sha512-LlkJdXLkYDJQuPbmUiO6rnUKbPCbNq99/2zJTbMwLUo039PekeBobw2gzMS0xuinGQXuOaX0sDuiluUCivzjkw==
   dependencies:
     "@capsizecss/core" "^4.1.2"
     "@capsizecss/metrics" "^3.0.0"
@@ -5643,15 +5632,6 @@ deepmerge@^4.2.2:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.3.1.tgz#44b5f2147cd3b00d4b56137685966f26fd25dd4a"
   integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
-
-default-browser-id@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/default-browser-id/-/default-browser-id-2.0.0.tgz#01ecce371a71e85f15a17177e7863047e73dbe7d"
-  integrity sha512-+LePblg9HDIx3CIla8BxfI/zYUFs8Kp67U5feqb7iTJcAxBOvcZ7ZNXKFsBDnGE5x0ap66o848VHE0fq7cgpPg==
-  dependencies:
-    bplist-parser "^0.1.0"
-    pify "^2.3.0"
-    untildify "^2.0.0"
 
 default-browser-id@^5.0.0:
   version "5.0.0"
@@ -10024,11 +10004,6 @@ ora@^5.4.1:
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
-os-homedir@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
-  integrity sha512-B5JU3cabzk8c67mRRd3ECmROafjYMXbuzlwtqdM8IbS8ktlTix8aFGb2bAGKrSRIlnfKwovGUUr72JUPyOb6kQ==
-
 os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
@@ -10302,11 +10277,6 @@ picomatch@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-3.0.1.tgz#817033161def55ec9638567a2f3bbc876b3e7516"
   integrity sha512-I3EurrIQMlRc9IaAZnqRR044Phh2DXY+55o7uJ0V+hYZAcQYSuFWsc9q5PvyDHUSCe1Qxn/iBz+78s86zWnGag==
-
-pify@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
-  integrity sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==
 
 pify@^4.0.1:
   version "4.0.1"
@@ -11767,10 +11737,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@13.0.4:
-  version "13.0.4"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-13.0.4.tgz#ae88d7159fbf254aaa9465b2b36c71af301607fc"
-  integrity sha512-EC2io8RuyvdpNErF4hnE5+TunnMevsWDASebuwDi+pSa9kfgEF14Sw0jzfcyiMZYqZ/oaGWaThEj2Srwp7XAJQ==
+sku@13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-13.1.0.tgz#dd99fc875e68c763f1e9b0c3d3830a813b8c5385"
+  integrity sha512-LyS0jCAfzAEdvHLP7V9CxtunhxJIbu3zgm2/9Qrk07w6WdfyhMWdlCc+DE3vq8qrWCq5sNgjF34FYv+LPAjJsw==
   dependencies:
     "@antfu/ni" "^0.21.8"
     "@babel/core" "^7.21.8"
@@ -11798,7 +11768,7 @@ sku@13.0.4:
     "@vocab/phrase" "^2.0.1"
     "@vocab/pseudo-localize" "^1.0.1"
     "@vocab/webpack" "^1.2.9"
-    "@zendesk/babel-plugin-react-displayname" zendesk/babel-plugin-react-displayname#7a837f2
+    "@zendesk/babel-plugin-react-displayname" "github:zendesk/babel-plugin-react-displayname#7a837f2"
     autoprefixer "^10.3.1"
     babel-jest "^29.0.0"
     babel-loader "^9.1.2"
@@ -11816,6 +11786,7 @@ sku@13.0.4:
     death "^1.1.0"
     debug "^4.3.1"
     dedent "^1.5.1"
+    default-browser "^5.2.1"
     didyoumean2 "^6.0.1"
     ejs "^3.1.8"
     ensure-gitignore "^1.1.2"
@@ -11864,7 +11835,6 @@ sku@13.0.4:
     webpack-merge "^5.8.0"
     webpack-node-externals "^3.0.0"
     wrap-ansi "^7.0.0"
-    x-default-browser "^0.5.0"
 
 slash@^3.0.0:
   version "3.0.0"
@@ -12869,13 +12839,6 @@ unplugin@^1.3.1:
     webpack-sources "^3.2.3"
     webpack-virtual-modules "^0.6.2"
 
-untildify@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/untildify/-/untildify-2.1.0.tgz#17eb2807987f76952e9c0485fc311d06a826a2e0"
-  integrity sha512-sJjbDp2GodvkB0FZZcn7k6afVisqX5BZD7Yq3xp4nN2O15BBK0cLm3Vwn2vQaF7UDS0UUsrQMkkplmDI5fskig==
-  dependencies:
-    os-homedir "^1.0.0"
-
 update-browserslist-db@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/update-browserslist-db/-/update-browserslist-db-1.1.0.tgz#7ca61c0d8650766090728046e416a8cde682859e"
@@ -13494,13 +13457,6 @@ ws@^8.11.0, ws@^8.16.0, ws@^8.2.3:
   version "8.18.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.18.0.tgz#0d7505a6eafe2b0e712d232b42279f53bc289bbc"
   integrity sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==
-
-x-default-browser@^0.5.0:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/x-default-browser/-/x-default-browser-0.5.2.tgz#de392c739b5e946fb54310e6b897db0cb7944f67"
-  integrity sha512-OOC2l+bGtY2IVQPGTlXxmLqdIqGKwIH0g8phooVJHu6xVavegfgTPqeBmaL94IXyggBF59x2z3qAnTbVLS25PQ==
-  optionalDependencies:
-    default-browser-id "^2.0.0"
 
 xml-name-validator@^4.0.0:
   version "4.0.0"
