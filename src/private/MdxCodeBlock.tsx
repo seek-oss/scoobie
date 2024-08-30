@@ -6,7 +6,13 @@ import type { CodeChildProps } from '../components/CodeBlock/CodeChild';
 import { useGraphQLPlayground } from './hooks/graphqlPlayground';
 import type { Size } from './size';
 
-const toLabel = (meta?: string) => meta?.match(/label="([^"]+)"/)?.[1];
+const LABEL_REGEX = /label="([^"]+)"/;
+
+const toDefault = (meta?: string): boolean =>
+  Boolean(meta?.replace(LABEL_REGEX, '').match(/(^|\s)default(\s|$)/));
+
+const toLabel = (meta?: string): string | undefined =>
+  meta?.match(LABEL_REGEX)?.[1];
 
 /**
  * MDAST node as passed through by the `mergeCodeBlocks` Remark plugin.
@@ -39,8 +45,18 @@ export const createMdxCodeBlock =
     if (className === 'language-scoobie-merged-code' && metastring) {
       const data = JSON.parse(metastring) as MdastCode[];
 
+      const firstDefaultIndex = data.findIndex((child) =>
+        toDefault(child.meta),
+      );
+
+      const initialIndex = firstDefaultIndex === -1 ? 0 : firstDefaultIndex;
+
       return (
-        <CodeBlock graphqlPlayground={graphqlPlayground} size={size}>
+        <CodeBlock
+          graphqlPlayground={graphqlPlayground}
+          initialIndex={initialIndex}
+          size={size}
+        >
           {data.map(toCodeChildProps)}
         </CodeBlock>
       );

@@ -1,7 +1,7 @@
 import { Box, Stack, Text, TextLinkButton } from 'braid-design-system';
 import { parse } from 'jsonc-parser';
 import { Highlight } from 'prism-react-renderer';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Prism, themes } from '../private/Prism';
 import { ScrollableInline } from '../private/ScrollableInline';
@@ -23,6 +23,7 @@ import * as styles from './CodeBlock.css';
 interface Props {
   children: readonly CodeChildProps[] | string;
   graphqlPlayground?: string;
+  initialIndex?: number;
   label?: string;
   language?: string;
   size?: Size;
@@ -31,9 +32,10 @@ interface Props {
 
 export const CodeBlock = ({
   children: rawChildren,
+  graphqlPlayground,
+  initialIndex = 0,
   label: rawLabel,
   language: rawLanguage,
-  graphqlPlayground,
   size = DEFAULT_SIZE,
   trim = true,
 }: Props) => {
@@ -53,9 +55,14 @@ export const CodeBlock = ({
   const smallerSize = SIZE_TO_SMALLER[size];
   const tablePadding = SIZE_TO_TABLE_PADDING[size];
 
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState({ dirty: false, value: initialIndex });
 
-  const child = children[index];
+  useEffect(
+    () => setIndex((i) => (i.dirty ? i : { ...i, value: initialIndex })),
+    [initialIndex],
+  );
+
+  const child = children[index.value] ?? children[0];
 
   const jsoncVariables =
     children[0].language === 'graphql' && children[1]?.label === 'Variables'
@@ -90,13 +97,17 @@ export const CodeBlock = ({
               >
                 <Text
                   size={smallerSize}
-                  tone={index === labelIndex ? 'secondary' : undefined}
+                  tone={index.value === labelIndex ? 'secondary' : undefined}
                   weight="medium"
                 >
-                  {children.length === 1 || index === labelIndex ? (
+                  {children.length === 1 || index.value === labelIndex ? (
                     label
                   ) : (
-                    <TextLinkButton onClick={() => setIndex(labelIndex)}>
+                    <TextLinkButton
+                      onClick={() =>
+                        setIndex({ dirty: true, value: labelIndex })
+                      }
+                    >
                       {label}
                     </TextLinkButton>
                   )}
