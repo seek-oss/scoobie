@@ -102,7 +102,7 @@ function createMermaidRenderer(options) {
     }
 
     const toRender = mapped
-      .map((n, i) => (console.log(n), { ...n, originalIndex: i }))
+      .map((n, i) => ({ ...n, originalIndex: i }))
       .filter(({ exists }) => !exists);
 
     const results = await renderer(
