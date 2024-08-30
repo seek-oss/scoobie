@@ -3,6 +3,8 @@
 
 const crypto = require('crypto');
 const path = require('path');
+const YAML = require('yaml');
+const merge = require('lodash.merge');
 
 const fs = require('fs-extra');
 const mermaidIsomorphic = require('mermaid-isomorphic');
@@ -70,15 +72,27 @@ const generateFilePaths = (rootDir, data) => {
 function createMermaidRenderer(options) {
   const renderer = mermaidIsomorphic.createMermaidRenderer(options);
 
-  return async (nodes) => {
+  async function renderNodes(nodes) {
     const mapped = nodes.map((node) => {
       const paths = generateFilePaths(options.rootDir, node.value);
+      const frontmatter = node.value.startsWith('---')
+        ? YAML.parse(node.value.match(/---([\s\S]*?)---/)[1]) ?? {}
+        : {};
+
       return {
         ...paths,
         value: node.value,
+        frontmatter,
         exists: fs.existsSync(paths.svgPath),
       };
     });
+
+    if (mapped.length > 1 && mapped.some((n) => n.frontmatter.overrides)) {
+      // If any node has an override, render all nodes separately because we pass config globally
+      return await Promise.all(
+        nodes.map(async (node) => (await renderNodes([node]))[0]),
+      );
+    }
 
     if (mapped.every(({ exists }) => exists)) {
       return mapped.map(({ svgNodeUrl }) => ({
@@ -88,12 +102,19 @@ function createMermaidRenderer(options) {
     }
 
     const toRender = mapped
-      .map((n, i) => ({ ...n, originalIndex: i }))
+      .map((n, i) => (console.log(n), { ...n, originalIndex: i }))
       .filter(({ exists }) => !exists);
 
     const results = await renderer(
       toRender.map(({ value }) => value),
-      { ...options, mermaidConfig },
+      {
+        ...options,
+        mermaidConfig: merge(
+          {},
+          mermaidConfig,
+          ...toRender.map(({ frontmatter }) => frontmatter.overrides),
+        ),
+      },
     );
 
     const errorResults = new Map();
@@ -120,12 +141,13 @@ function createMermaidRenderer(options) {
       }
     });
 
-    return mapped.map(({ svgNodeUrl }, i) =>
-      errorResults.has(i)
-        ? errorResults.get(i)
-        : { status: 'fulfilled', value: { svgNodeUrl } },
+    return mapped.map(
+      ({ svgNodeUrl }, i) =>
+        errorResults.get(i) ?? { status: 'fulfilled', value: { svgNodeUrl } },
     );
-  };
+  }
+
+  return renderNodes;
 }
 
 module.exports = {
