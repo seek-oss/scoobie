@@ -5,8 +5,8 @@ const crypto = require('crypto');
 const path = require('path');
 
 const fs = require('fs-extra');
-const merge = require('lodash.merge');
 const mermaidIsomorphic = require('mermaid-isomorphic');
+const { merge } = require('smob');
 const { optimize } = require('svgo');
 const YAML = require('yaml');
 

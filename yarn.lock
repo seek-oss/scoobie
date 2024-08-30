@@ -3755,7 +3755,7 @@
     "@types/emscripten" "^1.39.6"
     tslib "^1.13.0"
 
-"@zendesk/babel-plugin-react-displayname@github:zendesk/babel-plugin-react-displayname#7a837f2":
+"@zendesk/babel-plugin-react-displayname@zendesk/babel-plugin-react-displayname#7a837f2":
   version "1.0.0"
   resolved "https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2e92fbd6c5e348dcd178dc9de05309a804"
   dependencies:
@@ -11862,6 +11862,11 @@ slice-ansi@^4.0.0:
     ansi-styles "^4.0.0"
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
+
+smob@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/smob/-/smob-1.5.0.tgz#85d79a1403abf128d24d3ebc1cdc5e1a9548d3ab"
+  integrity sha512-g6T+p7QO8npa+/hNx9ohv1E5pVCmWrVCUzUXJyLdMmftX6ER0oiWY/w9knEonLpnOp6b6FenKnMfR8gqwWdwig==
 
 sockjs@^0.3.24:
   version "0.3.24"
