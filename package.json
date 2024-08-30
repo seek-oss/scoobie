@@ -90,7 +90,7 @@
     "storybook:start": "storybook dev",
     "test": "sku test",
     "test:ci": "sku test --coverage",
-    "postinstall": "playwright install chromium"
+    "prepare": "playwright install chromium"
   },
   "loki": {
     "configurations": {
