@@ -178,7 +178,7 @@ export const App = () => (
 Scoobie optionally supports simple, source-controlled diagrams via [mermaid].
 
 This requires the `mermaid` configuration option to be set on [ScoobieWebpackPlugin](#scoobiewebpackplugin),
-and `@mermaid-js/mermaid-cli` to be installed as a peer dependency.
+and `playwright` to be installed as a peer dependency, running `playwright install chromium`.
 From there, the easiest way to get started is to check out the [mermaid live editor].
 
 You can use a named code block in Markdown files:
@@ -194,16 +194,7 @@ sequenceDiagram
 ```
 ````
 
-Or import an `.mmd` file like so:
-
-```markdown
-![Diagram](./diagram.mmd 'Optional title')
-```
-
-If you use a separate `diagram.mmd` file, you can provide [additional mermaid configuration] with a `diagram.mmd.json` file in the same directory.
-
 [mermaid live editor]: https://mermaidjs.github.io/mermaid-live-editor
-[additional mermaid configuration]: https://mermaid-js.github.io/mermaid/#/mermaidAPI?id=configuration
 
 ### Headings
 
