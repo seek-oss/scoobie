@@ -10,4 +10,4 @@ There are some consequences for Mermaid users:
 
 - Output changes (you should review and tweak these)
 - You'll no longer need to install puppeteer and manage it in e.g. your Dockerfiles
-- Before running builds with this change, you'll need to install `playwright` and run `<packageManager> playwright install chromium`. This could form a postinstall script.
+- Before running builds with this change, you'll need to install `mermaid-isomorphic` (which is now a `scoobie` peer dependency), and `playwright` in order to run `<packageManager> playwright install chromium`. This could form a postinstall script.

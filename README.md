@@ -177,8 +177,8 @@ export const App = () => (
 
 Scoobie optionally supports simple, source-controlled diagrams via [mermaid].
 
-This requires the `mermaid` configuration option to be set on [ScoobieWebpackPlugin](#scoobiewebpackplugin),
-and `playwright` to be installed as a peer dependency, running `playwright install chromium`.
+This requires the `mermaid` configuration option to be set on [ScoobieWebpackPlugin](#scoobiewebpackplugin), and the `mermaid-isomorphic` peer dependency installed.
+A playwright installattion of chromium is required, which can be done by installing `playwright` and executing `playwright install chromium`.
 From there, the easiest way to get started is to check out the [mermaid live editor].
 
 You can use a named code block in Markdown files:
