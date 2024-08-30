@@ -667,7 +667,3 @@ see [ScoobieWebpackPlugin](#scoobiewebpackplugin).
 Re-export of [webpack-merge] for convenience.
 
 [webpack-merge]: https://github.com/survivejs/webpack-merge
-
-```
-
-```
