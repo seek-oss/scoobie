@@ -109,8 +109,7 @@ function createMermaidRenderer(options) {
       toRender.map(({ value }) => value),
       {
         ...options,
-        mermaidConfig: merge(
-          {},
+        mermaidConfig: deepmerge(
           mermaidConfig,
           ...toRender.map(({ frontmatter }) => frontmatter.overrides),
         ),
