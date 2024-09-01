@@ -13,6 +13,7 @@
     "@vanilla-extract/css-utils": "^0.1.1",
     "babel-loader": "^9.0.0",
     "clsx": "^2.0.0",
+    "deepmerge-ts": "^7.1.0",
     "find-up": "^5.0.0",
     "fs-extra": "^11.0.0",
     "jsonc-parser": "^3.0.0",
@@ -26,7 +27,8 @@
     "unist-util-visit": "^2.0.3",
     "unist-util-visit-parents": "^3.1.1",
     "webpack-merge": "^6.0.0",
-    "which": "^4.0.0"
+    "which": "^4.0.0",
+    "yaml": "^2.5.0"
   },
   "devDependencies": {
     "@changesets/cli": "2.27.7",
