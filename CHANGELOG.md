@@ -1,5 +1,65 @@
 # scoobie
 
+## 17.1.0
+
+### Minor Changes
+
+- **CodeBlock:** Add `initialIndex` prop ([#690](https://github.com/seek-oss/scoobie/pull/690))
+
+- **MdxProvider:** Add `default` code block directive ([#690](https://github.com/seek-oss/scoobie/pull/690))
+
+  This supports use cases like providing successive GraphQL operation samples where argument differences are the focal point:
+
+  ````markdown
+  Permutation 1:
+
+  ```graphql
+  mutation ($input: Input!) {
+    do(input: $input)
+  }
+  ```
+
+  ```json default
+  {
+    "input": 1
+  }
+  ```
+
+  Permutation 2:
+
+  ```graphql
+  mutation ($input: Input!) {
+    do(input: $input)
+  }
+  ```
+
+  ```json default
+  {
+    "input": 2
+  }
+  ```
+  ````
+
+- Add support for Mermaid overrides ([#693](https://github.com/seek-oss/scoobie/pull/693))
+
+  Some Mermaid diagrams allow for YAML frontmatter. Scoobie has extended this by allowing a deep merge of the Mermaid configuration
+  with a special `overrides` key in the frontmatter. This could be useful for diagram-specific configuration that is not otherwise easy to set.
+
+  ````markdown
+  ```mermaid
+  ---
+  overrides:
+    gantt:
+      useWidth: 500
+  ---
+  gantt
+      title A Gantt Diagram
+      dateFormat  YYYY-MM-DD
+      section Section
+      A task           :a1, 2014-01-01, 30d
+  ```
+  ````
+
 ## 17.0.0
 
 ### Major Changes
