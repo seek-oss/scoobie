@@ -1,5 +1,11 @@
 # scoobie
 
+## 17.1.1
+
+### Patch Changes
+
+- Lazy load mermaid-isomorphic to avoid import errors for non-mermaid projects ([#696](https://github.com/seek-oss/scoobie/pull/696))
+
 ## 17.1.0
 
 ### Minor Changes
