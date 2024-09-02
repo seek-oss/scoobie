@@ -6,7 +6,6 @@ const path = require('path');
 
 const { deepmerge } = require('deepmerge-ts');
 const fs = require('fs-extra');
-const mermaidIsomorphic = require('mermaid-isomorphic');
 const { optimize } = require('svgo');
 const YAML = require('yaml');
 
@@ -70,6 +69,7 @@ const generateFilePaths = (rootDir, data) => {
 };
 
 function createMermaidRenderer(options) {
+  const mermaidIsomorphic = require('mermaid-isomorphic');
   const renderer = mermaidIsomorphic.createMermaidRenderer(options);
 
   async function renderNodes(nodes) {
