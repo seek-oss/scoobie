@@ -1,5 +1,11 @@
 # scoobie
 
+## 17.1.2
+
+### Patch Changes
+
+- **mermaid:** Fix flowchart labels being cut off ([#698](https://github.com/seek-oss/scoobie/pull/698))
+
 ## 17.1.1
 
 ### Patch Changes
