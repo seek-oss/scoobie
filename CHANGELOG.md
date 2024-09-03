@@ -1,5 +1,11 @@
 # scoobie
 
+## 17.1.3
+
+### Patch Changes
+
+- **mermaid:** Fix `ERR_REQUIRE_ESM` ([#700](https://github.com/seek-oss/scoobie/pull/700))
+
 ## 17.1.2
 
 ### Patch Changes
