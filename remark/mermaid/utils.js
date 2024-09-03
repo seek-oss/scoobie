@@ -69,10 +69,13 @@ const generateFilePaths = (rootDir, data) => {
 };
 
 function createMermaidRenderer(options) {
-  const mermaidIsomorphic = require('mermaid-isomorphic');
-  const renderer = mermaidIsomorphic.createMermaidRenderer(options);
+  let renderer;
 
   async function renderNodes(nodes) {
+    renderer ??= (await import('mermaid-isomorphic')).createMermaidRenderer(
+      options,
+    );
+
     const mapped = nodes.map((node) => {
       const paths = generateFilePaths(options.rootDir, node.value);
       const frontmatter = node.value.startsWith('---')
