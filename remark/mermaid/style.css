@@ -82,6 +82,11 @@ g.node foreignObject.label {
   overflow-y: visible;
 }
 
+g.edgeLabel foreignObject,
+g.label foreignObject {
+  overflow-x: visible;
+}
+
 .edgeLabel div {
   background-color: var(--mermaid-er-label-fill);
 }
