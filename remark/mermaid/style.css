@@ -6,9 +6,6 @@
     Arial, sans-serif;
   --mermaid-font-size: 14px;
 
-  /* https://github.com/mermaid-js/mermaid/blob/8.11.5/src/diagrams/er/erRenderer.js#L405-L406 */
-  --mermaid-er-label-fill: rgba(255, 255, 255, 0.85);
-
   /* https://github.com/seek-oss/braid-design-system/blob/v31.14.0/lib/color/palette.ts */
   --braid-blue-100: #e3f2fb;
   --braid-blue-300: #98c9f1;
@@ -42,7 +39,7 @@ path.er.entityBox {
 }
 
 path.er.relationshipLabelBox {
-  fill: var(--mermaid-er-label-fill);
+  fill: none;
 }
 
 path.er.relationshipLine {
@@ -53,6 +50,13 @@ path.er.relationshipLine {
 text.er {
   dominant-baseline: central;
   text-anchor: middle;
+}
+
+text.er.relationshipLabel {
+  paint-order: stroke fill;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-width: 4px;
 }
 
 /* flowchart v2 */
@@ -87,12 +91,11 @@ g.label foreignObject {
   overflow-x: visible;
 }
 
-.edgeLabel div {
-  background-color: var(--mermaid-er-label-fill);
-}
-
 .edgeLabel span.edgeLabel {
   background-color: transparent;
+
+  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-width: 4px;
 }
 
 circle.label-container,
