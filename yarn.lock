@@ -10,11 +10,6 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
-"@antfu/ni@^0.21.8":
-  version "0.21.12"
-  resolved "https://registry.yarnpkg.com/@antfu/ni/-/ni-0.21.12.tgz#54d33cf0e6d35cb2ec12ab3d5092e4904540b7c0"
-  integrity sha512-2aDL3WUv8hMJb2L3r/PIQWsTLyq7RQr3v9xD16fiz6O8ys1xEyLhhTOv8gxtZvJiTzjTF5pHoArvRdesGL1DMQ==
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.16.7", "@babel/code-frame@^7.24.7":
   version "7.24.7"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.24.7.tgz#882fd9e09e8ee324e496bd040401c6f046ef4465"
@@ -2257,13 +2252,6 @@
     find-up "^4.1.0"
     fs-extra "^8.1.0"
 
-"@manypkg/find-root@^2.2.0":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@manypkg/find-root/-/find-root-2.2.3.tgz#3e9be5dff4a008c228649a34e2af65288ff13c26"
-  integrity sha512-jtEZKczWTueJYHjGpxU3KJQ08Gsrf4r6Q2GjmPp/RGk5leeYAA1eyDADSAF+KVCsQ6EwZd/FMcOFCoMhtqdCtQ==
-  dependencies:
-    "@manypkg/tools" "^1.1.2"
-
 "@manypkg/get-packages@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@manypkg/get-packages/-/get-packages-1.1.3.tgz#e184db9bba792fa4693de4658cfb1463ac2c9c47"
@@ -2275,15 +2263,6 @@
     fs-extra "^8.1.0"
     globby "^11.0.0"
     read-yaml-file "^1.1.0"
-
-"@manypkg/tools@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@manypkg/tools/-/tools-1.1.2.tgz#15d0abb66aa04cee83e7fe75839d56ddfdd5196f"
-  integrity sha512-3lBouSuF7CqlseLB+FKES0K4FQ02JrbEoRtJhxnsyB1s5v4AP03gsoohN8jp7DcOImhaR9scYdztq3/sLfk/qQ==
-  dependencies:
-    fast-glob "^3.3.2"
-    jju "^1.4.0"
-    js-yaml "^4.1.0"
 
 "@mdx-js/loader@^1.6.22":
   version "1.6.22"
@@ -3755,9 +3734,10 @@
     "@types/emscripten" "^1.39.6"
     tslib "^1.13.0"
 
-"@zendesk/babel-plugin-react-displayname@zendesk/babel-plugin-react-displayname#7a837f2":
+"@zendesk/babel-plugin-react-displayname@git+https://github.com/zendesk/babel-plugin-react-displayname.git#7a837f2":
   version "1.0.0"
-  resolved "https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2e92fbd6c5e348dcd178dc9de05309a804"
+  uid "7a837f2e92fbd6c5e348dcd178dc9de05309a804"
+  resolved "git+https://github.com/zendesk/babel-plugin-react-displayname.git#7a837f2e92fbd6c5e348dcd178dc9de05309a804"
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
@@ -8655,11 +8635,6 @@ jiti@^1.20.0:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.6.tgz#6c7f7398dd4b3142767f9a168af2f317a428d268"
   integrity sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==
 
-jju@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/jju/-/jju-1.4.0.tgz#a3abe2718af241a2b2904f84a625970f389ae32a"
-  integrity sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==
-
 jmespath@0.16.0:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/jmespath/-/jmespath-0.16.0.tgz#b15b0a85dfd4d930d43e69ed605943c802785076"
@@ -10104,6 +10079,11 @@ package-json-from-dist@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.0.tgz#e501cd3094b278495eb4258d4c9f6d5ac3019f00"
   integrity sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw==
+
+package-manager-detector@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/package-manager-detector/-/package-manager-detector-0.2.0.tgz#160395cd5809181f5a047222319262b8c2d8aaea"
+  integrity sha512-E385OSk9qDcXhcM9LNSe4sdhx8a9mAPrZ4sMLW+tmxl5ZuGtPUcdFu+MPP2jbgiWAZ6Pfe5soGFMd+0Db5Vrog==
 
 param-case@^3.0.4:
   version "3.0.4"
@@ -11741,12 +11721,11 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@13.1.0:
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-13.1.0.tgz#dd99fc875e68c763f1e9b0c3d3830a813b8c5385"
-  integrity sha512-LyS0jCAfzAEdvHLP7V9CxtunhxJIbu3zgm2/9Qrk07w6WdfyhMWdlCc+DE3vq8qrWCq5sNgjF34FYv+LPAjJsw==
+sku@13.1.1:
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-13.1.1.tgz#7b5aea91f1bc7ae0ecd0c228db8e01879714b87b"
+  integrity sha512-LclZC+PPCCk1QZ4oIrW8WfTLC97w/hG+jEcH69rqK+g+v4kizWpK3b4PDwzMrwHU1v/GMFxI5au3AnuMbuE+KQ==
   dependencies:
-    "@antfu/ni" "^0.21.8"
     "@babel/core" "^7.21.8"
     "@babel/plugin-transform-react-constant-elements" "^7.21.3"
     "@babel/plugin-transform-react-inline-elements" "^7.21.0"
@@ -11759,7 +11738,6 @@ sku@13.1.0:
     "@loadable/component" "^5.14.1"
     "@loadable/server" "^5.14.0"
     "@loadable/webpack-plugin" "^5.14.0"
-    "@manypkg/find-root" "^2.2.0"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.5.15"
     "@swc/core" "^1.6.13"
     "@types/express" "^4.17.11"
@@ -11772,7 +11750,7 @@ sku@13.1.0:
     "@vocab/phrase" "^2.0.1"
     "@vocab/pseudo-localize" "^1.0.1"
     "@vocab/webpack" "^1.2.9"
-    "@zendesk/babel-plugin-react-displayname" zendesk/babel-plugin-react-displayname#7a837f2
+    "@zendesk/babel-plugin-react-displayname" "git+https://github.com/zendesk/babel-plugin-react-displayname.git#7a837f2"
     autoprefixer "^10.3.1"
     babel-jest "^29.0.0"
     babel-loader "^9.1.2"
@@ -11818,6 +11796,7 @@ sku@13.1.0:
     nano-memoize "^3.0.16"
     node-html-parser "^6.1.1"
     open "^7.3.1"
+    package-manager-detector "^0.2.0"
     path-to-regexp "^6.2.0"
     picomatch "^3.0.1"
     postcss "^8.4.0"
