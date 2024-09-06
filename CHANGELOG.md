@@ -1,5 +1,11 @@
 # scoobie
 
+## 17.1.4
+
+### Patch Changes
+
+- **mermaid:** Outline edge labels instead of drawing a translucent background box ([#702](https://github.com/seek-oss/scoobie/pull/702))
+
 ## 17.1.3
 
 ### Patch Changes
