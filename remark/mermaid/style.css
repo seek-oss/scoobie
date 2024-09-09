@@ -89,6 +89,7 @@ g.node foreignObject.label {
 g.edgeLabel foreignObject,
 g.label foreignObject {
   overflow-x: visible;
+  scrollbar-width: none;
 }
 
 .edgeLabel span.edgeLabel {
