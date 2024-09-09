@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
-  "version": "17.1.4",
+  "version": "17.1.5",
   "dependencies": {
     "@capsizecss/core": "^4.0.0",
     "@mdx-js/react": "^1.6.22",
