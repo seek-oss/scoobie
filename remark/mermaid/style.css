@@ -1,12 +1,12 @@
 /* Don't panic, Mermaid scopes all styles to the parent SVG ID */
 
 * {
-  /* https://github.com/mermaid-js/mermaid/blob/v10.1.0/packages/mermaid/src/diagrams/gantt/styles.js#L3-L6 */
+  /* https://github.com/mermaid-js/mermaid/blob/v11.0.0/packages/mermaid/src/diagrams/gantt/styles.js#L3-L5 */
   --mermaid-font-family: Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica,
     Arial, sans-serif;
   --mermaid-font-size: 14px;
 
-  /* https://github.com/seek-oss/braid-design-system/blob/v31.14.0/lib/color/palette.ts */
+  /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/color/palette.ts */
   --braid-blue-100: #e3f2fb;
   --braid-blue-300: #98c9f1;
   --braid-blue-700: #1d559d;
@@ -95,6 +95,7 @@ g.label foreignObject {
 .edgeLabel span.edgeLabel {
   background-color: transparent;
 
+  paint-order: stroke fill;
   -webkit-text-stroke-color: #fff;
   -webkit-text-stroke-width: 4px;
 }
