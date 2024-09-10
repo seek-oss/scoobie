@@ -1,5 +1,11 @@
 # scoobie
 
+## 17.1.6
+
+### Patch Changes
+
+- **mermaid:** Fix text rendering of edge labels ([#710](https://github.com/seek-oss/scoobie/pull/710))
+
 ## 17.1.5
 
 ### Patch Changes
