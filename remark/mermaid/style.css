@@ -82,14 +82,10 @@ g.node span.nodeLabel {
   font-size: var(--mermaid-font-size);
 }
 
-g.node foreignObject.label {
-  overflow-y: visible;
-}
-
 g.edgeLabel foreignObject,
-g.label foreignObject {
-  overflow-x: visible;
-  scrollbar-width: none;
+g.label foreignObject,
+g.node foreignObject.label {
+  overflow: visible;
 }
 
 .edgeLabel span.edgeLabel {
