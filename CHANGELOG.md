@@ -1,5 +1,11 @@
 # scoobie
 
+## 17.1.7
+
+### Patch Changes
+
+- **mermaid:** Fix flowchart labels being cut off in Chrome ([#712](https://github.com/seek-oss/scoobie/pull/712))
+
 ## 17.1.6
 
 ### Patch Changes
