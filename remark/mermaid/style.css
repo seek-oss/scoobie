@@ -33,30 +33,65 @@
 
   /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/baseTokens/apac.ts#L51 */
   --white: #fff;
+}
 
-  --critical-border: var(--braid-red-300);
-  --critical-foreground: var(--braid-red-700);
+@media (prefers-color-scheme: light) {
+  * {
+    --critical-border: var(--braid-red-300);
+    --critical-foreground: var(--braid-red-700);
 
-  --info-background: var(--braid-blue-100);
-  --info-border: var(--braid-blue-300);
-  --info-foreground: var(--braid-blue-700);
+    --info-background: var(--braid-blue-100);
+    --info-border: var(--braid-blue-300);
+    --info-foreground: var(--braid-blue-700);
 
-  --neutral-background: var(--braid-grey-100);
-  --neutral-border: var(--braid-grey-300);
-  --neutral-foreground: var(--braid-grey-700);
-  --neutral-line: var(--braid-grey-500);
+    --neutral-background: var(--braid-grey-100);
+    --neutral-border: var(--braid-grey-300);
+    --neutral-foreground: var(--braid-grey-700);
+    --neutral-line: var(--braid-grey-500);
 
-  --neutral-soft-background: var(--braid-grey-50);
-  --neutral-soft-border: var(--braid-grey-100);
+    --neutral-soft-background: var(--braid-grey-50);
+    --neutral-soft-border: var(--braid-grey-100);
 
-  --note-background: var(--braid-yellow-100);
-  --note-border: var(--braid-yellow-300);
+    --note-background: var(--braid-yellow-100);
+    --note-border: var(--braid-yellow-300);
 
-  --positive-background: var(--braid-mint-100);
-  --positive-border: var(--braid-mint-300);
-  --positive-foreground: var(--braid-mint-700);
+    --positive-background: var(--braid-mint-100);
+    --positive-border: var(--braid-mint-300);
+    --positive-foreground: var(--braid-mint-700);
 
-  --surface-background: var(--white);
+    --surface-background: var(--white);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+    --critical-border: var(--braid-red-500);
+    --critical-foreground: var(--braid-red-100);
+
+    --info-background: var(--braid-blue-700);
+    --info-border: var(--braid-blue-500);
+    --info-foreground: var(--braid-blue-100);
+
+    --note-background: var(--braid-yellow-500);
+    --note-border: var(--braid-yellow-300);
+
+    --neutral-background: var(--braid-grey-700);
+    --neutral-border: var(--braid-grey-500);
+    --neutral-foreground: var(--white);
+    --neutral-line: var(--braid-grey-200);
+
+    --neutral-soft-background: var(--braid-grey-800);
+    --neutral-soft-border: var(--braid-grey-700);
+
+    --note-background: var(--braid-yellow-700);
+    --note-border: var(--braid-yellow-500);
+
+    --positive-background: var(--braid-mint-700);
+    --positive-border: var(--braid-mint-500);
+    --positive-foreground: var(--braid-mint-100);
+
+    --surface-background: var(--braid-grey-800);
+  }
 }
 
 /* shared */
