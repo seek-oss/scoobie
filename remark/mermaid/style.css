@@ -12,6 +12,7 @@
   --braid-blue-500: #0d3880;
   --braid-blue-700: #1d559d;
   --braid-grey-50: #f7f8fb;
+  --braid-grey-75: #f3f5f7;
   --braid-grey-100: #eaecf1;
   --braid-grey-200: #d2d7df;
   --braid-grey-300: #abb3c1;
@@ -31,9 +32,10 @@
   --braid-yellow-500: #fdc221;
   --braid-yellow-700: #b9800d;
 
-  /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/baseTokens/apac.ts#L51 */
-  /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/seekJobs/tokens.ts#L140-L189 */
   --white: #fff;
+
+  /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/seekJobs/tokens.ts#L140-L189 */
+  /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/baseTokens/apac.ts#L194-L301 */
 
   --critical-border: var(--braid-red-300);
   --critical-foreground: var(--braid-red-700);
@@ -42,7 +44,7 @@
   --info-border: var(--braid-blue-300);
   --info-foreground: var(--braid-blue-700);
 
-  --neutral-background: var(--braid-grey-100);
+  --neutral-background: var(--braid-grey-75);
   --neutral-border: var(--braid-grey-300);
   --neutral-foreground: var(--braid-grey-700);
   --neutral-line: var(--braid-grey-500);
