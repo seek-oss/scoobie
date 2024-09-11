@@ -9,18 +9,57 @@
   /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/color/palette.ts */
   --braid-blue-100: #e3f2fb;
   --braid-blue-300: #98c9f1;
+  --braid-blue-500: #0d3880;
   --braid-blue-700: #1d559d;
   --braid-grey-50: #f7f8fb;
+  --braid-grey-75: #f3f5f7;
   --braid-grey-100: #eaecf1;
+  --braid-grey-200: #d2d7df;
   --braid-grey-300: #abb3c1;
   --braid-grey-500: #5a6881;
+  --braid-grey-700: #2e3849;
+  --braid-grey-800: #1c2330;
   --braid-mint-100: #e2f7f1;
   --braid-mint-300: #8bdec5;
+  --braid-mint-500: #28b888;
   --braid-mint-700: #12784f;
+  --braid-red-100: #ffe3e2;
   --braid-red-300: #fb999a;
+  --braid-red-500: #f94344;
   --braid-red-700: #b91e1e;
   --braid-yellow-100: #fef8de;
+  --braid-yellow-300: #fee384;
   --braid-yellow-500: #fdc221;
+  --braid-yellow-700: #b9800d;
+
+  --white: #fff;
+
+  /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/seekJobs/tokens.ts#L140-L189 */
+  /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/baseTokens/apac.ts#L194-L301 */
+
+  --critical-border: var(--braid-red-300);
+  --critical-foreground: var(--braid-red-700);
+
+  --info-background: var(--braid-blue-100);
+  --info-border: var(--braid-blue-300);
+  --info-foreground: var(--braid-blue-700);
+
+  --neutral-background: var(--braid-grey-75);
+  --neutral-border: var(--braid-grey-300);
+  --neutral-foreground: var(--braid-grey-700);
+  --neutral-line: var(--braid-grey-500);
+
+  --neutral-soft-background: var(--braid-grey-50);
+  --neutral-soft-border: var(--braid-grey-100);
+
+  --note-background: var(--braid-yellow-100);
+  --note-border: var(--braid-yellow-300);
+
+  --positive-background: var(--braid-mint-100);
+  --positive-border: var(--braid-mint-300);
+  --positive-foreground: var(--braid-mint-700);
+
+  --surface-background: var(--white);
 }
 
 /* shared */
@@ -34,8 +73,8 @@ text {
 /* er */
 
 path.er.entityBox {
-  fill: var(--braid-grey-50);
-  stroke: var(--braid-grey-100);
+  fill: var(--neutral-soft-background);
+  stroke: var(--neutral-soft-border);
 }
 
 path.er.relationshipLabelBox {
@@ -44,7 +83,7 @@ path.er.relationshipLabelBox {
 
 path.er.relationshipLine {
   fill: none;
-  stroke: var(--braid-grey-500);
+  stroke: var(--neutral-line);
 }
 
 text.er {
@@ -52,9 +91,14 @@ text.er {
   text-anchor: middle;
 }
 
+text.er.entityLabel,
+text.er.relationshipLabel {
+  fill: var(--neutral-foreground);
+}
+
 text.er.relationshipLabel {
   paint-order: stroke fill;
-  stroke: #fff;
+  stroke: var(--surface-background);
   stroke-linejoin: round;
   stroke-width: 4px;
 }
@@ -65,19 +109,27 @@ text.er.relationshipLabel {
 g.cluster path,
 g.cluster rect {
   fill: none;
-  stroke: var(--braid-grey-300);
+  stroke: var(--neutral-border);
 }
 
 .edge-thickness-normal {
   stroke-width: 1px;
 }
 
+path.flowchart-link {
+  fill: none;
+  stroke: var(--neutral-line);
+}
+
 g.cluster div,
+g.cluster span.nodeLabel,
 g.edgeLabel foreignObject,
 g.edgeLabel span.edgeLabel,
 g.label div,
 g.node div,
 g.node span.nodeLabel {
+  color: var(--neutral-foreground);
+
   font-family: var(--mermaid-font-family);
   font-size: var(--mermaid-font-size);
 }
@@ -92,7 +144,7 @@ g.node foreignObject.label {
   background-color: transparent;
 
   paint-order: stroke fill;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-color: var(--surface-background);
   -webkit-text-stroke-width: 4px;
 }
 
@@ -101,8 +153,8 @@ circle.label-container,
 .node path,
 .node polygon,
 .node rect {
-  fill: var(--braid-grey-50);
-  stroke: var(--braid-grey-100);
+  fill: var(--neutral-soft-background);
+  stroke: var(--neutral-soft-border);
 }
 
 .node div {
@@ -118,12 +170,13 @@ circle.label-container,
 .edgePath path.path,
 .edgePaths path.transition {
   fill: none;
-  stroke: var(--braid-grey-500);
+  stroke: var(--neutral-line);
 }
 
 .edgePath marker path.arrowheadPath,
 path.arrowMarkerPath {
-  fill: var(--braid-grey-500);
+  fill: var(--neutral-line);
+  stroke: var(--neutral-line);
 }
 
 /* gantt */
@@ -134,13 +187,23 @@ rect.task {
 }
 
 g.grid > g.tick > path {
-  color: var(--braid-grey-100);
+  color: var(--neutral-soft-border);
   shape-rendering: crispEdges;
 }
 
 g.grid > g.tick > text,
 text.sectionTitle {
-  fill: var(--braid-grey-500);
+  fill: var(--neutral-foreground);
+}
+
+g.grid > g.tick > text,
+text.sectionTitle,
+text.taskTextOutside0,
+text.taskTextOutside1 {
+  paint-order: stroke fill;
+  stroke: var(--surface-background);
+  stroke-linejoin: round;
+  stroke-width: 4px;
 }
 
 path.section0,
@@ -149,36 +212,36 @@ path.section1 {
 }
 
 rect.task.active0 {
-  fill: var(--braid-grey-50);
-  stroke: var(--braid-grey-300);
+  fill: var(--neutral-soft-background);
+  stroke: var(--neutral-border);
 }
 
 rect.task.active1 {
-  fill: var(--braid-blue-100);
-  stroke: var(--braid-blue-300);
+  fill: var(--info-background);
+  stroke: var(--info-border);
 }
 
 rect.task.done0,
 rect.task.done1 {
-  fill: var(--braid-mint-100);
-  stroke: var(--braid-mint-300);
+  fill: var(--positive-background);
+  stroke: var(--positive-border);
 }
 
 rect.task.milestone {
-  fill: var(--braid-blue-700);
-  stroke: var(--braid-blue-300);
+  fill: var(--info-foreground);
+  stroke: var(--info-border);
 }
 
 rect.task.milestone.crit0,
 rect.task.milestone.crit1 {
-  fill: var(--braid-red-700);
-  stroke: var(--braid-red-300);
+  fill: var(--critical-foreground);
+  stroke: var(--critical-border);
 }
 
 rect.task.milestone.done0,
 rect.task.milestone.done1 {
-  fill: var(--braid-mint-700);
-  stroke: var(--braid-mint-300);
+  fill: var(--positive-foreground);
+  stroke: var(--positive-border);
 }
 
 text.sectionTitle {
@@ -189,7 +252,7 @@ text.sectionTitle {
 text.taskText.activeText0,
 text.taskTextOutside0.activeText0,
 text.taskTextOutside1.activeText0 {
-  fill: var(--braid-grey-500) !important;
+  fill: var(--neutral-foreground) !important;
 }
 
 text.taskText.activeText1,
@@ -197,7 +260,7 @@ text.taskTextOutside0.activeText1,
 text.taskTextOutside1.activeText1,
 text.taskTextOutside0.milestoneText,
 text.taskTextOutside1.milestoneText {
-  fill: var(--braid-blue-700) !important;
+  fill: var(--info-foreground) !important;
 }
 
 text.taskText.doneText0,
@@ -206,59 +269,85 @@ text.taskTextOutside0.doneText0,
 text.taskTextOutside0.doneText1,
 text.taskTextOutside1.doneText0,
 text.taskTextOutside1.doneText1 {
-  fill: var(--braid-mint-700) !important;
+  fill: var(--positive-foreground) !important;
 }
 
 text.taskTextOutside0.milestoneText.critText0,
 text.taskTextOutside0.milestoneText.critText1,
 text.taskTextOutside1.milestoneText.critText0,
 text.taskTextOutside1.milestoneText.critText1 {
-  fill: var(--braid-red-700) !important;
+  fill: var(--critical-foreground) !important;
 }
 
 /* sequence */
+
+text.actor {
+  stroke: none;
+}
 
 text.actor,
 text.messageText {
   font-family: var(--mermaid-font-family);
   font-size: var(--mermaid-font-size);
-  stroke: none;
   text-anchor: middle;
 }
 
-rect.actor {
-  fill: var(--braid-grey-50);
+text.loopText,
+text.messageText {
+  paint-order: stroke fill;
+  stroke: var(--surface-background);
+  stroke-linejoin: round;
+  stroke-width: 4px;
+}
 
-  stroke: var(--braid-grey-100);
+text.actor > tspan,
+text.labelText,
+text.loopText > tspan,
+text.messageText,
+text.noteText > tspan {
+  fill: var(--neutral-foreground);
+}
+
+rect.actor {
+  fill: var(--neutral-soft-background);
+
+  stroke: var(--neutral-soft-border);
 }
 
 text.sequenceNumber {
-  fill: var(--braid-grey-50);
+  fill: var(--neutral-soft-background);
 
   font-size: 12px;
 }
 
+path.rect {
+  fill: var(--neutral-background);
+}
+
 path.labelBox {
-  fill: var(--braid-yellow-100);
+  fill: var(--note-background);
 }
 
 path.labelBox,
 path.loopLine {
-  stroke: var(--braid-yellow-500);
+  stroke: var(--note-border);
   stroke-dasharray: none;
 }
 
+/* We don't seem to be receiving the `actor-line` class. */
+path[id^='actor'],
 path.actor-line,
 path.messageLine0,
+path.messageLine1,
 path.path {
   fill: none;
-  stroke: var(--braid-grey-500);
+  stroke: var(--neutral-line);
 }
 
 #arrowhead > path,
 #crosshead > path,
 #sequencenumber {
-  fill: var(--braid-grey-500);
+  fill: var(--neutral-line);
   stroke: none;
 }
 
@@ -267,11 +356,11 @@ path.actor-line {
 }
 
 rect.activation0 {
-  fill: var(--braid-grey-100);
-  stroke: var(--braid-grey-300);
+  fill: var(--neutral-background);
+  stroke: var(--neutral-border);
 }
 
 rect.note {
-  fill: var(--braid-yellow-100);
-  stroke: var(--braid-yellow-500);
+  fill: var(--note-background);
+  stroke: var(--note-border);
 }
