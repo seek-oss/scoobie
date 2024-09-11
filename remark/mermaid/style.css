@@ -32,6 +32,7 @@
   --braid-yellow-700: #b9800d;
 
   /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/baseTokens/apac.ts#L51 */
+  /* https://github.com/seek-oss/braid-design-system/blob/braid-design-system%4032.23.1/packages/braid-design-system/src/lib/themes/seekJobs/tokens.ts#L140-L189 */
   --white: #fff;
 
   --critical-border: var(--braid-red-300);
