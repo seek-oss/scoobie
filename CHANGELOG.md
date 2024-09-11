@@ -1,5 +1,19 @@
 # scoobie
 
+## 17.2.0
+
+### Minor Changes
+
+- **mermaid:** Revise diagram styling ([#715](https://github.com/seek-oss/scoobie/pull/715))
+
+  This is a broad design pass of our stylesheet as it pertains to diagrams currently available on `developer.seek.com`. More lines and text are now coloured correctly, and text shadows are more widely employed to improve readability on different backgrounds.
+
+## 17.1.7
+
+### Patch Changes
+
+- **mermaid:** Fix flowchart labels being cut off in Chrome ([#712](https://github.com/seek-oss/scoobie/pull/712))
+
 ## 17.1.6
 
 ### Patch Changes
