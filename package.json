@@ -38,7 +38,7 @@
     "@storybook/addon-webpack5-compiler-babel": "3.0.3",
     "@storybook/react": "8.2.9",
     "@storybook/react-webpack5": "8.2.9",
-    "@types/react": "18.3.5",
+    "@types/react": "18.3.8",
     "@types/react-dom": "18.3.0",
     "braid-design-system": "32.24.0",
     "loki": "0.35.1",
