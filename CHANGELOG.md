@@ -1,5 +1,11 @@
 # scoobie
 
+## 17.2.1
+
+### Patch Changes
+
+- **mermaid:** Handle optional `tspan`s in sequence diagrams ([#724](https://github.com/seek-oss/scoobie/pull/724))
+
 ## 17.2.0
 
 ### Minor Changes
