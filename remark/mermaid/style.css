@@ -293,6 +293,7 @@ text.messageText {
 }
 
 text.loopText,
+text.loopText > tspan,
 text.messageText {
   paint-order: stroke fill;
   stroke: var(--surface-background);
@@ -300,10 +301,13 @@ text.messageText {
   stroke-width: 4px;
 }
 
+text.actor,
 text.actor > tspan,
 text.labelText,
+text.loopText,
 text.loopText > tspan,
 text.messageText,
+text.noteText,
 text.noteText > tspan {
   fill: var(--neutral-foreground);
 }
