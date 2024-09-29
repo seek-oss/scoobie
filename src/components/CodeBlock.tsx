@@ -64,9 +64,15 @@ export const CodeBlock = ({
 
   const child = children[index.value] ?? children[0];
 
+  const variableIndexBlock = [index.value, 1].find(
+    (idx) =>
+      children[idx]?.language?.startsWith('json') &&
+      children[idx]?.label?.startsWith('Variables'),
+  );
+
   const jsoncVariables =
-    children[0].language === 'graphql' && children[1]?.label === 'Variables'
-      ? children[1].code
+    children[0].language === 'graphql' && variableIndexBlock !== undefined
+      ? children[variableIndexBlock].code
       : undefined;
 
   const variables =
