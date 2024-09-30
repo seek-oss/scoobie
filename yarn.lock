@@ -2923,17 +2923,7 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.51.tgz#cfd70924a25a3fd32b218e5e420e6897e1ac4f40"
   integrity sha512-CuPgU6f3eT/XgKKPqKd/gLZV1Xmvf1a2R5POBOGQa6uv82xpls89HU5zKeVoyR8XzHd1RGNOlQlvUe3CFkjWNQ==
 
-"@types/express-serve-static-core@*":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-5.0.0.tgz#91f06cda1049e8f17eeab364798ed79c97488a1c"
-  integrity sha512-AbXMTZGt40T+KON9/Fdxx0B2WK5hsgxcfXJLr5bFpZ7b4JCex2WyQPTEKdXqfHiY5nKKBScZ7yCoO6Pvgxfvnw==
-  dependencies:
-    "@types/node" "*"
-    "@types/qs" "*"
-    "@types/range-parser" "*"
-    "@types/send" "*"
-
-"@types/express-serve-static-core@^4.17.33":
+"@types/express-serve-static-core@*", "@types/express-serve-static-core@^4.17.33":
   version "4.19.6"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.19.6.tgz#e01324c2a024ff367d92c66f48553ced0ab50267"
   integrity sha512-N4LZ2xG7DatVqhCZzOGb1Yi5lMbXSZcmdLDe9EzSndPV2HpWYWzRbaerl2n27irrm94EPpprqa8KpskPT085+A==
@@ -4260,10 +4250,10 @@ braces@^3.0.3, braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-braid-design-system@32.24.0:
-  version "32.24.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.24.0.tgz#56d45cbbc0a7a436f0a6f71406742c4c71be10ec"
-  integrity sha512-nhyWSRW9zUmr17yw13ePE4U4NdwfiDG9kNuSAi4wkVJmxoi7hbYsoVNZgSDpf09C83PBTg2KWHxaHbLPGG6mpg==
+braid-design-system@32.24.1:
+  version "32.24.1"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.24.1.tgz#80cb9471406018d4512436a166edbf52a996eb1d"
+  integrity sha512-93Co2nr5iiIjTpmC5C6BYrb3pXC09Z24UNTBTED2AqwI9pKqxYZN5yp9hAmmIo6fD+vUrS6vd6YS0S3ejEZOrQ==
   dependencies:
     "@capsizecss/core" "^4.1.2"
     "@capsizecss/metrics" "^3.0.0"
