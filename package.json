@@ -40,7 +40,7 @@
     "@storybook/react-webpack5": "8.3.2",
     "@types/react": "18.3.8",
     "@types/react-dom": "18.3.0",
-    "braid-design-system": "32.24.0",
+    "braid-design-system": "32.24.1",
     "loki": "0.35.1",
     "mermaid-isomorphic": "2.2.1",
     "playwright": "1.47.2",
