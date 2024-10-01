@@ -1,5 +1,11 @@
 # scoobie
 
+## 17.2.2
+
+### Patch Changes
+
+- **CodeBlock:** Update GraphQL playground links to work with multiple variables combinations ([#729](https://github.com/seek-oss/scoobie/pull/729))
+
 ## 17.2.1
 
 ### Patch Changes
