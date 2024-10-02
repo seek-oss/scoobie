@@ -2,26 +2,13 @@
 
 Hi there, thanks for checking out our repo!
 
-Scoobie brings MDX support and documentation-focused components to a SEEK-standard frontend development environment.
+Scoobie is a component library for SEEK documentation sites.
+
 While third-party contributions are certainly welcome,
 this library has minimal value if you aren't committed to our [design system] and [development toolkit].
 
 SEEKers: this repo is public,
 so don't commit or post anything that isn't ready for the entire world to see.
-
-## Table of contents
-
-- [Getting started](#getting-started)
-  - [I want to discuss or report something](#i-want-to-discuss-or-report-something)
-  - [I want to contribute a change](#i-want-to-contribute-a-change)
-- [Development](#development)
-  - [Prerequisites](#prerequisites)
-  - [Git workflow](#git-workflow)
-  - [Testing](#testing)
-- [Releases](#releases)
-  - [Creating a changeset](#creating-a-changeset)
-  - [Publishing a release](#publishing-a-release)
-  - [Publishing a prerelease](#publishing-a-prerelease)
 
 ## Getting started
 

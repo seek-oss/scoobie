@@ -1,10 +1,5 @@
 import type { SkuConfig } from 'sku';
 
-// TODO: This is included from other package's Sku config which doesn't seem
-// to work with TypeScript
-// @ts-ignore
-import { ScoobieWebpackPlugin, merge } from './webpack';
-
 const config: SkuConfig = {
   rootResolution: false,
   srcPaths: ['./src', './styles'],
@@ -40,16 +35,6 @@ const config: SkuConfig = {
       },
     },
   }),
-  dangerouslySetWebpackConfig: (skuConfig) =>
-    merge(skuConfig, {
-      plugins: [
-        new ScoobieWebpackPlugin({
-          mermaid: {
-            rootDir: __dirname,
-          },
-        }),
-      ],
-    }),
   dangerouslySetTSConfig: (tsConfig) => ({
     ...tsConfig,
     include: [
