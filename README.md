@@ -195,7 +195,7 @@ export const Component = () => (
 
 ### SmartTextLink
 
-Render a text link. External links open in a new tab and have an [IconNewWindow] suffix
+Render a text link. External links open in a new tab and have an [IconNewWindow] suffix.
 
 [iconnewwindow]: https://seek-oss.github.io/braid-design-system/components/IconNewWindow
 
