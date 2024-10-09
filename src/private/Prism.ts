@@ -1,4 +1,4 @@
-import Prism from 'prism-react-renderer';
+import { Prism } from 'prism-react-renderer';
 // @ts-expect-error
 import bashLang from 'refractor/lang/bash';
 // @ts-expect-error
