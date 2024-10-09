@@ -1,5 +1,11 @@
 # scoobie
 
+## 18.0.1
+
+### Patch Changes
+
+- **CodeBlock:** Enable `java` syntax highlighting ([#669](https://github.com/seek-oss/scoobie/pull/669))
+
 ## 18.0.0
 
 ### Major Changes
