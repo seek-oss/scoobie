@@ -8,6 +8,8 @@ import diffLang from 'refractor/lang/diff';
 // @ts-expect-error
 import httpLang from 'refractor/lang/http';
 // @ts-expect-error
+import javaLang from 'refractor/lang/java';
+// @ts-expect-error
 import jsonLang from 'refractor/lang/json';
 // @ts-expect-error
 import splunkSplLang from 'refractor/lang/splunk-spl';
@@ -16,8 +18,9 @@ bashLang(Prism);
 csharpLang(Prism);
 diffLang(Prism);
 httpLang(Prism);
-splunkSplLang(Prism);
+javaLang(Prism);
 jsonLang(Prism);
+splunkSplLang(Prism);
 
 export { Prism } from 'prism-react-renderer';
 export { themes } from 'prism-react-renderer';
@@ -27,7 +30,7 @@ const DEFAULT_LANGUAGE = 'text';
 const DISPLAY_LANGUAGE_REPLACEMENTS: Record<string, string> = {
   'splunk-spl': 'Splunk SPL',
   csharp: 'C#',
-  fsharp: 'C#',
+  fsharp: 'F#',
   graphql: 'GraphQL',
   html: 'HTML',
   http: 'HTTP',

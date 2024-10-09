@@ -3497,7 +3497,6 @@
 
 "@zendesk/babel-plugin-react-displayname@https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2":
   version "1.0.0"
-  uid "8cdd54fa1526715c5fc1abdbc2811deac6485f3c"
   resolved "https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2#8cdd54fa1526715c5fc1abdbc2811deac6485f3c"
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
