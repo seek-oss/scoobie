@@ -2,4 +2,4 @@
 'scoobie': patch
 ---
 
-CodeBlock: Enable `java` and `php` syntax highlighting
+CodeBlock: Enable `java` syntax highlighting

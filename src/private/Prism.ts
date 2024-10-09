@@ -1,4 +1,4 @@
-import Prism from 'prismjs';
+import Prism from 'prism-react-renderer';
 // @ts-expect-error
 import bashLang from 'refractor/lang/bash';
 // @ts-expect-error
@@ -14,8 +14,6 @@ import jsonLang from 'refractor/lang/json';
 // @ts-expect-error
 import splunkSplLang from 'refractor/lang/splunk-spl';
 
-import 'prismjs/components/prism-php';
-
 bashLang(Prism);
 csharpLang(Prism);
 diffLang(Prism);
@@ -24,7 +22,7 @@ javaLang(Prism);
 jsonLang(Prism);
 splunkSplLang(Prism);
 
-export { Prism };
+export { Prism } from 'prism-react-renderer';
 export { themes } from 'prism-react-renderer';
 
 const DEFAULT_LANGUAGE = 'text';
