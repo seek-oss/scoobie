@@ -9,6 +9,7 @@ export default {
   component: Component,
   args: {
     graphqlPlayground: 'https://manage.developer.seek.com/graphql-explorer',
+    initialIndex: 0,
     language: 'graphql',
     size: 'standard',
     trim: true,
@@ -48,6 +49,7 @@ export const Multi: Story = {
         language: 'jsonc',
       },
     ],
+    initialIndex: 1,
   },
   parameters: {
     docs: {
