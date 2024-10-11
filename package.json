@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
-  "version": "18.0.1",
+  "version": "18.1.0",
   "dependencies": {
     "@capsizecss/core": "^4.0.0",
     "@vanilla-extract/css": "^1.2.3",
