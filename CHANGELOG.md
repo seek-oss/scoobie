@@ -1,5 +1,11 @@
 # scoobie
 
+## 18.1.0
+
+### Minor Changes
+
+- Tweak `img` style ([#737](https://github.com/seek-oss/scoobie/pull/737))
+
 ## 18.0.1
 
 ### Patch Changes
