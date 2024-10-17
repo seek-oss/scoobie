@@ -2,4 +2,4 @@
 'scoobie': patch
 ---
 
-**remark-slug**: Removed dependency
+deps: remove unused dependency `remark-slug`
