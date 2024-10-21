@@ -3056,15 +3056,15 @@
   resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-4.0.5.tgz#cb6e2a691b70cb177c6e3ae9c1d2e8b2ea8cd304"
   integrity sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==
 
-"@types/unist@*", "@types/unist@^2":
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.11.tgz#11af57b127e32487774841f7a4e54eab166d03c4"
-  integrity sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==
-
-"@types/unist@^3.0.0":
+"@types/unist@*", "@types/unist@^3.0.0":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-3.0.3.tgz#acaab0f919ce69cce629c2d4ed2eb4adc1b6c20c"
   integrity sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==
+
+"@types/unist@^2":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.11.tgz#11af57b127e32487774841f7a4e54eab166d03c4"
+  integrity sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==
 
 "@types/uuid@^9.0.1":
   version "9.0.8"
@@ -3259,7 +3259,7 @@
     modern-ahocorasick "^1.0.0"
     picocolors "^1.0.0"
 
-"@vanilla-extract/dynamic@^2.0.3":
+"@vanilla-extract/dynamic@^2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/dynamic/-/dynamic-2.1.2.tgz#b1d1c1e0e392934c5a3bbb53f99069a7721311ac"
   integrity sha512-9BGMciD8rO1hdSPIAh1ntsG4LPD3IYKhywR7VOmmz9OO4Lx1hlwkSg3E6X07ujFx7YuBfx0GDQnApG9ESHvB2A==
@@ -4090,17 +4090,17 @@ braces@^3.0.3, braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-braid-design-system@32.24.1:
-  version "32.24.1"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-32.24.1.tgz#80cb9471406018d4512436a166edbf52a996eb1d"
-  integrity sha512-93Co2nr5iiIjTpmC5C6BYrb3pXC09Z24UNTBTED2AqwI9pKqxYZN5yp9hAmmIo6fD+vUrS6vd6YS0S3ejEZOrQ==
+braid-design-system@33.0.0:
+  version "33.0.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-33.0.0.tgz#60e73d4736377bf81cdfc4995f80498344148a07"
+  integrity sha512-4UCFXiDv4hhfRiCxU3d/tUhKBXi1IYk+6eXKIH9YvX5AkHG+VazB1VikyRStL2W48LLHrHKHgV2VWML1wCFeEg==
   dependencies:
     "@capsizecss/core" "^4.1.2"
     "@capsizecss/metrics" "^3.0.0"
     "@capsizecss/vanilla-extract" "^2.0.0"
     "@vanilla-extract/css" "^1.9.2"
     "@vanilla-extract/css-utils" "^0.1.3"
-    "@vanilla-extract/dynamic" "^2.0.3"
+    "@vanilla-extract/dynamic" "^2.1.2"
     "@vanilla-extract/sprinkles" "^1.5.1"
     assert "^2.0.0"
     autosuggest-highlight "^3.3.4"
