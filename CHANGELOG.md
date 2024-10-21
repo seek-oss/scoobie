@@ -1,5 +1,11 @@
 # scoobie
 
+## 18.1.1
+
+### Patch Changes
+
+- **deps:** remove unused dependency `remark-slug` ([#742](https://github.com/seek-oss/scoobie/pull/742))
+
 ## 18.1.0
 
 ### Minor Changes
