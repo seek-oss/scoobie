@@ -31,7 +31,7 @@
     "react-dom": "18.3.1",
     "react-helmet-async": "1.3.0",
     "react-router-dom": "6.26.2",
-    "sku": "13.2.0",
+    "sku": "13.2.1",
     "storybook": "8.3.2",
     "webpack": "5.94.0"
   },
