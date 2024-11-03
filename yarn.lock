@@ -4058,10 +4058,10 @@ braces@^3.0.3, braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-braid-design-system@33.0.0:
-  version "33.0.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-33.0.0.tgz#60e73d4736377bf81cdfc4995f80498344148a07"
-  integrity sha512-4UCFXiDv4hhfRiCxU3d/tUhKBXi1IYk+6eXKIH9YvX5AkHG+VazB1VikyRStL2W48LLHrHKHgV2VWML1wCFeEg==
+braid-design-system@33.1.0:
+  version "33.1.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-33.1.0.tgz#89e4874ba95b404a4a07082689bc1755598dfeaf"
+  integrity sha512-hYuEto4WDAQ+LIpkqoU8fvnX1500zmkuLM+Y7GFWnxpSI2n8TKxW4e871+/AKfVHFBwvfCrE9BZEVPJyAt3AGg==
   dependencies:
     "@capsizecss/core" "^4.1.2"
     "@capsizecss/metrics" "^3.0.0"
@@ -4077,7 +4077,8 @@ braid-design-system@33.0.0:
     dedent "^1.5.3"
     gradient-parser "^1.0.0"
     is-mobile "^4.0.0"
-    lodash "^4.17.21"
+    lodash.curry "^4.1.1"
+    lodash.merge "^4.6.2"
     polished "^4.1.0"
     react-focus-lock "^2.9.7"
     react-is "^18.2.0"
@@ -7890,6 +7891,11 @@ locate-path@^7.1.0:
   integrity sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA==
   dependencies:
     p-locate "^6.0.0"
+
+lodash.curry@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.curry/-/lodash.curry-4.1.1.tgz#248e36072ede906501d75966200a86dab8b23170"
+  integrity sha512-/u14pXGviLaweY5JI0IUzgzF2J6Ne8INyzAZjImcryjgkZ+ebruBxy2/JaOOkTqScddcYtakjhSaeemV8lR0tA==
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
