@@ -4003,10 +4003,10 @@ braces@^3.0.3, braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-braid-design-system@33.2.0:
-  version "33.2.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-33.2.0.tgz#4f115d62d8066279db0d6e517e393fcf249322fc"
-  integrity sha512-hNHqMeSJA/tEmN7/Ue2xWHHHvYpK4DbmAOVPt3bFeZIYyusMlxwiwA3kgs/6Yj7udCS9IDaix+eg2IcBfhWNmQ==
+braid-design-system@33.2.2:
+  version "33.2.2"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-33.2.2.tgz#a7040ffb333cc13e46110b3b0e0b1fa208d23534"
+  integrity sha512-rxGi1mZ46dCBuRKATEP3Bz+aWxaG/6oCkqswNkbZ1EQh8iLqjnaB+IEs+bzePlcYJQOpMyzyvTBzJ4frxQturg==
   dependencies:
     "@capsizecss/core" "^4.1.2"
     "@capsizecss/metrics" "^3.0.0"
@@ -4029,6 +4029,7 @@ braid-design-system@33.2.0:
     react-is "^18.2.0"
     react-popper-tooltip "^4.3.1"
     react-remove-scroll "^2.5.3"
+    throttle-debounce "^5.0.2"
     utility-types "^3.10.0"
     uuid "^8.3.2"
 
@@ -10533,6 +10534,11 @@ thingies@^1.20.0:
   version "1.21.0"
   resolved "https://registry.yarnpkg.com/thingies/-/thingies-1.21.0.tgz#e80fbe58fd6fdaaab8fad9b67bd0a5c943c445c1"
   integrity sha512-hsqsJsFMsV+aD4s3CWKk85ep/3I9XzYV/IXaSouJMYIoDlgyi11cBhsqYe9/geRfB0YIikBQg6raRaM+nIMP9g==
+
+throttle-debounce@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-5.0.2.tgz#ec5549d84e053f043c9fd0f2a6dd892ff84456b1"
+  integrity sha512-B71/4oyj61iNH0KeCamLuE2rmKuTO5byTOSVwECM5FA7TiAiAW+UqTKZ9ERueC4qvgSttUhdmq1mXC3kJqGX7A==
 
 through@2:
   version "2.3.8"
