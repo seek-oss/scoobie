@@ -1,5 +1,11 @@
 # scoobie
 
+## 18.1.2
+
+### Patch Changes
+
+- **deps:** prism-react-renderer ^2.4.1 ([#758](https://github.com/seek-oss/scoobie/pull/758))
+
 ## 18.1.1
 
 ### Patch Changes
