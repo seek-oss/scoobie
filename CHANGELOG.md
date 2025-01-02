@@ -1,5 +1,11 @@
 # scoobie
 
+## 18.2.0
+
+### Minor Changes
+
+- **CodeBlock:** allow copy and labels to be optional ([#766](https://github.com/seek-oss/scoobie/pull/766))
+
 ## 18.1.2
 
 ### Patch Changes
