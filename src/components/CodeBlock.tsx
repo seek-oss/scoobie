@@ -28,6 +28,8 @@ interface Props {
   language?: string;
   size?: Size;
   trim?: boolean;
+  lineNumbers?: boolean;
+  copy?: boolean;
 }
 
 export const CodeBlock = ({
@@ -38,6 +40,8 @@ export const CodeBlock = ({
   language: rawLanguage,
   size = DEFAULT_SIZE,
   trim = true,
+  lineNumbers = true,
+  copy = true,
 }: Props) => {
   const children = normaliseChildren(
     typeof rawChildren === 'string'
@@ -90,47 +94,58 @@ export const CodeBlock = ({
       </Box>
     ) : undefined;
 
+  const topRow =
+    children.some(({ label }) => label) || copy || graphqlPlaygroundButton;
+
   return (
     <Stack space={tablePadding}>
-      <ScrollableInline whiteSpace="nowrap">
-        <Box display="flex" justifyContent="spaceBetween">
-          <Box display="flex">
-            {children.map(({ label }, labelIndex) => (
-              <Box
-                component="span"
-                key={label}
-                paddingLeft={labelIndex === 0 ? undefined : tablePadding}
-              >
-                <Text
-                  size={smallerSize}
-                  tone={index.value === labelIndex ? 'secondary' : undefined}
-                  weight="medium"
-                >
-                  {children.length === 1 || index.value === labelIndex ? (
-                    label
-                  ) : (
-                    <TextLinkButton
-                      onClick={() =>
-                        setIndex({ dirty: true, value: labelIndex })
+      {topRow ? (
+        <ScrollableInline whiteSpace="nowrap">
+          <Box display="flex" justifyContent="spaceBetween">
+            <Box display="flex">
+              {children.map(({ label }, labelIndex) =>
+                label ? (
+                  <Box
+                    component="span"
+                    key={label}
+                    paddingLeft={labelIndex === 0 ? undefined : tablePadding}
+                  >
+                    <Text
+                      size={smallerSize}
+                      tone={
+                        index.value === labelIndex ? 'secondary' : undefined
                       }
+                      weight="medium"
                     >
-                      {label}
-                    </TextLinkButton>
-                  )}
-                </Text>
-              </Box>
-            ))}
-          </Box>
-
-          <Box display="flex">
-            <Box component="span" paddingLeft={tablePadding}>
-              <CopyableText size={smallerSize}>{child.code}</CopyableText>
+                      {children.length === 1 || index.value === labelIndex ? (
+                        label
+                      ) : (
+                        <TextLinkButton
+                          onClick={() =>
+                            setIndex({ dirty: true, value: labelIndex })
+                          }
+                        >
+                          {label}
+                        </TextLinkButton>
+                      )}
+                    </Text>
+                  </Box>
+                ) : null,
+              )}
             </Box>
 
-            {graphqlPlaygroundButton}
+            <Box display="flex">
+              {copy ? (
+                <Box component="span" paddingLeft={tablePadding}>
+                  <CopyableText size={smallerSize}>{child.code}</CopyableText>
+                </Box>
+              ) : null}
+
+              {graphqlPlaygroundButton}
+            </Box>
           </Box>
-        </Box>
-      </ScrollableInline>
+        </ScrollableInline>
+      ) : null}
 
       <Box borderRadius="large" className={styles.codeContainer}>
         <Highlight
@@ -141,7 +156,9 @@ export const CodeBlock = ({
         >
           {({ getTokenProps, tokens }) => (
             <Box display="flex">
-              <LineNumbers count={tokens.length} size={size} />
+              {lineNumbers ? (
+                <LineNumbers count={tokens.length} size={size} />
+              ) : null}
 
               <Lines getTokenProps={getTokenProps} lines={tokens} size={size} />
             </Box>
