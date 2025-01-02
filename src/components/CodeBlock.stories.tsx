@@ -69,3 +69,17 @@ export const Multi: Story = {
     },
   },
 };
+
+export const Minimal: Story = {
+  args: {
+    children: JSON.stringify(
+      { stuff: 'things', otherStuff: [{ id: 17 }] },
+      null,
+      2,
+    ),
+    label: '',
+    language: 'json',
+    copy: false,
+    lineNumbers: false,
+  },
+};
