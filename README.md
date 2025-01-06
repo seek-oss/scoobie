@@ -217,33 +217,6 @@ export const SomeLinks = () => (
 );
 ```
 
-### Table
-
-```tsx
-import React, { Fragment } from 'react';
-import { Table, TableRow } from 'scoobie';
-
-export const MyFirstTable = () => (
-  <Table header={['Column A', 'Column B']}>
-    <TableRow>
-      <Fragment>This is body cell A1.</Fragment>
-      <Fragment>B1</Fragment>
-    </TableRow>
-
-    <TableRow>
-      <Fragment>A2</Fragment>
-      <Fragment>This is body cell B2.</Fragment>
-    </TableRow>
-  </Table>
-);
-```
-
-### TableRow
-
-`<tr>` component for use with [Table](#table).
-
-Row children are flattened then wrapped with `<td>`s.
-
 ## Styling reference
 
 Scoobie distributes some vanilla-extract styles via `scoobie/styles` submodules.
