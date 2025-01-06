@@ -6,5 +6,3 @@ export { InternalLink } from './components/InternalLink';
 export { ScoobieLink } from './components/ScoobieLink';
 export { ScoobieLinkProvider } from './components/ScoobieLinkProvider';
 export { SmartTextLink } from './components/SmartTextLink';
-export { Table } from './components/Table';
-export { TableRow } from './components/TableRow';
