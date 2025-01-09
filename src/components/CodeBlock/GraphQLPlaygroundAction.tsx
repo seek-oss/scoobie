@@ -1,7 +1,6 @@
 import { IconVideo, Text, TextLink } from 'braid-design-system';
-import React from 'react';
 
-import { SIZE_TO_SMALLER, type Size } from '../../private/size';
+import type { Size } from '../../private/size';
 
 interface Props {
   query: string;
@@ -14,17 +13,14 @@ export const GraphQLPlaygroundAction = ({
   query,
   variables,
   graphqlPlayground,
-  size,
 }: Props) => {
   const playgroundUrl = new URL(graphqlPlayground);
   playgroundUrl.searchParams.set('query', query);
   playgroundUrl.searchParams.set('variables', variables ?? '{}');
   const href = playgroundUrl.toString();
 
-  const smallerSize = SIZE_TO_SMALLER[size];
-
   return (
-    <Text size={smallerSize} weight="medium">
+    <Text size="small" weight="medium">
       <TextLink
         href={href}
         icon={<IconVideo alignY="lowercase" />}

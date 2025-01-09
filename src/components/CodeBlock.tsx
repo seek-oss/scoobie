@@ -1,35 +1,22 @@
 import { Box, Stack, Text, TextLinkButton } from 'braid-design-system';
 import { parse } from 'jsonc-parser';
-import { Highlight } from 'prism-react-renderer';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Prism, themes } from '../private/Prism';
 import { ScrollableInline } from '../private/ScrollableInline';
-import {
-  DEFAULT_SIZE,
-  SIZE_TO_SMALLER,
-  SIZE_TO_TABLE_PADDING,
-  type Size,
-} from '../private/size';
 
 import { type CodeChildProps, normaliseChildren } from './CodeBlock/CodeChild';
 import { GraphQLPlaygroundAction } from './CodeBlock/GraphQLPlaygroundAction';
-import { LineNumbers } from './CodeBlock/LineNumbers';
-import { Lines } from './CodeBlock/Lines';
+import { CodeContainer } from './CodeContainer';
 import { CopyableText } from './CopyableText';
-
-import * as styles from './CodeBlock.css';
 
 interface Props {
   children: readonly CodeChildProps[] | string;
   graphqlPlayground?: string;
   initialIndex?: number;
-  label?: string;
-  language?: string;
-  size?: Size;
+  label: string;
+  language: string;
   trim?: boolean;
   lineNumbers?: boolean;
-  copy?: boolean;
 }
 
 export const CodeBlock = ({
@@ -38,10 +25,8 @@ export const CodeBlock = ({
   initialIndex = 0,
   label: rawLabel,
   language: rawLanguage,
-  size = DEFAULT_SIZE,
   trim = true,
   lineNumbers = true,
-  copy = true,
 }: Props) => {
   const children = normaliseChildren(
     typeof rawChildren === 'string'
@@ -55,9 +40,6 @@ export const CodeBlock = ({
       : rawChildren,
     trim,
   );
-
-  const smallerSize = SIZE_TO_SMALLER[size];
-  const tablePadding = SIZE_TO_TABLE_PADDING[size];
 
   const [index, setIndex] = useState({ dirty: false, value: initialIndex });
 
@@ -84,87 +66,65 @@ export const CodeBlock = ({
 
   const graphqlPlaygroundButton =
     children[0].language === 'graphql' && graphqlPlayground ? (
-      <Box component="span" paddingLeft={tablePadding}>
+      <Box component="span" paddingLeft="small">
         <GraphQLPlaygroundAction
           graphqlPlayground={graphqlPlayground}
-          size={size}
+          size="standard"
           query={children[0].code}
           variables={variables}
         />
       </Box>
     ) : undefined;
 
-  const topRow =
-    children.some(({ label }) => label) || copy || graphqlPlaygroundButton;
-
   return (
-    <Stack space={tablePadding}>
-      {topRow ? (
-        <ScrollableInline whiteSpace="nowrap">
-          <Box display="flex" justifyContent="spaceBetween">
-            <Box display="flex">
-              {children.map(({ label }, labelIndex) =>
-                label ? (
-                  <Box
-                    component="span"
-                    key={label}
-                    paddingLeft={labelIndex === 0 ? undefined : tablePadding}
+    <Stack space="small">
+      <ScrollableInline whiteSpace="nowrap">
+        <Box display="flex" justifyContent="spaceBetween">
+          <Box display="flex">
+            {children.map(({ label }, labelIndex) =>
+              label ? (
+                <Box
+                  component="span"
+                  key={label}
+                  paddingLeft={labelIndex === 0 ? undefined : 'small'}
+                >
+                  <Text
+                    size="small"
+                    tone={index.value === labelIndex ? 'secondary' : undefined}
+                    weight="medium"
                   >
-                    <Text
-                      size={smallerSize}
-                      tone={
-                        index.value === labelIndex ? 'secondary' : undefined
-                      }
-                      weight="medium"
-                    >
-                      {children.length === 1 || index.value === labelIndex ? (
-                        label
-                      ) : (
-                        <TextLinkButton
-                          onClick={() =>
-                            setIndex({ dirty: true, value: labelIndex })
-                          }
-                        >
-                          {label}
-                        </TextLinkButton>
-                      )}
-                    </Text>
-                  </Box>
-                ) : null,
-              )}
-            </Box>
-
-            <Box display="flex">
-              {copy ? (
-                <Box component="span" paddingLeft={tablePadding}>
-                  <CopyableText size={smallerSize}>{child.code}</CopyableText>
+                    {children.length === 1 || index.value === labelIndex ? (
+                      label
+                    ) : (
+                      <TextLinkButton
+                        onClick={() =>
+                          setIndex({ dirty: true, value: labelIndex })
+                        }
+                      >
+                        {label}
+                      </TextLinkButton>
+                    )}
+                  </Text>
                 </Box>
-              ) : null}
-
-              {graphqlPlaygroundButton}
-            </Box>
+              ) : null,
+            )}
           </Box>
-        </ScrollableInline>
-      ) : null}
 
-      <Box borderRadius="large" className={styles.codeContainer}>
-        <Highlight
-          prism={Prism}
-          code={child.code}
-          language={child.language}
-          theme={themes.github}
-        >
-          {({ getTokenProps, tokens }) => (
-            <Box display="flex">
-              {lineNumbers ? (
-                <LineNumbers count={tokens.length} size={size} />
-              ) : null}
-
-              <Lines getTokenProps={getTokenProps} lines={tokens} size={size} />
+          <Box display="flex">
+            <Box component="span" paddingLeft="small">
+              <CopyableText size="small">{child.code}</CopyableText>
             </Box>
-          )}
-        </Highlight>
-      </Box>
+
+            {graphqlPlaygroundButton}
+          </Box>
+        </Box>
+      </ScrollableInline>
+
+      <CodeContainer
+        code={child.code}
+        language={child.language}
+        lineNumbers={lineNumbers}
+      />
     </Stack>
   );
 };

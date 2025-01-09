@@ -78,16 +78,33 @@ export const MyFirstBlockquote = () => (
 
 ### CodeBlock
 
-Render lines of code with [Prism] syntax highlighting.
-
-[prism]: https://github.com/PrismJS/prism
+Render a rich [`CodeContainer`](#codecontainer) with interactive copy & GraphQL playground link buttons.
 
 ```tsx
 import React from 'react';
 import { CodeBlock } from 'scoobie';
 
 export const MyFirstCodeBlock = () => (
-  <CodeBlock language="javascript">console.log('hello, world');</CodeBlock>
+  <CodeBlock language="javascript" label="Here is the code">
+    console.log('hello, world');
+  </CodeBlock>
+);
+```
+
+### CodeContainer
+
+Render code with [Prism] syntax highlighting, with optional `lineNumbers`.
+
+[prism]: https://github.com/PrismJS/prism
+
+```tsx
+import React from 'react';
+import { CodeContainer } from 'scoobie';
+
+export const MyFirstCodeContainer = () => (
+  <CodeContainer language="javascript">
+    console.log('hello, world');
+  </CodeContainer>
 );
 ```
 

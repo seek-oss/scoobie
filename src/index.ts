@@ -1,5 +1,6 @@
 export { Blockquote } from './components/Blockquote';
 export { CodeBlock } from './components/CodeBlock';
+export { CodeContainer } from './components/CodeContainer';
 export { CopyableText } from './components/CopyableText';
 export { InlineCode } from './components/InlineCode';
 export { InternalLink } from './components/InternalLink';
