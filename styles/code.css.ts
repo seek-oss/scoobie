@@ -1,5 +1,5 @@
 import { createStyleObject, getCapHeight } from '@capsizecss/core';
-import { styleVariants } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { responsiveStyle } from 'braid-design-system/css';
 
 import type { Size } from '../src/private/size';
@@ -65,14 +65,11 @@ const monospaceFontStylesForTarget = (
     leading: tokens.typography.code[size][target].rows * tokens.grid,
   });
 
-export const code = styleVariants(
-  { standard: null, large: null },
-  (_, size) => ({
-    fontFamily: monospaceFontFamily,
+export const code = style({
+  fontFamily: monospaceFontFamily,
 
-    ...responsiveStyle({
-      mobile: monospaceFontStylesForTarget(size, 'mobile'),
-      tablet: monospaceFontStylesForTarget(size, 'tablet'),
-    }),
+  ...responsiveStyle({
+    mobile: monospaceFontStylesForTarget('standard', 'mobile'),
+    tablet: monospaceFontStylesForTarget('standard', 'tablet'),
   }),
-);
+});

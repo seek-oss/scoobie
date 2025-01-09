@@ -11,14 +11,7 @@ export default {
     graphqlPlayground: 'https://manage.developer.seek.com/graphql-explorer',
     initialIndex: 0,
     language: 'graphql',
-    size: 'standard',
     trim: true,
-  },
-  argTypes: {
-    size: {
-      control: { type: 'radio' },
-      options: ['standard', 'large'],
-    },
   },
 } satisfies Meta<typeof Component>;
 
@@ -67,19 +60,5 @@ export const Multi: Story = {
         type: 'code',
       },
     },
-  },
-};
-
-export const Minimal: Story = {
-  args: {
-    children: JSON.stringify(
-      { stuff: 'things', otherStuff: [{ id: 17 }] },
-      null,
-      2,
-    ),
-    label: '',
-    language: 'json',
-    copy: false,
-    lineNumbers: false,
   },
 };
