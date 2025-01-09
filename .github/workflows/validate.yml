@@ -36,3 +36,6 @@ jobs:
 
       - name: Build Storybook (dry run for release)
         run: yarn storybook:build
+
+      - name: Loki snapshots
+        run: yarn loki:test:ci
