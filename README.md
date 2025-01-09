@@ -85,7 +85,9 @@ import React from 'react';
 import { CodeBlock } from 'scoobie';
 
 export const MyFirstCodeBlock = () => (
-  <CodeBlock language="javascript" label="Here is the code">console.log('hello, world');</CodeBlock>
+  <CodeBlock language="javascript" label="Here is the code">
+    console.log('hello, world');
+  </CodeBlock>
 );
 ```
 
