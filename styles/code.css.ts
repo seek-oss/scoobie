@@ -2,8 +2,6 @@ import { createStyleObject, getCapHeight } from '@capsizecss/core';
 import { style } from '@vanilla-extract/css';
 import { responsiveStyle } from 'braid-design-system/css';
 
-import type { Size } from '../src/private/size';
-
 import { monospaceFontFamily } from '.';
 
 // Roboto Mono metrics from seek-oss.github.io/capsize
@@ -26,50 +24,33 @@ const tokens = {
   grid: 4,
   typography: {
     code: {
-      // Matches `small` text
-      standard: {
-        mobile: {
-          fontSize: 14,
-          rows: 5,
-        },
-        tablet: {
-          fontSize: 14,
-          rows: 5,
-        },
+      mobile: {
+        fontSize: 14,
+        rows: 5,
       },
-      // Matches `standard` text
-      large: {
-        mobile: {
-          fontSize: 16,
-          rows: 6,
-        },
-        tablet: {
-          fontSize: 16,
-          rows: 6,
-        },
+      tablet: {
+        fontSize: 14,
+        rows: 5,
       },
     },
   },
 };
 
-const monospaceFontStylesForTarget = (
-  size: Size,
-  target: 'mobile' | 'tablet',
-) =>
+const monospaceFontStylesForTarget = (target: 'mobile' | 'tablet') =>
   createStyleObject({
     capHeight: getCapHeight({
-      fontSize: tokens.typography.code[size][target].fontSize,
+      fontSize: tokens.typography.code[target].fontSize,
       fontMetrics: monospaceFontMetrics,
     }),
     fontMetrics: monospaceFontMetrics,
-    leading: tokens.typography.code[size][target].rows * tokens.grid,
+    leading: tokens.typography.code[target].rows * tokens.grid,
   });
 
 export const code = style({
   fontFamily: monospaceFontFamily,
 
   ...responsiveStyle({
-    mobile: monospaceFontStylesForTarget('standard', 'mobile'),
-    tablet: monospaceFontStylesForTarget('standard', 'tablet'),
+    mobile: monospaceFontStylesForTarget('mobile'),
+    tablet: monospaceFontStylesForTarget('tablet'),
   }),
 });

@@ -1,12 +1,9 @@
 import { IconVideo, Text, TextLink } from 'braid-design-system';
 
-import type { Size } from '../../private/size';
-
 interface Props {
   query: string;
   variables: string | undefined;
   graphqlPlayground: string;
-  size: Size;
 }
 
 export const GraphQLPlaygroundAction = ({
