@@ -55,13 +55,13 @@
   "scripts": {
     "format": "sku format",
     "lint": "sku lint",
-    "loki:test": "loki test --host host.docker.internal --port 8081",
+    "loki:test": "loki test --port 12228",
     "loki:test:ci": "cp -R dist-storybook/. dist-storybook-tmp/ && loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'",
-    "loki:update": "loki update --host host.docker.internal --port 8081",
+    "loki:update": "loki update --port 12228",
     "release": "changeset publish",
     "stage": "changeset version && yarn format",
     "storybook:build": "storybook build --output-dir dist-storybook",
-    "storybook:start": "storybook dev",
+    "storybook:start": "storybook dev --port 12228",
     "test": "sku test",
     "test:ci": "sku test --coverage"
   },
