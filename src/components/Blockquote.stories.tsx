@@ -15,7 +15,6 @@ type Story = StoryObj<typeof Component>;
 
 export const Blockquote: Story = {
   args: {
-    size: 'standard',
     children: (
       <>
         <Text size="standard">This is a paragraph.</Text>

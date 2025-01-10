@@ -69,7 +69,6 @@ export const CodeBlock = ({
       <Box component="span" paddingLeft="small">
         <GraphQLPlaygroundAction
           graphqlPlayground={graphqlPlayground}
-          size="standard"
           query={children[0].code}
           variables={variables}
         />
