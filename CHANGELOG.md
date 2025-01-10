@@ -1,5 +1,29 @@
 # scoobie
 
+## 19.0.0
+
+### Major Changes
+
+- **CodeBlock:** change props ([#770](https://github.com/seek-oss/scoobie/pull/770))
+
+  - `label` and `language` are now required
+
+  - `copy` is no longer accepted; the copy button is always shown
+
+    To have just the code block without the top row with the copy button, use `CodeContainer`
+
+  - `size` is no longer accepted; it is now hardcoded to `standard`
+
+- **Blockquote:** drop `size` property; it is now hardcoded to `standard` ([#773](https://github.com/seek-oss/scoobie/pull/773))
+
+- **Table, TableRow:** Remove components ([#768](https://github.com/seek-oss/scoobie/pull/768))
+
+  [braid-design-system 33.3.0](https://github.com/seek-oss/braid-design-system/releases/tag/braid-design-system%4033.3.0) now supports `Table` components directly
+
+### Minor Changes
+
+- **CodeContainer:** add new component ([#770](https://github.com/seek-oss/scoobie/pull/770))
+
 ## 18.2.0
 
 ### Minor Changes
