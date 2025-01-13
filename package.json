@@ -20,7 +20,7 @@
     "@changesets/cli": "2.27.11",
     "@changesets/get-github-info": "0.6.0",
     "@storybook/addon-essentials": "8.4.7",
-    "@storybook/addon-webpack5-compiler-babel": "3.0.3",
+    "@storybook/addon-webpack5-compiler-babel": "3.0.5",
     "@storybook/react": "8.4.7",
     "@storybook/react-webpack5": "8.4.7",
     "@types/react": "18.3.16",
