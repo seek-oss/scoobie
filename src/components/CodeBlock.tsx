@@ -13,8 +13,8 @@ interface Props {
   children: readonly CodeChildProps[] | string;
   graphqlPlayground?: string;
   initialIndex?: number;
-  label: string;
-  language: string;
+  label?: string;
+  language?: string;
   trim?: boolean;
   lineNumbers?: boolean;
 }
