@@ -1,5 +1,11 @@
 # scoobie
 
+## 19.0.1
+
+### Patch Changes
+
+- **CodeBlock:** allow `language` and `label` to be undefined again, to support multi-snippet code blocks ([#777](https://github.com/seek-oss/scoobie/pull/777))
+
 ## 19.0.0
 
 ### Major Changes
