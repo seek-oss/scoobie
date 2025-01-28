@@ -3961,10 +3961,10 @@ braces@^3.0.3, braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-braid-design-system@33.3.0:
-  version "33.3.0"
-  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-33.3.0.tgz#6585ff108e72c227347de267a151b977a29dbc71"
-  integrity sha512-boygU59320CfoRuysDKuuo9n1a0zwUYUfwICmQsYFlovtNyYDSMxbYV6Jln4Kn6lLO3zlm7l+6OzA9KXulSUhw==
+braid-design-system@33.4.0:
+  version "33.4.0"
+  resolved "https://registry.yarnpkg.com/braid-design-system/-/braid-design-system-33.4.0.tgz#fa948c068ad184b8795eab3185d8f8f991cb2d07"
+  integrity sha512-gXq4P/0Tn5w0yJT83maPs8A547853h0fMzXviTWfUAJBOYRGuJsDGgww3V77SYnsvBAJuD7P/ondCrSQwsv/2g==
   dependencies:
     "@capsizecss/core" "^4.1.2"
     "@capsizecss/metrics" "^3.0.0"
