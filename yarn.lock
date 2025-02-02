@@ -9319,12 +9319,17 @@ react-is@^18.0.0, react-is@^18.2.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
-react-keyed-flatten-children@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-keyed-flatten-children/-/react-keyed-flatten-children-3.0.2.tgz#0a2e930123455e0aa3d2b7c75c382ea95d1d2122"
-  integrity sha512-5oiw2x9QlCSOTeAerw72e3ij0P+kJ60A7mtHvpabbOc4j3mvVQB3YpXCy2Qt/0YOuDWvAq3w/cGRuO7G20KISQ==
+react-is@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.0.0.tgz#d6669fd389ff022a9684f708cf6fa4962d1fea7a"
+  integrity sha512-H91OHcwjZsbq3ClIDHMzBShc1rotbfACdWENsmEf0IFvZ3FgGPtdHMcsv45bQ1hAbgdfiA8SnxTKfDS+x/8m2g==
+
+react-keyed-flatten-children@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-keyed-flatten-children/-/react-keyed-flatten-children-4.0.0.tgz#b7a631e6ef9a831fee8d4fc666e2b378867edf61"
+  integrity sha512-xb7iMnQzvsCu4FizP4eCy2gWTela8jwjDUKu2y7/PmAdLTG4newdsO06Sr4TBlD3KftpJvxXLgmI3THFUlTB2Q==
   dependencies:
-    react-is "^18.2.0"
+    react-is "^19.0.0"
 
 react-popper-tooltip@^4.3.1:
   version "4.4.2"
