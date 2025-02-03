@@ -1,5 +1,11 @@
 # scoobie
 
+## 19.0.2
+
+### Patch Changes
+
+- **fix:** remove unused dependency `react-keyed-flatten-children` ([#782](https://github.com/seek-oss/scoobie/pull/782))
+
 ## 19.0.1
 
 ### Patch Changes
