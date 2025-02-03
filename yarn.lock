@@ -3368,7 +3368,6 @@
 
 "@zendesk/babel-plugin-react-displayname@https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2":
   version "1.0.0"
-  uid "8cdd54fa1526715c5fc1abdbc2811deac6485f3c"
   resolved "https://codeload.github.com/zendesk/babel-plugin-react-displayname/tar.gz/7a837f2#8cdd54fa1526715c5fc1abdbc2811deac6485f3c"
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -9318,18 +9317,6 @@ react-is@^18.0.0, react-is@^18.2.0:
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
-
-react-is@^19.0.0:
-  version "19.0.0"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.0.0.tgz#d6669fd389ff022a9684f708cf6fa4962d1fea7a"
-  integrity sha512-H91OHcwjZsbq3ClIDHMzBShc1rotbfACdWENsmEf0IFvZ3FgGPtdHMcsv45bQ1hAbgdfiA8SnxTKfDS+x/8m2g==
-
-react-keyed-flatten-children@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/react-keyed-flatten-children/-/react-keyed-flatten-children-4.0.0.tgz#b7a631e6ef9a831fee8d4fc666e2b378867edf61"
-  integrity sha512-xb7iMnQzvsCu4FizP4eCy2gWTela8jwjDUKu2y7/PmAdLTG4newdsO06Sr4TBlD3KftpJvxXLgmI3THFUlTB2Q==
-  dependencies:
-    react-is "^19.0.0"
 
 react-popper-tooltip@^4.3.1:
   version "4.4.2"
