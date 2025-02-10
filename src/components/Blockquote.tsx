@@ -4,7 +4,7 @@ import type { StackChildrenProps } from '../private/types';
 
 import * as styles from './Blockquote.css';
 
-interface Props extends StackChildrenProps {}
+type Props = StackChildrenProps;
 
 export const Blockquote = ({ children }: Props) => (
   <Box className={styles.quoteBlock} padding="medium">
