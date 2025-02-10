@@ -4,37 +4,30 @@ const config: SkuConfig = {
   rootResolution: false,
   srcPaths: ['./src', './styles'],
 
-  dangerouslySetESLintConfig: (skuConfig) => ({
+  dangerouslySetESLintConfig: (skuConfig) => [
     ...skuConfig,
-    overrides: [
-      ...(skuConfig.overrides ?? []),
-      {
-        files: [
-          // sku configuration
-          './sku.config.ts',
-          // External type declarations
-          '*.d.ts',
-          // Storybook stories
-          '*.docs.tsx',
-          '*.stories.tsx',
-        ],
-        rules: {
-          'import/no-default-export': 'off',
-        },
-      },
-    ],
-    rules: {
-      ...skuConfig.rules,
-      // https://basarat.gitbook.io/typescript/main-1/defaultisbad
-      'import/no-default-export': 'error',
-      'sort-imports': ['error', { ignoreDeclarationSort: true }],
-    },
-    settings: {
-      react: {
-        version: 'detect',
+    {
+      rules: {
+        // https://basarat.gitbook.io/typescript/main-1/defaultisbad
+        'import-x/no-default-export': 'error',
+        'import-x/order': ['error'],
       },
     },
-  }),
+    {
+      files: [
+        '.storybook/*.{ts,tsx}',
+        '*.d.ts',
+        '*.docs.tsx',
+        '**/*.stories.tsx',
+        'eslint.config.mjs',
+        'sku.config.ts',
+      ],
+      rules: {
+        'import-x/no-default-export': 'off',
+      },
+    },
+  ],
+
   dangerouslySetTSConfig: (tsConfig) => ({
     ...tsConfig,
     include: [
@@ -42,6 +35,12 @@ const config: SkuConfig = {
       '.storybook/*', // 👈 Add this line
     ],
   }),
+
+  eslintIgnore: [
+    '**/dist-storybook-tmp/',
+    '**/typography.ts',
+    '**/dist-storybook/',
+  ],
 };
 
 export default config;

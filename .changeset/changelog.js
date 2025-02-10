@@ -70,7 +70,7 @@ const gitHubChangelogFunctions = {
       await Promise.all(
         changesets.map(async (cs) => {
           if (cs.commit) {
-            let { links } = await getInfo({
+            const { links } = await getInfo({
               repo: options.repo,
               commit: cs.commit,
             });
@@ -102,16 +102,12 @@ const gitHubChangelogFunctions = {
 
     const replacedChangelog = changeset.summary
       .replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_, pr) => {
-        let num = Number(pr);
+        const num = Number(pr);
         if (!isNaN(num)) prFromSummary = num;
         return '';
       })
       .replace(/^\s*commit:\s*([^\s]+)/im, (_, commit) => {
         commitFromSummary = commit;
-        return '';
-      })
-      .replace(/^\s*(?:author|user):\s*@?([^\s]+)/gim, (_, user) => {
-        usersFromSummary.push(user);
         return '';
       })
       .trim();
@@ -122,30 +118,29 @@ const gitHubChangelogFunctions = {
 
     const links = await (async () => {
       if (prFromSummary !== undefined) {
-        let { links } = await getInfoFromPullRequest({
+        let { links: prLinks } = await getInfoFromPullRequest({
           repo: options.repo,
           pull: prFromSummary,
         });
         if (commitFromSummary) {
-          links = {
-            ...links,
+          prLinks = {
+            ...prLinks,
             commit: `[\`${commitFromSummary}\`](https://github.com/${options.repo}/commit/${commitFromSummary})`,
           };
         }
-        return links;
+        return prLinks;
       }
       const commitToFetchFrom = commitFromSummary || changeset.commit;
       if (commitToFetchFrom) {
-        let { links } = await getInfo({
+        const { links: commitLinks } = await getInfo({
           repo: options.repo,
           commit: commitToFetchFrom,
         });
-        return links;
+        return commitLinks;
       }
       return {
         commit: null,
         pull: null,
-        user: null,
       };
     })();
 
@@ -163,6 +158,7 @@ const gitHubChangelogFunctions = {
 if (process.env.GITHUB_TOKEN) {
   module.exports = gitHubChangelogFunctions;
 } else {
+  // eslint-disable-next-line no-console
   console.warn(
     `Defaulting to Git-based versioning.
 Enable GitHub-based versioning by setting the GITHUB_TOKEN environment variable.

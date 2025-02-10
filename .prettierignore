@@ -2,10 +2,10 @@ dist-storybook-tmp/
 
 # managed by sku
 .eslintcache
-.eslintrc
 .prettierrc
 coverage/
 dist/
+eslint.config.mjs
 pnpm-lock.yaml
 report/
 tsconfig.json
