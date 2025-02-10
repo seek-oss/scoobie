@@ -1,5 +1,11 @@
 # scoobie
 
+## 19.0.3
+
+### Patch Changes
+
+- Remove `sku` as a peer dependency ([#786](https://github.com/seek-oss/scoobie/pull/786))
+
 ## 19.0.2
 
 ### Patch Changes
