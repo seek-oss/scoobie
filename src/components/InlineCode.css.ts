@@ -1,7 +1,7 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
-import { vars } from 'braid-design-system/css';
-import { darken } from 'polished';
+import { colorModeStyle, vars } from 'braid-design-system/css';
+import { darken, lighten } from 'polished';
 
 import { codeBackgroundColor, monospaceFontFamily } from '../../styles';
 
@@ -22,21 +22,31 @@ export const colourBlockWrapper = style({
 });
 
 export const weightBorder = styleVariants({
-  regular: {
-    borderColor: darken(0.05, codeBackgroundColor),
-    borderStyle: 'solid',
-    borderWidth: vars.borderWidth.standard,
-  },
+  regular: [
+    {
+      borderStyle: 'solid',
+      borderWidth: vars.borderWidth.standard,
+    },
+    colorModeStyle({
+      darkMode: { borderColor: lighten(0.05, codeBackgroundColor.darkMode) },
+      lightMode: { borderColor: darken(0.05, codeBackgroundColor.lightMode) },
+    }),
+  ],
 
   weak: {},
 });
 
 export const weight = styleVariants({
-  regular: {
-    backgroundColor: codeBackgroundColor,
-    paddingLeft: vars.space.xxsmall,
-    paddingRight: vars.space.xxsmall,
-  },
+  regular: [
+    {
+      paddingLeft: vars.space.xxsmall,
+      paddingRight: vars.space.xxsmall,
+    },
+    colorModeStyle({
+      darkMode: { backgroundColor: codeBackgroundColor.darkMode },
+      lightMode: { backgroundColor: codeBackgroundColor.lightMode },
+    }),
+  ],
 
   weak: {},
 });
