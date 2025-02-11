@@ -1,10 +1,12 @@
 import { Box, Stack } from 'braid-design-system';
 import { Highlight, type Token } from 'prism-react-renderer';
+
 import { Prism, themes } from '../private/Prism';
+
+import { useCodeTheme } from './CodeThemeProvider';
 
 import * as styles from './CodeContainer.css';
 import * as codeStyles from '../../styles/code.css';
-import { useCodeTheme } from './CodeThemeProvider';
 
 export const CodeContainer = ({
   code,
