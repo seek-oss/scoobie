@@ -8,7 +8,18 @@ export const quoteBlock = style([
     position: 'relative',
   },
   colorModeStyle({
-    darkMode: { backgroundColor: vars.backgroundColor.neutral },
-    lightMode: { backgroundColor: vars.backgroundColor.neutralLight },
+    darkMode: {
+      backgroundColor: vars.backgroundColor.neutral,
+      borderLeftColor: vars.borderColor.neutral,
+    },
+    lightMode: {
+      backgroundColor: vars.backgroundColor.neutralLight,
+      borderLeftColor: vars.borderColor.neutralLight,
+    },
   }),
 ]);
+
+export const quoteMark = style({
+  right: vars.space.xxsmall,
+  top: vars.space.xxsmall,
+});

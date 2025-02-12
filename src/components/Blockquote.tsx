@@ -10,7 +10,12 @@ export const Blockquote = ({ children }: Props) => (
   <Box className={styles.quoteBlock} padding="medium">
     <Stack space="medium">{children}</Stack>
 
-    <Box position="absolute" right={0} top={0} userSelect="none" zIndex={0}>
+    <Box
+      position="absolute"
+      className={styles.quoteMark}
+      userSelect="none"
+      zIndex={0}
+    >
       <Heading component="div" level="2">
         <Secondary>”</Secondary>
       </Heading>
