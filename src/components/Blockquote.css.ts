@@ -10,7 +10,7 @@ export const quoteBlock = style([
   colorModeStyle({
     darkMode: {
       backgroundColor: vars.backgroundColor.neutral,
-      borderLeftColor: vars.borderColor.neutral,
+      borderLeftColor: vars.borderColor.field,
     },
     lightMode: {
       backgroundColor: vars.backgroundColor.neutralLight,
