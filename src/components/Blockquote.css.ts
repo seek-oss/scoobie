@@ -5,6 +5,7 @@ export const quoteBlock = style([
   {
     borderLeftStyle: 'solid',
     borderLeftWidth: vars.space.xxsmall,
+    borderRadius: vars.borderRadius.standard,
     position: 'relative',
   },
   colorModeStyle({
