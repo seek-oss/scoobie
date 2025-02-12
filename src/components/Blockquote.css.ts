@@ -1,9 +1,14 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from 'braid-design-system/css';
+import { colorModeStyle, vars } from 'braid-design-system/css';
 
-export const quoteBlock = style({
-  borderLeftColor: vars.backgroundColor.neutralLight,
-  borderLeftStyle: 'solid',
-  borderLeftWidth: vars.space.xxsmall,
-  position: 'relative',
-});
+export const quoteBlock = style([
+  {
+    borderLeftStyle: 'solid',
+    borderLeftWidth: vars.space.xxsmall,
+    position: 'relative',
+  },
+  colorModeStyle({
+    darkMode: { backgroundColor: vars.backgroundColor.neutral },
+    lightMode: { backgroundColor: vars.backgroundColor.neutralLight },
+  }),
+]);
