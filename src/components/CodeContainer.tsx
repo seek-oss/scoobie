@@ -3,6 +3,8 @@ import { Highlight, type Token } from 'prism-react-renderer';
 
 import { Prism, themes } from '../private/Prism';
 
+import { useCodeTheme } from './CodeThemeProvider';
+
 import * as styles from './CodeContainer.css';
 import * as codeStyles from '../../styles/code.css';
 
@@ -14,24 +16,28 @@ export const CodeContainer = ({
   code: string;
   language: string;
   lineNumbers?: boolean;
-}) => (
-  <Box borderRadius="large" className={styles.codeContainer}>
-    <Highlight
-      prism={Prism}
-      code={code}
-      language={language}
-      theme={themes.github}
-    >
-      {({ getTokenProps, tokens }) => (
-        <Box display="flex">
-          {lineNumbers ? <LineNumbers count={tokens.length} /> : null}
+}) => {
+  const theme = useCodeTheme();
 
-          <Lines getTokenProps={getTokenProps} lines={tokens} />
-        </Box>
-      )}
-    </Highlight>
-  </Box>
-);
+  return (
+    <Box borderRadius="large" className={styles.codeContainer}>
+      <Highlight
+        prism={Prism}
+        code={code}
+        language={language}
+        theme={themes[theme]}
+      >
+        {({ getTokenProps, tokens }) => (
+          <Box display="flex">
+            {lineNumbers ? <LineNumbers count={tokens.length} /> : null}
+
+            <Lines getTokenProps={getTokenProps} lines={tokens} />
+          </Box>
+        )}
+      </Highlight>
+    </Box>
+  );
+};
 
 const LineNumbers = ({ count }: { count: number }) => {
   const numbers = [...new Array(count)].map((_, index) => index + 1);
