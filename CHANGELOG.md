@@ -1,5 +1,11 @@
 # scoobie
 
+## 19.1.0
+
+### Minor Changes
+
+- **Blockquote, CodeBlock, CodeContainer, InlineCode, styles/codeBackgroundColor:** Add experimental support for color modes ([#790](https://github.com/seek-oss/scoobie/pull/790))
+
 ## 19.0.3
 
 ### Patch Changes
