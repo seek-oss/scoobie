@@ -1,12 +1,13 @@
 import { Box, Stack } from 'braid-design-system';
 import { Highlight, type Token } from 'prism-react-renderer';
 
-import { Prism, themes } from '../private/Prism';
+import { Prism } from '../private/Prism';
+import { codeThemes } from '../private/codeThemes';
 
 import { useCodeTheme } from './CodeThemeProvider';
 
 import * as styles from './CodeContainer.css';
-import * as codeStyles from '../../styles/code.css';
+import * as fontStyles from '../private/font.css';
 
 export const CodeContainer = ({
   code,
@@ -25,7 +26,7 @@ export const CodeContainer = ({
         prism={Prism}
         code={code}
         language={language}
-        theme={themes[theme]}
+        theme={codeThemes[theme]}
       >
         {({ getTokenProps, tokens }) => (
           <Box display="flex">
@@ -46,7 +47,7 @@ const LineNumbers = ({ count }: { count: number }) => {
     <Box aria-hidden className={styles.lineNumberContainer} padding="medium">
       <Stack align="right" space="small">
         {numbers.map((number) => (
-          <Box className={codeStyles.code} key={number}>
+          <Box className={fontStyles.code} key={number}>
             <Box component="pre">{number}</Box>
           </Box>
         ))}
@@ -69,7 +70,7 @@ const Lines = ({
   <Box padding="medium">
     <Stack space="small">
       {lines.map((line, lineIndex) => (
-        <Box className={codeStyles.code} key={lineIndex}>
+        <Box className={fontStyles.code} key={lineIndex}>
           <Box component="pre">
             {line.map((token, tokenIndex) => {
               const props = getTokenProps({ token });

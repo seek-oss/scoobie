@@ -234,39 +234,6 @@ export const SomeLinks = () => (
 );
 ```
 
-## Styling reference
-
-Scoobie distributes some vanilla-extract styles via `scoobie/styles` submodules.
-
-### code
-
-Render text with the same monospace styling as our [CodeBlock](#codeblock):
-
-```tsx
-import { Box } from 'braid-design-system';
-import React from 'react';
-import { code } from 'scoobie/styles/code.css';
-
-export const MyBox = () => (
-  <Box className={code.standard}>
-    <Box component="pre">Hello</Box>
-  </Box>
-);
-```
-
-### img
-
-```tsx
-import React from 'react';
-import { img } from 'scoobie/styles/img.css';
-
-export const MySvg = () => (
-  <svg className={img}>
-    <path />
-  </svg>
-);
-```
-
 ## Webpack reference
 
 Scoobie distributes its Webpack config via a `scoobie/webpack` submodule:

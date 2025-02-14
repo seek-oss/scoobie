@@ -1,17 +1,16 @@
-import type { themes } from 'prism-react-renderer';
 import { type ReactNode, createContext, useContext } from 'react';
 
-type CodeTheme = keyof typeof themes;
+import type { CodeTheme } from '../private/codeThemes';
 
-const ctx = createContext<CodeTheme>('github');
+const ctx = createContext<CodeTheme>('scoobieLight');
 
 interface CodeThemeProviderProps {
   children: ReactNode;
 
   /**
-   * The current color mode.
+   * The current code theme.
    *
-   * This defaults to `lightMode` in the absence of a `ColorModeProvider`.
+   * This defaults to `scoobieLight` in the absence of a `CodeThemeProvider`.
    */
   theme: CodeTheme;
 }
