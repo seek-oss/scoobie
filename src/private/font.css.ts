@@ -2,7 +2,9 @@ import { createStyleObject, getCapHeight } from '@capsizecss/core';
 import { style } from '@vanilla-extract/css';
 import { responsiveStyle } from 'braid-design-system/css';
 
-import { monospaceFontFamily } from '.';
+// SEEK's former font + GitHub defaults
+export const monospaceFontFamily =
+  "'Roboto Mono',SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace";
 
 // Roboto Mono metrics from seek-oss.github.io/capsize
 const monospaceFontMetrics = {

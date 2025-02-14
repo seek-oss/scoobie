@@ -3,7 +3,9 @@ import { calc } from '@vanilla-extract/css-utils';
 import { colorModeStyle, vars } from 'braid-design-system/css';
 import { darken, lighten } from 'polished';
 
-import { codeBackgroundColor, monospaceFontFamily } from '../../styles';
+import { codeBackgroundColor } from '../private/color';
+
+import { monospaceFontFamily } from '../private/font.css';
 
 export const base = style({
   fontFamily: monospaceFontFamily,

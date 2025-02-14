@@ -3,7 +3,7 @@ import { calc } from '@vanilla-extract/css-utils';
 import { colorModeStyle, responsiveStyle, vars } from 'braid-design-system/css';
 import { darken, lighten } from 'polished';
 
-import { codeBackgroundColor } from '../../styles';
+import { codeBackgroundColor } from '../private/color';
 
 export const lineNumberContainer = style([
   {

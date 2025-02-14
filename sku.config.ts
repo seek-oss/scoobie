@@ -2,7 +2,7 @@ import type { SkuConfig } from 'sku';
 
 const config: SkuConfig = {
   rootResolution: false,
-  srcPaths: ['./src', './styles'],
+  srcPaths: ['./src'],
 
   dangerouslySetESLintConfig: (skuConfig) => [
     ...skuConfig,
