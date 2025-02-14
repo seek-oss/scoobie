@@ -1,5 +1,15 @@
 # scoobie
 
+## 20.0.0
+
+### Major Changes
+
+- **styles:** Remove submodule export ([#792](https://github.com/seek-oss/scoobie/pull/792))
+
+### Minor Changes
+
+- **CodeBlock, CodeContainer, CodeThemeProvider:** Add `scoobieDark` and `scoobieLight` themes ([#792](https://github.com/seek-oss/scoobie/pull/792))
+
 ## 19.1.0
 
 ### Minor Changes
