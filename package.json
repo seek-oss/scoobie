@@ -24,7 +24,7 @@
     "@storybook/react-webpack5": "8.5.3",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
-    "braid-design-system": "33.5.0",
+    "braid-design-system": "33.6.0",
     "loki": "0.35.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
