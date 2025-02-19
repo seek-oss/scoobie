@@ -233,17 +233,3 @@ export const SomeLinks = () => (
   </Text>
 );
 ```
-
-## Webpack reference
-
-Scoobie distributes its Webpack config via a `scoobie/webpack` submodule:
-
-```typescript
-const { ScoobieWebpackPlugin } = require('scoobie/webpack');
-```
-
-Compatibility notes:
-
-- SVGs cannot be directly imported into JSX as components.
-
-  Consider inlining the SVGs in your JSX instead.
