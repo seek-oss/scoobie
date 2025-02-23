@@ -5663,7 +5663,7 @@ expect@^29.0.0, expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-express@^4.16.3, express@^4.21.2:
+express@^4.19.2, express@^4.21.2:
   version "4.21.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.21.2.tgz#cf250e48362174ead6cea4a566abef0162c1ec32"
   integrity sha512-28HqgMZAmih1Czt9ny7qr6ek2qddF4FclbMzwhCREB6OFfH+rXAnuNCwo1/wFvrtbgsQDb4kSbX9de9lFbrXnA==
@@ -9964,10 +9964,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sku@14.0.3:
-  version "14.0.3"
-  resolved "https://registry.yarnpkg.com/sku/-/sku-14.0.3.tgz#7fc806de8d70ecb6f2bee9e8a5a0757a7551ded3"
-  integrity sha512-c/GI6lVig7Pw3Tv+bZ+AgUOAsMM91jE+Rx5L78gzFGLQRh9b2di3labXr/3YPVZKywc8kkBKQC4eSHvIPD5FWg==
+sku@14.0.4:
+  version "14.0.4"
+  resolved "https://registry.yarnpkg.com/sku/-/sku-14.0.4.tgz#be504917d69f2ac175b9fc04ae2fed85e39dcb7f"
+  integrity sha512-XqXoM5QmSkExGNGetmfWYK4FmPiHQpGt4OTgbRUElh6Df32y4oAxmbWdgGaQTxUlWOYfsv+WhwcyrgsZJh6z8w==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/plugin-transform-react-constant-elements" "^7.21.3"
@@ -10023,7 +10023,7 @@ sku@14.0.3:
     eslint-config-seek "^14.2.2"
     eta "^3.5.0"
     exception-formatter "^2.1.2"
-    express "^4.16.3"
+    express "^4.19.2"
     fastest-validator "^1.9.0"
     fdir "^6.1.1"
     find-up "^5.0.0"
