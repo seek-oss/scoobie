@@ -18,10 +18,10 @@
   "devDependencies": {
     "@changesets/cli": "2.28.1",
     "@changesets/get-github-info": "0.6.0",
-    "@storybook/addon-essentials": "8.5.8",
+    "@storybook/addon-essentials": "8.6.4",
     "@storybook/addon-webpack5-compiler-babel": "3.0.5",
-    "@storybook/react": "8.5.8",
-    "@storybook/react-webpack5": "8.5.8",
+    "@storybook/react": "8.6.4",
+    "@storybook/react-webpack5": "8.6.4",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
     "braid-design-system": "33.6.0",
@@ -29,9 +29,9 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-helmet-async": "2.0.5",
-    "react-router-dom": "7.2.0",
+    "react-router-dom": "7.3.0",
     "sku": "14.0.5",
-    "storybook": "8.5.8",
+    "storybook": "8.6.4",
     "webpack": "5.98.0"
   },
   "files": [
