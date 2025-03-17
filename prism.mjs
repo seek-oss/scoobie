@@ -2,10 +2,14 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const header = `import { Prism, themes } from 'prism-react-renderer'; /* eslint-disable */`;
-const footer = `export { Prism, themes };`;
+const header = `const { Prism, themes } = require('prism-react-renderer'); /* eslint-disable */`;
+const footer = `module.exports = { Prism, themes };`;
 
+// Also see src/private/prismUtils.ts for language names
 const languages = [
+  // Required for other languages
+  'markup-templating',
+
   'bash',
   'csharp',
   'diff',

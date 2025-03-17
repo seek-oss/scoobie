@@ -1,5 +1,6 @@
 const DEFAULT_LANGUAGE = 'text';
 
+// Also see prism.mjs for language loading
 const DISPLAY_LANGUAGE_REPLACEMENTS: Record<string, string> = {
   'splunk-spl': 'Splunk SPL',
   csharp: 'C#',
