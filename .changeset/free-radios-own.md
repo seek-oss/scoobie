@@ -1,5 +1,5 @@
 ---
-'scoobie': minor
+'scoobie': patch
 ---
 
-CodeBlock, CodeContainer: Refactor to use bundled `prismjs` languages instead of via refractor
+CodeBlock, CodeContainer: Internally refactor to use bundled `prismjs` language definitions instead of using `refractor`
