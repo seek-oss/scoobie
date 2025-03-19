@@ -1,4 +1,4 @@
-import { displayLanguage } from './Prism';
+import { displayLanguage } from './prismUtils';
 
 describe('displayLanguage', () => {
   it.each([

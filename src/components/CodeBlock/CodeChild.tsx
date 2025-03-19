@@ -1,4 +1,4 @@
-import { displayLanguage, prismLanguage } from '../../private/Prism';
+import { displayLanguage, prismLanguage } from '../../private/prismUtils';
 
 export interface CodeChildProps {
   code: string;
