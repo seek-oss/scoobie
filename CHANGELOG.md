@@ -1,5 +1,13 @@
 # scoobie
 
+## 20.0.1
+
+### Patch Changes
+
+- **CodeBlock, CodeContainer:** Internally refactor to use bundled `prismjs` language definitions instead of using `refractor` ([#804](https://github.com/seek-oss/scoobie/pull/804))
+
+- **CodeBlock, CodeContainer:** Support PHP code highlighting ([#804](https://github.com/seek-oss/scoobie/pull/804))
+
 ## 20.0.0
 
 ### Major Changes
