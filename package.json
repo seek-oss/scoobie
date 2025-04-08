@@ -17,10 +17,10 @@
   "devDependencies": {
     "@changesets/cli": "2.28.1",
     "@changesets/get-github-info": "0.6.0",
-    "@storybook/addon-essentials": "8.6.7",
-    "@storybook/addon-webpack5-compiler-babel": "3.0.5",
-    "@storybook/react": "8.6.7",
-    "@storybook/react-webpack5": "8.6.7",
+    "@storybook/addon-essentials": "8.6.12",
+    "@storybook/addon-webpack5-compiler-babel": "3.0.6",
+    "@storybook/react": "8.6.12",
+    "@storybook/react-webpack5": "8.6.12",
     "@types/prismjs": "1.26.5",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.6",
@@ -30,9 +30,9 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-helmet-async": "2.0.5",
-    "react-router-dom": "7.4.0",
+    "react-router-dom": "7.5.0",
     "sku": "14.2.0",
-    "storybook": "8.6.7",
+    "storybook": "8.6.12",
     "webpack": "5.98.0"
   },
   "files": [
