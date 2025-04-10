@@ -1,6 +1,7 @@
 import { IconCopy, IconTick, Text, TextLinkButton } from 'braid-design-system';
 import React, {
   type ComponentProps,
+  type MouseEventHandler,
   type ReactNode,
   useCallback,
   useState,
@@ -25,17 +26,22 @@ export const CopyableText = ({
 }: Props) => {
   const [copied, setCopied] = useState<boolean>(false);
 
-  const copyText = useCallback(async () => {
-    if (copied) {
-      return;
-    }
+  const copyText: MouseEventHandler<HTMLSpanElement> = useCallback(
+    async (event) => {
+      event.stopPropagation();
 
-    setCopied(true);
+      if (copied) {
+        return;
+      }
 
-    await navigator.clipboard.writeText(children);
+      setCopied(true);
 
-    setTimeout(() => setCopied(false), 2000);
-  }, [children, copied]);
+      await navigator.clipboard.writeText(children);
+
+      setTimeout(() => setCopied(false), 2000);
+    },
+    [children, copied],
+  );
 
   return copied ? (
     <Text
