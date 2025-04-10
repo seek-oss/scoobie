@@ -1,5 +1,11 @@
 # scoobie
 
+## 20.0.2
+
+### Patch Changes
+
+- **CopyableText:** Stop `onClick` propagation ([#813](https://github.com/seek-oss/scoobie/pull/813))
+
 ## 20.0.1
 
 ### Patch Changes
