@@ -7,8 +7,6 @@ import { codeBackgroundColor } from '../private/color';
 
 export const lineNumberContainer = style([
   {
-    borderTopLeftRadius: vars.borderRadius.large,
-    borderBottomLeftRadius: vars.borderRadius.large,
     color: vars.foregroundColor.secondary,
     userSelect: 'none',
   },
