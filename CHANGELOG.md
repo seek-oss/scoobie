@@ -1,5 +1,11 @@
 # scoobie
 
+## 21.0.0
+
+### Major Changes
+
+- Update peer dependency from `react-router-dom` `>= 5.3.0` to `react-router` `>= 7.5.2 < 8` ([#819](https://github.com/seek-oss/scoobie/pull/819))
+
 ## 20.0.2
 
 ### Patch Changes
