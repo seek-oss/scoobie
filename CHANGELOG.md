@@ -1,5 +1,11 @@
 # scoobie
 
+## 21.0.1
+
+### Patch Changes
+
+- **CodeContainer:** Fix border radius mismatch between line numbers section and container ([#820](https://github.com/seek-oss/scoobie/pull/820))
+
 ## 21.0.0
 
 ### Major Changes
