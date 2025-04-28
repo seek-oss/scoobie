@@ -6,7 +6,7 @@ import docs from 'braid-design-system/themes/docs';
 import seekJobs from 'braid-design-system/themes/seekJobs';
 import wireframe from 'braid-design-system/themes/wireframe';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 
 import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
