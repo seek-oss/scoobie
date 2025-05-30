@@ -22,8 +22,11 @@ jobs:
         with:
           node-version: 22.x
 
+      - name: Set up pnpm
+        run: corepack enable pnpm
+
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Publish to npm
         uses: seek-oss/changesets-snapshot@v0

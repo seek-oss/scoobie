@@ -20,6 +20,7 @@
     "@storybook/addon-webpack5-compiler-babel": "3.0.6",
     "@storybook/react": "9.0.0",
     "@storybook/react-webpack5": "9.0.0",
+    "@types/jest": "29.5.14",
     "@types/prismjs": "1.26.5",
     "@types/react": "18.3.21",
     "@types/react-dom": "18.3.7",
@@ -59,7 +60,7 @@
     "prepack": "jq 'del(.scripts.postinstall)' package.json > package.json.tmp && mv package.json.tmp package.json",
     "postinstall": "node ./prism.mjs",
     "release": "changeset publish",
-    "stage": "changeset version && yarn format",
+    "stage": "changeset version && pnpm format",
     "storybook:build": "storybook build --output-dir dist-storybook",
     "storybook:start": "storybook dev --port 12228",
     "test": "sku test",
@@ -80,5 +81,5 @@
   "engines": {
     "node": ">=18.18"
   },
-  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+  "packageManager": "pnpm@9.15.9+sha512.68046141893c66fad01c079231128e9afb89ef87e2691d69e4d40eee228988295fd4682181bae55b58418c3a253bde65a505ec7c5f9403ece5cc3cd37dcf2531"
 }

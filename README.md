@@ -9,7 +9,7 @@ Component library for SEEK documentation sites.
 We use this to build [developer.seek.com](https://developer.seek.com), among other things.
 
 ```shell
-yarn add --exact scoobie
+pnpm add --exact scoobie
 ```
 
 ## Setup
