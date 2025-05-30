@@ -1,4 +1,3 @@
-import 'loki/configure-react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Alert, Stack, Text } from 'braid-design-system';
