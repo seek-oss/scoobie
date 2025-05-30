@@ -25,17 +25,20 @@ jobs:
         with:
           node-version: 22.x
 
+      - name: Set up pnpm
+        run: corepack enable pnpm
+
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Test
-        run: yarn test:ci
+        run: pnpm test:ci
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Build Storybook (dry run for release)
-        run: yarn storybook:build
+        run: pnpm storybook:build
 
       - name: Loki snapshots
-        run: yarn loki:test:ci
+        run: pnpm loki:test:ci

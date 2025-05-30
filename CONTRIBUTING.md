@@ -39,12 +39,12 @@ If you're on Windows, we recommend the [Windows Subsystem for Linux].
 First, some JavaScript tooling:
 
 - Node.js LTS
-- Yarn 1.x
+- pnpm
 
 Next, install npm dependencies:
 
 ```shell
-yarn install
+pnpm install
 ```
 
 ### Git workflow
@@ -88,35 +88,35 @@ If all is well, they will merge your pull request into master.
 Start a local [Storybook] server to preview your changes:
 
 ```shell
-yarn storybook:start
+pnpm storybook:start
 ```
 
 While the Storybook server is running,
 you can run visual regression tests with [Loki]:
 
 ```shell
-yarn loki:test
+pnpm loki:test
 ```
 
 If you meant to make visual changes,
 you can update the Loki snapshots:
 
 ```shell
-yarn loki:update
+pnpm loki:update
 ```
 
 Format your code once you're happy with it:
 
 ```shell
-yarn format
+pnpm format
 ```
 
 We run linting and testing in CI,
 but consider running these commands locally for a faster feedback loop:
 
 ```shell
-yarn lint
-yarn test
+pnpm lint
+pnpm test
 ```
 
 ## Releases
@@ -142,7 +142,7 @@ a changeset is not necessary for:
 - [npm dev dependencies](https://github.com/seek-oss/scoobie/blob/master/package.json)
 
 ```shell
-yarn changeset
+pnpm changeset
 ```
 
 The Changesets CLI is interactive and follows [semantic versioning]:
