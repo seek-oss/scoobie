@@ -15,7 +15,7 @@ const defaultDecorator = (Inner: ComponentType) => (
 export default {
   title: 'Standalone/InlineCode',
   component: InlineCodeComponent,
-} satisfies Meta<typeof InlineCode>;
+} satisfies Meta<typeof InlineCodeComponent>;
 
 type Story = StoryObj<typeof InlineCodeComponent>;
 
