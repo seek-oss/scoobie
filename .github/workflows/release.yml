@@ -30,19 +30,19 @@ jobs:
           node-version: 22.x
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Publish to npm
         uses: changesets/action@v1
         with:
-          publish: yarn release
-          version: yarn stage
+          publish: pnpm release
+          version: pnpm stage
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build Storybook
-        run: yarn storybook:build
+        run: pnpm storybook:build
 
       - name: Deploy Storybook
         uses: peaceiris/actions-gh-pages@v4
