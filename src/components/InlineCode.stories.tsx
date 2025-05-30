@@ -1,5 +1,3 @@
-import 'loki/configure-react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 import { Text, Box } from 'braid-design-system';
 import type { ComponentType } from 'react';
@@ -15,7 +13,7 @@ const defaultDecorator = (Inner: ComponentType) => (
 export default {
   title: 'Standalone/InlineCode',
   component: InlineCodeComponent,
-} satisfies Meta<typeof InlineCode>;
+} satisfies Meta<typeof InlineCodeComponent>;
 
 type Story = StoryObj<typeof InlineCodeComponent>;
 
