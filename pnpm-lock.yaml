@@ -48,6 +48,9 @@ importers:
       '@storybook/react-webpack5':
         specifier: 8.6.12
         version: 8.6.12(esbuild@0.25.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.12(prettier@3.5.3))(typescript@5.8.3)
+      '@types/jest':
+        specifier: 29.5.14
+        version: 29.5.14
       '@types/prismjs':
         specifier: 1.26.5
         version: 1.26.5
