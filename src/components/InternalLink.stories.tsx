@@ -1,4 +1,3 @@
-
 import type { Meta, StoryObj } from '@storybook/react';
 import { Alert, Stack, Text } from 'braid-design-system';
 import React, { type ComponentProps } from 'react';

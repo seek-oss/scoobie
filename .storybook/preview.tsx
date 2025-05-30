@@ -1,4 +1,4 @@
-import 'loki/configure-react'
+import 'loki/configure-react';
 import 'braid-design-system/reset';
 
 import type { Preview } from '@storybook/react';
