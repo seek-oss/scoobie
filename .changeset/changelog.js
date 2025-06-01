@@ -19,7 +19,9 @@ const boldScope = (firstLine) => firstLine.replace(/^([^:]+): /, '**$1:** ');
  */
 const defaultChangelogFunctions = {
   getDependencyReleaseLine: async (changesets, dependenciesUpdated) => {
-    if (dependenciesUpdated.length === 0) return '';
+    if (dependenciesUpdated.length === 0) {
+      return '';
+    }
 
     const changesetLinks = changesets.map(
       (changeset) => `- Updated dependencies [${changeset.commit}]`,
@@ -64,7 +66,9 @@ const gitHubChangelogFunctions = {
         'Please provide a repo to this changelog generator like this:\n"changelog": ["./changelog.js", { "repo": "org/repo" }]',
       );
     }
-    if (dependenciesUpdated.length === 0) return '';
+    if (dependenciesUpdated.length === 0) {
+      return '';
+    }
 
     const changesetLink = `- Updated dependencies [${(
       await Promise.all(
@@ -103,7 +107,9 @@ const gitHubChangelogFunctions = {
     const replacedChangelog = changeset.summary
       .replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_, pr) => {
         const num = Number(pr);
-        if (!isNaN(num)) prFromSummary = num;
+        if (!isNaN(num)) {
+          prFromSummary = num;
+        }
         return '';
       })
       .replace(/^\s*commit:\s*([^\s]+)/im, (_, commit) => {
