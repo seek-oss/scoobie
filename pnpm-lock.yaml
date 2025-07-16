@@ -63,8 +63,8 @@ importers:
         specifier: 18.3.7
         version: 18.3.7(@types/react@18.3.23)
       braid-design-system:
-        specifier: 33.9.1
-        version: 33.9.1(@types/react@18.3.23)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 33.10.2
+        version: 33.10.2(@types/react@18.3.23)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       eslint-plugin-storybook:
         specifier: 9.0.13
         version: 9.0.13(eslint@9.29.0(jiti@2.4.2))(storybook@9.0.13(@testing-library/dom@10.4.0)(prettier@3.5.3))(typescript@5.8.3)
@@ -2496,11 +2496,11 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  braid-design-system@33.9.1:
-    resolution: {integrity: sha512-9WG53aLK5ySXf9kIvldmxRri1v4C3fCX0M6Gi/GRvuJqGA/2vblmn2yx2rZlh67HlgJOu3WUXe4XKNFiw94QDw==}
+  braid-design-system@33.10.2:
+    resolution: {integrity: sha512-5boZRbDhG6ej+tXJqaRVifFugyxQwL8411IEtUEk2IdIeJv/eUTGZ7BD3YXeqjY2vW/ypYfD9Hu9mE8JH0MGEQ==}
     peerDependencies:
-      react: ^18
-      react-dom: ^18
+      react: ^18 || ^19
+      react-dom: ^18 || ^19
 
   browserslist-config-seek@3.3.0:
     resolution: {integrity: sha512-k9q8Zslsl3yR790gKmdBeD3dItwIhDWlVQKJCiS8Ykg0u9wTsrvnK0aLb9Wa/AMibpUInBVr5A4aVgpo+hPFGg==}
@@ -9728,7 +9728,7 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  braid-design-system@33.9.1(@types/react@18.3.23)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  braid-design-system@33.10.2(@types/react@18.3.23)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@capsizecss/core': 4.1.2
       '@capsizecss/metrics': 3.5.0
@@ -9745,12 +9745,10 @@ snapshots:
       gradient-parser: 1.1.1
       is-mobile: 4.0.0
       lodash.curry: 4.1.1
-      lodash.merge: 4.6.2
       polished: 4.3.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-focus-lock: 2.13.6(@types/react@18.3.23)(react@18.3.1)
-      react-is: 18.3.1
       react-remove-scroll: 2.7.1(@types/react@18.3.23)(react@18.3.1)
       throttle-debounce: 5.0.2
       utility-types: 3.11.0
