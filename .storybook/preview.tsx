@@ -6,13 +6,13 @@ import isLokiRunning from '@loki/is-loki-running';
 import type { Preview } from '@storybook/react';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
 import seekJobs from 'braid-design-system/themes/seekJobs';
+import { useEffect, useMemo } from 'react';
 import { BrowserRouter } from 'react-router';
 
 import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { codeThemes } from '../src/private/codeThemes';
 import { robotoHtml, robotoMonoHtml } from '../typography';
-import { useEffect, useMemo } from 'react';
 
 seekJobs.webFonts.forEach((font) => {
   document.head.innerHTML += font.linkTag;
@@ -44,7 +44,7 @@ const delayDecorators = isLokiRunning()
           }, 10);
 
           return () => clearInterval(interval);
-        }, []);
+        }, [onDone]);
 
         return <Story />;
       },
