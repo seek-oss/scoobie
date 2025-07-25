@@ -46,11 +46,18 @@ export default {
 
       useEffect(() => {
         let cancelled = false;
-        document.fonts.ready.then(() => {
+        document.fonts.ready.then((fontSet) => {
           if (cancelled) {
             return;
           }
-          setFontsData(document.fonts.check('16px SeekSans-Medium').toString());
+          const seekSansMedium =
+            [...fontSet]
+              .filter((f) => f.family.startsWith('Seek'))
+              .map((f) => [f.family, f.style, f.weight, f.status])
+              .join('\n') +
+            '\n' +
+            document.fonts.check('16px SeekSans-Medium');
+          setFontsData(seekSansMedium.toString());
         });
 
         return () => {
@@ -60,7 +67,7 @@ export default {
 
       return (
         <div>
-          {fontsData}
+          <pre>{fontsData}</pre>
           {fontsData === '' ? null : <Story />}
         </div>
       );
