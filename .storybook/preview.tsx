@@ -1,22 +1,50 @@
-import 'loki/configure-react';
 import 'braid-design-system/reset';
+import 'loki/configure-react';
 
+import createAsyncCallback from '@loki/create-async-callback';
+import isLokiRunning from '@loki/is-loki-running';
 import type { Preview } from '@storybook/react';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
-import docs from 'braid-design-system/themes/docs';
 import seekJobs from 'braid-design-system/themes/seekJobs';
-import wireframe from 'braid-design-system/themes/wireframe';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useEffect } from 'react';
 import { BrowserRouter } from 'react-router';
 
 import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { codeThemes } from '../src/private/codeThemes';
-import { robotoHref, robotoMonoHref } from '../typography';
+import { robotoHtml, robotoMonoHtml } from '../typography';
 
-const THEMES = { docs, seekJobs, wireframe };
+seekJobs.webFonts.forEach((font) => {
+  document.head.innerHTML += font.linkTag;
+});
 
-export type BraidThemeName = 'docs' | 'seekJobs' | 'wireframe';
+document.head.innerHTML += robotoHtml;
+document.head.innerHTML += robotoMonoHtml;
+
+/**
+ * https://github.com/oblador/loki/discussions/411
+ */
+const useLokiCaptureDelay = (delayInMs: number) => {
+  useEffect(() => {
+    if (isLokiRunning() && delayInMs) {
+      const onDone = createAsyncCallback();
+      // Here! This is where the delay is set and Loki wil not fire until onDone
+      // is called, after the delay time has passed by.
+      const timer = setTimeout(() => onDone(), delayInMs);
+      return () => clearTimeout(timer);
+    }
+  }, [delayInMs]);
+};
+
+const delayDecorators = isLokiRunning()
+  ? ([
+      (Story) => {
+        useLokiCaptureDelay(3000);
+
+        return <Story />;
+      },
+    ] satisfies Preview['decorators'])
+  : [];
 
 export default {
   globalTypes: {
@@ -38,17 +66,9 @@ export default {
         items: Object.keys(codeThemes),
       },
     },
-    theme: {
-      description: 'Braid theme to use',
-      defaultValue: 'seekJobs',
-      toolbar: {
-        title: 'Theme',
-        icon: 'contrast',
-        items: ['seekJobs', 'apac', 'docs', 'wireframe'],
-      },
-    },
   },
   decorators: [
+    ...delayDecorators,
     (Story, { globals }) => {
       const DARK_MODE_CLASS = 'sprinkles_darkMode__1t46ksg10';
 
@@ -59,23 +79,14 @@ export default {
       }
 
       return (
-        <BraidProvider
-          theme={THEMES[globals.theme as BraidThemeName]}
-          linkComponent={ScoobieLink}
-        >
+        <BraidProvider theme={seekJobs} linkComponent={ScoobieLink}>
           <CodeThemeProvider theme={globals.codeTheme}>
             <BrowserRouter>
-              <HelmetProvider>
-                <Helmet>
-                  <link href={robotoHref} rel="stylesheet" />
-                  <link href={robotoMonoHref} rel="stylesheet" />
-                </Helmet>
-                <PageBlock>
-                  <Card>
-                    <Story />
-                  </Card>
-                </PageBlock>
-              </HelmetProvider>
+              <PageBlock>
+                <Card>
+                  <Story />
+                </Card>
+              </PageBlock>
             </BrowserRouter>
           </CodeThemeProvider>
         </BraidProvider>

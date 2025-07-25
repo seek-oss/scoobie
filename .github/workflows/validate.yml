@@ -42,3 +42,11 @@ jobs:
 
       - name: Loki snapshots
         run: pnpm loki:test:ci
+
+      - name: Upload Loki artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: loki-snapshots
+          include-hidden-files: true
+          path: .loki
