@@ -4,13 +4,13 @@ import 'loki/configure-react';
 import type { Preview } from '@storybook/react';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
 import seekJobs from 'braid-design-system/themes/seekJobs';
+import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router';
 
 import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { codeThemes } from '../src/private/codeThemes';
 import { robotoHtml, robotoMonoHtml } from '../typography';
-import { useEffect, useState } from 'react';
 
 seekJobs.webFonts.forEach((font) => {
   document.head.innerHTML += font.linkTag;
