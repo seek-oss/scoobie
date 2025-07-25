@@ -28,12 +28,8 @@ const delayDecorators = isLokiRunning()
         const onDone = useMemo(createAsyncCallback, []);
 
         useEffect(() => {
-          const start = Date.now();
           const interval = setInterval(() => {
-            if (
-              document.fonts.check('1rem SeekSans-Medium') ||
-              Date.now() - start > 10_000
-            ) {
+            if (document.fonts.check('1rem SeekSans-Medium')) {
               onDone();
               clearInterval(interval);
               return;
