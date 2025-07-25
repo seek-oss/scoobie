@@ -12,6 +12,7 @@ import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { codeThemes } from '../src/private/codeThemes';
 import { robotoHtml, robotoMonoHtml } from '../typography';
+import { useEffect, useMemo } from 'react';
 
 seekJobs.webFonts.forEach((font) => {
   document.head.innerHTML += font.linkTag;
@@ -20,12 +21,13 @@ seekJobs.webFonts.forEach((font) => {
 document.head.innerHTML += robotoHtml;
 document.head.innerHTML += robotoMonoHtml;
 
+// https://github.com/oblador/loki/discussions/411
 const delayDecorators = isLokiRunning()
   ? ([
       (Story) => {
-        // https://github.com/oblador/loki/discussions/411
-        if (isLokiRunning()) {
-          const onDone = createAsyncCallback();
+        const onDone = useMemo(createAsyncCallback, []);
+
+        useEffect(() => {
           const start = Date.now();
           const interval = setInterval(() => {
             if (document.fonts.check('1rem SeekSans-Medium')) {
@@ -40,7 +42,9 @@ const delayDecorators = isLokiRunning()
               throw new Error('Fonts did not load in time');
             }
           }, 10);
-        }
+
+          return () => clearInterval(interval);
+        }, []);
 
         return <Story />;
       },
