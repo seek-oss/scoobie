@@ -1,16 +1,22 @@
-import 'loki/configure-react';
 import 'braid-design-system/reset';
+import 'loki/configure-react';
 
 import type { Preview } from '@storybook/react';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
 import seekJobs from 'braid-design-system/themes/seekJobs';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router';
 
 import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { codeThemes } from '../src/private/codeThemes';
-import { robotoHref, robotoMonoHref } from '../typography';
+import { robotoHtml, robotoMonoHtml } from '../typography';
+
+seekJobs.webFonts.forEach((font) => {
+  document.head.innerHTML += font.linkTag;
+});
+
+document.head.innerHTML += robotoHtml;
+document.head.innerHTML += robotoMonoHtml;
 
 export default {
   globalTypes: {
@@ -47,20 +53,11 @@ export default {
         <BraidProvider theme={seekJobs} linkComponent={ScoobieLink}>
           <CodeThemeProvider theme={globals.codeTheme}>
             <BrowserRouter>
-              <HelmetProvider>
-                <Helmet>
-                  <link href={robotoHref} rel="stylesheet" />
-                  <link href={robotoMonoHref} rel="stylesheet" />
-                  {seekJobs.webFonts.map((font) => (
-                    <link key={font.href} href={font.href} rel="stylesheet" />
-                  ))}
-                </Helmet>
-                <PageBlock>
-                  <Card>
-                    <Story />
-                  </Card>
-                </PageBlock>
-              </HelmetProvider>
+              <PageBlock>
+                <Card>
+                  <Story />
+                </Card>
+              </PageBlock>
             </BrowserRouter>
           </CodeThemeProvider>
         </BraidProvider>
