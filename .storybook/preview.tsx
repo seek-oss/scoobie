@@ -27,7 +27,7 @@ const delayDecorators = isLokiRunning()
         if (isLokiRunning()) {
           const onDone = createAsyncCallback();
           const start = Date.now();
-          const interval = setTimeout(() => {
+          const interval = setInterval(() => {
             if (document.fonts.check('1rem SeekSans-Medium')) {
               onDone();
               clearInterval(interval);
