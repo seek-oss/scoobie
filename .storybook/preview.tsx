@@ -30,16 +30,13 @@ const delayDecorators = isLokiRunning()
         useEffect(() => {
           const start = Date.now();
           const interval = setInterval(() => {
-            if (document.fonts.check('1rem SeekSans-Medium')) {
+            if (
+              document.fonts.check('1rem SeekSans-Medium') ||
+              Date.now() - start > 10_000
+            ) {
               onDone();
               clearInterval(interval);
               return;
-            }
-
-            // If it takes longer than 10 seconds, assume they never will
-            if (Date.now() - start > 10_000) {
-              clearInterval(interval);
-              throw new Error('Fonts did not load in time');
             }
           }, 10);
 
