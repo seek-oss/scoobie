@@ -42,13 +42,25 @@ export default {
   },
   decorators: [
     (Story) => {
-      const [ready, setReady] = useState(false);
+      const [fontsData, setFontsData] = useState('');
 
       useEffect(() => {
-        document.fonts.ready.then(() => setReady(true));
+        let cancelled = false;
+        document.fonts.ready.then(() => {
+          setFontsData(document.fonts.check('16px SeekSans-Medium').toString());
+        });
+
+        return () => {
+          cancelled = true;
+        };
       }, []);
 
-      return ready ? <Story /> : <div />;
+      return (
+        <div>
+          {fontsData}
+          {fontsData === '' ? null : <Story />}
+        </div>
+      );
     },
     (Story, { globals }) => {
       const DARK_MODE_CLASS = 'sprinkles_darkMode__1t46ksg10';
