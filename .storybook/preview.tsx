@@ -6,7 +6,6 @@ import isLokiRunning from '@loki/is-loki-running';
 import type { Preview } from '@storybook/react';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
 import seekJobs from 'braid-design-system/themes/seekJobs';
-import { useEffect } from 'react';
 import { BrowserRouter } from 'react-router';
 
 import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
