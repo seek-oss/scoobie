@@ -4,20 +4,11 @@ import 'loki/configure-react';
 import type { Preview } from '@storybook/react';
 import { BraidProvider, Card, PageBlock } from 'braid-design-system';
 import seekJobs from 'braid-design-system/themes/seekJobs';
-import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router';
 
 import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { codeThemes } from '../src/private/codeThemes';
-import { robotoHtml, robotoMonoHtml } from '../typography';
-
-seekJobs.webFonts.forEach((font) => {
-  document.head.innerHTML += font.linkTag;
-});
-
-document.head.innerHTML += robotoHtml;
-document.head.innerHTML += robotoMonoHtml;
 
 export default {
   globalTypes: {
@@ -41,30 +32,6 @@ export default {
     },
   },
   decorators: [
-    (Story) => {
-      const [fontsData, setFontsData] = useState('');
-
-      useEffect(() => {
-        let cancelled = false;
-        document.fonts.ready.then(() => {
-          if (cancelled) {
-            return;
-          }
-          setFontsData(document.fonts.check('16px SeekSans-Medium').toString());
-        });
-
-        return () => {
-          cancelled = true;
-        };
-      }, []);
-
-      return (
-        <div>
-          {fontsData}
-          {fontsData === '' ? null : <Story />}
-        </div>
-      );
-    },
     (Story, { globals }) => {
       const DARK_MODE_CLASS = 'sprinkles_darkMode__1t46ksg10';
 
