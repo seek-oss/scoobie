@@ -47,6 +47,9 @@ export default {
       useEffect(() => {
         let cancelled = false;
         document.fonts.ready.then(() => {
+          if (cancelled) {
+            return;
+          }
           setFontsData(document.fonts.check('16px SeekSans-Medium').toString());
         });
 
