@@ -41,6 +41,12 @@ importers:
       '@changesets/get-github-info':
         specifier: 0.6.0
         version: 0.6.0
+      '@loki/create-async-callback':
+        specifier: 0.35.1
+        version: 0.35.1
+      '@loki/is-loki-running':
+        specifier: 0.35.0
+        version: 0.35.0
       '@storybook/addon-webpack5-compiler-babel':
         specifier: 3.0.6
         version: 3.0.6(webpack@5.99.9(esbuild@0.25.5))
@@ -1298,6 +1304,9 @@ packages:
   '@loki/core@0.35.0':
     resolution: {integrity: sha512-AxFgo73juZ7XhmmFXMhtkpEwLBXraHEvqeQKtxmZ9V/PNWXR+yVmlMJ6HzM2WyL2ewmcaOqWX/EuuN/j24CwCA==}
 
+  '@loki/create-async-callback@0.35.1':
+    resolution: {integrity: sha512-5w4Uy/KWkXWMqZ0zswCiz1lZFb/qqWoyWzWE1Q44uurPIE1Zhz52sUi/He08iCEoDfy22H1+WvvxHoBAK9wiXw==}
+
   '@loki/diff-graphics-magick@0.35.0':
     resolution: {integrity: sha512-Rwt30i3jSPBS/6WPPhqQN1mWAys9viyKvRlhl+GQYcPoIrs70rNSYQaAB4/J54Vips/TGxJJAYZ6caq1Ey9s6w==}
 
@@ -1336,6 +1345,9 @@ packages:
     peerDependenciesMeta:
       '@storybook/vue':
         optional: true
+
+  '@loki/is-loki-running@0.35.0':
+    resolution: {integrity: sha512-QdeCn/+OwNRm1F9VTDGyhu1dEhHT2rgPH7+cGuTVLRceE/VBKx1qi6WWEP6sR8n2XYclFeqNvJgabg6AMYvkMw==}
 
   '@loki/runner@0.35.0':
     resolution: {integrity: sha512-tCVOA9P5IJSeXYcW68EeycYN68CHUpU2bWYVkAxxKXDhVHnBjI6W+lVMkJbky5WCF+ly2BuczjaJy7yIe8Ucvg==}
@@ -8197,6 +8209,13 @@ snapshots:
       mime-types: 2.1.35
       shelljs: 0.8.5
 
+  '@loki/create-async-callback@0.35.1':
+    dependencies:
+      '@loki/integration-react-native': 0.35.0
+    transitivePeerDependencies:
+      - '@storybook/addons'
+      - '@storybook/react-native'
+
   '@loki/diff-graphics-magick@0.35.0':
     dependencies:
       fs-extra: 9.1.0
@@ -8231,6 +8250,8 @@ snapshots:
   '@loki/integration-vue@0.35.0':
     dependencies:
       '@loki/browser': 0.35.0(patch_hash=e4ab87b9e6e1578bfbd4d6bb08efa57d736a395262f7110f6fad5c122ced1be2)
+
+  '@loki/is-loki-running@0.35.0': {}
 
   '@loki/runner@0.35.0(@types/react@18.3.23)':
     dependencies:

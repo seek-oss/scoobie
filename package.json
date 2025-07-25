@@ -17,6 +17,8 @@
   "devDependencies": {
     "@changesets/cli": "2.29.5",
     "@changesets/get-github-info": "0.6.0",
+    "@loki/create-async-callback": "0.35.1",
+    "@loki/is-loki-running": "0.35.0",
     "@storybook/addon-webpack5-compiler-babel": "3.0.6",
     "@storybook/react": "9.0.13",
     "@storybook/react-webpack5": "9.0.13",
@@ -55,7 +57,7 @@
     "lint": "sku lint",
     "loki:test": "loki test --port 12228 --host host.docker.internal --dockerNet host",
     "loki:test:ci": "cp -R dist-storybook/. dist-storybook-tmp/ && loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'",
-    "loki:update": "loki update --port 12228 --host host.docker.internal --dockerNet host",
+    "loki:update": "loki update --port 12228",
     "prepack": "jq 'del(.scripts.postinstall)' package.json > package.json.tmp && mv package.json.tmp package.json",
     "postinstall": "node ./prism.mjs",
     "release": "changeset publish",
