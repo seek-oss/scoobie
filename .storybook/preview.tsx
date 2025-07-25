@@ -10,6 +10,7 @@ import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { codeThemes } from '../src/private/codeThemes';
 import { robotoHtml, robotoMonoHtml } from '../typography';
+import { useEffect, useState } from 'react';
 
 seekJobs.webFonts.forEach((font) => {
   document.head.innerHTML += font.linkTag;
@@ -40,6 +41,15 @@ export default {
     },
   },
   decorators: [
+    (Story) => {
+      const [ready, setReady] = useState(false);
+
+      useEffect(() => {
+        document.fonts.ready.then(() => setReady(true));
+      }, []);
+
+      return ready ? <Story /> : <div />;
+    },
     (Story, { globals }) => {
       const DARK_MODE_CLASS = 'sprinkles_darkMode__1t46ksg10';
 
