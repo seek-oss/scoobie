@@ -21,25 +21,27 @@ seekJobs.webFonts.forEach((font) => {
 document.head.innerHTML += robotoHtml;
 document.head.innerHTML += robotoMonoHtml;
 
-/**
- * https://github.com/oblador/loki/discussions/411
- */
-const useLokiCaptureDelay = (delayInMs: number) => {
-  useEffect(() => {
-    if (isLokiRunning() && delayInMs) {
-      const onDone = createAsyncCallback();
-      // Here! This is where the delay is set and Loki wil not fire until onDone
-      // is called, after the delay time has passed by.
-      const timer = setTimeout(() => onDone(), delayInMs);
-      return () => clearTimeout(timer);
-    }
-  }, [delayInMs]);
-};
-
 const delayDecorators = isLokiRunning()
   ? ([
       (Story) => {
-        useLokiCaptureDelay(3000);
+        // https://github.com/oblador/loki/discussions/411
+        if (isLokiRunning()) {
+          const onDone = createAsyncCallback();
+          const start = Date.now();
+          const interval = setTimeout(() => {
+            if (document.fonts.check('1rem SeekSans-Medium')) {
+              onDone();
+              clearInterval(interval);
+              return;
+            }
+
+            // If it takes longer than 10 seconds, assume they never will
+            if (Date.now() - start > 10_000) {
+              clearInterval(interval);
+              throw new Error('Fonts did not load in time');
+            }
+          }, 10);
+        }
 
         return <Story />;
       },
