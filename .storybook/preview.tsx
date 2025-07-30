@@ -12,14 +12,6 @@ import { BrowserRouter } from 'react-router';
 import { CodeThemeProvider } from '../src/components/CodeThemeProvider';
 import { ScoobieLink } from '../src/components/ScoobieLink';
 import { codeThemes } from '../src/private/codeThemes';
-import { robotoHtml, robotoMonoHtml } from '../typography';
-
-seekJobs.webFonts.forEach((font) => {
-  document.head.innerHTML += font.linkTag;
-});
-
-document.head.innerHTML += robotoHtml;
-document.head.innerHTML += robotoMonoHtml;
 
 /**
  * https://github.com/oblador/loki/discussions/411

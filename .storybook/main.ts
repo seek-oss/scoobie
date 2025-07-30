@@ -1,7 +1,16 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
+import seekJobs from 'braid-design-system/themes/seekJobs';
 import { babel, webpackFinal } from 'sku/config/storybook';
 
+import { robotoHtml, robotoMonoHtml } from '../typography';
+
 export default {
+  previewHead: (head) => `
+    ${head}
+    ${robotoHtml}
+    ${robotoMonoHtml}
+    ${seekJobs.webFonts.map((font) => font.linkTag).join('\n')}
+  `,
   stories: ['../src/**/*.stories.tsx'],
   framework: {
     name: '@storybook/react-webpack5',
