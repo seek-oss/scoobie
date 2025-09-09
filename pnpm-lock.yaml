@@ -63,20 +63,20 @@ importers:
         specifier: 1.26.5
         version: 1.26.5
       '@types/react':
-        specifier: 18.3.23
-        version: 18.3.23
+        specifier: 18.3.24
+        version: 18.3.24
       '@types/react-dom':
         specifier: 18.3.7
-        version: 18.3.7(@types/react@18.3.23)
+        version: 18.3.7(@types/react@18.3.24)
       braid-design-system:
         specifier: 33.11.3
-        version: 33.11.3(@types/react@18.3.23)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 33.11.3(@types/react@18.3.24)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       eslint-plugin-storybook:
         specifier: 9.1.3
         version: 9.1.3(eslint@9.29.0(jiti@2.4.2))(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3)
       loki:
         specifier: 0.35.1
-        version: 0.35.1(@storybook/react@9.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))(@types/react@18.3.23)
+        version: 0.35.1(@storybook/react@9.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))(@types/react@18.3.24)
       prismjs:
         specifier: 1.30.0
         version: 1.30.0
@@ -91,7 +91,7 @@ importers:
         version: 7.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sku:
         specifier: 14.10.0
-        version: 14.10.0(@storybook/react-webpack5@9.1.3(esbuild@0.25.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))(@types/node@24.0.3)(@types/react@18.3.23)(@typescript-eslint/eslint-plugin@8.34.1(@typescript-eslint/parser@8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/utils@8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(esbuild-register@3.6.0(esbuild@0.25.5))(esbuild@0.25.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.43.0)(terser@5.43.0)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)(yaml@2.8.0)
+        version: 14.10.0(@storybook/react-webpack5@9.1.3(esbuild@0.25.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))(@types/node@24.0.3)(@types/react@18.3.24)(@typescript-eslint/eslint-plugin@8.34.1(@typescript-eslint/parser@8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/utils@8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(esbuild-register@3.6.0(esbuild@0.25.5))(esbuild@0.25.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.43.0)(terser@5.43.0)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)(yaml@2.8.0)
       storybook:
         specifier: 9.1.3
         version: 9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0))
@@ -1889,8 +1889,8 @@ packages:
     peerDependencies:
       '@types/react': ^18.0.0
 
-  '@types/react@18.3.23':
-    resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
+  '@types/react@18.3.24':
+    resolution: {integrity: sha512-0dLEBsA1kI3OezMBF8nSsb7Nk19ZnsyE1LLhB8r27KbgU5H4pvuqZLdtE+aUkJVoXgTVuA+iLIwmZ0TuK4tx6A==}
 
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
@@ -8288,7 +8288,7 @@ snapshots:
 
   '@loki/is-loki-running@0.35.0': {}
 
-  '@loki/runner@0.35.0(@types/react@18.3.23)':
+  '@loki/runner@0.35.0(@types/react@18.3.24)':
     dependencies:
       '@loki/core': 0.35.0
       '@loki/diff-graphics-magick': 0.35.0
@@ -8305,7 +8305,7 @@ snapshots:
       cosmiconfig: 7.1.0
       fs-extra: 9.1.0
       import-jsx: 4.0.1
-      ink: 3.2.0(@types/react@18.3.23)(react@17.0.2)
+      ink: 3.2.0(@types/react@18.3.24)(react@17.0.2)
       minimist: 1.2.8
       ramda: 0.27.2
       react: 17.0.2
@@ -8550,9 +8550,9 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@sku-lib/vite@0.1.2(@types/react@18.3.23)(react@18.3.1)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0))':
+  '@sku-lib/vite@0.1.2(@types/react@18.3.24)(react@18.3.1)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0))':
     dependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
       debug: 4.4.1
       react: 18.3.1
       vite: 7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)
@@ -8867,11 +8867,11 @@ snapshots:
 
   '@types/loadable__component@5.13.9':
     dependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
   '@types/loadable__server@5.12.11':
     dependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
   '@types/mime@1.3.5': {}
 
@@ -8895,11 +8895,11 @@ snapshots:
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@18.3.7(@types/react@18.3.23)':
+  '@types/react-dom@18.3.7(@types/react@18.3.24)':
     dependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
-  '@types/react@18.3.23':
+  '@types/react@18.3.24':
     dependencies:
       '@types/prop-types': 15.7.15
       csstype: 3.1.3
@@ -9773,7 +9773,7 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  braid-design-system@33.11.3(@types/react@18.3.23)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  braid-design-system@33.11.3(@types/react@18.3.24)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@capsizecss/core': 4.1.2
       '@capsizecss/metrics': 3.5.0
@@ -9793,8 +9793,8 @@ snapshots:
       polished: 4.3.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-focus-lock: 2.13.6(@types/react@18.3.23)(react@18.3.1)
-      react-remove-scroll: 2.7.1(@types/react@18.3.23)(react@18.3.1)
+      react-focus-lock: 2.13.6(@types/react@18.3.24)(react@18.3.1)
+      react-remove-scroll: 2.7.1(@types/react@18.3.24)(react@18.3.1)
       throttle-debounce: 5.0.2
       utility-types: 3.11.0
     transitivePeerDependencies:
@@ -11434,7 +11434,7 @@ snapshots:
 
   inherits@2.0.4: {}
 
-  ink@3.2.0(@types/react@18.3.23)(react@17.0.2):
+  ink@3.2.0(@types/react@18.3.24)(react@17.0.2):
     dependencies:
       ansi-escapes: 4.3.2
       auto-bind: 4.0.0
@@ -11461,7 +11461,7 @@ snapshots:
       ws: 7.5.10
       yoga-layout-prebuilt: 1.10.0
     optionalDependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -12246,12 +12246,12 @@ snapshots:
       strip-ansi: 7.1.0
       wrap-ansi: 9.0.0
 
-  loki@0.35.1(@storybook/react@9.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))(@types/react@18.3.23):
+  loki@0.35.1(@storybook/react@9.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))(@types/react@18.3.24):
     dependencies:
       '@loki/integration-react': 0.35.1(@storybook/react@9.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))
       '@loki/integration-react-native': 0.35.0
       '@loki/integration-vue': 0.35.0
-      '@loki/runner': 0.35.0(@types/react@18.3.23)
+      '@loki/runner': 0.35.0(@types/react@18.3.24)
       '@loki/target-chrome-app': 0.35.0
       '@loki/target-chrome-docker': 0.35.0
       '@loki/target-native-android-emulator': 0.35.0
@@ -13083,17 +13083,17 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-focus-lock@2.13.6(@types/react@18.3.23)(react@18.3.1):
+  react-focus-lock@2.13.6(@types/react@18.3.24)(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.27.6
       focus-lock: 1.3.6
       prop-types: 15.8.1
       react: 18.3.1
       react-clientside-effect: 1.2.8(react@18.3.1)
-      use-callback-ref: 1.3.3(@types/react@18.3.23)(react@18.3.1)
-      use-sidecar: 1.1.3(@types/react@18.3.23)(react@18.3.1)
+      use-callback-ref: 1.3.3(@types/react@18.3.24)(react@18.3.1)
+      use-sidecar: 1.1.3(@types/react@18.3.24)(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
   react-is@16.13.1: {}
 
@@ -13110,24 +13110,24 @@ snapshots:
 
   react-refresh@0.17.0: {}
 
-  react-remove-scroll-bar@2.3.8(@types/react@18.3.23)(react@18.3.1):
+  react-remove-scroll-bar@2.3.8(@types/react@18.3.24)(react@18.3.1):
     dependencies:
       react: 18.3.1
-      react-style-singleton: 2.2.3(@types/react@18.3.23)(react@18.3.1)
+      react-style-singleton: 2.2.3(@types/react@18.3.24)(react@18.3.1)
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
-  react-remove-scroll@2.7.1(@types/react@18.3.23)(react@18.3.1):
+  react-remove-scroll@2.7.1(@types/react@18.3.24)(react@18.3.1):
     dependencies:
       react: 18.3.1
-      react-remove-scroll-bar: 2.3.8(@types/react@18.3.23)(react@18.3.1)
-      react-style-singleton: 2.2.3(@types/react@18.3.23)(react@18.3.1)
+      react-remove-scroll-bar: 2.3.8(@types/react@18.3.24)(react@18.3.1)
+      react-style-singleton: 2.2.3(@types/react@18.3.24)(react@18.3.1)
       tslib: 2.8.1
-      use-callback-ref: 1.3.3(@types/react@18.3.23)(react@18.3.1)
-      use-sidecar: 1.1.3(@types/react@18.3.23)(react@18.3.1)
+      use-callback-ref: 1.3.3(@types/react@18.3.24)(react@18.3.1)
+      use-sidecar: 1.1.3(@types/react@18.3.24)(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
   react-router@7.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -13137,13 +13137,13 @@ snapshots:
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
-  react-style-singleton@2.2.3(@types/react@18.3.23)(react@18.3.1):
+  react-style-singleton@2.2.3(@types/react@18.3.24)(react@18.3.1):
     dependencies:
       get-nonce: 1.0.1
       react: 18.3.1
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
   react@17.0.2:
     dependencies:
@@ -13557,7 +13557,7 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  sku@14.10.0(@storybook/react-webpack5@9.1.3(esbuild@0.25.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))(@types/node@24.0.3)(@types/react@18.3.23)(@typescript-eslint/eslint-plugin@8.34.1(@typescript-eslint/parser@8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/utils@8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(esbuild-register@3.6.0(esbuild@0.25.5))(esbuild@0.25.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.43.0)(terser@5.43.0)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)(yaml@2.8.0):
+  sku@14.10.0(@storybook/react-webpack5@9.1.3(esbuild@0.25.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0)))(typescript@5.8.3))(@types/node@24.0.3)(@types/react@18.3.24)(@typescript-eslint/eslint-plugin@8.34.1(@typescript-eslint/parser@8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/utils@8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(esbuild-register@3.6.0(esbuild@0.25.5))(esbuild@0.25.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.43.0)(terser@5.43.0)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)(yaml@2.8.0):
     dependencies:
       '@babel/core': 7.27.4
       '@babel/generator': 7.27.5
@@ -13576,14 +13576,14 @@ snapshots:
       '@loadable/server': 5.16.7(@loadable/component@5.16.7(react@18.3.1))(react@18.3.1)
       '@loadable/webpack-plugin': 5.15.2(webpack@5.101.3(esbuild@0.25.5))
       '@pmmmwh/react-refresh-webpack-plugin': 0.6.0(react-refresh@0.17.0)(type-fest@0.21.3)(webpack-dev-server@5.2.0(debug@4.4.1)(webpack@5.101.3(esbuild@0.25.5)))(webpack-hot-middleware@2.26.1)(webpack@5.101.3(esbuild@0.25.5))
-      '@sku-lib/vite': 0.1.2(@types/react@18.3.23)(react@18.3.1)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0))
+      '@sku-lib/vite': 0.1.2(@types/react@18.3.24)(react@18.3.1)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0))
       '@swc/core': 1.12.1
       '@types/eslint': 9.6.1
       '@types/express': 4.17.23
       '@types/jest': 30.0.0
       '@types/loadable__component': 5.13.9
       '@types/loadable__server': 5.12.11
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
       '@vanilla-extract/integration': 8.0.4(babel-plugin-macros@3.1.0)
       '@vanilla-extract/jest-transform': 1.1.17(babel-plugin-macros@3.1.0)
       '@vanilla-extract/vite-plugin': 5.1.1(@types/node@24.0.3)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(terser@5.43.0)(vite@7.1.2(@types/node@24.0.3)(jiti@2.4.2)(terser@5.43.0)(yaml@2.8.0))(yaml@2.8.0)
@@ -14224,20 +14224,20 @@ snapshots:
       punycode: 1.3.2
       querystring: 0.2.0
 
-  use-callback-ref@1.3.3(@types/react@18.3.23)(react@18.3.1):
+  use-callback-ref@1.3.3(@types/react@18.3.24)(react@18.3.1):
     dependencies:
       react: 18.3.1
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
-  use-sidecar@1.1.3(@types/react@18.3.23)(react@18.3.1):
+  use-sidecar@1.1.3(@types/react@18.3.24)(react@18.3.1):
     dependencies:
       detect-node-es: 1.1.0
       react: 18.3.1
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 18.3.23
+      '@types/react': 18.3.24
 
   util-deprecate@1.0.2: {}
 
