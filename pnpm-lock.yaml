@@ -90,8 +90,8 @@ importers:
         specifier: 7.8.2
         version: 7.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sku:
-        specifier: 14.12.2
-        version: 14.12.2(@storybook/react-webpack5@9.1.3(esbuild@0.25.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.1)(prettier@3.6.2)(vite@7.1.7(@types/node@24.5.2)(jiti@2.6.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.8.3))(@types/node@24.5.2)(@types/react@18.3.24)(@typescript-eslint/eslint-plugin@8.44.1(@typescript-eslint/parser@8.44.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(@typescript-eslint/utils@8.44.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(esbuild-register@3.6.0(esbuild@0.25.10))(esbuild@0.25.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.52.2)(terser@5.44.0)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)(yaml@2.8.1)
+        specifier: 14.13.0
+        version: 14.13.0(@storybook/react-webpack5@9.1.3(esbuild@0.25.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.1)(prettier@3.6.2)(vite@7.1.7(@types/node@24.5.2)(jiti@2.6.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.8.3))(@types/node@24.5.2)(@types/react@18.3.24)(@typescript-eslint/eslint-plugin@8.44.1(@typescript-eslint/parser@8.44.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(@typescript-eslint/utils@8.44.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(esbuild-register@3.6.0(esbuild@0.25.10))(esbuild@0.25.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.52.2)(terser@5.44.0)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)(yaml@2.8.1)
       storybook:
         specifier: 9.1.3
         version: 9.1.3(@testing-library/dom@10.4.1)(prettier@3.6.2)(vite@7.1.7(@types/node@24.5.2)(jiti@2.6.0)(terser@5.44.0)(yaml@2.8.1))
@@ -5965,8 +5965,8 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  sku@14.12.2:
-    resolution: {integrity: sha512-bXyto88hvRtLibkqXjVmyX/ITmEeqp8vxnQUvCfB3JW6U/8MUkwfPkreeKyHJdM6nelXu9SxAtbXRPM31mQdYg==}
+  sku@14.13.0:
+    resolution: {integrity: sha512-BpHlvhEoqVnOsDtjsLDkxhzXbJaoX6ka/Qt6a3VwrdIz/tRno3kMADYcmDI5YkGIbVar0WOXk5+M3Obd+g3CRg==}
     engines: {node: '>=20.15'}
     hasBin: true
     peerDependencies:
@@ -13757,7 +13757,7 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  sku@14.12.2(@storybook/react-webpack5@9.1.3(esbuild@0.25.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.1)(prettier@3.6.2)(vite@7.1.7(@types/node@24.5.2)(jiti@2.6.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.8.3))(@types/node@24.5.2)(@types/react@18.3.24)(@typescript-eslint/eslint-plugin@8.44.1(@typescript-eslint/parser@8.44.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(@typescript-eslint/utils@8.44.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(esbuild-register@3.6.0(esbuild@0.25.10))(esbuild@0.25.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.52.2)(terser@5.44.0)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)(yaml@2.8.1):
+  sku@14.13.0(@storybook/react-webpack5@9.1.3(esbuild@0.25.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.3(@testing-library/dom@10.4.1)(prettier@3.6.2)(vite@7.1.7(@types/node@24.5.2)(jiti@2.6.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.8.3))(@types/node@24.5.2)(@types/react@18.3.24)(@typescript-eslint/eslint-plugin@8.44.1(@typescript-eslint/parser@8.44.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(@typescript-eslint/utils@8.44.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3))(esbuild-register@3.6.0(esbuild@0.25.10))(esbuild@0.25.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.52.2)(terser@5.44.0)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)(yaml@2.8.1):
     dependencies:
       '@babel/core': 7.28.4
       '@babel/generator': 7.28.3
@@ -13852,7 +13852,6 @@ snapshots:
       prompts: 2.4.2
       react: 18.3.1
       react-refresh: 0.17.0
-      resolve-from: 5.0.0
       rollup-plugin-visualizer: 6.0.3(rollup@4.52.2)
       selfsigned: 3.0.1
       semver: 7.7.2
