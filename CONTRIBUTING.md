@@ -164,13 +164,13 @@ The changesets are used to infer the next semantic version and to update the [ch
 
 This PR may be left open to collate multiple changes into the next version.
 A maintainer will merge it once ready,
-and our [release](https://github.com/seek-oss/scoobie/blob/master/.github/workflows/release.yml) GitHub Actions workflow will publish the associated GitHub release and npm package version.
+and our [release workflow] will publish the associated GitHub release and npm package version.
 
 ### Publishing a prerelease
 
 Prereleases can be created on demand via [seek-oss/changesets-snapshot].
 
-Run the [Snapshot workflow] in GitHub Actions to publish a new snapshot version to npm.
+Manually run the [release workflow] on any branch in GitHub Actions to publish a new snapshot version to npm.
 
 <https://www.npmjs.com/package/scoobie?activeTab=versions>
 
@@ -184,11 +184,11 @@ Run the [Snapshot workflow] in GitHub Actions to publish a new snapshot version 
 [loki]: https://loki.js.org/
 [npm package]: https://www.npmjs.com/package/scoobie
 [release notes]: https://github.com/seek-oss/scoobie/releases
+[release workflow]: https://github.com/seek-oss/scoobie/actions/workflows/release.yml
 [seek-oss/changesets-snapshot]: https://github.com/seek-oss/changesets-snapshot
 [semantic versioning]: https://semver.org/
 [sku.config.js]: https://github.com/seek-oss/scoobie#skuconfigjs
 [sku]: https://github.com/seek-oss/sku
-[snapshot workflow]: https://github.com/seek-oss/scoobie/actions/workflows/snapshot.yml
 [squash our commits]: https://github.blog/2016-04-01-squash-your-commits/
 [storybook site]: https://seek-oss.github.io/scoobie/
 [storybook]: https://storybook.js.org/
