@@ -25,17 +25,19 @@ jobs:
           lfs: true
           token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
-      - name: Set up Node.js 22.x
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22.x
-          package-manager-cache: false
+          node-version-file: .nvmrc
 
       - name: Set up pnpm
         run: corepack enable pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Install latest npm
         run: npm install -g npm@latest
@@ -69,17 +71,19 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
-      - name: Set up Node.js 22.x
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22.x
-          package-manager-cache: false
+          node-version-file: .nvmrc
 
       - name: Set up pnpm
         run: corepack enable pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Install latest npm
         run: npm install -g npm@latest
