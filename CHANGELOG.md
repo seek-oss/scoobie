@@ -1,5 +1,11 @@
 # scoobie
 
+## 21.1.0
+
+### Minor Changes
+
+- Add Braid TextLink props ([#889](https://github.com/seek-oss/scoobie/pull/889))
+
 ## 21.0.1
 
 ### Patch Changes
