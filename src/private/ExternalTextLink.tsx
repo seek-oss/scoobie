@@ -1,5 +1,6 @@
 import { IconNewWindow, TextLink } from 'braid-design-system';
-import React, { type ComponentProps, type ReactNode } from 'react';
+import type React from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -8,8 +9,15 @@ interface Props {
   title?: string;
 }
 
-export const ExternalTextLink = ({ children, href, icon, title }: Props) => (
+export const ExternalTextLink = ({
+  children,
+  href,
+  icon,
+  title,
+  ...props
+}: React.ComponentProps<typeof TextLink> & Props) => (
   <TextLink
+    {...props}
     href={href}
     icon={icon}
     rel="noreferrer"
