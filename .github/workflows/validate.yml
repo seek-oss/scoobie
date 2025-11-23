@@ -16,7 +16,7 @@ jobs:
       SKU_TELEMETRY: false
     steps:
       - name: Check out repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           lfs: true
 
