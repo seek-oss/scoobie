@@ -15,7 +15,7 @@ importers:
     dependencies:
       '@capsizecss/core':
         specifier: ^4.0.0
-        version: 4.1.2
+        version: 4.1.3
       '@vanilla-extract/css':
         specifier: ^1.2.3
         version: 1.17.4(babel-plugin-macros@3.1.0)
@@ -69,8 +69,8 @@ importers:
         specifier: 18.3.7
         version: 18.3.7(@types/react@18.3.26)
       braid-design-system:
-        specifier: 33.12.2
-        version: 33.12.2(@types/react@18.3.26)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 33.12.3
+        version: 33.12.3(@types/react@18.3.26)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       eslint-plugin-storybook:
         specifier: 9.1.12
         version: 9.1.12(eslint@9.39.1(jiti@2.6.1))(storybook@9.1.12(@testing-library/dom@10.4.1)(prettier@3.6.2)(vite@7.1.12(@types/node@24.10.0)(jiti@2.6.1)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.9.3)
@@ -768,14 +768,14 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@capsizecss/core@4.1.2':
-    resolution: {integrity: sha512-5tMjLsVsaEEwJ816y3eTfhhTIyUWNFt58x6YcHni0eV5tta8MGDOAIe+CV5ICb5pguXgDpNGLprqhPqBWtkFSg==}
+  '@capsizecss/core@4.1.3':
+    resolution: {integrity: sha512-d2sTTBwKuVioYxpwpU4URMp8VkFK+GI1VNGNawQcF8HBMHzCDa1FLcbeXJSzb5AJik7ZGv3aFVCTs7IS9MhvHg==}
 
   '@capsizecss/metrics@3.5.0':
     resolution: {integrity: sha512-Ju2I/Qn3c1OaU8FgeW4Tc22D4C9NwyVfKzNmzst59bvxBjPoLYNZMqFYn+HvCtn4MpXwiaDtCE8fNuQLpdi9yA==}
 
-  '@capsizecss/vanilla-extract@2.0.1':
-    resolution: {integrity: sha512-Lh7d932zojyvSpKh1IkAU3zkSOBec1OQjO7/KRK/tEh9dIF2wWG9H7SG3H4nwBNyeOLBxEulqHKR+bA1gpeKLg==}
+  '@capsizecss/vanilla-extract@2.0.4':
+    resolution: {integrity: sha512-KImqHutsYyeA718+3Fqg7Bw/RCSKgu+FESsMitWt9u4/KpBpB+s7cW4DWJyC6N5AzOoahYB7Jnu0hKB3HW+X6A==}
     peerDependencies:
       '@vanilla-extract/css': ^1.4.0
 
@@ -2647,8 +2647,8 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  braid-design-system@33.12.2:
-    resolution: {integrity: sha512-46foZUfHjxyDHOxAC24jreb/eUh/ijun30fEn4iygB893ogG0OT+FtH2yjszKYkvaygUBAlXF92oJQnXtYltYg==}
+  braid-design-system@33.12.3:
+    resolution: {integrity: sha512-P1VH6LbajGuvI3Unhl+jfFQOrKgjK7xjqpuGVQverqbC7HHT9nSuI1WY1G04G+sYsx+ls/OOU7yyt3KoXbgnXw==}
     peerDependencies:
       react: ^18 || ^19
       react-dom: ^18 || ^19
@@ -7676,15 +7676,15 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@capsizecss/core@4.1.2':
+  '@capsizecss/core@4.1.3':
     dependencies:
       csstype: 3.1.3
 
   '@capsizecss/metrics@3.5.0': {}
 
-  '@capsizecss/vanilla-extract@2.0.1(@vanilla-extract/css@1.17.4(babel-plugin-macros@3.1.0))':
+  '@capsizecss/vanilla-extract@2.0.4(@vanilla-extract/css@1.17.4(babel-plugin-macros@3.1.0))':
     dependencies:
-      '@capsizecss/core': 4.1.2
+      '@capsizecss/core': 4.1.3
       '@vanilla-extract/css': 1.17.4(babel-plugin-macros@3.1.0)
 
   '@changesets/apply-release-plan@7.0.13':
@@ -9957,11 +9957,11 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  braid-design-system@33.12.2(@types/react@18.3.26)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  braid-design-system@33.12.3(@types/react@18.3.26)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@capsizecss/core': 4.1.2
+      '@capsizecss/core': 4.1.3
       '@capsizecss/metrics': 3.5.0
-      '@capsizecss/vanilla-extract': 2.0.1(@vanilla-extract/css@1.17.4(babel-plugin-macros@3.1.0))
+      '@capsizecss/vanilla-extract': 2.0.4(@vanilla-extract/css@1.17.4(babel-plugin-macros@3.1.0))
       '@vanilla-extract/css': 1.17.4(babel-plugin-macros@3.1.0)
       '@vanilla-extract/css-utils': 0.1.6
       '@vanilla-extract/dynamic': 2.1.5
