@@ -15,8 +15,8 @@
     "prism-react-renderer": "^2.4.1"
   },
   "devDependencies": {
-    "@changesets/cli": "2.29.7",
-    "@changesets/get-github-info": "0.6.0",
+    "@changesets/cli": "2.29.8",
+    "@changesets/get-github-info": "0.7.0",
     "@loki/create-async-callback": "0.35.1",
     "@loki/is-loki-running": "0.35.0",
     "@storybook/addon-webpack5-compiler-babel": "4.0.0",
@@ -32,10 +32,10 @@
     "prismjs": "1.30.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router": "7.9.4",
+    "react-router": "7.10.1",
     "sku": "15.5.0",
     "storybook": "10.1.8",
-    "webpack": "5.102.1"
+    "webpack": "5.103.0"
   },
   "files": [
     "src",
