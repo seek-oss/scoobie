@@ -1,5 +1,5 @@
 import { IconCopy, IconTick, Text, TextLinkButton } from 'braid-design-system';
-import React, {
+import {
   type ComponentProps,
   type MouseEventHandler,
   type ReactNode,

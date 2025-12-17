@@ -1,4 +1,4 @@
-import React, { type ReactNode, createContext, useContext } from 'react';
+import { type ReactNode, createContext, useContext } from 'react';
 
 const LIST_TYPES = ['number', 'alpha', 'roman'] as const;
 
