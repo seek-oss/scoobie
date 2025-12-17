@@ -1,5 +1,4 @@
 import { makeLinkComponent } from 'braid-design-system';
-import React from 'react';
 
 import { isExternalHref } from '../private/url';
 

@@ -1,5 +1,5 @@
 import clsx, { type ClassValue } from 'clsx';
-import React, { type ComponentProps, forwardRef } from 'react';
+import { type ComponentProps, forwardRef } from 'react';
 import { NavLink, useLocation } from 'react-router';
 
 import { parseInternalHref } from '../private/url';
