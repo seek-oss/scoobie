@@ -1,12 +1,12 @@
-import { Box } from "braid-design-system";
-import { palette } from "../private/color";
-import React from "react";
-import * as styles from "./Placeholder.css";
+import { Box } from 'braid-design-system';
+import type React from 'react';
+
+import * as styles from './Placeholder.css';
 
 export const Placeholder = ({
   width,
   height,
-}: Pick<React.HTMLProps<HTMLDivElement>, "width" | "height">) => (
+}: Pick<React.HTMLProps<HTMLDivElement>, 'width' | 'height'>) => (
   <Box
     className={styles.placeholderContainer}
     position="relative"

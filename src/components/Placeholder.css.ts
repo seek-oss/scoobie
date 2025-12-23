@@ -1,5 +1,6 @@
-import { style } from "@vanilla-extract/css";
-import { palette } from "../private/color";
+import { style } from '@vanilla-extract/css';
+
+import { palette } from '../private/color';
 
 export const placeholderContainer = style([
   {
@@ -10,9 +11,9 @@ export const placeholderContainer = style([
 
 export const box = style([
   {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
   },
 ]);
 
