@@ -2,4 +2,4 @@
 'scoobie': minor
 ---
 
-add Placeholder component
+Placeholder: Add new component
