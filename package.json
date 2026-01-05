@@ -20,22 +20,22 @@
     "@loki/create-async-callback": "0.35.1",
     "@loki/is-loki-running": "0.35.0",
     "@storybook/addon-webpack5-compiler-babel": "4.0.0",
-    "@storybook/react": "10.1.8",
-    "@storybook/react-webpack5": "10.1.8",
+    "@storybook/react": "10.1.10",
+    "@storybook/react-webpack5": "10.1.10",
     "@types/jest": "30.0.0",
     "@types/prismjs": "1.26.5",
     "@types/react": "18.3.27",
     "@types/react-dom": "18.3.7",
     "braid-design-system": "34.0.1",
-    "eslint-plugin-storybook": "10.1.8",
+    "eslint-plugin-storybook": "10.1.10",
     "loki": "0.35.1",
     "prismjs": "1.30.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router": "7.10.1",
+    "react-router": "7.11.0",
     "sku": "15.6.0",
     "storybook": "10.1.10",
-    "webpack": "5.103.0"
+    "webpack": "5.104.1"
   },
   "files": [
     "src",
@@ -82,7 +82,7 @@
   "engines": {
     "node": ">=18.18"
   },
-  "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501",
+  "packageManager": "pnpm@10.26.2+sha512.0e308ff2005fc7410366f154f625f6631ab2b16b1d2e70238444dd6ae9d630a8482d92a451144debc492416896ed16f7b114a86ec68b8404b2443869e68ffda6",
   "pnpm": {
     "patchedDependencies": {
       "@loki/browser": "patches/@loki__browser.patch"
