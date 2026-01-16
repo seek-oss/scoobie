@@ -1,10 +1,35 @@
 {
   "name": "scoobie",
-  "description": "Component library for SEEK documentation sites",
-  "license": "MIT",
-  "main": "src/index.ts",
-  "sideEffects": false,
   "version": "21.1.0",
+  "description": "Component library for SEEK documentation sites",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/scoobie.git"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "src/index.ts",
+  "files": [
+    "src",
+    "webpack",
+    "types.d.ts",
+    "typography.ts"
+  ],
+  "scripts": {
+    "format": "sku format",
+    "postinstall": "node ./prism.mjs",
+    "lint": "sku lint",
+    "loki:test": "loki test --port 12228 --host host.docker.internal --dockerNet host",
+    "loki:test:ci": "cp -R dist-storybook/. dist-storybook-tmp/ && loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'",
+    "loki:update": "loki update --port 12228",
+    "prepack": "jq 'del(.scripts.postinstall)' package.json > package.json.tmp && mv package.json.tmp package.json",
+    "release": "changeset publish",
+    "stage": "changeset version && pnpm format",
+    "storybook:build": "storybook build --output-dir dist-storybook",
+    "storybook:start": "storybook dev --port 12228",
+    "test": "sku test",
+    "test:ci": "sku test --coverage"
+  },
   "dependencies": {
     "@capsizecss/core": "^4.0.0",
     "@vanilla-extract/css": "^1.2.3",
@@ -37,35 +62,19 @@
     "storybook": "10.1.11",
     "webpack": "5.104.1"
   },
-  "files": [
-    "src",
-    "webpack",
-    "types.d.ts",
-    "typography.ts"
-  ],
   "peerDependencies": {
     "braid-design-system": ">= 31.21.0",
     "react": ">= 17 < 19",
     "react-router": ">= 7.5.2 < 8"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seek-oss/scoobie.git"
+  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
+  "engines": {
+    "node": ">=18.18"
   },
-  "scripts": {
-    "format": "sku format",
-    "lint": "sku lint",
-    "loki:test": "loki test --port 12228 --host host.docker.internal --dockerNet host",
-    "loki:test:ci": "cp -R dist-storybook/. dist-storybook-tmp/ && loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'",
-    "loki:update": "loki update --port 12228",
-    "prepack": "jq 'del(.scripts.postinstall)' package.json > package.json.tmp && mv package.json.tmp package.json",
-    "postinstall": "node ./prism.mjs",
-    "release": "changeset publish",
-    "stage": "changeset version && pnpm format",
-    "storybook:build": "storybook build --output-dir dist-storybook",
-    "storybook:start": "storybook dev --port 12228",
-    "test": "sku test",
-    "test:ci": "sku test --coverage"
+  "pnpm": {
+    "patchedDependencies": {
+      "@loki/browser": "patches/@loki__browser.patch"
+    }
   },
   "loki": {
     "configurations": {
@@ -78,14 +87,5 @@
     },
     "chromeLoadTimeout": "60000",
     "chromeTolerance": "0"
-  },
-  "engines": {
-    "node": ">=18.18"
-  },
-  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
-  "pnpm": {
-    "patchedDependencies": {
-      "@loki/browser": "patches/@loki__browser.patch"
-    }
   }
 }
