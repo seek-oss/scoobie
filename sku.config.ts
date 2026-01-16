@@ -26,6 +26,12 @@ const config: SkuConfig = {
         'import-x/no-default-export': 'off',
       },
     },
+    {
+      files: ['package.json'],
+      rules: {
+        'import-x/no-default-export': 'off',
+      },
+    },
   ],
 
   dangerouslySetTSConfig: (tsConfig) => ({
