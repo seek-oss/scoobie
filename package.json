@@ -51,7 +51,7 @@
     "@types/prismjs": "1.26.5",
     "@types/react": "18.3.27",
     "@types/react-dom": "18.3.7",
-    "braid-design-system": "34.0.1",
+    "braid-design-system": "34.0.2",
     "eslint-plugin-storybook": "10.2.7",
     "loki": "0.35.1",
     "prismjs": "1.30.0",
