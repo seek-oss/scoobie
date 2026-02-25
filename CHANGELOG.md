@@ -1,5 +1,11 @@
 # scoobie
 
+## 21.2.0
+
+### Minor Changes
+
+- **Placeholder:** Add new component ([#910](https://github.com/seek-oss/scoobie/pull/910))
+
 ## 21.1.0
 
 ### Minor Changes
