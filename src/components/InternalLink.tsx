@@ -8,8 +8,10 @@ import { useScoobieLink } from './ScoobieLinkProvider';
 
 import * as styles from './InternalLink.css';
 
-interface Props
-  extends Omit<ComponentProps<typeof NavLink>, 'className' | 'to'> {
+interface Props extends Omit<
+  ComponentProps<typeof NavLink>,
+  'className' | 'to'
+> {
   className?: ClassValue | ((isActive: boolean) => ClassValue);
   href: string;
   reset?: boolean;
