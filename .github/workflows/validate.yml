@@ -40,9 +40,6 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Build
-        run: pnpm build
-
       - name: Build Storybook (dry run for release)
         run: pnpm storybook:build
 

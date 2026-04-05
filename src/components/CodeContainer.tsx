@@ -1,7 +1,7 @@
 import { Box, Stack } from 'braid-design-system';
 import { Highlight, type Token } from 'prism-react-renderer';
 
-import { Prism } from '../private/Prism';
+import { Prism } from '../private/Prism.cjs';
 import { codeThemes } from '../private/codeThemes';
 
 import { useCodeTheme } from './CodeThemeProvider';

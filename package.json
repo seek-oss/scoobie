@@ -20,23 +20,25 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "lib"
-  ],
   "main": "./lib/index.cjs",
   "module": "./lib/index.mjs",
   "types": "./lib/index.d.cts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
+    "build": "node ./prism.mjs && tsdown",
     "format": "sku format",
+    "postinstall": "node ./prism.mjs",
     "lint": "sku lint",
-    "loki:test": "loki test --port 12228 --host host.docker.internal --dockerNet host",
+    "loki:test": "loki test --port 12228 --host host.docker.internal",
     "loki:test:ci": "cp -R dist-storybook/. dist-storybook-tmp/ && loki --requireReference --reactUri file:./dist-storybook-tmp --chromeFlags='--headless --hide-scrollbars --no-sandbox'",
     "loki:update": "loki update --port 12228",
-    "build": "node ./prism.mjs && tsdown",
+    "prepack": "jq 'del(.scripts.postinstall)' package.json > package.json.tmp && mv package.json.tmp package.json",
     "release": "changeset publish",
     "stage": "changeset version && pnpm format",
     "storybook:build": "storybook build --output-dir dist-storybook",
-    "storybook:start": "storybook dev --port 12228",
+    "storybook:start": "storybook dev --port 12228 --host 0.0.0.0",
     "test": "sku test",
     "test:ci": "sku test --coverage"
   },
