@@ -13,3 +13,4 @@ tsconfig.json
 
 dist-storybook/
 src/Private/Prism.js
+lib/

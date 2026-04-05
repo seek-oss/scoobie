@@ -46,6 +46,7 @@ const config: SkuConfig = {
     '**/dist-storybook-tmp/',
     '**/typography.ts',
     '**/dist-storybook/',
+    'lib/',
   ],
 };
 
