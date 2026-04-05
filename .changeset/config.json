@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
-  "changelog": ["./changelog.js", { "repo": "seek-oss/scoobie" }],
+  "changelog": ["./changelog.cjs", { "repo": "seek-oss/scoobie" }],
   "commit": false,
   "fixed": [],
   "linked": [],
