@@ -9,7 +9,7 @@ export default defineConfig({
   dts: true,
   publint: true,
   attw: {
-    // node10 resolution does not support subpath exports; excluded as Node >=18.18 is required
+    // node10 resolution does not support subpath exports
     excludeEntrypoints: ['./typography'],
   },
 });
