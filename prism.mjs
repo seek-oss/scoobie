@@ -2,8 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const header = `const { Prism, themes } = require('prism-react-renderer'); /* eslint-disable */`;
-const footer = `module.exports = { Prism, themes };`;
+const header = `// @ts-nocheck
+import { Prism, themes } from 'prism-react-renderer';
+const prismInstance = Prism; /* eslint-disable */`;
+const footer = `export { prismInstance as Prism, themes };`;
 
 // Also see src/private/prismUtils.ts for language names
 const languages = [
@@ -27,13 +29,13 @@ const languageDefinitions = await Promise.all(
       ),
       'utf8',
     );
-    return `// Language: ${language}\n\n${definition}\n\n`;
+    return `// Language: ${language}\n\n(function(Prism) {\n${definition}\n})(prismInstance);\n\n`;
   }),
 );
 
 const content = [header, ...languageDefinitions, footer].join('\n');
 
 await fs.writeFile(
-  path.join(import.meta.dirname, 'src/private/Prism.js'),
+  path.join(import.meta.dirname, 'src/private/Prism.ts'),
   content,
 );

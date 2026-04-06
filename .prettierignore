@@ -12,4 +12,4 @@ tsconfig.json
 # end managed by sku
 
 dist-storybook/
-src/Private/Prism.js
+src/Private/Prism.ts
