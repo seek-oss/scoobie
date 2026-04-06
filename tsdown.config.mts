@@ -7,6 +7,7 @@ export default defineConfig({
   entry: ['src/index.ts', 'src/typography.ts'],
   format: ['esm', 'cjs'],
   outDir: 'lib',
+  platform: 'browser',
   dts: true,
   publint: true,
   attw: {
