@@ -1,4 +1,5 @@
 import { defineConfig } from 'tsdown/config';
+import { vanillaExtractPlugin } from '@vanilla-extract/rollup-plugin';
 
 // eslint-disable-next-line
 export default defineConfig({
@@ -12,4 +13,5 @@ export default defineConfig({
     // node10 resolution does not support subpath exports
     excludeEntrypoints: ['./typography'],
   },
+  plugins: [vanillaExtractPlugin()],
 });
