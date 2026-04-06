@@ -12,5 +12,5 @@ tsconfig.json
 # end managed by sku
 
 dist-storybook/
-src/Private/Prism.cjs
+src/Private/Prism.ts
 lib/
