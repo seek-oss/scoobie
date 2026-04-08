@@ -14,5 +14,10 @@ export default defineConfig({
     // node10 resolution does not support subpath exports
     excludeEntrypoints: ['./typography'],
   },
-  plugins: [vanillaExtractPlugin()],
+  unbundle: true,
+  plugins: [
+    vanillaExtractPlugin({
+      unstable_injectFilescopes: true,
+    }),
+  ],
 });
