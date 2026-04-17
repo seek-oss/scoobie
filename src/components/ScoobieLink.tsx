@@ -1,10 +1,10 @@
-import { makeLinkComponent } from 'braid-design-system';
+import { makeLinkComponent, type LinkComponent } from 'braid-design-system';
 
 import { isExternalHref } from '../private/url';
 
 import { InternalLink } from './InternalLink';
 
-export const ScoobieLink = makeLinkComponent(
+export const ScoobieLink: LinkComponent = makeLinkComponent(
   ({ children, href, download, ...restProps }, ref) => {
     if (isExternalHref(href)) {
       return (

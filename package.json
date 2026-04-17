@@ -4,18 +4,30 @@
   "description": "Component library for SEEK documentation sites",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seek-oss/scoobie.git"
+    "url": "git+https://github.com/seek-oss/scoobie.git"
   },
   "license": "MIT",
   "sideEffects": false,
-  "main": "src/index.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js"
+    },
+    "./typography": {
+      "require": "./lib/typography.cjs",
+      "import": "./lib/typography.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.cts",
   "files": [
-    "src",
-    "webpack",
-    "types.d.ts",
-    "typography.ts"
+    "lib"
   ],
   "scripts": {
+    "build": "node ./prism.mjs && tsdown",
     "format": "sku format",
     "postinstall": "node ./prism.mjs",
     "lint": "sku lint",
@@ -40,6 +52,7 @@
     "prism-react-renderer": "^2.4.1"
   },
   "devDependencies": {
+    "@arethetypeswrong/core": "0.18.1",
     "@changesets/cli": "2.30.0",
     "@changesets/get-github-info": "0.8.0",
     "@loki/create-async-callback": "0.35.1",
@@ -51,12 +64,15 @@
     "@types/prismjs": "1.26.6",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@vanilla-extract/rollup-plugin": "1.5.3",
     "braid-design-system": "34.0.4",
     "eslint-plugin-storybook": "10.3.4",
     "loki": "0.35.1",
     "prismjs": "1.30.0",
+    "publint": "0.3.17",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "tsdown": "0.21.7",
     "react-router": "7.14.0",
     "sku": "15.13.0",
     "storybook": "10.3.4",
