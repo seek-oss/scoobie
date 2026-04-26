@@ -69,8 +69,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.14)
       braid-design-system:
-        specifier: 34.0.4
-        version: 34.0.4(@types/react@19.2.14)(babel-plugin-macros@3.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: 34.1.0
+        version: 34.1.0(@types/react@19.2.14)(babel-plugin-macros@3.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       eslint-plugin-storybook:
         specifier: 10.3.4
         version: 10.3.4(eslint@9.39.4(jiti@2.6.1))(storybook@10.3.4(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)
@@ -2989,8 +2989,8 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  braid-design-system@34.0.4:
-    resolution: {integrity: sha512-scWHi0me/+n+5xh9M96J2FniRK8mWVCjHrgfUwsrbTS66Wj0NAQigrXUgdN02gSYV7uHbBHke1NZgBYUHlt1VA==}
+  braid-design-system@34.1.0:
+    resolution: {integrity: sha512-0KrfLPB+5VT67fVVqY96wxXfml2BKdAVoaOESqFdqr53tmW2QP9ZRWl+M6UbRyL4LJ9cByFWOIRofKfsFq+bqQ==}
     peerDependencies:
       react: ^18 || ^19
       react-dom: ^18 || ^19
@@ -10613,7 +10613,7 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  braid-design-system@34.0.4(@types/react@19.2.14)(babel-plugin-macros@3.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  braid-design-system@34.1.0(@types/react@19.2.14)(babel-plugin-macros@3.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       '@capsizecss/core': 4.1.3
       '@capsizecss/metrics': 3.7.0
