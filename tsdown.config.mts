@@ -11,8 +11,7 @@ export default defineConfig({
   dts: true,
   publint: true,
   attw: {
-    // node10 resolution does not support subpath exports
-    excludeEntrypoints: ['./typography'],
+    profile: 'node16',
   },
   unbundle: true,
   plugins: [
