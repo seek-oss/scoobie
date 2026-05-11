@@ -1,5 +1,11 @@
 # scoobie
 
+## 22.0.0
+
+### Major Changes
+
+- Build the package with tsdown, shipping compiled ESM and CJS output instead of raw TypeScript source. ([#959](https://github.com/seek-oss/scoobie/pull/959))
+
 ## 21.2.0
 
 ### Minor Changes

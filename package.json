@@ -1,6 +1,6 @@
 {
   "name": "scoobie",
-  "version": "21.2.0",
+  "version": "22.0.0",
   "description": "Component library for SEEK documentation sites",
   "repository": {
     "type": "git",
@@ -57,13 +57,13 @@
     "@changesets/get-github-info": "0.8.0",
     "@loki/create-async-callback": "0.35.1",
     "@loki/is-loki-running": "0.35.0",
+    "@skuba-lib/changesets-changelog": "1.0.1",
     "@storybook/addon-webpack5-compiler-babel": "4.0.1",
     "@storybook/react": "10.3.6",
     "@storybook/react-webpack5": "10.3.6",
     "@types/jest": "30.0.0",
     "@types/prismjs": "1.26.6",
     "@types/react": "19.2.14",
-    "@skuba-lib/changesets-changelog": "1.0.1",
     "@types/react-dom": "19.2.3",
     "@vanilla-extract/rollup-plugin": "1.5.3",
     "braid-design-system": "34.1.0",
@@ -71,12 +71,12 @@
     "loki": "0.35.1",
     "prismjs": "1.30.0",
     "publint": "0.3.17",
-    "tsdown": "0.21.10",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "react-router": "7.14.2",
     "sku": "15.14.1",
     "storybook": "10.3.6",
+    "tsdown": "0.21.10",
     "webpack": "5.106.2"
   },
   "peerDependencies": {
