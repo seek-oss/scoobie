@@ -50,6 +50,9 @@ importers:
       '@loki/is-loki-running':
         specifier: 0.35.0
         version: 0.35.0
+      '@skuba-lib/changesets-changelog':
+        specifier: 0.0.0
+        version: 0.0.0
       '@storybook/addon-webpack5-compiler-babel':
         specifier: 4.0.1
         version: 4.0.1(webpack@5.106.2(esbuild@0.28.0))
@@ -2382,6 +2385,9 @@ packages:
       '@types/react': ^18.0.0 || ^19.0.0
       react: ^18.0.0 || ^19.0.0
       vite: ^8.0.0
+
+  '@skuba-lib/changesets-changelog@0.0.0':
+    resolution: {integrity: sha512-ldfbCj/qvzoRJ5UkrGgaPF7Ky6cvUP5t7Z/sR1/PhqVSmSPe7F0VE7t/oU+/ylS9BE+LmLn7DFvXNrm/GD4f3Q==}
 
   '@storybook/addon-webpack5-compiler-babel@4.0.1':
     resolution: {integrity: sha512-1oTh6264hFGl40D5YCPhnpuirXeBSNo+7L8MZ4pKMLRLOsnK8CKC3Yp4L+tGySsJFsem8RXau8eZAQskf2Re/g==}
@@ -10152,6 +10158,8 @@ snapshots:
       vite: 8.0.10(@types/node@25.6.0)(esbuild@0.28.0)(jiti@2.6.1)(terser@5.46.2)(yaml@2.8.4)
     transitivePeerDependencies:
       - supports-color
+
+  '@skuba-lib/changesets-changelog@0.0.0': {}
 
   '@storybook/addon-webpack5-compiler-babel@4.0.1(webpack@5.106.2(esbuild@0.28.0))':
     dependencies:
