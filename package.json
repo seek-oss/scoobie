@@ -63,7 +63,7 @@
     "@types/jest": "30.0.0",
     "@types/prismjs": "1.26.6",
     "@types/react": "19.2.14",
-    "@skuba-lib/changesets-changelog": "0.0.0",
+    "@skuba-lib/changesets-changelog": "1.0.0",
     "@types/react-dom": "19.2.3",
     "@vanilla-extract/rollup-plugin": "1.5.3",
     "braid-design-system": "34.1.0",
