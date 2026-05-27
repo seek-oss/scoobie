@@ -78,8 +78,8 @@ importers:
         specifier: 1.5.3
         version: 1.5.3(babel-plugin-macros@3.1.0)(rollup@4.60.1)
       braid-design-system:
-        specifier: 34.1.0
-        version: 34.1.0(@types/react@19.2.14)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        specifier: 34.2.0
+        version: 34.2.0(@types/react@19.2.14)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       eslint-plugin-storybook:
         specifier: 10.3.6
         version: 10.3.6(eslint@9.39.4(jiti@2.6.1))(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@5.9.3)
@@ -811,8 +811,8 @@ packages:
   '@capsizecss/core@4.1.3':
     resolution: {integrity: sha512-d2sTTBwKuVioYxpwpU4URMp8VkFK+GI1VNGNawQcF8HBMHzCDa1FLcbeXJSzb5AJik7ZGv3aFVCTs7IS9MhvHg==}
 
-  '@capsizecss/metrics@3.7.0':
-    resolution: {integrity: sha512-NHdEMrl/zd2XgiSv2xHRF/FxGc2OTBKjhPzr9SgbHzqmoTVn8BbRK88Dtq0m65idX/RMD7ptyVdbGHFcvlErSw==}
+  '@capsizecss/metrics@4.0.0':
+    resolution: {integrity: sha512-GlazGWqxc+7ZJX0jGFTdolzKqP6X3dWXyjFmMzqTslsdqHCctkKV5eHxyMD9njrWqjQOYEeTFlE1lq8+1DClug==}
 
   '@capsizecss/vanilla-extract@2.0.4':
     resolution: {integrity: sha512-KImqHutsYyeA718+3Fqg7Bw/RCSKgu+FESsMitWt9u4/KpBpB+s7cW4DWJyC6N5AzOoahYB7Jnu0hKB3HW+X6A==}
@@ -3309,8 +3309,8 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  braid-design-system@34.1.0:
-    resolution: {integrity: sha512-0KrfLPB+5VT67fVVqY96wxXfml2BKdAVoaOESqFdqr53tmW2QP9ZRWl+M6UbRyL4LJ9cByFWOIRofKfsFq+bqQ==}
+  braid-design-system@34.2.0:
+    resolution: {integrity: sha512-0agoGX6Sl+T81Q1/aYXO2oUHAxQaxC3BFdsCiDD0b/lOKhLniWhfSaloh4q9xq6oUErgO9rpiVHIctTm5A/rjg==}
     peerDependencies:
       react: ^18 || ^19
       react-dom: ^18 || ^19
@@ -8614,7 +8614,7 @@ snapshots:
     dependencies:
       csstype: 3.2.3
 
-  '@capsizecss/metrics@3.7.0': {}
+  '@capsizecss/metrics@4.0.0': {}
 
   '@capsizecss/vanilla-extract@2.0.4(@vanilla-extract/css@1.20.1(babel-plugin-macros@3.1.0))':
     dependencies:
@@ -11263,10 +11263,10 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  braid-design-system@34.1.0(@types/react@19.2.14)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+  braid-design-system@34.2.0(@types/react@19.2.14)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
     dependencies:
       '@capsizecss/core': 4.1.3
-      '@capsizecss/metrics': 3.7.0
+      '@capsizecss/metrics': 4.0.0
       '@capsizecss/vanilla-extract': 2.0.4(@vanilla-extract/css@1.20.1(babel-plugin-macros@3.1.0))
       '@floating-ui/react-dom': 2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@vanilla-extract/css': 1.20.1(babel-plugin-macros@3.1.0)
