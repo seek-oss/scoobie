@@ -14,6 +14,9 @@ export default defineConfig({
     profile: 'node16',
   },
   unbundle: true,
+  checks: {
+    legacyCjs: false,
+  },
   plugins: [
     vanillaExtractPlugin({
       unstable_injectFilescopes: true,
