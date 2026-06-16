@@ -1,5 +1,11 @@
 # scoobie
 
+## 23.0.0
+
+### Major Changes
+
+- Drop support for node 18 and 20 ([#970](https://github.com/seek-oss/scoobie/pull/970))
+
 ## 22.0.0
 
 ### Major Changes
