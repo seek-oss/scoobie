@@ -73,7 +73,7 @@
     "publint": "0.3.21",
     "react": "19.2.6",
     "react-dom": "19.2.6",
-    "react-router": "7.15.1",
+    "react-router": "8.0.1",
     "sku": "15.15.3",
     "storybook": "10.4.1",
     "tsdown": "0.22.0",
