@@ -40,9 +40,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install latest npm
-        run: npm install -g npm@latest
-
       - name: Build
         run: pnpm build
 
@@ -89,9 +86,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Install latest npm
-        run: npm install -g npm@latest
 
       - name: Build
         run: pnpm build
