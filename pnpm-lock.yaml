@@ -78,8 +78,8 @@ importers:
         specifier: 1.5.3
         version: 1.5.3(babel-plugin-macros@3.1.0)(rollup@4.60.1)
       braid-design-system:
-        specifier: 34.4.0
-        version: 34.4.0(@types/react@19.2.17)(babel-plugin-macros@3.1.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        specifier: 34.8.2
+        version: 34.8.2(@types/react@19.2.17)(babel-plugin-macros@3.1.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       eslint-plugin-storybook:
         specifier: 10.4.6
         version: 10.4.6(eslint@9.39.4(jiti@2.6.1))(storybook@10.4.6(@testing-library/dom@10.4.1)(@types/react@19.2.17)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(typescript@5.9.3)
@@ -810,9 +810,6 @@ packages:
 
   '@capsizecss/core@4.1.3':
     resolution: {integrity: sha512-d2sTTBwKuVioYxpwpU4URMp8VkFK+GI1VNGNawQcF8HBMHzCDa1FLcbeXJSzb5AJik7ZGv3aFVCTs7IS9MhvHg==}
-
-  '@capsizecss/metrics@4.0.0':
-    resolution: {integrity: sha512-GlazGWqxc+7ZJX0jGFTdolzKqP6X3dWXyjFmMzqTslsdqHCctkKV5eHxyMD9njrWqjQOYEeTFlE1lq8+1DClug==}
 
   '@capsizecss/vanilla-extract@2.0.4':
     resolution: {integrity: sha512-KImqHutsYyeA718+3Fqg7Bw/RCSKgu+FESsMitWt9u4/KpBpB+s7cW4DWJyC6N5AzOoahYB7Jnu0hKB3HW+X6A==}
@@ -3405,8 +3402,8 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  braid-design-system@34.4.0:
-    resolution: {integrity: sha512-2Av1ImkTUts2FobiJ1XI1LDp+59jUsdEddRPpf3JZWfNq4IMREsxUfQOpj+4k2JVzB0YxKEF2C5TZ+ZfKGeHcA==}
+  braid-design-system@34.8.2:
+    resolution: {integrity: sha512-S9gRCs5AYTClxFM9SDEz1n8qOkSEZfhtIlIWVOgz1rc2zBZNqHzlbmGRJoYMAnEpmTrdXt/M2bj7JnMfCyXirg==}
     peerDependencies:
       react: ^18 || ^19
       react-dom: ^18 || ^19
@@ -4284,6 +4281,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -8723,8 +8721,6 @@ snapshots:
     dependencies:
       csstype: 3.2.3
 
-  '@capsizecss/metrics@4.0.0': {}
-
   '@capsizecss/vanilla-extract@2.0.4(@vanilla-extract/css@1.20.1(babel-plugin-macros@3.1.0))':
     dependencies:
       '@capsizecss/core': 4.1.3
@@ -11457,10 +11453,9 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  braid-design-system@34.4.0(@types/react@19.2.17)(babel-plugin-macros@3.1.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+  braid-design-system@34.8.2(@types/react@19.2.17)(babel-plugin-macros@3.1.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
       '@capsizecss/core': 4.1.3
-      '@capsizecss/metrics': 4.0.0
       '@capsizecss/vanilla-extract': 2.0.4(@vanilla-extract/css@1.20.1(babel-plugin-macros@3.1.0))
       '@floating-ui/react-dom': 2.1.8(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@vanilla-extract/css': 1.20.1(babel-plugin-macros@3.1.0)
