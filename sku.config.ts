@@ -1,7 +1,6 @@
 import type { SkuConfig } from 'sku';
 
 const config: SkuConfig = {
-  rootResolution: false,
   srcPaths: ['./src'],
 
   dangerouslySetESLintConfig: (skuConfig) => [
