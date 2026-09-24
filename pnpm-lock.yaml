@@ -4,8 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-pnpmfileChecksum: sha256-h3cMynNub7K0Re8O5pXeZlbtcz9DAWRBzZL97AHd00E=
-
 patchedDependencies:
   '@loki/browser':
     hash: e4ab87b9e6e1578bfbd4d6bb08efa57d736a395262f7110f6fad5c122ced1be2
@@ -107,8 +105,8 @@ importers:
         specifier: 8.3.0
         version: 8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       sku:
-        specifier: 16.2.0
-        version: 16.2.0(@storybook/react-webpack5@10.4.6(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.2)(postcss@8.5.28)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7))(typescript@6.0.3))(@types/node@26.5.1)(@types/react@19.2.17)(@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(esbuild@0.28.2)(react-dom@19.2.7(react@19.2.7))(react-router@8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(rolldown@1.2.8)(rollup@4.63.3)(terser@5.51.2)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)
+        specifier: 16.3.0
+        version: 16.3.0(@storybook/react-webpack5@10.4.6(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.2)(postcss@8.5.28)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7))(typescript@6.0.3))(@types/node@26.5.1)(@types/react@19.2.17)(@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(esbuild@0.28.2)(react-dom@19.2.7(react@19.2.7))(react-router@8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(rolldown@1.2.8)(rollup@4.63.3)(terser@5.51.2)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)
       storybook:
         specifier: 10.4.6
         version: 10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7)
@@ -6793,8 +6791,8 @@ packages:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
     engines: {node: '>=18'}
 
-  sku@16.2.0:
-    resolution: {integrity: sha512-9rPNDSJNC5LBQkzxY/KZsoutGqxeqJb6DYBOjdtB2chgIuGjfC/aniviyeWAslwwnM7WGwk5NV1PCkm7DXlFxg==}
+  sku@16.3.0:
+    resolution: {integrity: sha512-7GZNlgAUZMeGV2NHtQp1m/6F+O+57ZM8BhCyAkLsvWVeIClKir3wcAVdNIi4FA5Ifw60cNvd4EsJhXebuoHnRw==}
     engines: {node: '>=24.16.0'}
     hasBin: true
     peerDependencies:
@@ -15298,7 +15296,7 @@ snapshots:
       mrmime: 2.0.1
       totalist: 3.0.1
 
-  sku@16.2.0(@storybook/react-webpack5@10.4.6(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.2)(postcss@8.5.28)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7))(typescript@6.0.3))(@types/node@26.5.1)(@types/react@19.2.17)(@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(esbuild@0.28.2)(react-dom@19.2.7(react@19.2.7))(react-router@8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(rolldown@1.2.8)(rollup@4.63.3)(terser@5.51.2)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1):
+  sku@16.3.0(@storybook/react-webpack5@10.4.6(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.2)(postcss@8.5.28)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7))(typescript@6.0.3))(@types/node@26.5.1)(@types/react@19.2.17)(@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(esbuild@0.28.2)(react-dom@19.2.7(react@19.2.7))(react-router@8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(rolldown@1.2.8)(rollup@4.63.3)(terser@5.51.2)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1):
     dependencies:
       '@babel/core': 7.29.7
       '@babel/generator': 7.29.8
@@ -16388,7 +16386,7 @@ snapshots:
 
   xml2js@0.6.2:
     dependencies:
-      sax: 1.2.1
+      sax: 1.6.1
       xmlbuilder: 11.0.1
 
   xmlbuilder@11.0.1: {}
