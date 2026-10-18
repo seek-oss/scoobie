@@ -4,8 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-pnpmfileChecksum: sha256-h3cMynNub7K0Re8O5pXeZlbtcz9DAWRBzZL97AHd00E=
-
 patchedDependencies:
   '@loki/browser':
     hash: e4ab87b9e6e1578bfbd4d6bb08efa57d736a395262f7110f6fad5c122ced1be2
@@ -107,8 +105,8 @@ importers:
         specifier: 8.3.0
         version: 8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       sku:
-        specifier: 16.4.0
-        version: 16.4.0(@storybook/react-webpack5@10.4.6(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.2)(postcss@8.5.28)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7))(typescript@6.0.3))(@types/node@26.5.1)(@types/react@19.2.17)(@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(esbuild@0.28.2)(react-dom@19.2.7(react@19.2.7))(react-router@8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(rolldown@1.2.8)(rollup@4.63.3)(terser@5.51.2)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)
+        specifier: 16.5.0
+        version: 16.5.0(@storybook/react-webpack5@10.4.6(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.2)(postcss@8.5.28)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7))(typescript@6.0.3))(@types/node@26.5.1)(@types/react@19.2.17)(@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(esbuild@0.28.2)(react-dom@19.2.7(react@19.2.7))(react-router@8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(rolldown@1.2.8)(rollup@4.63.3)(terser@5.51.2)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1)
       storybook:
         specifier: 10.4.6
         version: 10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7)
@@ -1451,10 +1449,6 @@ packages:
 
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
-
-  '@ljharb/through@2.3.14':
-    resolution: {integrity: sha512-ajBvlKpWucBB17FuQYUShqpqy8GRgYEpJW0vWJbUu1CV9lWyrDCapy0lScU8T8Z6qn49sSwJB3+M+evYIdGg+A==}
-    engines: {node: '>= 0.4'}
 
   '@loadable/babel-plugin@5.16.1':
     resolution: {integrity: sha512-y+oKjRTt5XXf907ReFxiZyQtkYiIa4NAPQYlxb2qh5rUO/UsOKPq2PhCSHvfwoZOUJaMsY0FnoAPZ6lhFZkayQ==}
@@ -4805,10 +4799,6 @@ packages:
   hookable@6.1.1:
     resolution: {integrity: sha512-U9LYDy1CwhMCnprUfeAZWZGByVbhd54hwepegYTK7Pi5NvqEj63ifz5z+xukznehT7i6NIZRu89Ay1AZmRsLEQ==}
 
-  hostile@1.4.0:
-    resolution: {integrity: sha512-q5eniv6NnjeQ2S1Wh3/knyl4UE2FAQ9xz7yT0f6y5FK2j3fFHBI2jyaUVwAiAU20G6LQMAkRGM1WbTMXoeUwMg==}
-    hasBin: true
-
   hpack.js@2.1.6:
     resolution: {integrity: sha512-zJxVehUdMGIKsRaNt7apO2Gqp0BdqW5yaiGHXXmbpvxgBYVZnAql+BJb4RO5ad2MgpbZKn5G6nMnegrH1FcNYQ==}
 
@@ -6793,8 +6783,8 @@ packages:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
     engines: {node: '>=18'}
 
-  sku@16.4.0:
-    resolution: {integrity: sha512-65FTHgtYdz+5BW/OiDjU8+ugWyQbMvcr4DbM/vAxHjsm34HL1vd9pTuYnPw/cM1KHDb7Q/kozDkAl+xE1/E/Fg==}
+  sku@16.5.0:
+    resolution: {integrity: sha512-nHKdHIVBAaUcjRagA3kHU8MqQKYFrn/divP/613srrgKEo63ep9/cWZFugo2rFbUwyIeVmWFvxHbmZwCdSbjOg==}
     engines: {node: '>=24.16.0'}
     hasBin: true
     peerDependencies:
@@ -6804,7 +6794,7 @@ packages:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
       react-router: ^8
-      vitest: ^4.1.0
+      vitest: ^4.1.0 || ^5.0.0
     peerDependenciesMeta:
       '@storybook/react-vite':
         optional: true
@@ -6868,9 +6858,6 @@ packages:
   spdy@4.0.2:
     resolution: {integrity: sha512-r46gZQZQV+Kl9oItvl1JZZqJKGr+oEkB08A6BzkiR7593/7IbtuncXHd2YoYeTsG4157ZssMu9KYvUHLcjcDoA==}
     engines: {node: '>=6.0.0'}
-
-  split@1.0.1:
-    resolution: {integrity: sha512-mTyOoPbrivtXnwnIxZRFYRrPNtEFKlpB2fvjSnCQUiAA6qAZzqwna5envK4uk6OIeP17CsdF3rSBGYVBsU0Tkg==}
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
@@ -7116,9 +7103,6 @@ packages:
   throttle-debounce@5.0.2:
     resolution: {integrity: sha512-B71/4oyj61iNH0KeCamLuE2rmKuTO5byTOSVwECM5FA7TiAiAW+UqTKZ9ERueC4qvgSttUhdmq1mXC3kJqGX7A==}
     engines: {node: '>=12.22'}
-
-  through@2.3.8:
-    resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
   thunky@1.1.0:
     resolution: {integrity: sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==}
@@ -9444,10 +9428,6 @@ snapshots:
       tslib: 2.8.1
 
   '@leichtgewicht/ip-codec@2.0.5': {}
-
-  '@ljharb/through@2.3.14':
-    dependencies:
-      call-bind: 1.0.9
 
   '@loadable/babel-plugin@5.16.1(@babel/core@7.29.7)':
     dependencies:
@@ -12990,14 +12970,6 @@ snapshots:
 
   hookable@6.1.1: {}
 
-  hostile@1.4.0:
-    dependencies:
-      '@ljharb/through': 2.3.14
-      chalk: 4.1.2
-      minimist: 1.2.8
-      once: 1.4.0
-      split: 1.0.1
-
   hpack.js@2.1.6:
     dependencies:
       inherits: 2.0.4
@@ -15298,7 +15270,7 @@ snapshots:
       mrmime: 2.0.1
       totalist: 3.0.1
 
-  sku@16.4.0(@storybook/react-webpack5@10.4.6(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.2)(postcss@8.5.28)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7))(typescript@6.0.3))(@types/node@26.5.1)(@types/react@19.2.17)(@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(esbuild@0.28.2)(react-dom@19.2.7(react@19.2.7))(react-router@8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(rolldown@1.2.8)(rollup@4.63.3)(terser@5.51.2)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1):
+  sku@16.5.0(@storybook/react-webpack5@10.4.6(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.2)(postcss@8.5.28)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@10.4.6(@testing-library/dom@10.4.2)(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.7))(typescript@6.0.3))(@types/node@26.5.1)(@types/react@19.2.17)(@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(esbuild@0.28.2)(react-dom@19.2.7(react@19.2.7))(react-router@8.3.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(rolldown@1.2.8)(rollup@4.63.3)(terser@5.51.2)(type-fest@0.21.3)(webpack-hot-middleware@2.26.1):
     dependencies:
       '@babel/core': 7.29.7
       '@babel/generator': 7.29.8
@@ -15359,7 +15331,6 @@ snapshots:
       fastest-validator: 1.19.1
       fdir: 6.5.0(picomatch@4.0.7)
       get-port: 7.2.0
-      hostile: 1.4.0
       html-render-webpack-plugin: 3.0.2(express@4.22.3)
       jest: 30.5.1(@types/node@26.5.1)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom: 30.5.1
@@ -15516,10 +15487,6 @@ snapshots:
       spdy-transport: 3.0.0
     transitivePeerDependencies:
       - supports-color
-
-  split@1.0.1:
-    dependencies:
-      through: 2.3.8
 
   sprintf-js@1.0.3: {}
 
@@ -15760,8 +15727,6 @@ snapshots:
       tslib: 2.8.1
 
   throttle-debounce@5.0.2: {}
-
-  through@2.3.8: {}
 
   thunky@1.1.0: {}
 
