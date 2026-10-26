@@ -4,6 +4,8 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+pnpmfileChecksum: sha256-h3cMynNub7K0Re8O5pXeZlbtcz9DAWRBzZL97AHd00E=
+
 patchedDependencies:
   '@loki/browser':
     hash: e4ab87b9e6e1578bfbd4d6bb08efa57d736a395262f7110f6fad5c122ced1be2
