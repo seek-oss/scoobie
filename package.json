@@ -89,14 +89,6 @@
   "engines": {
     "node": ">=22.18.0"
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "@loki/browser": "patches/@loki__browser.patch"
-    },
-    "configDependencies": {
-      "pnpm-plugin-sku": "0.2.1+sha512-547vvPO5Ia8aTEJ0hiXhjlrxMpQQqckWIco9gBsQgno0CU65YZXOK9wDwtiOh997VGUenGyV+6q8UM7EhHHstw=="
-    }
-  },
   "loki": {
     "configurations": {
       "chrome.laptop": {
