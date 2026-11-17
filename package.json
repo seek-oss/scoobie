@@ -85,17 +85,9 @@
     "react": ">= 17 < 20",
     "react-router": ">= 8.3.0 < 9"
   },
-  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+  "packageManager": "pnpm@12.21.0+sha512.66fd8278ee28935ce951792d34367ff3af5c432a2756445823029533835b8da529bbe0be5130afd56ed0713fb8789e47bad82d93bd5ae2fe54b15562d6276ef0",
   "engines": {
     "node": ">=22.18.0"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@loki/browser": "patches/@loki__browser.patch"
-    },
-    "configDependencies": {
-      "pnpm-plugin-sku": "0.2.1+sha512-547vvPO5Ia8aTEJ0hiXhjlrxMpQQqckWIco9gBsQgno0CU65YZXOK9wDwtiOh997VGUenGyV+6q8UM7EhHHstw=="
-    }
   },
   "loki": {
     "configurations": {
