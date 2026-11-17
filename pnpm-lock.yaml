@@ -4,8 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-pnpmfileChecksum: sha256-h3cMynNub7K0Re8O5pXeZlbtcz9DAWRBzZL97AHd00E=
-
 patchedDependencies:
   '@loki/browser':
     hash: e4ab87b9e6e1578bfbd4d6bb08efa57d736a395262f7110f6fad5c122ced1be2
@@ -80,8 +78,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.17)
       '@vanilla-extract/rollup-plugin':
-        specifier: 1.5.3
-        version: 1.5.3(babel-plugin-macros@3.1.0)(rollup@4.63.3)
+        specifier: 1.5.4
+        version: 1.5.4(babel-plugin-macros@3.1.0)(rollup@4.63.3)
       braid-design-system:
         specifier: 34.9.1
         version: 34.9.1(@types/react@19.2.17)(babel-plugin-macros@3.1.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -3049,8 +3047,8 @@ packages:
   '@vanilla-extract/private@1.0.9':
     resolution: {integrity: sha512-gT2jbfZuaaCLrAxwXbRgIhGhcXbRZCG3v4TTUnjw0EJ7ArdBRxkq4msNJkbuRkCgfIK5ATmprB5t9ljvLeFDEA==}
 
-  '@vanilla-extract/rollup-plugin@1.5.3':
-    resolution: {integrity: sha512-c6sHCjArGv2ejGLnz2Z2VaDKpFhbAQxZuD0Bw6PKobxOdDZ8OPIyP5mPEAJBHjCZuRHUi47rIVEapsg5c/Y11g==}
+  '@vanilla-extract/rollup-plugin@1.5.4':
+    resolution: {integrity: sha512-MFcpJ4ri+a76RPl2co8n1PPMcYwRo7nq95UPdNThBT9gG2QvOiXsDd+ussHIwcTrQd8LGjoRb5bjIKUnoWnw0g==}
     peerDependencies:
       rollup: ^2.0.0 || ^3.0.0 || ^4.0.0
 
@@ -10999,7 +10997,7 @@ snapshots:
 
   '@vanilla-extract/private@1.0.9': {}
 
-  '@vanilla-extract/rollup-plugin@1.5.3(babel-plugin-macros@3.1.0)(rollup@4.63.3)':
+  '@vanilla-extract/rollup-plugin@1.5.4(babel-plugin-macros@3.1.0)(rollup@4.63.3)':
     dependencies:
       '@vanilla-extract/integration': 8.0.10(babel-plugin-macros@3.1.0)
       magic-string: 0.30.21
