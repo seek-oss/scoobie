@@ -57,7 +57,7 @@
     "@changesets/get-github-info": "0.8.0",
     "@loki/create-async-callback": "0.35.1",
     "@loki/is-loki-running": "0.35.0",
-    "@skuba-lib/changesets-changelog": "1.0.1",
+    "@skuba-lib/changesets-changelog": "2.0.0",
     "@storybook/addon-webpack5-compiler-babel": "4.0.1",
     "@storybook/react": "10.6.3",
     "@storybook/react-webpack5": "10.6.3",
