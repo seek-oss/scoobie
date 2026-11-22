@@ -226,8 +226,8 @@ importers:
         specifier: 0.35.0
         version: 0.35.0
       '@skuba-lib/changesets-changelog':
-        specifier: 1.0.1
-        version: 1.0.1
+        specifier: 2.0.0
+        version: 2.0.0
       '@storybook/addon-webpack5-compiler-babel':
         specifier: 4.0.1
         version: 4.0.1(supports-color@8.1.1)(webpack@5.112.0(@swc/core@1.16.2)(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@6.1.0)(lightningcss@1.33.0)(postcss@8.5.28)(svgo@4.1.0))
@@ -998,6 +998,10 @@ packages:
   '@changesets/get-github-info@0.8.0':
     resolution: {integrity: sha512-cRnC+xdF0JIik7coko3iUP9qbnfi1iJQ3sAa6dE+Tx3+ET8bjFEm63PA4WEohgjYcmsOikPHWzPsMWWiZmntOQ==}
 
+  '@changesets/get-github-info@1.0.1':
+    resolution: {integrity: sha512-ifLQCky/ZtDgZ4xCiUMjnLZSJ8xk52iIzMJbBBPlZWjr2CiTNTaTDddIVWKicrUAdWuLWL7PUw2fNa1yPwLpIg==}
+    engines: {node: ^22.11 || ^24 || >=26}
+
   '@changesets/get-release-plan@4.0.16':
     resolution: {integrity: sha512-2K5Om6CrMPm45rtvckfzWo7e9jOVCKLCnXia5eUPaURH7/LWzri7pK1TycdzAuAtehLkW7VPbWLCSExTHmiI6g==}
 
@@ -1027,6 +1031,10 @@ packages:
 
   '@changesets/types@6.1.0':
     resolution: {integrity: sha512-rKQcJ+o1nKNgeoYRHKOS07tAMNd3YSN0uHaJOZYjBAgxfV7TUE7JE+z4BzZdQwb5hKaYbayKN5KrYV7ODb2rAA==}
+
+  '@changesets/types@7.0.0':
+    resolution: {integrity: sha512-c5GoiQyt3pxiXjrWSNoP8/GRf4kG+VnKzovx1OQM8dYYALlSwgedmkPmJ+ZqGxqwg9D3Bkj85Uo4KLd5BN3A0w==}
+    engines: {node: ^22.11 || ^24 || >=26}
 
   '@changesets/write@0.4.0':
     resolution: {integrity: sha512-CdTLvIOPiCNuH71pyDu3rA+Q0n65cmAbXnwWH84rKGiFumFzkmHNT8KHTMEchcxN+Kl8I54xGUhJ7l3E7X396Q==}
@@ -2559,9 +2567,9 @@ packages:
       react: ^18.0.0 || ^19.0.0
       vite: ^8.0.0
 
-  '@skuba-lib/changesets-changelog@1.0.1':
-    resolution: {integrity: sha512-UqESCamXhB2ExPWrc5Vu33NCPTso9PUG0atQ95+nhqKJ58vlPrGqKMF9LBXmY5/I5UR15lng2ckNOvrwNhR++A==}
-    engines: {node: '>=24'}
+  '@skuba-lib/changesets-changelog@2.0.0':
+    resolution: {integrity: sha512-ezbAaR7EcsVudjfHeUooxszXGbOaAOmYzbOOfH/3BZRnv0HcHjllUiosY8dH2cqcCQQGo2wJ/eXwfj9pOyTUiw==}
+    engines: {node: '>=22.14.0'}
     hasBin: true
 
   '@storybook/addon-webpack5-compiler-babel@4.0.1':
@@ -4053,6 +4061,9 @@ packages:
 
   dataloader@1.4.0:
     resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==}
+
+  dataloader@2.2.3:
+    resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
 
   debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -8836,6 +8847,10 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  '@changesets/get-github-info@1.0.1':
+    dependencies:
+      dataloader: 2.2.3
+
   '@changesets/get-release-plan@4.0.16':
     dependencies:
       '@changesets/assemble-release-plan': 6.0.10
@@ -8889,6 +8904,8 @@ snapshots:
   '@changesets/types@4.1.0': {}
 
   '@changesets/types@6.1.0': {}
+
+  '@changesets/types@7.0.0': {}
 
   '@changesets/write@0.4.0':
     dependencies:
@@ -10302,11 +10319,10 @@ snapshots:
       react: 19.3.1
       vite: 8.3.0(@types/node@26.5.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)
 
-  '@skuba-lib/changesets-changelog@1.0.1':
+  '@skuba-lib/changesets-changelog@2.0.0':
     dependencies:
-      '@changesets/get-github-info': 0.8.0
-    transitivePeerDependencies:
-      - encoding
+      '@changesets/get-github-info': 1.0.1
+      '@changesets/types': 7.0.0
 
   '@storybook/addon-webpack5-compiler-babel@4.0.1(supports-color@8.1.1)(webpack@5.112.0(@swc/core@1.16.2)(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@6.1.0)(lightningcss@1.33.0)(postcss@8.5.28)(svgo@4.1.0))':
     dependencies:
@@ -12036,6 +12052,8 @@ snapshots:
       is-data-view: 1.0.2
 
   dataloader@1.4.0: {}
+
+  dataloader@2.2.3: {}
 
   debug@2.6.9(supports-color@8.1.1):
     dependencies:
